@@ -1,36 +1,50 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+<div align="center">
+  <a href="https://nitrokit.tr">
+    <img alt="Nitrokit Logo" src="https://raw.githubusercontent.com/nitrokit/nitrokit-nextjs/refs/heads/main/public/images/logos/nitrokit.png" height="250">
+  </a>
 
-## Getting Started
+# Nitrokit
 
-First, run the development server:
+🚀 Modern Next.js boilerplate with TypeScript, authentication, and development automation
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+<a href="https://codecov.io/gh/nitrokit/nitrokit-nextjs"><img src="https://codecov.io/gh/nitrokit/nitrokit-nextjs/graph/badge.svg?token=LGtgTehbnm" alt="codecov"></a> <a href="https://www.codefactor.io/repository/github/nitrokit/nitrokit-nextjs"><img src="https://img.shields.io/codefactor/grade/github/nitrokit/nitrokit-nextjs?style=flat" alt="CodeFactor Grade"></a> <a href="https://opensource.org/licenses/Apache-2.0"><img src="https://img.shields.io/badge/License-Apache%202.0-blue.svg" alt="License: Apache-2.0"></a>
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+</div>
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## ✨ Features
 
-## Learn More
+- 🚀 **Next.js 15** with App Router
+- 📘 **TypeScript** for type safety
+- 🎨 **TailwindCSS** for styling
+- 🌍 **Internationalization** with next-intl
+- 🔐 **Multi-provider authentication** (Google, GitHub, GitLab, Facebook)
+- 🗃️ **Database** with Prisma
+- 📧 **Email** with Resend
+- 📊 **Analytics** (Google Analytics, Yandex Metrica)
+- 🛠️ **Development automation** scripts
+- 🧪 **Testing** with Vitest
+- 📖 **Storybook** for components
 
-To learn more about Next.js, take a look at the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🤝 Contributing
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. Fork the repository
+2. Create feature branch: `git checkout -b feature/name`
+3. Commit changes: `git commit -m 'Add feature'`
+4. Push branch: `git push origin feature/name`
+5. Open Pull Request
+
+## 📝 License
+
+Licensed under the Apache License 2.0 - see [LICENSE](LICENSE) file.
+
+---
+
+<div align="center">
+  <p>Made with ❤️ by <a href="https://mustafagenc.info">Mustafa Genç</a></p>
+  <p>⭐ Star this repository if you find it helpful!</p>
+</div>
