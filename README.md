@@ -1,6 +1,6 @@
 <div align="center">
   <a href="https://nitrokit.tr">
-    <img alt="Nitrokit Logo" src="https://raw.githubusercontent.com/nitrokit/nitrokit-nextjs/refs/heads/main/public/images/logos/nitrokit.png" height="250">
+    <img alt="Nitrokit Logo" src="https://raw.githubusercontent.com/nitrokit/nitrokit-nextjs/refs/heads/main/public/images/logos/nitrokit.png" height="100">
   </a>
 
 # Nitrokit
