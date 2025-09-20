@@ -1,0 +1,22 @@
+{
+    "recommendations": [
+        "steoates.autoimport",
+        "formulahendry.auto-rename-tag",
+        "dbaeumer.vscode-eslint",
+        "github.vscode-github-actions",
+        "lokalise.i18n-ally",
+        "vincaslt.highlight-matching-tag",
+        "wix.vscode-import-cost",
+        "yzhang.markdown-all-in-one",
+        "stringham.move-ts",
+        "imgildev.vscode-next-pack",
+        "christian-kohler.path-intellisense",
+        "esbenp.prettier-vscode",
+        "yoavbls.pretty-ts-errors",
+        "gruntfuggly.todo-tree",
+        "mike-co.import-sorter",
+        "frenco.vscode-vercel",
+        "redhat.vscode-yaml",
+        "vitest.explorer"
+    ]
+}

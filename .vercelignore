@@ -1,0 +1,8 @@
+!./.github
+!./.husky
+!./.vscode
+!./scripts
+!./tests
+!./CONTRIBUTING.md
+!./crowdin.yml
+!./README.md
