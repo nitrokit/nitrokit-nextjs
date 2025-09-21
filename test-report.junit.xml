@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites name="vitest tests" tests="64" failures="0" errors="0" time="0.263054657">
+    <testsuite name="src/lib/utils/__tests__/cn.test.ts" timestamp="2025-09-21T15:58:34.892Z" hostname="MacBookPro.Workgroup" tests="23" failures="0" errors="0" skipped="0" time="0.028941741">
+        <testcase classname="src/lib/utils/__tests__/cn.test.ts" name="cn utility function &gt; Basic functionality &gt; should merge single class string" time="0.007457095">
+        </testcase>
+        <testcase classname="src/lib/utils/__tests__/cn.test.ts" name="cn utility function &gt; Basic functionality &gt; should merge multiple class strings" time="0.001293713">
+        </testcase>
+        <testcase classname="src/lib/utils/__tests__/cn.test.ts" name="cn utility function &gt; Basic functionality &gt; should handle empty inputs" time="0.00060782">
+        </testcase>
+        <testcase classname="src/lib/utils/__tests__/cn.test.ts" name="cn utility function &gt; Basic functionality &gt; should handle undefined and null values" time="0.000339229">
+        </testcase>
+        <testcase classname="src/lib/utils/__tests__/cn.test.ts" name="cn utility function &gt; Conditional classes &gt; should handle boolean conditions" time="0.000360243">
+        </testcase>
+        <testcase classname="src/lib/utils/__tests__/cn.test.ts" name="cn utility function &gt; Conditional classes &gt; should handle object notation" time="0.000287901">
+        </testcase>
+        <testcase classname="src/lib/utils/__tests__/cn.test.ts" name="cn utility function &gt; Conditional classes &gt; should handle mixed input types" time="0.000270724">
+        </testcase>
+        <testcase classname="src/lib/utils/__tests__/cn.test.ts" name="cn utility function &gt; Tailwind CSS class merging &gt; should merge conflicting Tailwind classes correctly" time="0.000297023">
+        </testcase>
+        <testcase classname="src/lib/utils/__tests__/cn.test.ts" name="cn utility function &gt; Tailwind CSS class merging &gt; should handle responsive variants" time="0.000260902">
+        </testcase>
+        <testcase classname="src/lib/utils/__tests__/cn.test.ts" name="cn utility function &gt; Tailwind CSS class merging &gt; should handle state variants" time="0.000179481">
+        </testcase>
+        <testcase classname="src/lib/utils/__tests__/cn.test.ts" name="cn utility function &gt; Tailwind CSS class merging &gt; should merge complex conflicting classes" time="0.000126706">
+        </testcase>
+        <testcase classname="src/lib/utils/__tests__/cn.test.ts" name="cn utility function &gt; Edge cases &gt; should handle very long class strings" time="0.000323305">
+        </testcase>
+        <testcase classname="src/lib/utils/__tests__/cn.test.ts" name="cn utility function &gt; Edge cases &gt; should handle special characters in class names" time="0.000276571">
+        </testcase>
+        <testcase classname="src/lib/utils/__tests__/cn.test.ts" name="cn utility function &gt; Edge cases &gt; should handle custom class names mixed with Tailwind" time="0.000319632">
+        </testcase>
+        <testcase classname="src/lib/utils/__tests__/cn.test.ts" name="cn utility function &gt; Edge cases &gt; should deduplicate identical classes" time="0.000196165">
+        </testcase>
+        <testcase classname="src/lib/utils/__tests__/cn.test.ts" name="cn utility function &gt; Edge cases &gt; should handle whitespace normalization" time="0.000200772">
+        </testcase>
+        <testcase classname="src/lib/utils/__tests__/cn.test.ts" name="cn utility function &gt; Real-world usage scenarios &gt; should handle button variant combinations" time="0.000190545">
+        </testcase>
+        <testcase classname="src/lib/utils/__tests__/cn.test.ts" name="cn utility function &gt; Real-world usage scenarios &gt; should handle component size variations" time="0.000215096">
+        </testcase>
+        <testcase classname="src/lib/utils/__tests__/cn.test.ts" name="cn utility function &gt; Real-world usage scenarios &gt; should handle conditional disabled state" time="0.000174546">
+        </testcase>
+        <testcase classname="src/lib/utils/__tests__/cn.test.ts" name="cn utility function &gt; Real-world usage scenarios &gt; should handle form input states" time="0.000174149">
+        </testcase>
+        <testcase classname="src/lib/utils/__tests__/cn.test.ts" name="cn utility function &gt; Performance considerations &gt; should handle many class combinations efficiently" time="0.009516829">
+        </testcase>
+        <testcase classname="src/lib/utils/__tests__/cn.test.ts" name="cn utility function &gt; Performance considerations &gt; should return consistent results for same inputs" time="0.000424274">
+        </testcase>
+        <testcase classname="src/lib/utils/__tests__/cn.test.ts" name="cn utility function &gt; Type safety &gt; should accept various ClassValue types" time="0.002299097">
+        </testcase>
+    </testsuite>
+    <testsuite name="src/lib/utils/__tests__/error-handler.test.ts" timestamp="2025-09-21T15:58:34.898Z" hostname="MacBookPro.Workgroup" tests="41" failures="0" errors="0" skipped="0" time="0.234112916">
+        <testcase classname="src/lib/utils/__tests__/error-handler.test.ts" name="Error Handler Utils &gt; normalizeError &gt; should return Error instance unchanged" time="0.001759692">
+        </testcase>
+        <testcase classname="src/lib/utils/__tests__/error-handler.test.ts" name="Error Handler Utils &gt; normalizeError &gt; should convert string to Error instance" time="0.000913883">
+        </testcase>
+        <testcase classname="src/lib/utils/__tests__/error-handler.test.ts" name="Error Handler Utils &gt; normalizeError &gt; should convert object with message property to Error" time="0.000561605">
+        </testcase>
+        <testcase classname="src/lib/utils/__tests__/error-handler.test.ts" name="Error Handler Utils &gt; normalizeError &gt; should handle object with non-string message" time="0.000528967">
+        </testcase>
+        <testcase classname="src/lib/utils/__tests__/error-handler.test.ts" name="Error Handler Utils &gt; normalizeError &gt; should handle object with null message" time="0.000291781">
+        </testcase>
+        <testcase classname="src/lib/utils/__tests__/error-handler.test.ts" name="Error Handler Utils &gt; normalizeError &gt; should handle object with undefined message" time="0.00021449">
+        </testcase>
+        <testcase classname="src/lib/utils/__tests__/error-handler.test.ts" name="Error Handler Utils &gt; normalizeError &gt; should return default error for null" time="0.000312865">
+        </testcase>
+        <testcase classname="src/lib/utils/__tests__/error-handler.test.ts" name="Error Handler Utils &gt; normalizeError &gt; should return default error for undefined" time="0.000154884">
+        </testcase>
+        <testcase classname="src/lib/utils/__tests__/error-handler.test.ts" name="Error Handler Utils &gt; normalizeError &gt; should return default error for number" time="0.000244028">
+        </testcase>
+        <testcase classname="src/lib/utils/__tests__/error-handler.test.ts" name="Error Handler Utils &gt; normalizeError &gt; should return default error for boolean" time="0.000165797">
+        </testcase>
+        <testcase classname="src/lib/utils/__tests__/error-handler.test.ts" name="Error Handler Utils &gt; normalizeError &gt; should return default error for array" time="0.000142579">
+        </testcase>
+        <testcase classname="src/lib/utils/__tests__/error-handler.test.ts" name="Error Handler Utils &gt; normalizeError &gt; should return default error for function" time="0.000134258">
+        </testcase>
+        <testcase classname="src/lib/utils/__tests__/error-handler.test.ts" name="Error Handler Utils &gt; normalizeError &gt; should handle object without message property" time="0.000142567">
+        </testcase>
+        <testcase classname="src/lib/utils/__tests__/error-handler.test.ts" name="Error Handler Utils &gt; normalizeError &gt; should handle empty string" time="0.000378685">
+        </testcase>
+        <testcase classname="src/lib/utils/__tests__/error-handler.test.ts" name="Error Handler Utils &gt; normalizeError &gt; should handle empty object" time="0.000178286">
+        </testcase>
+        <testcase classname="src/lib/utils/__tests__/error-handler.test.ts" name="Error Handler Utils &gt; getErrorMessage &gt; should return message from Error instance" time="0.000142345">
+        </testcase>
+        <testcase classname="src/lib/utils/__tests__/error-handler.test.ts" name="Error Handler Utils &gt; getErrorMessage &gt; should return string error directly" time="0.000104811">
+        </testcase>
+        <testcase classname="src/lib/utils/__tests__/error-handler.test.ts" name="Error Handler Utils &gt; getErrorMessage &gt; should return message from object with message property" time="0.000157888">
+        </testcase>
+        <testcase classname="src/lib/utils/__tests__/error-handler.test.ts" name="Error Handler Utils &gt; getErrorMessage &gt; should return default message for unknown error types" time="0.000100091">
+        </testcase>
+        <testcase classname="src/lib/utils/__tests__/error-handler.test.ts" name="Error Handler Utils &gt; getErrorMessage &gt; should handle null input" time="0.000147958">
+        </testcase>
+        <testcase classname="src/lib/utils/__tests__/error-handler.test.ts" name="Error Handler Utils &gt; getErrorMessage &gt; should handle undefined input" time="0.000096987">
+        </testcase>
+        <testcase classname="src/lib/utils/__tests__/error-handler.test.ts" name="Error Handler Utils &gt; getErrorMessage &gt; should handle empty string" time="0.000092828">
+        </testcase>
+        <testcase classname="src/lib/utils/__tests__/error-handler.test.ts" name="Error Handler Utils &gt; getErrorMessage &gt; should handle complex object with message" time="0.0001559">
+        </testcase>
+        <testcase classname="src/lib/utils/__tests__/error-handler.test.ts" name="Error Handler Utils &gt; getErrorStack &gt; should return stack from Error instance" time="0.006041105">
+        </testcase>
+        <testcase classname="src/lib/utils/__tests__/error-handler.test.ts" name="Error Handler Utils &gt; getErrorStack &gt; should return undefined for string error (no stack)" time="0.001235646">
+        </testcase>
+        <testcase classname="src/lib/utils/__tests__/error-handler.test.ts" name="Error Handler Utils &gt; getErrorStack &gt; should return stack for object converted to Error" time="0.000443219">
+        </testcase>
+        <testcase classname="src/lib/utils/__tests__/error-handler.test.ts" name="Error Handler Utils &gt; getErrorStack &gt; should handle null input" time="0.000295695">
+        </testcase>
+        <testcase classname="src/lib/utils/__tests__/error-handler.test.ts" name="Error Handler Utils &gt; getErrorStack &gt; should handle undefined input" time="0.00031774">
+        </testcase>
+        <testcase classname="src/lib/utils/__tests__/error-handler.test.ts" name="Error Handler Utils &gt; getErrorStack &gt; should preserve original stack trace when possible" time="0.000256715">
+        </testcase>
+        <testcase classname="src/lib/utils/__tests__/error-handler.test.ts" name="Error Handler Utils &gt; Edge cases and integration &gt; should handle Error subclasses correctly" time="0.000520253">
+        </testcase>
+        <testcase classname="src/lib/utils/__tests__/error-handler.test.ts" name="Error Handler Utils &gt; Edge cases and integration &gt; should handle TypeError" time="0.000258996">
+        </testcase>
+        <testcase classname="src/lib/utils/__tests__/error-handler.test.ts" name="Error Handler Utils &gt; Edge cases and integration &gt; should handle RangeError" time="0.000518388">
+        </testcase>
+        <testcase classname="src/lib/utils/__tests__/error-handler.test.ts" name="Error Handler Utils &gt; Edge cases and integration &gt; should handle nested error objects" time="0.000403678">
+        </testcase>
+        <testcase classname="src/lib/utils/__tests__/error-handler.test.ts" name="Error Handler Utils &gt; Edge cases and integration &gt; should handle circular references safely" time="0.002111836">
+        </testcase>
+        <testcase classname="src/lib/utils/__tests__/error-handler.test.ts" name="Error Handler Utils &gt; Edge cases and integration &gt; should handle very long error messages" time="0.000320684">
+        </testcase>
+        <testcase classname="src/lib/utils/__tests__/error-handler.test.ts" name="Error Handler Utils &gt; Edge cases and integration &gt; should handle unicode characters in error messages" time="0.000372299">
+        </testcase>
+        <testcase classname="src/lib/utils/__tests__/error-handler.test.ts" name="Error Handler Utils &gt; Edge cases and integration &gt; should handle error-like objects from different contexts" time="0.000282592">
+        </testcase>
+        <testcase classname="src/lib/utils/__tests__/error-handler.test.ts" name="Error Handler Utils &gt; Performance considerations &gt; should handle many error normalizations efficiently" time="0.124628447">
+        </testcase>
+        <testcase classname="src/lib/utils/__tests__/error-handler.test.ts" name="Error Handler Utils &gt; Performance considerations &gt; should not leak memory with repeated calls" time="0.085578416">
+        </testcase>
+        <testcase classname="src/lib/utils/__tests__/error-handler.test.ts" name="Error Handler Utils &gt; Type guard behavior &gt; should work as type guard for Error instances" time="0.000251361">
+        </testcase>
+        <testcase classname="src/lib/utils/__tests__/error-handler.test.ts" name="Error Handler Utils &gt; Type guard behavior &gt; should ensure consistent return type" time="0.000576097">
+        </testcase>
+    </testsuite>
+</testsuites>

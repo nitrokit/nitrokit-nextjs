@@ -1,0 +1,150 @@
+#!/bin/sh
+# .husky/pre-commit
+
+echo '🚀 Checking if pre-commit validation is needed...'
+
+BRANCH=$(git rev-parse --abbrev-ref HEAD 2>/dev/null || git branch --show-current 2>/dev/null || echo "unknown")
+
+PROTECTED_BRANCHES=("main")
+DEVELOPMENT_BRANCHES=( "preview" "develop")
+
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+YELLOW='\033[1;33m'
+BLUE='\033[0;34m'
+NC='\033[0m'
+
+VALIDATION_LEVEL="none"
+
+echo "📍 Current branch: $BRANCH"
+
+for protected_branch in "${PROTECTED_BRANCHES[@]}"; do
+    if [[ "$BRANCH" == "$protected_branch" ]]; then
+        VALIDATION_LEVEL="full"
+        echo "🔒 Detected protected branch: $BRANCH"
+        break
+    fi
+done
+
+if [[ "$VALIDATION_LEVEL" == "none" ]]; then
+    for dev_branch in "${DEVELOPMENT_BRANCHES[@]}"; do
+        if [[ "$BRANCH" == "$dev_branch" ]]; then
+            VALIDATION_LEVEL="basic"
+            echo "🛠️  Detected development branch: $BRANCH"
+            break
+        fi
+    done
+fi
+
+if [[ "$VALIDATION_LEVEL" == "none" ]]; then
+    echo -e "${YELLOW}🟡 Skipping pre-commit checks for feature branch: $BRANCH${NC}"
+    echo -e "${BLUE}💡 Basic checks run on: ${DEVELOPMENT_BRANCHES[*]}${NC}"
+    echo -e "${GREEN}🔒 Full checks run on: ${PROTECTED_BRANCHES[*]}${NC}"
+    exit 0
+fi
+
+if [[ "$VALIDATION_LEVEL" == "full" ]]; then
+    echo -e "${GREEN}🔒 Running FULL validation for protected branch: $BRANCH${NC}"
+elif [[ "$VALIDATION_LEVEL" == "basic" ]]; then
+    echo -e "${BLUE}🛠️  Running BASIC validation for development branch: $BRANCH${NC}"
+fi
+
+run_command() {
+    local command="$1"
+    local error_message="$2"
+    
+    echo -e "${BLUE}🔄 Running: $command${NC}"
+    
+    if command -v pnpm >/dev/null 2>&1; then
+        if ! pnpm run "$command" 2>/dev/null; then
+            echo -e "${RED}❌ $error_message${NC}"
+            return 1
+        fi
+    elif command -v yarn >/dev/null 2>&1; then
+        if ! yarn --ignore-engines run "$command" 2>/dev/null; then
+            echo -e "${RED}❌ $error_message${NC}"
+            return 1
+        fi
+    elif command -v npm >/dev/null 2>&1; then
+        if ! npm run "$command" 2>/dev/null; then
+            echo -e "${RED}❌ $error_message${NC}"
+            return 1
+        fi
+    else
+        echo -e "${RED}❌ yarn, pnpm veya npm bulunamadı${NC}"
+        return 1
+    fi
+    
+    echo -e "${GREEN}✅ $command başarıyla tamamlandı${NC}"
+    return 0
+}
+
+script_exists() {
+    local script_name="$1"
+    
+    if command -v pnpm >/dev/null 2>&1; then
+        pnpm run --help 2>/dev/null | grep -q "^  $script_name" || \
+        grep -q "\"$script_name\":" package.json 2>/dev/null
+    elif command -v yarn >/dev/null 2>&1; then
+        yarn run --help 2>/dev/null | grep -q "^  $script_name" || \
+        grep -q "\"$script_name\":" package.json 2>/dev/null
+    elif command -v npm >/dev/null 2>&1; then
+        npm run 2>/dev/null | grep -q " $script_name$" || \
+        grep -q "\"$script_name\":" package.json 2>/dev/null
+    else
+        return 1
+    fi
+}
+
+echo -e "\n${YELLOW}🎨 Checking code formatting...${NC}"
+if script_exists "format:check"; then
+    if ! run_command "format:check" "Prettier Check Failed. Run 'yarn format:write', add changes and try commit again."; then
+        exit 1
+    fi
+else
+    echo -e "${YELLOW}⚠️  format:check script not found in package.json, skipping...${NC}"
+fi
+
+echo -e "\n${YELLOW}📝 Checking TypeScript...${NC}"
+if script_exists "type-check"; then
+    if ! run_command "type-check" "TypeScript Check Failed. Make the changes required above."; then
+        exit 1
+    fi
+elif script_exists "tsc"; then
+    if ! run_command "tsc" "TypeScript Check Failed. Make the changes required above."; then
+        exit 1
+    fi
+else
+    echo -e "${YELLOW}⚠️  TypeScript check script not found, skipping...${NC}"
+fi
+
+if [[ "$VALIDATION_LEVEL" == "full" ]]; then
+    echo -e "\n${YELLOW}🔍 Running ESLint (full validation)...${NC}"
+    if script_exists "lint"; then
+        if ! run_command "lint" "ESLint Check Failed. Make the required changes listed above, add changes and try to commit again."; then
+            exit 1
+        fi
+    else
+        echo -e "${YELLOW}⚠️  lint script not found, skipping...${NC}"
+    fi
+
+    echo -e "\n${YELLOW}🏗️  Building project (full validation)...${NC}"
+    if script_exists "build"; then
+        if ! run_command "build" "Next build failed: View the errors above to see why."; then
+            exit 1
+        fi
+    else
+        echo -e "${YELLOW}⚠️  build script not found, skipping...${NC}"
+    fi
+
+    echo -e "\n${YELLOW}🧪 Running tests (full validation)...${NC}"
+    if script_exists "test"; then
+        if ! run_command "test" "Tests failed. Fix the failing tests and try again."; then
+            exit 1
+        fi
+    else
+        echo -e "${YELLOW}⚠️  test script not found, skipping...${NC}"
+    fi
+fi
+
+echo -e "\n${GREEN}✅ All checks passed for branch: $BRANCH! Committing now.${NC}"
