@@ -189,7 +189,7 @@ export default function Button(props: any) {
 
 ### File Organization
 
-```
+```bash
 components/
 ├── ui/                 # Basic UI components
 │   ├── Button/
@@ -314,7 +314,7 @@ We follow [Conventional Commits](https://www.conventionalcommits.org/) specifica
 
 ### Commit Format
 
-```
+```bash
 <type>[optional scope]: <description>
 
 [optional body]
@@ -511,6 +511,6 @@ We especially welcome contributions in these areas:
 
 ---
 
-**Thank you for contributing to Nitrokit! 🙏**
+## 🙏 Thank you for contributing to Nitrokit
 
 Your contributions help make this project better for everyone.
