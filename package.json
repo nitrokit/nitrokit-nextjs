@@ -48,7 +48,7 @@
         "test:e2e:debug": "playwright test --debug",
         "test:e2e:report": "playwright show-report",
         "doppler:upload": "doppler secrets upload .env",
-        "env:sanitize": ".husky/post-commit"
+        "env:sanitize": "echo '🔒 Sanitizing .env file...' && if [ -f .env ]; then cat .env | while IFS='=' read -r key value; do if [ -z \"$key\" ]; then echo \"\"; continue; fi; if echo \"$key\" | grep -q '^#'; then echo \"$key\"; continue; fi; case \"$key\" in *API_KEY*|*SECRET*|*TOKEN*|*PASSWORD*) echo \"${key}=---$(echo ${key} | tr '[:upper:]' '[:lower:]')---\" ;; *URL*|*ENDPOINT*) echo \"${key}=https://example.com/api\" ;; *PORT*) echo \"${key}=3000\" ;; *DATABASE*|*DB*) echo \"${key}=postgresql://user:password@localhost:5432/database\" ;; *EMAIL*) echo \"${key}=noreply@example.com\" ;; *DOMAIN*|*HOST*) echo \"${key}=localhost\" ;; *DEBUG*|*LOG*|*VERBOSE*) echo \"${key}=false\" ;; *ENV*|*NODE_ENV*) echo \"${key}=development\" ;; *) echo \"${key}=---example-value---\" ;; esac; done > .env.example && echo '✅ .env.example created/updated'; else echo '⚠️ .env file not found'; fi"
     },
     "dependencies": {
         "@auth/prisma-adapter": "^2.10.0",

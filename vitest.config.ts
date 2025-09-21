@@ -31,6 +31,7 @@ export default defineConfig({
                 'messages/**',
                 '**/*.json',
                 'src/test/**',
+                'src/generated/**',
             ],
         },
         include: ['src/**/*.{test,spec}.{js,jsx,ts,tsx}'],

@@ -147,4 +147,61 @@ if [[ "$VALIDATION_LEVEL" == "full" ]]; then
     fi
 fi
 
+echo -e "\n${YELLOW}🔒 Sanitizing .env file before commit...${NC}"
+
+# .env dosyası var mı kontrol et
+if [ -f .env ]; then
+    echo -e "${BLUE}📝 Creating/updating .env.example with sanitized values...${NC}"
+    
+    # Farklı değişken türleri için özel örnek değerler
+    cat .env | while IFS='=' read -r key value; do
+        # Boş satırları atla
+        if [ -z "$key" ]; then
+            echo ""
+            continue
+        fi
+        
+        # Yorum satırlarını koru
+        if echo "$key" | grep -q '^#'; then
+            echo "$key"
+            continue
+        fi
+        
+        # Değişken adına göre özel örnek değerler
+        case "$key" in
+            *API_KEY*|*SECRET*|*TOKEN*|*PASSWORD*)
+                echo "${key}=---$(echo ${key} | tr '[:upper:]' '[:lower:]')---"
+                ;;
+            *URL*|*ENDPOINT*)
+                echo "${key}=https://example.com/api"
+                ;;
+            *PORT*)
+                echo "${key}=3000"
+                ;;
+            *DATABASE*|*DB*)
+                echo "${key}=postgresql://user:password@localhost:5432/database"
+                ;;
+            *EMAIL*)
+                echo "${key}=noreply@example.com"
+                ;;
+            *DOMAIN*|*HOST*)
+                echo "${key}=localhost"
+                ;;
+            *DEBUG*|*LOG*|*VERBOSE*)
+                echo "${key}=false"
+                ;;
+            *ENV*|*NODE_ENV*)
+                echo "${key}=development"
+                ;;
+            *)
+                echo "${key}=---example-value---"
+                ;;
+        esac
+    done > .env.example
+    
+    echo -e "${GREEN}✅ .env.example created/updated with sanitized values${NC}"
+else
+    echo -e "${YELLOW}⚠️  .env file not found, skipping sanitization${NC}"
+fi
+
 echo -e "\n${GREEN}✅ All checks passed for branch: $BRANCH! Committing now.${NC}"
