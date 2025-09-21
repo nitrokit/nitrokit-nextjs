@@ -11,7 +11,6 @@
 
 </div>
 
-
 ## ✨ Features
 
 - 🚀 **Next.js 15** with App Router
@@ -25,10 +24,6 @@
 - 🛠️ **Development automation** scripts
 - 🧪 **Testing** with Vitest
 - 📖 **Storybook** for components
-
-
-
-
 
 ## 🤝 Contributing
 
