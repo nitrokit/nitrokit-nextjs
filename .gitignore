@@ -55,3 +55,4 @@ storybook-static
 codecov
 playwright-report/
 test-results/
+/src/generated

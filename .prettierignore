@@ -18,5 +18,6 @@
 dist
 /public
 /build
+/src/generated
 *-lock.json
 tsconfig.json
