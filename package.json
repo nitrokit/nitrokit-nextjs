@@ -44,7 +44,8 @@
         "test:e2e:ui": "playwright test --ui",
         "test:e2e:debug": "playwright test --debug",
         "test:e2e:report": "playwright show-report",
-        "doppler:upload": "doppler secrets upload .env"
+        "doppler:upload": "doppler secrets upload .env",
+        "env:sanitize": ".husky/post-commit"
     },
     "dependencies": {
         "@t3-oss/env-nextjs": "^0.13.8",
