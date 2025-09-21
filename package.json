@@ -1,9 +1,9 @@
 {
-    "name": "nitrokit",
+    "name": "nitrokit-nextjs",
     "description": "Boilerplate and Starter for Next.js 15 with App Router and Page Router support, Tailwind CSS 4 and TypeScript.",
     "version": "1.0.1",
     "type": "module",
-    "repository": "github:mustafagenc/nitrokit",
+    "repository": "github:nitrokit/nitrokit-nextjs",
     "keywords": [
         "nextjs",
         "typescript",
@@ -23,7 +23,7 @@
     },
     "license": "Apache-2.0",
     "bugs": {
-        "url": "https://nitrokit.tr/issues"
+        "url": "https://github.com/nitrokit/nitrokit-nextjs/issues"
     },
     "homepage": "https://nitrokit.tr",
     "private": false,
