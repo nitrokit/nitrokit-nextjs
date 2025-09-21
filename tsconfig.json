@@ -29,6 +29,12 @@
       "@/styles/*": [
         "./src/styles/*"
       ],
+      "@/auth": [
+        "./src/lib/auth/index.ts"
+      ],
+      "@/prisma": [
+        "./src/lib/prisma/index.ts"
+      ],
       "@/*": ["./src/*"]
     }
   },
