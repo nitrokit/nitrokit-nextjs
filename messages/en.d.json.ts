@@ -2,8 +2,16 @@
 // See: https://next-intl.dev/docs/workflows/typescript#messages-arguments
 
 declare const messages: {
-    HomePage: {
-        title: 'Hello world!';
+    app: {
+        title: 'Nitrokit Next.js Starter';
+        description: 'A starter template for Next.js with i18n, Tailwind CSS, and more.';
+        name: 'Nitrokit Next.js';
+        shortName: 'Nitrokit';
+    };
+    common: {
+        welcome: 'Welcome to Nitrokit!';
+        loading: 'Loading...';
+        error: 'An error occurred. Please try again.';
     };
 };
 export default messages;
