@@ -7,7 +7,7 @@
 
 🚀 Modern Next.js boilerplate with TypeScript, authentication, and development automation
 
-<a href="https://codecov.io/gh/nitrokit/nitrokit-nextjs"><img src="https://codecov.io/gh/nitrokit/nitrokit-nextjs/graph/badge.svg?token=7V4UDZX9FC"/></a> <a href="https://www.codefactor.io/repository/github/nitrokit/nitrokit-nextjs"><img src="https://img.shields.io/codefactor/grade/github/nitrokit/nitrokit-nextjs?style=flat" alt="CodeFactor Grade"></a> <a href="https://opensource.org/licenses/Apache-2.0"><img src="https://img.shields.io/badge/License-Apache%202.0-blue.svg" alt="License: Apache-2.0"></a>
+<a href="https://codecov.io/gh/nitrokit/nitrokit-nextjs"><img src="https://codecov.io/gh/nitrokit/nitrokit-nextjs/graph/badge.svg?token=7V4UDZX9FC"/></a> <a href="https://www.codefactor.io/repository/github/nitrokit/nitrokit-nextjs"><img src="https://img.shields.io/codefactor/grade/github/nitrokit/nitrokit-nextjs?style=flat" alt="CodeFactor Grade"></a> <a title="Crowdin" target="_blank" href="https://crowdin.com/project/nitrokit"><img src="https://badges.crowdin.net/nitrokit/localized.svg"></a> <a href="https://opensource.org/licenses/Apache-2.0"><img src="https://img.shields.io/badge/License-Apache%202.0-blue.svg" alt="License: Apache-2.0"></a>
 
 </div>
 

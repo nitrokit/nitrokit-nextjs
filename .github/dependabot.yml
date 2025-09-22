@@ -6,8 +6,6 @@ updates:
       interval: weekly
     assignees:
       - mustafagenc
-    reviewers:
-      - mustafagenc
     commit-message:
       prefix: deps
       prefix-development: deps(dev)
