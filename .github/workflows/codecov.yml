@@ -16,11 +16,14 @@ jobs:
       - name: Set up Node
         uses: actions/setup-node@v4
 
-      - name: Install dependencies
-        run: pnpm install
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8
+          run_install: true
 
       - name: Run tests
-        run: npx vitest run --coverage
+        run: pnpm exec vitest --reporter=junit --outputFile=test-report.junit.xml
 
       - name: Upload results to Codecov
         uses: codecov/codecov-action@v5
