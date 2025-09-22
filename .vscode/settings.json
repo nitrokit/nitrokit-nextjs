@@ -46,8 +46,6 @@
     "css.customData": [".vscode/css_custom_data.json"],
     "i18n-ally.localesPaths": [
         "messages",
-        "src/lib/i18n",
-        "coverage/nitrokit-nextjs/src/lib/i18n",
-        "coverage/lcov-report/nitrokit-nextjs/src/lib/i18n"
+        "src/lib/i18n"
     ]
 }
