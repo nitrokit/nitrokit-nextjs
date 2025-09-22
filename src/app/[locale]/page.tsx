@@ -2,6 +2,8 @@
 
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
+import { useTranslations, useLocale } from 'next-intl';
+import Link from 'next/link';
 
 interface ProgressData {
     percentage: number;
@@ -15,7 +17,66 @@ interface ProgressData {
     source: 'github-projects' | 'fallback';
 }
 
+// Language Switcher Component
+function LanguageSwitcher() {
+    const locale = useLocale();
+    const [isOpen, setIsOpen] = useState(false);
+
+    const languages = [
+        { code: 'en', name: 'English', flag: '🇺🇸' },
+        { code: 'tr', name: 'Türkçe', flag: '🇹🇷' },
+    ];
+
+    const currentLanguage = languages.find((lang) => lang.code === locale);
+
+    return (
+        <div className="relative">
+            <button
+                onClick={() => setIsOpen(!isOpen)}
+                className="flex items-center gap-2 rounded-lg border border-white/20 bg-white/10 px-3 py-2 text-sm text-white backdrop-blur-sm transition-all hover:bg-white/20"
+            >
+                <span className="text-lg">{currentLanguage?.flag}</span>
+                <span>{currentLanguage?.name}</span>
+                <svg
+                    className={`h-4 w-4 transition-transform ${isOpen ? 'rotate-180' : ''}`}
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                >
+                    <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M19 9l-7 7-7-7"
+                    />
+                </svg>
+            </button>
+
+            {isOpen && (
+                <div className="absolute top-full right-0 z-10 mt-2 min-w-[140px] rounded-lg border border-white/20 bg-black/80 backdrop-blur-sm">
+                    {languages.map((language) => (
+                        <Link
+                            key={language.code}
+                            href={`/${language.code}`}
+                            className={`flex items-center gap-2 px-3 py-2 text-sm transition-colors hover:bg-white/10 ${
+                                locale === language.code
+                                    ? 'text-blue-300'
+                                    : 'text-gray-300 hover:text-white'
+                            }`}
+                            onClick={() => setIsOpen(false)}
+                        >
+                            <span className="text-lg">{language.flag}</span>
+                            <span>{language.name}</span>
+                        </Link>
+                    ))}
+                </div>
+            )}
+        </div>
+    );
+}
+
 export default function UnderDevelopmentPage() {
+    const t = useTranslations('underDevelopment');
     const [email, setEmail] = useState('');
     const [isLoading, setIsLoading] = useState(false);
     const [message, setMessage] = useState('');
@@ -88,6 +149,11 @@ export default function UnderDevelopmentPage() {
     };
     return (
         <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
+            {/* Language Switcher */}
+            <div className="absolute top-4 right-4 z-20">
+                <LanguageSwitcher />
+            </div>
+
             {/* Background Pattern */}
             <div className="absolute inset-0 opacity-40">
                 <div
@@ -115,28 +181,33 @@ export default function UnderDevelopmentPage() {
 
                     {/* Main Heading */}
                     <h1 className="mb-6 text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl">
-                        Under Development
+                        {t('title')}
                     </h1>
 
                     {/* Subtitle */}
                     <p className="mx-auto mb-8 max-w-2xl text-xl leading-relaxed text-gray-300 sm:text-2xl">
-                        We&#39;re crafting something amazing for you. Our team is working hard to
-                        bring you an exceptional experience.
+                        {t('subtitle')}
                     </p>
 
                     {/* Features Tags */}
                     <div className="mx-auto mb-10 flex max-w-lg flex-wrap justify-center gap-3">
                         <div className="flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-2 backdrop-blur-sm">
                             <div className="h-2 w-2 rounded-full bg-blue-400"></div>
-                            <span className="text-sm font-medium text-white">Lightning Fast</span>
+                            <span className="text-sm font-medium text-white">
+                                {t('features.lightningFast')}
+                            </span>
                         </div>
                         <div className="flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-2 backdrop-blur-sm">
                             <div className="h-2 w-2 rounded-full bg-purple-400"></div>
-                            <span className="text-sm font-medium text-white">User Focused</span>
+                            <span className="text-sm font-medium text-white">
+                                {t('features.userFocused')}
+                            </span>
                         </div>
                         <div className="flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-2 backdrop-blur-sm">
                             <div className="h-2 w-2 rounded-full bg-green-400"></div>
-                            <span className="text-sm font-medium text-white">Secure</span>
+                            <span className="text-sm font-medium text-white">
+                                {t('features.secure')}
+                            </span>
                         </div>
                     </div>
 
@@ -144,7 +215,7 @@ export default function UnderDevelopmentPage() {
                     <div className="mx-auto mb-8 max-w-md">
                         <div className="mb-2 flex justify-between text-sm text-gray-300">
                             <div className="flex items-center gap-2">
-                                <span>Development Progress</span>
+                                <span>{t('progress.title')}</span>
                                 {progress.source === 'github-projects' && (
                                     <span className="flex items-center gap-1 text-xs text-green-400">
                                         <svg
@@ -158,7 +229,7 @@ export default function UnderDevelopmentPage() {
                                                 clipRule="evenodd"
                                             />
                                         </svg>
-                                        Live Project
+                                        {t('progress.liveProject')}
                                     </span>
                                 )}
                             </div>
@@ -172,15 +243,18 @@ export default function UnderDevelopmentPage() {
                         </div>
                         <div className="mt-2 flex justify-between text-xs text-gray-400">
                             <span>
-                                Done: {progress.completedTasks} • Backlog: {progress.backlogTasks}
+                                {t('progress.done')}: {progress.completedTasks} •{' '}
+                                {t('progress.backlog')}: {progress.backlogTasks}
                             </span>
-                            <span>{progress.totalTasks} total tasks</span>
+                            <span>
+                                {progress.totalTasks} {t('progress.totalTasks')}
+                            </span>
                         </div>
                     </div>
 
                     {/* Email Newsletter Signup */}
                     <div className="text-gray-300">
-                        <p className="mb-6 text-lg">Want to get notified when we launch?</p>
+                        <p className="mb-6 text-lg">{t('newsletter.title')}</p>
 
                         <form onSubmit={handleSubmit} className="mx-auto max-w-md">
                             <div className="flex flex-col gap-4 sm:flex-row">
@@ -188,7 +262,7 @@ export default function UnderDevelopmentPage() {
                                     type="email"
                                     value={email}
                                     onChange={(e) => setEmail(e.target.value)}
-                                    placeholder="Enter your email address"
+                                    placeholder={t('newsletter.placeholder')}
                                     required
                                     disabled={isLoading}
                                     className="flex-1 rounded-lg border border-white/20 bg-white/10 px-4 py-3 text-white placeholder-gray-400 backdrop-blur-sm transition-all focus:border-blue-400 focus:ring-2 focus:ring-blue-400/50 focus:outline-none disabled:opacity-50"
@@ -201,10 +275,10 @@ export default function UnderDevelopmentPage() {
                                     {isLoading ? (
                                         <div className="flex items-center gap-2">
                                             <div className="h-4 w-4 animate-spin rounded-full border-2 border-white border-t-transparent"></div>
-                                            <span>Subscribing...</span>
+                                            <span>{t('newsletter.subscribing')}</span>
                                         </div>
                                     ) : (
-                                        'Notify Me'
+                                        t('newsletter.button')
                                     )}
                                 </button>
                             </div>
@@ -217,14 +291,12 @@ export default function UnderDevelopmentPage() {
                                             : 'border border-red-500/30 bg-red-500/20 text-red-300'
                                     }`}
                                 >
-                                    {message}
+                                    {isSuccess ? t('newsletter.success') : t('newsletter.error')}
                                 </div>
                             )}
                         </form>
 
-                        <p className="mt-4 text-sm text-gray-400">
-                            We&#39;ll only send you updates about our launch. No spam, ever.
-                        </p>
+                        <p className="mt-4 text-sm text-gray-400">{t('newsletter.disclaimer')}</p>
                     </div>
 
                     {/* Animated Dots */}
@@ -244,7 +316,7 @@ export default function UnderDevelopmentPage() {
                     <div className="mt-16 border-t border-white/10 pt-8">
                         <div className="flex flex-col items-center gap-4 sm:flex-row sm:justify-between">
                             <div className="flex items-center gap-2 text-sm text-gray-400">
-                                <span>© 2025 Nitrokit</span>
+                                <span>{t('footer.copyright')}</span>
                                 <span className="hidden sm:inline">•</span>
                                 <a
                                     href="https://nitrokit.tr"
@@ -260,21 +332,19 @@ export default function UnderDevelopmentPage() {
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="flex items-center gap-1 text-gray-400 transition-colors hover:text-white"
-                                    title="Visit our GitHub"
+                                    title={t('footer.visitGithub')}
                                 >
                                     <svg
                                         className="h-4 w-4"
                                         fill="currentColor"
                                         viewBox="0 0 24 24"
                                     >
-                                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.30.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
                                     </svg>
                                     <span>GitHub</span>
                                 </a>
                             </div>
-                            <div className="text-xs text-gray-500">
-                                Built with Next.js & TypeScript
-                            </div>
+                            <div className="text-xs text-gray-500">{t('footer.builtWith')}</div>
                         </div>
                     </div>
                 </div>

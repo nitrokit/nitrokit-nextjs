@@ -9,5 +9,35 @@
         "welcome": "Welcome to Nitrokit!",
         "loading": "Loading...",
         "error": "An error occurred. Please try again."
+    },
+    "underDevelopment": {
+        "title": "Under Development",
+        "subtitle": "We're crafting something amazing for you. Our team is working hard to bring you an exceptional experience.",
+        "features": {
+            "lightningFast": "Lightning Fast",
+            "userFocused": "User Focused",
+            "secure": "Secure"
+        },
+        "progress": {
+            "title": "Development Progress",
+            "liveProject": "Live Project",
+            "done": "Done",
+            "backlog": "Backlog",
+            "totalTasks": "total tasks"
+        },
+        "newsletter": {
+            "title": "Want to get notified when we launch?",
+            "placeholder": "Enter your email address",
+            "button": "Notify Me",
+            "subscribing": "Subscribing...",
+            "disclaimer": "We'll only send you updates about our launch. No spam, ever.",
+            "success": "Thank you for subscribing! We'll notify you when we launch.",
+            "error": "Something went wrong. Please try again."
+        },
+        "footer": {
+            "copyright": "© 2025 Nitrokit",
+            "builtWith": "Built with Next.js & TypeScript",
+            "visitGithub": "Visit our GitHub"
+        }
     }
 }

@@ -9,5 +9,35 @@
         "welcome": "Nitrokit'e Hoş Geldiniz!",
         "loading": "Yükleniyor...",
         "error": "Bir hata oluştu. Lütfen tekrar deneyin."
+    },
+    "underDevelopment": {
+        "title": "Geliştirme Aşamasında",
+        "subtitle": "Sizin için muhteşem bir şeyler hazırlıyoruz. Ekibimiz size olağanüstü bir deneyim sunmak için çok çalışıyor.",
+        "features": {
+            "lightningFast": "Yıldırım Hızında",
+            "userFocused": "Kullanıcı Odaklı",
+            "secure": "Güvenli"
+        },
+        "progress": {
+            "title": "Geliştirme İlerlemesi",
+            "liveProject": "Canlı Proje",
+            "done": "Tamamlanan",
+            "backlog": "Bekleyen",
+            "totalTasks": "toplam görev"
+        },
+        "newsletter": {
+            "title": "Yayınlandığında haberdar olmak ister misiniz?",
+            "placeholder": "E-posta adresinizi girin",
+            "button": "Haber Ver",
+            "subscribing": "Kaydediliyor...",
+            "disclaimer": "Size yalnızca lansman güncellemeleri göndereceğiz. Asla spam yok.",
+            "success": "Abone olduğunuz için teşekkürler! Yayınlandığında size haber vereceğiz.",
+            "error": "Bir şeyler ters gitti. Lütfen tekrar deneyin."
+        },
+        "footer": {
+            "copyright": "© 2025 Nitrokit",
+            "builtWith": "Next.js ve TypeScript ile yapıldı",
+            "visitGithub": "GitHub'ımızı ziyaret edin"
+        }
     }
 }
