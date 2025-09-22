@@ -1,10 +1,10 @@
 packages:
   - .
-
 onlyBuiltDependencies:
   - '@prisma/client'
   - '@prisma/engines'
   - '@tailwindcss/oxide'
+  - '@vercel/speed-insights'
   - esbuild
   - prisma
   - sharp
