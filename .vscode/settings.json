@@ -44,8 +44,5 @@
     "scss.lint.unknownAtRules": "ignore",
     "less.lint.unknownAtRules": "ignore",
     "css.customData": [".vscode/css_custom_data.json"],
-    "i18n-ally.localesPaths": [
-        "messages",
-        "src/lib/i18n"
-    ]
+    "i18n-ally.localesPaths": ["messages", "src/lib/i18n"]
 }
