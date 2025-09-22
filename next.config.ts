@@ -4,7 +4,7 @@ import createNextIntlPlugin from 'next-intl/plugin';
 const withNextIntl = createNextIntlPlugin({
     requestConfig: './src/lib/i18n/request.ts',
     experimental: {
-        createMessagesDeclaration: './messages/en.json',
+        createMessagesDeclaration: './messages/declarations.json',
     },
 });
 
