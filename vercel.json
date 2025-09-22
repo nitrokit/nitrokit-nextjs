@@ -1,5 +1,5 @@
 {
-    "buildCommand": "next build",
+    "buildCommand": "prisma-import --schemas \"prisma/models/*.prisma\" --output \"prisma/schema.prisma\" --force && prisma generate --no-engine && next build --turbopack",
     "outputDirectory": ".next",
     "framework": "nextjs"
 }

@@ -1,7 +1,6 @@
 import { getBaseUrl } from '@/lib';
 
 const DEFAULT_LANGUAGE = 'en';
-const DEFAULT_CURRENCY = 'USD';
 
 /**
  * List of locales supported by the application.
@@ -11,7 +10,7 @@ const DEFAULT_CURRENCY = 'USD';
  * The application will use the browser's language settings to determine the default locale.
  * @returns {string[]} An array of supported locales.
  */
-const locales = ['en', 'tr'];
+const LOCALES = ['en', 'tr'];
 
 /**
  * List of locales with their respective flags.
@@ -22,7 +21,7 @@ const locales = ['en', 'tr'];
  * https://github.com/lipis/flag-icons
  * @returns {Array<{ id: string, name: string, flag: string }>}
  */
-const localesWithFlag = [
+const LOCALES_WITH_FLAG = [
     { id: 'en', name: 'English', flag: '/images/flags/us.svg' },
     { id: 'tr', name: 'Türkçe', flag: '/images/flags/tr.svg' },
 ];
@@ -34,13 +33,13 @@ const localesWithFlag = [
  * The metadata is used in the middleware to redirect to the correct locale.
  * @returns {Array<{ [key: string]: string }>} An array of objects with the locale and its URL.
  */
-function localesForMetadata(): { [key: string]: string }[] {
+function LOCALES_FOR_METADATA(): { [key: string]: string }[] {
     const baseUrl = getBaseUrl();
-    return locales.map((locale) => {
+    return LOCALES.map((LOCALE) => {
         return {
-            [locale]: `${baseUrl}/${locale}`,
+            [LOCALE]: `${baseUrl}/${LOCALE}`,
         };
     });
 }
 
-export { locales, localesWithFlag, localesForMetadata, DEFAULT_LANGUAGE, DEFAULT_CURRENCY };
+export { LOCALES, LOCALES_WITH_FLAG, LOCALES_FOR_METADATA, DEFAULT_LANGUAGE };

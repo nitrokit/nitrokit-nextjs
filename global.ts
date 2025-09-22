@@ -1,4 +1,4 @@
-import { routing } from '@/i18n/routing';
+import { routing } from '@/lib/i18n/routing';
 import messages from './messages/en.json';
 
 declare module 'next-intl' {
