@@ -1,10 +1,6 @@
-// NextAuth configuration will be added later
-// For now, this is a placeholder to prevent build errors
+import NextAuth from 'next-auth';
+import { auth } from '@/lib/auth';
 
-export async function GET() {
-    return new Response('Auth endpoint not configured', { status: 501 });
-}
+const handler = NextAuth(auth);
 
-export async function POST() {
-    return new Response('Auth endpoint not configured', { status: 501 });
-}
+export { handler as GET, handler as POST };
