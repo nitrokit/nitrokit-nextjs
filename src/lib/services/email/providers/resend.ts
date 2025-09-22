@@ -45,12 +45,19 @@ export class ResendProvider implements EmailProvider {
     }
 
     private htmlToText(html: string): string {
-        return html
+        // Remove standard HTML formatting first
+        let str = html
             .replace(/<br\s*\/?>/gi, '\n')
             .replace(/<\/p>/gi, '\n\n')
             .replace(/<\/div>/gi, '\n')
-            .replace(/<\/h[1-6]>/gi, '\n\n')
-            .replace(/<[^>]*>/g, '')
+            .replace(/<\/h[1-6]>/gi, '\n\n');
+        // Safely remove all HTML tags (including problematic multi-character sequences)
+        let prev;
+        do {
+            prev = str;
+            str = str.replace(/<[^>]*>/g, '');
+        } while (str !== prev);
+        return str
             .replace(/&nbsp;/g, ' ')
             .replace(/&amp;/g, '&')
             .replace(/&lt;/g, '<')
