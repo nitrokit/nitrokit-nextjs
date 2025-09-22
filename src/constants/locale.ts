@@ -1,5 +1,3 @@
-import { getBaseUrl } from '@/lib';
-
 const DEFAULT_LANGUAGE = 'en';
 
 /**
@@ -31,15 +29,18 @@ const LOCALES_WITH_FLAG = [
  * This is used to generate the metadata for the application.
  * The metadata is used to determine the language of the application.
  * The metadata is used in the middleware to redirect to the correct locale.
- * @returns {Array<{ [key: string]: string }>} An array of objects with the locale and its URL.
+ * @returns {Array<{ code: string, url: string }>} An array of objects with the locale code and its URL.
  */
-function LOCALES_FOR_METADATA(): { [key: string]: string }[] {
-    const baseUrl = getBaseUrl();
-    return LOCALES.map((LOCALE) => {
-        return {
-            [LOCALE]: `${baseUrl}/${LOCALE}`,
-        };
-    });
+function LOCALES_FOR_METADATA(): { code: string; url: string }[] {
+    const baseUrl =
+        typeof window !== 'undefined'
+            ? window.location.origin
+            : process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000';
+
+    return LOCALES.map((locale) => ({
+        code: locale,
+        url: `${baseUrl}/${locale}`,
+    }));
 }
 
 export { LOCALES, LOCALES_WITH_FLAG, LOCALES_FOR_METADATA, DEFAULT_LANGUAGE };
