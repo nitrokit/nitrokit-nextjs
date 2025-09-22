@@ -7,5 +7,14 @@ export function ThemeProvider({
     children,
     ...props
 }: React.ComponentProps<typeof NextThemesProvider>) {
-    return <NextThemesProvider {...props}>{children}</NextThemesProvider>;
+    const defaultProps = {
+        attribute: 'class' as const,
+        defaultTheme: 'system' as const,
+        enableSystem: true,
+        storageKey: 'nitrokit-theme',
+    };
+
+    const mergedProps = { ...defaultProps, ...props };
+
+    return <NextThemesProvider {...mergedProps}>{children}</NextThemesProvider>;
 }

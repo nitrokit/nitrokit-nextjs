@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import createMiddleware from 'next-intl/middleware';
 import { routing } from './lib/i18n/routing';
+import { handleRateLimit } from './middlewares/rate-limit';
 
 const publicPages = [
     '/',
@@ -10,8 +11,19 @@ const publicPages = [
 
 const intlMiddleware = createMiddleware(routing);
 
-export default function middleware(req: NextRequest) {
-    if (req.nextUrl.pathname.startsWith('/api')) {
+export default function middleware(request: NextRequest) {
+    if (process.env.SKIP_MIDDLEWARE === 'true') {
+        return NextResponse.next();
+    }
+
+    if (request.nextUrl.pathname.startsWith('/api/')) {
+        const isAuthRoute = request.nextUrl.pathname.startsWith('/api/auth/');
+        const isInternalRoute = request.nextUrl.pathname.startsWith('/api/internal/');
+
+        if (!isAuthRoute && !isInternalRoute) {
+            return handleRateLimit(request);
+        }
+
         return NextResponse.next();
     }
 
@@ -21,14 +33,14 @@ export default function middleware(req: NextRequest) {
             .join('|')})/?$`,
         'i'
     );
-    const isPublicPage = publicPathnameRegex.test(req.nextUrl.pathname);
+    const isPublicPage = publicPathnameRegex.test(request.nextUrl.pathname);
 
     if (isPublicPage) {
-        return intlMiddleware(req);
+        return intlMiddleware(request);
     }
 
     // Check for session token in cookies
-    const sessionToken = req.cookies.get(
+    const sessionToken = request.cookies.get(
         process.env.NODE_ENV === 'production'
             ? '__Secure-authjs.session-token'
             : 'authjs.session-token'
@@ -36,14 +48,14 @@ export default function middleware(req: NextRequest) {
 
     if (!sessionToken?.value) {
         // Redirect to login page with locale support
-        const signInUrl = new URL('/login', req.url);
-        if (req.nextUrl.pathname !== '/login') {
-            signInUrl.searchParams.set('callbackUrl', req.url);
+        const signInUrl = new URL('/login', request.url);
+        if (request.nextUrl.pathname !== '/login') {
+            signInUrl.searchParams.set('callbackUrl', request.url);
         }
         return NextResponse.redirect(signInUrl);
     }
 
-    return intlMiddleware(req);
+    return intlMiddleware(request);
 }
 
 export const config = {
@@ -52,7 +64,7 @@ export const config = {
     // - … the ones containing a dot (e.g. `favicon.ico`)
     matcher: [
         '/api/(.*)',
-        '/dashboard/:path*',
+        '/app/:path*',
         '/((?!api|trpc|_next|_vercel|sitemap|robots|storybook|issues|.*\\..*).*)',
     ],
 };
