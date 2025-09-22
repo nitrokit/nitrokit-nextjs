@@ -62,6 +62,7 @@ const eslintConfig = [
                     varsIgnorePattern: '^_',
                 },
             ],
+            '@typescript-eslint/no-misused-promises': process.env.CI ? 'error' : 'off',
             'prefer-const': 'error',
             'react-hooks/exhaustive-deps': 'error',
             'prettier/prettier': [

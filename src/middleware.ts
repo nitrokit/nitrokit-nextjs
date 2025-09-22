@@ -1,5 +1,4 @@
-import { NextRequest } from 'next/server';
-import { withAuth } from 'next-auth/middleware';
+import { NextRequest, NextResponse } from 'next/server';
 import createMiddleware from 'next-intl/middleware';
 import { routing } from './lib/i18n/routing';
 
@@ -11,22 +10,11 @@ const publicPages = [
 
 const intlMiddleware = createMiddleware(routing);
 
-const authMiddleware = withAuth(
-    // Note that this callback is only invoked if
-    // the `authorized` callback has returned `true`
-    // and not for pages listed in `pages`.
-    (req) => intlMiddleware(req),
-    {
-        callbacks: {
-            authorized: ({ token }) => token != null,
-        },
-        pages: {
-            signIn: '/login',
-        },
-    }
-);
-
 export default function middleware(req: NextRequest) {
+    if (req.nextUrl.pathname.startsWith('/api')) {
+        return NextResponse.next();
+    }
+
     const publicPathnameRegex = RegExp(
         `^(/(${routing.locales.join('|')}))?(${publicPages
             .flatMap((p) => (p === '/' ? ['', '/'] : p))
@@ -37,9 +25,25 @@ export default function middleware(req: NextRequest) {
 
     if (isPublicPage) {
         return intlMiddleware(req);
-    } else {
-        return (authMiddleware as any)(req);
     }
+
+    // Check for session token in cookies
+    const sessionToken = req.cookies.get(
+        process.env.NODE_ENV === 'production'
+            ? '__Secure-authjs.session-token'
+            : 'authjs.session-token'
+    );
+
+    if (!sessionToken?.value) {
+        // Redirect to login page with locale support
+        const signInUrl = new URL('/login', req.url);
+        if (req.nextUrl.pathname !== '/login') {
+            signInUrl.searchParams.set('callbackUrl', req.url);
+        }
+        return NextResponse.redirect(signInUrl);
+    }
+
+    return intlMiddleware(req);
 }
 
 export const config = {
