@@ -9,7 +9,7 @@ export default defineConfig({
         tsconfigPaths(),
         codecovVitePlugin({
             enableBundleAnalysis: process.env.CODECOV_TOKEN !== undefined,
-            bundleName: 'nitrokit',
+            bundleName: 'nitrokit-nextjs',
             uploadToken: process.env.CODECOV_TOKEN,
         }),
     ],

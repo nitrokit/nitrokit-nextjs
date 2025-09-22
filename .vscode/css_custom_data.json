@@ -1,0 +1,37 @@
+{
+    "version": 1.1,
+    "atDirectives": [
+        {
+            "name": "@plugin",
+            "description": "Tailwind CSS plugin directive"
+        },
+        {
+            "name": "@custom-variant",
+            "description": "Tailwind CSS custom variant directive"
+        },
+        {
+            "name": "@theme",
+            "description": "Tailwind CSS theme directive"
+        },
+        {
+            "name": "@apply",
+            "description": "Tailwind CSS apply directive"
+        },
+        {
+            "name": "@layer",
+            "description": "Tailwind CSS layer directive"
+        },
+        {
+            "name": "@responsive",
+            "description": "Tailwind CSS responsive directive"
+        },
+        {
+            "name": "@screen",
+            "description": "Tailwind CSS screen directive"
+        },
+        {
+            "name": "@variants",
+            "description": "Tailwind CSS variants directive"
+        }
+    ]
+}

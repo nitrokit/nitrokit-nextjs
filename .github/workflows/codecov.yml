@@ -1,10 +1,7 @@
-name: Run Tests and Upload Coverage
+name: Run tests and upload coverage
 
 on: 
   push
-
-permissions:
-  contents: read
 
 jobs:
   test:
@@ -19,17 +16,13 @@ jobs:
       - name: Set up Node
         uses: actions/setup-node@v4
 
-      - name: Install pnpm
-        uses: pnpm/action-setup@v2
-        with:
-          version: 8
-          run_install: true
+      - name: Install dependencies
+        run: pnpm install
 
       - name: Run tests
-        run: pnpm exec vitest --reporter=junit --outputFile=test-report.junit.xml
+        run: npx vitest run --coverage
 
       - name: Upload results to Codecov
         uses: codecov/codecov-action@v5
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
-          slug: nitrokit/nitrokit-nextjs

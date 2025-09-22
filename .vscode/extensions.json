@@ -17,6 +17,8 @@
         "mike-co.import-sorter",
         "frenco.vscode-vercel",
         "redhat.vscode-yaml",
-        "vitest.explorer"
+        "vitest.explorer",
+        "bradlc.vscode-tailwindcss",
+        "csstools.postcss"
     ]
 }

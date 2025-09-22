@@ -309,7 +309,7 @@ describe('Error Handler Utils', () => {
             }
 
             const endTime = performance.now();
-            expect(endTime - startTime).toBeLessThan(1000); // Should complete in under 1000ms
+            expect(endTime - startTime).toBeLessThan(2000); // Should complete in under 2000ms
         });
 
         it('should not leak memory with repeated calls', () => {

@@ -32,5 +32,9 @@
     "WillLuke.nextjs.addTypesOnSave": true,
     "WillLuke.nextjs.hasPrompted": true,
     "doppler.autocomplete.enable": true,
-    "doppler.hover.enable": true
+    "doppler.hover.enable": true,
+    "css.lint.unknownAtRules": "ignore",
+    "scss.lint.unknownAtRules": "ignore",
+    "less.lint.unknownAtRules": "ignore",
+    "css.customData": [".vscode/css_custom_data.json"]
 }
