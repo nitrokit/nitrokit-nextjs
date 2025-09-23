@@ -1,15 +1,16 @@
 import { Metadata } from 'next';
-import { getTranslations } from 'next-intl/server';
+import { getLocale, getTranslations } from 'next-intl/server';
 
-import { LOCALES_FOR_METADATA } from '@/constants/locale';
+import { LOCALES_FOR_METADATA } from '@/lib/utils/locale-utils';
 import { env, getBaseUrl } from '@/lib';
 
 /**
  * Generates the site metadata for the application.
- * @returns {Promise<Metadata>} The site metadata.
+ * @returns {Promise<Metadata>} The site
  */
 export async function generateSiteMetadata(): Promise<Metadata> {
-    const t = await getTranslations();
+    const locale = await getLocale();
+    const t = await getTranslations({ locale, namespace: 'metadata' });
     const baseUrl = getBaseUrl();
 
     const imageData = {
@@ -19,7 +20,7 @@ export async function generateSiteMetadata(): Promise<Metadata> {
     return {
         metadataBase: new URL(baseUrl),
         generator: 'Nitrokit',
-        applicationName: t('metadata.applicationName'),
+        applicationName: t('applicationName'),
         referrer: 'origin-when-cross-origin',
         authors: [
             {
@@ -27,11 +28,11 @@ export async function generateSiteMetadata(): Promise<Metadata> {
                 url: 'https://nitrokit.tr',
             },
         ],
-        creator: t('metadata.author'),
-        publisher: t('metadata.author'),
+        creator: t('author'),
+        publisher: t('author'),
         appleWebApp: {
             statusBarStyle: 'black-translucent',
-            title: t('metadata.title'),
+            title: t('title'),
             capable: true,
             startupImage: [
                 {
@@ -41,10 +42,10 @@ export async function generateSiteMetadata(): Promise<Metadata> {
             ],
         },
         title: {
-            default: t('metadata.title'),
-            template: `%s - ${t('metadata.title')}`,
+            default: t('title'),
+            template: `%s - ${t('title')}`,
         },
-        description: t('metadata.description'),
+        description: t('description'),
         alternates: {
             canonical: baseUrl,
             languages: Object.fromEntries(
@@ -56,16 +57,16 @@ export async function generateSiteMetadata(): Promise<Metadata> {
         },
         twitter: {
             card: 'summary_large_image',
-            title: t('metadata.title'),
-            description: t('metadata.description'),
-            creator: t('metadata.author'),
+            title: t('title'),
+            description: t('description'),
+            creator: t('author'),
             ...imageData,
         },
         openGraph: {
-            title: t('metadata.title'),
-            description: t('metadata.description'),
+            title: t('title'),
+            description: t('description'),
             url: baseUrl,
-            siteName: t('metadata.title'),
+            siteName: t('title'),
             ...imageData,
         },
         verification: {
@@ -89,13 +90,13 @@ export async function generateSiteMetadata(): Promise<Metadata> {
 /**
  * Generates the page metadata for a specific page.
  * @param params - The parameters containing the title and description.
- * @returns {Promise<Metadata>} The page metadata.
+ * @returns {Promise<Metadata>} The page
  */
 export type PageMetaDataProps = Promise<{ title: string; description: string }>;
 
 /**
  * @param params - The parameters containing the title and description.
- * @returns {Promise<Metadata>} The page metadata.
+ * @returns {Promise<Metadata>} The page
  * @description: This function generates the page metadata for a specific page.
  * It takes the title and description from the params and returns a Metadata object.
  * The metadata includes the title and description for the page.

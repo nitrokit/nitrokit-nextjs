@@ -17,6 +17,7 @@ export default getRequestConfig(async ({ requestLocale }) => {
         import(`../../../messages/${locale}/metadata.json`),
         import(`../../../messages/${locale}/pricing.json`),
         import(`../../../messages/${locale}/services.json`),
+        import(`../../../messages/${locale}/navigation.json`),
     ]);
 
     return {
@@ -31,6 +32,7 @@ export default getRequestConfig(async ({ requestLocale }) => {
             metadata: messageModules[6].default,
             pricing: messageModules[7].default,
             services: messageModules[8].default,
+            navigation: messageModules[9].default,
         },
     };
 });

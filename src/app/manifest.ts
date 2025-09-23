@@ -1,19 +1,19 @@
-import { getLocale } from 'next-intl/server';
+import { getLocale, getTranslations } from 'next-intl/server';
 import { getLangDir } from 'rtl-detect';
-
 import { getBaseUrl } from '@/lib';
-
 import type { MetadataRoute } from 'next';
+
 export default async function manifest(): Promise<MetadataRoute.Manifest> {
     const baseUrl = getBaseUrl();
     const locale = await getLocale();
     const direction = getLangDir(locale);
+    const t = await getTranslations({ locale, namespace: 'app' });
 
     const manifest = {
         id: 'nitrokit',
-        name: 'Nitrokit',
-        short_name: 'Nitrokit',
-        description: 'A starter template for Next.js with i18n, Tailwind CSS, and more.',
+        name: t('name'),
+        short_name: t('shortName'),
+        description: t('description'),
         start_url: `${baseUrl}/`,
         display: 'standalone',
         dir: direction,

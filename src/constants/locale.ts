@@ -1,46 +1,10 @@
-const DEFAULT_LANGUAGE = 'en';
+export type Locale = (typeof LOCALES)[number];
 
-/**
- * List of locales supported by the application.
- * This is used to determine the language of the application.
- * The default locale is Turkish (tr).
- * The English locale is also supported (en).
- * The application will use the browser's language settings to determine the default locale.
- * @returns {string[]} An array of supported locales.
- */
-const LOCALES = ['en', 'tr'];
+export const DEFAULT_LANGUAGE: Locale = 'en';
 
-/**
- * List of locales with their respective flags.
- * This is used to display the language selection in the UI.
- * The flag URLs are relative to the public directory.
- * For example, the flag for Turkish is located at /public/flags/tr.svg.
- * The flag for English is located at /public/flags/us.svg.
- * https://github.com/lipis/flag-icons
- * @returns {Array<{ id: string, name: string, flag: string }>}
- */
-const LOCALES_WITH_FLAG = [
-    { id: 'en', name: 'English', flag: '/images/flags/us.svg' },
-    { id: 'tr', name: 'Türkçe', flag: '/images/flags/tr.svg' },
-];
+export const LOCALES = ['en', 'tr'] as const;
 
-/**
- * This function returns the locales for metadata.
- * This is used to generate the metadata for the application.
- * The metadata is used to determine the language of the application.
- * The metadata is used in the middleware to redirect to the correct locale.
- * @returns {Array<{ code: string, url: string }>} An array of objects with the locale code and its URL.
- */
-function LOCALES_FOR_METADATA(): { code: string; url: string }[] {
-    const baseUrl =
-        typeof window !== 'undefined'
-            ? window.location.origin
-            : process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000';
-
-    return LOCALES.map((locale) => ({
-        code: locale,
-        url: `${baseUrl}/${locale}`,
-    }));
-}
-
-export { LOCALES, LOCALES_WITH_FLAG, LOCALES_FOR_METADATA, DEFAULT_LANGUAGE };
+export const LOCALE_CONFIG: Record<Locale, { name: string; flag: string; nativeName: string }> = {
+    en: { name: 'English', flag: '/images/flags/us.svg', nativeName: 'English' },
+    tr: { name: 'Turkish', flag: '/images/flags/tr.svg', nativeName: 'Türkçe' },
+} as const;
