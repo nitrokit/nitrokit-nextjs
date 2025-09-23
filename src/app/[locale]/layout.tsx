@@ -11,6 +11,7 @@ import '@/styles/globals.css';
 import { ThemeProvider } from '@/providers/theme-provider';
 import { UserProvider } from '@/contexts/user-context';
 import { SessionProvider } from 'next-auth/react';
+import { CookieConsent } from '@/components/shared/cookie-consent';
 
 export async function generateMetadata(): Promise<Metadata> {
     return await generateSiteMetadata();
@@ -57,6 +58,7 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
                                 disableTransitionOnChange
                             >
                                 {children}
+                                <CookieConsent />
                             </ThemeProvider>
                         </UserProvider>
                     </SessionProvider>

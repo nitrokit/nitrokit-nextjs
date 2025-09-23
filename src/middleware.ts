@@ -12,10 +12,6 @@ const publicPages = [
 const intlMiddleware = createMiddleware(routing);
 
 export default function middleware(request: NextRequest) {
-    if (process.env.NODE_ENV === 'development') {
-        return NextResponse.next();
-    }
-
     if (request.nextUrl.pathname.startsWith('/api/')) {
         const isAuthRoute = request.nextUrl.pathname.startsWith('/api/auth/');
         const isInternalRoute = request.nextUrl.pathname.startsWith('/api/internal/');
