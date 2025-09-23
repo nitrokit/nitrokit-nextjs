@@ -8,7 +8,7 @@ export default defineConfig({
     test: {
         environment: 'jsdom',
         globals: true,
-        setupFiles: ['./src/test/setup.ts'],
+        setupFiles: ['./vitest.setup.ts'],
         include: ['src/**/*.{test,spec}.{js,jsx,ts,tsx}', 'src/**/__tests__/**/*.{js,jsx,ts,tsx}'],
         exclude: ['node_modules/**', '.next/**', 'dist/**', 'build/**'],
         coverage: {
@@ -35,10 +35,23 @@ export default defineConfig({
                 'src/test/setup.ts',
                 'stories/**',
                 '**/*.stories.{ts,tsx}',
+                'src/generated/**',
+                '**/prisma/**',
             ],
         },
+        onConsoleLog(log) {
+            if (log.includes('Failed to load source map')) {
+                return false;
+            }
+            return true;
+        },
     },
-
+    define: {
+        'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'test'),
+    },
+    build: {
+        sourcemap: false, // Test için source map kapalı
+    },
     resolve: {
         alias: {
             '@': path.resolve(__dirname, './src'),
