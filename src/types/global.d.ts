@@ -11,6 +11,7 @@ export interface Messages {
     services: typeof import('../../messages/en/services.json');
     pricing: typeof import('../../messages/en/pricing.json');
     navigation: typeof import('../../messages/en/navigation.json');
+    faq: typeof import('../../messages/en/faq.json');
 }
 
 declare global {

@@ -1,11 +1,11 @@
 'use client';
 
-import { Logo } from '@/components/shared';
-import { CompactLocaleSwitcher } from '@/components/switchers';
+import { Navbar } from '@/components/layout';
+import { Logo } from '@/components/shared/';
 import useStickyNavbar from '@/hooks/useStickyNavbar';
-import { Navbar } from './navbar';
+import { CompactLocaleSwitcher } from '@/components/switchers';
 
-export function Header() {
+export const Header = () => {
     const sticky = useStickyNavbar();
     return (
         <header
@@ -28,4 +28,4 @@ export function Header() {
             </div>
         </header>
     );
-}
+};

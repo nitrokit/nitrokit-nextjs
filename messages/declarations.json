@@ -1,5 +1,8 @@
 {
-    "about": {},
+    "about": {
+        "title": "About Us",
+        "description": "Learn more about our story and mission."
+    },
     "app": {
         "title": "Nitrokit Next.js Starter",
         "description": "A starter template for Next.js with i18n, Tailwind CSS, and more.",
@@ -46,8 +49,18 @@
             }
         }
     },
-    "contact": {},
-    "home": {},
+    "contact": {
+        "title": "Contact",
+        "description": "You can use the information below to get in touch with us."
+    },
+    "faq": {
+        "title": "Frequently Asked Questions",
+        "description": "Frequently asked questions we provide to help you succeed."
+    },
+    "home": {
+        "title": "",
+        "description": "Welcome to our website!"
+    },
     "metadata": {
         "applicationName": "Nitrokit Next.js",
         "title": "Nitrokit - Lightning Fast Next.js Starter",
@@ -62,6 +75,12 @@
         "faq": "FAQ",
         "contact": "Contact"
     },
-    "pricing": {},
-    "services": {}
+    "pricing": {
+        "title": "Prices",
+        "description": "Our range of pricing options to help you succeed."
+    },
+    "services": {
+        "title": "Services",
+        "description": "Our range of services to help you succeed."
+    }
 }
