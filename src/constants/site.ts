@@ -1,3 +1,33 @@
+import {
+    Facebook as IconFacebook,
+    Instagram as IconInstagram,
+    Linkedin as IconLinkedin,
+    Github as IconGithub,
+} from 'lucide-react';
+
 const PUBLIC_EMAIL = 'hello@nitrokit.tr';
 
-export { PUBLIC_EMAIL };
+const SOCIAL_LINKS = [
+    {
+        name: 'instagram',
+        url: 'https://www.instagram.com/nitrokittr',
+        icon: IconInstagram,
+    },
+    {
+        name: 'facebook',
+        url: 'https://www.facebook.com/nitrokittr',
+        icon: IconFacebook,
+    },
+    {
+        name: 'linkedin',
+        url: 'https://www.linkedin.com/company/nitrokit',
+        icon: IconLinkedin,
+    },
+    {
+        name: 'github',
+        url: 'https://github.com/nitrokit',
+        icon: IconGithub,
+    },
+];
+
+export { PUBLIC_EMAIL, SOCIAL_LINKS };

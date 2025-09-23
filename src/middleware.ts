@@ -12,7 +12,7 @@ const publicPages = [
 const intlMiddleware = createMiddleware(routing);
 
 export default function middleware(request: NextRequest) {
-    if (process.env.SKIP_MIDDLEWARE === 'true') {
+    if (process.env.NODE_ENV === 'development') {
         return NextResponse.next();
     }
 

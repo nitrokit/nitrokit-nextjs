@@ -1,5 +1,6 @@
 'use client';
 
+import { Version } from '@/components/shared/version';
 import { useTranslations } from 'next-intl';
 import React from 'react';
 
@@ -11,6 +12,8 @@ export default function RootPage() {
             {t('title')}
             <br />
             {t('description')}
+            <br />
+            <Version />
         </div>
     );
 }
