@@ -1,7 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import createMiddleware from 'next-intl/middleware';
 import { routing } from './lib/i18n/routing';
-import { handleRateLimit } from './middlewares/rate-limit';
 
 const publicPages = [
     '/',
@@ -12,12 +11,17 @@ const publicPages = [
 const intlMiddleware = createMiddleware(routing);
 
 export default function middleware(request: NextRequest) {
+    // if (process.env.NODE_ENV === 'development') {
+    //     return NextResponse.next();
+    // }
+
     if (request.nextUrl.pathname.startsWith('/api/')) {
         const isAuthRoute = request.nextUrl.pathname.startsWith('/api/auth/');
         const isInternalRoute = request.nextUrl.pathname.startsWith('/api/internal/');
 
         if (!isAuthRoute && !isInternalRoute) {
-            return handleRateLimit(request);
+            // return handleRateLimit(request);//ToDo:update
+            return request;
         }
 
         return NextResponse.next();
