@@ -1,3 +1,4 @@
+import { DefaultSession } from 'next-auth';
 import { locales } from '@/constants/locale';
 
 export type UserRole = 'User' | 'Admin' | 'Moderator';
@@ -14,42 +15,11 @@ export interface LinkedAccount {
 }
 
 declare module 'next-auth' {
-    interface User {
-        id: string;
-        email: string;
-        name?: string | null;
-        firstName?: string | null;
-        lastName?: string | null;
-        username?: string | null;
-        image?: string | null;
-        phone?: string | null;
-        phoneVerified?: boolean | null;
-        role: UserRole;
-        twoFactorEnabled?: boolean;
-        emailVerified?: boolean;
-        locale: Locale;
-        theme: string;
-        receiveUpdates: boolean;
-        refreshToken?: string;
-        linkedAccounts?: LinkedAccount[];
-        createdAt: Date;
-        updatedAt: Date;
-        lastLoginAt?: Date;
-        lastActivityAt?: Date;
-        isActive: boolean;
-        preferences?: {
-            notifications: {
-                email: boolean;
-                push: boolean;
-                inApp: boolean;
-            };
-        };
-    }
     /**
      * Returned by `useSession`, `getSession` and received as a prop on the `SessionProvider` React Context
      */
     interface Session {
-        user: User;
+        user: UserData & DefaultSession['user'];
         expires: Date;
     }
 }

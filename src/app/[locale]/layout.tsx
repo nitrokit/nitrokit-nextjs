@@ -9,6 +9,8 @@ import { getLangDir } from 'rtl-detect';
 
 import '@/styles/globals.css';
 import { ThemeProvider } from '@/providers/theme-provider';
+import { UserProvider } from '@/contexts/user-context';
+import { SessionProvider } from 'next-auth/react';
 
 export async function generateMetadata(): Promise<Metadata> {
     return await generateSiteMetadata();
@@ -46,14 +48,18 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
                 className={`${lexend.variable} font-[family-name:var(--font-lexend)] antialiased`}
             >
                 <NextIntlClientProvider locale={locale} messages={messages}>
-                    <ThemeProvider
-                        attribute="class"
-                        defaultTheme="system"
-                        enableSystem
-                        disableTransitionOnChange
-                    >
-                        {children}
-                    </ThemeProvider>
+                    <SessionProvider>
+                        <UserProvider>
+                            <ThemeProvider
+                                attribute="class"
+                                defaultTheme="system"
+                                enableSystem
+                                disableTransitionOnChange
+                            >
+                                {children}
+                            </ThemeProvider>
+                        </UserProvider>
+                    </SessionProvider>
                 </NextIntlClientProvider>
             </body>
         </html>
