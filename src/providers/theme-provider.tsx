@@ -2,6 +2,7 @@
 
 import * as React from 'react';
 import { ThemeProvider as NextThemesProvider } from 'next-themes';
+import { Theme } from '@radix-ui/themes';
 
 export function ThemeProvider({
     children,
@@ -16,5 +17,9 @@ export function ThemeProvider({
 
     const mergedProps = { ...defaultProps, ...props };
 
-    return <NextThemesProvider {...mergedProps}>{children}</NextThemesProvider>;
+    return (
+        <NextThemesProvider {...mergedProps}>
+            <Theme>{children}</Theme>
+        </NextThemesProvider>
+    );
 }
