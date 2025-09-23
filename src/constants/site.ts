@@ -5,6 +5,8 @@ import {
     Github as IconGithub,
 } from 'lucide-react';
 
+const GITHUB_URL = 'https://github.com/nitrokit/nitrokit-nextjs';
+
 const PUBLIC_EMAIL = 'hello@nitrokit.tr';
 
 const SOCIAL_LINKS = [
@@ -30,4 +32,4 @@ const SOCIAL_LINKS = [
     },
 ];
 
-export { PUBLIC_EMAIL, SOCIAL_LINKS };
+export { GITHUB_URL, PUBLIC_EMAIL, SOCIAL_LINKS };

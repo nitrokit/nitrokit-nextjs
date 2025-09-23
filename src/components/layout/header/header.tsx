@@ -5,7 +5,7 @@ import { Logo } from '@/components/shared/';
 import useStickyNavbar from '@/hooks/useStickyNavbar';
 import { CompactLocaleSwitcher } from '@/components/switchers';
 
-export const Header = () => {
+export function Header() {
     const sticky = useStickyNavbar();
     return (
         <header
@@ -28,4 +28,4 @@ export const Header = () => {
             </div>
         </header>
     );
-};
+}
