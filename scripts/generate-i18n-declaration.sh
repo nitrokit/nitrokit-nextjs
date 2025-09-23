@@ -70,7 +70,7 @@ done
 DECLARATION="$DECLARATION}"
 
 # Write declaration file with proper formatting
-echo "$DECLARATION" | pnpm exec prettier --parser json --write --stdin-filepath "$DECLARATION_FILE"
+echo "$DECLARATION" | pnpm exec prettier --parser json --write --stdin-filepath "$DECLARATION_FILE" > "$DECLARATION_FILE"
 
 echo "✅ Generated declaration file: $DECLARATION_FILE"
 echo "🎉 i18n declaration generation completed!"
