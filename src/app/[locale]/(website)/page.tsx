@@ -19,7 +19,7 @@ export default function Home() {
     const t = useTranslations('home');
 
     return (
-        <div className="relative min-h-screen overflow-hidden bg-white transition-colors duration-300 dark:bg-[#111113]">
+        <div className="min-h-screen overflow-hidden bg-white transition-colors duration-300 dark:bg-[#111113]">
             <BackgroundPatterns variant="default" />
             <div className="relative z-10">
                 <div className="relative">

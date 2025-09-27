@@ -509,5 +509,5 @@ export function BackgroundPatterns({
         ),
     };
 
-    return <div className={cn('absolute inset-0', className)}>{patterns[variant]}</div>;
+    return <div className={cn('absolute inset-3', className)}>{patterns[variant]}</div>;
 }
