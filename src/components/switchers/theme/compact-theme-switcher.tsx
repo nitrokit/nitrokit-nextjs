@@ -4,7 +4,7 @@ import { Suspense } from 'react';
 
 import { SmallLoading } from '@/components/shared';
 import { ToggleGroup, ToggleGroupItem } from '@/components/ui/toggle-group';
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
+import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip';
 import useNextTheme from '@/hooks/useNextTheme';
 
 export const CompactThemeSwitcher = () => {
@@ -22,46 +22,42 @@ export const CompactThemeSwitcher = () => {
 
     return (
         <Suspense fallback={<SmallLoading />}>
-            <TooltipProvider>
-                <ToggleGroup
-                    type="single"
-                    value={theme || 'system'}
-                    onValueChange={(value) => {
-                        if (value) setTheme(value);
-                    }}
-                    className="border-border/30 bg-background/60 rounded-lg border p-1 backdrop-blur-sm"
-                    size="sm"
-                >
-                    {themes.map(({ value, icon: Icon, label }) => (
-                        <Tooltip key={value}>
-                            <TooltipTrigger asChild>
-                                <ToggleGroupItem
-                                    value={value}
-                                    aria-label={`Switch to ${label} theme`}
-                                    className={`data-[state=on]:ring-primary/20 h-6 w-6 cursor-pointer p-0 transition-all duration-300 hover:scale-105 data-[state=on]:scale-105 data-[state=on]:ring-2 ${
-                                        theme === value
-                                            ? 'bg-primary/10 text-primary'
-                                            : 'hover:bg-accent/30 opacity-60 hover:opacity-100'
-                                    } `}
-                                >
-                                    <Icon
-                                        size={12}
-                                        className={theme === value ? 'text-primary' : 'opacity-70'}
-                                    />
-                                </ToggleGroupItem>
-                            </TooltipTrigger>
-                            <TooltipContent>
-                                <p className="text-xs font-medium">
-                                    {theme === value && (
-                                        <span className="text-primary mr-1">●</span>
-                                    )}
-                                    {label}
-                                </p>
-                            </TooltipContent>
-                        </Tooltip>
-                    ))}
-                </ToggleGroup>
-            </TooltipProvider>
+            <ToggleGroup
+                type="single"
+                value={theme || 'system'}
+                onValueChange={(value) => {
+                    if (value) setTheme(value);
+                }}
+                className="border-border/30 bg-background/60 rounded-lg border p-1 backdrop-blur-sm"
+                size="sm"
+            >
+                {themes.map(({ value, icon: Icon, label }) => (
+                    <Tooltip key={value}>
+                        <TooltipTrigger asChild>
+                            <ToggleGroupItem
+                                value={value}
+                                aria-label={`Switch to ${label} theme`}
+                                className={`data-[state=on]:ring-primary/20 h-6 w-6 cursor-pointer p-0 transition-all duration-300 hover:scale-105 data-[state=on]:scale-105 data-[state=on]:ring-2 ${
+                                    theme === value
+                                        ? 'bg-primary/10 text-primary'
+                                        : 'hover:bg-accent/30 opacity-60 hover:opacity-100'
+                                } `}
+                            >
+                                <Icon
+                                    size={12}
+                                    className={theme === value ? 'text-primary' : 'opacity-70'}
+                                />
+                            </ToggleGroupItem>
+                        </TooltipTrigger>
+                        <TooltipContent>
+                            <p className="text-xs font-medium">
+                                {theme === value && <span className="text-primary mr-1">●</span>}
+                                {label}
+                            </p>
+                        </TooltipContent>
+                    </Tooltip>
+                ))}
+            </ToggleGroup>
         </Suspense>
     );
 };

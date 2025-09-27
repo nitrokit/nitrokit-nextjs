@@ -16,9 +16,17 @@ import { Link } from '@/lib/i18n/navigation';
 import { ExternalLink as IconExternalLink, Github as IconGithub } from 'lucide-react';
 import { NewsletterConfirmDialog } from '@/components/newsletter';
 import { RandomText, TextRotator } from '@/components/shared';
+import { UserTrustSection } from '@/components/testimonial/user-trust-section';
+import { TESTIMONIALS as staticTestimonials } from '@/constants/testimonials';
+
+function getTestimonialData() {
+    return staticTestimonials;
+}
 
 export default function Home() {
     const t = useTranslations('home');
+
+    const testimonials = getTestimonialData();
 
     const titles = {
         title1: t.rich('hero.titles.title1', { br: () => <br /> }),
@@ -41,8 +49,8 @@ export default function Home() {
             <BackgroundPatterns variant="default" />
             <div className="relative z-10 pt-6">
                 <div className="relative">
-                    <div className="container mx-auto px-4 py-16 lg:py-10">
-                        <div className="mb-12 text-center">
+                    <div className="container mx-auto px-4 py-14 lg:py-10">
+                        <div className="mb-10 text-center">
                             <CompactBanner
                                 href={`${GITHUB_URL}/releases`}
                                 badge={t('banner.badge')}
@@ -51,7 +59,7 @@ export default function Home() {
                             />
                         </div>
 
-                        <div className="mx-auto my-22 max-w-5xl text-center">
+                        <div className="mx-auto mt-22 max-w-5xl text-center">
                             <h1 className="mb-8 w-full text-5xl font-bold tracking-tight md:text-6xl lg:text-7xl">
                                 <TextRotator
                                     texts={titleArray}
@@ -64,7 +72,12 @@ export default function Home() {
                                 <RandomText texts={descriptionArray} className="text-xl" />
                             </p>
 
-                            <div className="mb-16 flex flex-col items-center justify-center gap-4 sm:flex-row"></div>
+                            <UserTrustSection
+                                testimonials={testimonials}
+                                label={t('testimonials.slogan')}
+                            />
+
+                            <div className="mb-6 flex flex-col items-center justify-center gap-4 sm:flex-row"></div>
                         </div>
 
                         <div className="mx-auto mb-20 grid max-w-3xl grid-cols-1 gap-8 md:grid-cols-3">

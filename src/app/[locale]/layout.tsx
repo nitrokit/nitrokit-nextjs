@@ -13,6 +13,7 @@ import { ThemeProvider } from '@/providers/theme-provider';
 import { UserProvider } from '@/contexts/user-context';
 import { SessionProvider } from 'next-auth/react';
 import { CookieConsent } from '@/components/shared/cookie-consent';
+import { TooltipProvider } from '@/components/ui/tooltip';
 
 export async function generateMetadata(): Promise<Metadata> {
     return await generateSiteMetadata();
@@ -58,7 +59,7 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
                                 enableSystem
                                 disableTransitionOnChange
                             >
-                                {children}
+                                <TooltipProvider delayDuration={100}>{children}</TooltipProvider>
                                 <CookieConsent />
                             </ThemeProvider>
                         </UserProvider>
