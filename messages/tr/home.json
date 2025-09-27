@@ -6,11 +6,16 @@
         "text": "v2.0.1 çıktı! Yeniliklere göz atın"
     },
     "hero": {
-        "title": {
-            "primary": "Nitrokit ile",
-            "secondary": "Hızlı Geliştirin"
+        "titles": {
+            "title1": "Nitrokit ile Modern Uygulamaları Daha Hızlı Üret",
+            "title2": "Nitrokit ile Harika Uygulamalar Geliştir"
         },
-        "subtitle": "Startup'ların web sitelerini hızlı ve etkili bir şekilde başlatmaları için tasarlanmış, gerekli tüm entegrasyonları, sayfaları ve bileşenleri içeren bir başlangıç kiti."
+        "description": {
+            "description1": "Nitrokit ile kolayca harika uygulamalar geliştir. Fikirlerini kısa sürede gerçeğe dönüştür.",
+            "description2": "Nitrokit sayesinde projelerini dakikalar içinde tasarla, test et ve yayına al — zahmetsizce.",
+            "description3": "Zaman kazandıran ve etkini artıran güçlü bir platform: Nitrokit. Yaratıcılığını özgür bırak.",
+            "description4": "Fikirden canlı ürüne giden yolu Nitrokit ile hızlandır."
+        }
     },
     "stats": {
         "components": {

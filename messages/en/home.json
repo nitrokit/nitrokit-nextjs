@@ -6,11 +6,16 @@
         "text": "v2.0.1 is out! See what's new"
     },
     "hero": {
-        "title": {
-            "primary": "With Nitrokit",
-            "secondary": "Develop Rapidly"
+        "titles": {
+            "title1": "Build Modern Apps<br></br>Faster with Nitrokit",
+            "title2": "Create Amazing Apps<br></br>with Nitrokit"
         },
-        "subtitle": "A starter kit designed for startups to quickly and effectively launch their websites, including all necessary integrations, pages, and components."
+        "description": {
+            "description1": "Easily build amazing apps with Nitrokit. Turn your ideas into reality in no time.",
+            "description2": "With Nitrokit, design, test, and launch your projects in minutes — effortlessly.",
+            "description3": "A powerful platform that saves time and boosts your impact: Nitrokit. Unleash your creativity.",
+            "description4": "Accelerate the journey from idea to live product with Nitrokit."
+        }
     },
     "stats": {
         "components": {

@@ -4,7 +4,7 @@ import { NextIntlClientProvider, hasLocale } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 import { routing } from '@/lib/i18n/routing';
 import { generateSiteMetadata } from '@/lib';
-import { lexend } from '@/constants/fonts';
+import { lexend, montserrat } from '@/constants/fonts';
 import { getLangDir } from 'rtl-detect';
 
 import '@/styles/globals.css';
@@ -47,7 +47,7 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
             className="scroll-smooth"
         >
             <body
-                className={`${lexend.variable} font-[family-name:var(--font-lexend)] antialiased`}
+                className={`${lexend.variable} ${montserrat.variable} font-[family-name:var(--font-lexend)] antialiased`}
             >
                 <NextIntlClientProvider locale={locale} messages={messages}>
                     <SessionProvider>

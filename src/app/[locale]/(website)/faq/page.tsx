@@ -13,5 +13,6 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function Page() {
-    return <>Faq</>;
+    const t = await getTranslations('faq');
+    return <>{t('title')}</>;
 }

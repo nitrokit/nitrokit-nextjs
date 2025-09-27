@@ -8,22 +8,38 @@
 // }
 
 import { BackgroundPatterns, LibraryLogos } from '@/components/layout';
-import { GITHUB_URL } from '@/constants/site';
+import { GITHUB_URL } from '@/constants/app';
 import { useTranslations } from 'next-intl';
 import { CompactBanner } from '@/components/banners';
 import { Button } from '@/components/ui/button';
 import { Link } from '@/lib/i18n/navigation';
 import { ExternalLink as IconExternalLink, Github as IconGithub } from 'lucide-react';
 import { NewsletterConfirmDialog } from '@/components/newsletter';
+import { RandomText, TextRotator } from '@/components/shared';
 
 export default function Home() {
     const t = useTranslations('home');
+
+    const titles = {
+        title1: t.rich('hero.titles.title1', { br: () => <br /> }),
+        title2: t.rich('hero.titles.title2', { br: () => <br /> }),
+    };
+
+    const descriptions = {
+        description1: t.rich('hero.description.description1', { br: () => <br /> }),
+        description2: t.rich('hero.description.description2', { br: () => <br /> }),
+        description3: t.rich('hero.description.description3', { br: () => <br /> }),
+        description4: t.rich('hero.description.description4', { br: () => <br /> }),
+    };
+
+    const titleArray = Object.values(titles);
+    const descriptionArray = Object.values(descriptions);
 
     return (
         <div className="min-h-screen overflow-hidden bg-white transition-colors duration-300 dark:bg-[#111113]">
             <NewsletterConfirmDialog />
             <BackgroundPatterns variant="default" />
-            <div className="relative z-10 pt-16">
+            <div className="relative z-10 pt-6">
                 <div className="relative">
                     <div className="container mx-auto px-4 py-16 lg:py-10">
                         <div className="mb-12 text-center">
@@ -35,18 +51,17 @@ export default function Home() {
                             />
                         </div>
 
-                        <div className="mx-auto mb-16 max-w-4xl text-center">
-                            <h1 className="mb-8 text-5xl font-bold tracking-tight md:text-6xl lg:text-7xl">
-                                <span className="mb-6 inline-block bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90% bg-clip-text text-center text-6xl leading-19 font-bold text-transparent text-shadow-xs">
-                                    {t('hero.title.primary')}
-                                </span>
-                                <span className="mb-6 block bg-gradient-to-r text-center font-bold text-emerald-500 text-shadow-xs">
-                                    {t('hero.title.secondary')}
-                                </span>
+                        <div className="mx-auto my-22 max-w-5xl text-center">
+                            <h1 className="mb-8 w-full text-5xl font-bold tracking-tight md:text-6xl lg:text-7xl">
+                                <TextRotator
+                                    texts={titleArray}
+                                    interval={10000}
+                                    className="mb-6 inline-block bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90% bg-clip-text text-center text-6xl leading-19 font-bold text-transparent text-shadow-xs"
+                                />
                             </h1>
 
-                            <p className="mx-auto mb-12 max-w-3xl text-xl leading-relaxed text-gray-600 md:text-2xl dark:text-gray-300">
-                                {t('hero.subtitle')}
+                            <p className="mx-auto mb-12 w-full max-w-4xl text-xl leading-relaxed text-gray-600 md:text-2xl dark:text-gray-300">
+                                <RandomText texts={descriptionArray} className="text-xl" />
                             </p>
 
                             <div className="mb-16 flex flex-col items-center justify-center gap-4 sm:flex-row"></div>
