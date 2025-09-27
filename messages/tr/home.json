@@ -32,7 +32,10 @@
         }
     },
     "testimonials": {
-        "slogan": "Yeni nesil startuplara güç veriyor"
+        "slogan": "Yeni nesil startuplara güç veriyor",
+        "title": "Müşteri Görüşleri",
+        "subtitle": "Binlerce Kullanıcı Tarafından Seviliyor",
+        "description": "Nitrokit'in neden bu kadar sevildiğini keşfedin ve bugün katılarak işiniz için dönüştürücü gücünü deneyimleyin."
     },
     "technologies": {
         "title": "Modern Teknolojilerle Güçlendirilmiştir"

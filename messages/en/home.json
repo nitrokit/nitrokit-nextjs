@@ -32,7 +32,10 @@
         }
     },
     "testimonials": {
-        "slogan": "Powering the next generation of startups"
+        "slogan": "Powering the next generation of startups",
+        "title": "Testimonials",
+        "subtitle": "What our Client Say",
+        "description": "Discover why Nitrokit is so loved and experience its transformative power for your business by joining today."
     },
     "technologies": {
         "title": "Powered by Modern Technologies"

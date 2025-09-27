@@ -34,7 +34,7 @@ import { useEffect, useState } from 'react';
 function useStickyNavbar(): boolean {
     const [sticky, setSticky] = useState(false);
     const handleStickyNavbar = () => {
-        if (window.scrollY >= 90) {
+        if (window.scrollY >= 40) {
             setSticky(true);
         } else {
             setSticky(false);
