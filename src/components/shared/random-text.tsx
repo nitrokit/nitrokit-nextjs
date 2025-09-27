@@ -2,7 +2,6 @@
 
 import React, { useState } from 'react';
 
-// Props'lar için tip güvenliği
 interface RandomTextProps {
     texts: React.ReactNode[];
     className?: string;

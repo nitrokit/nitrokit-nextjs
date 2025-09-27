@@ -1,4 +1,4 @@
-import { LOCALES, LOCALE_CONFIG, type Locale } from '@/constants/locale';
+import { LOCALES, LOCALE_CONFIG, type Locale } from '@/constants';
 
 // Generate from config to avoid duplication
 export const LOCALES_WITH_FLAG = LOCALES.map((locale) => ({

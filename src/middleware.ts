@@ -1,8 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server';
 import createMiddleware from 'next-intl/middleware';
 import { routing } from './lib/i18n/routing';
-import { PUBLIC_ROUTES } from './constants/menu';
-import { handleRateLimit } from './middlewares/rate-limit';
+import { PUBLIC_ROUTES } from './constants';
+import { handleRateLimit } from './middlewares';
 
 const intlMiddleware = createMiddleware(routing);
 

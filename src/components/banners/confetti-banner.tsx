@@ -4,7 +4,7 @@ import { Link } from '@/lib/i18n/navigation';
 import { cn } from '@/lib';
 import { ChevronRight, Sparkles } from 'lucide-react';
 import { useState } from 'react';
-import { useCanvasConfetti, type ConfettiEffectType } from '@/hooks/useCanvasConfetti';
+import { useCanvasConfetti, type ConfettiEffectType } from '@/hooks';
 
 interface ConfettiBannerProps {
     href: string;

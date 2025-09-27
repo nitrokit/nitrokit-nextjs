@@ -4,7 +4,7 @@ import { Link } from '@/lib/i18n/navigation';
 import { cn } from '@/lib';
 import { ChevronRight, Sparkles } from 'lucide-react';
 import { useState } from 'react';
-import { useHoverEffects, type HoverEffectType } from '@/hooks/useHoverEffects';
+import { useHoverEffects, type HoverEffectType } from '@/hooks';
 
 interface CompactBannerProps {
     href: string;

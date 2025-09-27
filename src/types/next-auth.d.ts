@@ -1,5 +1,5 @@
 import { DefaultSession } from 'next-auth';
-import { locales } from '@/constants/locale';
+import { locales } from '@/constants';
 
 export type UserRole = 'User' | 'Admin' | 'Moderator';
 export type Theme = 'light' | 'dark' | 'system';

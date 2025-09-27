@@ -9,9 +9,8 @@
 
 import { BackgroundPatterns, LibraryLogos } from '@/components/layout';
 import { NewsletterConfirmDialog } from '@/components/newsletter';
-import { Testimonials } from '@/components/testimonial/testimonials';
-import Hero from './home/components/hero';
-import GitHubSection from './home/components/github-section';
+import { Testimonials } from '@/components/testimonial';
+import { Hero, GitHubSection } from './home/components';
 
 export default function Home() {
     return (

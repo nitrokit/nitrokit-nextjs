@@ -2,7 +2,7 @@
 import { useTheme } from 'next-themes';
 import { useEffect, useState, useRef, useCallback } from 'react';
 
-export default function useNextTheme() {
+export function useNextTheme() {
     const { theme, setTheme: setNextTheme, resolvedTheme } = useTheme();
     const [mounted, setMounted] = useState(false);
     const hasLoadedPrefs = useRef(false);

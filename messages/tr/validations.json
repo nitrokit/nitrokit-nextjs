@@ -1,6 +1,9 @@
 {
     "required": {
-        "email": "E-posta gerekli"
+        "email": "E-posta gerekli",
+        "name": "İsim gerekli",
+        "message": "Mesaj gerekli",
+        "captcha": "Captcha gerekli"
     },
     "invalid": {
         "email": "Geçersiz e-posta"

@@ -1,4 +1,4 @@
-import { DEFAULT_LANGUAGE } from '@/constants/locale';
+import { DEFAULT_LANGUAGE } from '@/constants';
 import { redirect } from 'next/navigation';
 
 export default async function RootPage() {

@@ -1,10 +1,10 @@
 import { useTranslations } from 'next-intl';
-import { GITHUB_URL } from '@/constants/app';
+import { GITHUB_URL } from '@/constants';
 import { Button } from '@/components/ui/button';
 import { Link } from '@/lib/i18n/navigation';
 import { ExternalLink as IconExternalLink, Github as IconGithub } from 'lucide-react';
 
-export default function GitHubSection() {
+export function GitHubSection() {
     const t = useTranslations('home');
 
     return (

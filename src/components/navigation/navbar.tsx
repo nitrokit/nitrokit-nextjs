@@ -9,7 +9,7 @@ import {
     NavigationMenuList,
 } from '@/components/ui/navigation-menu';
 import { cn } from '@/lib';
-import { NAV_LINKS } from '@/constants/menu';
+import { NAV_LINKS } from '@/constants';
 
 export function Navbar() {
     const t = useTranslations();

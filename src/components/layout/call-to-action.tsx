@@ -66,7 +66,7 @@ const buttonStyles = {
     },
 };
 
-export default function CallToActionSection({
+export function CallToActionSection({
     title,
     description,
     buttons,

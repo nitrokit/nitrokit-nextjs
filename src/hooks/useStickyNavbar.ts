@@ -45,4 +45,5 @@ function useStickyNavbar(): boolean {
     });
     return sticky;
 }
-export default useStickyNavbar;
+
+export { useStickyNavbar };

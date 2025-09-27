@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server';
 import { prisma } from '@/lib/prisma';
 import { randomUUID } from 'crypto';
 import { getEmailService } from '@/lib/services/email';
-import { NewsletterFormSchema } from '@/lib/validations/newsletter';
+import { NewsletterFormSchema } from '@/lib/validations';
 import { getBaseUrl } from '@/lib/config';
 import { render } from '@react-email/render';
 import { NewsletterConfirmationEmail } from '@/components/emails';

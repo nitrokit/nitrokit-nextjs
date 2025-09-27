@@ -2,7 +2,7 @@
 
 import { Navbar } from '@/components/navigation';
 import { Logo } from '@/components/shared/';
-import useStickyNavbar from '@/hooks/useStickyNavbar';
+import { useStickyNavbar } from '@/hooks';
 import { CompactLocaleSwitcher } from '@/components/switchers';
 
 export function Header() {

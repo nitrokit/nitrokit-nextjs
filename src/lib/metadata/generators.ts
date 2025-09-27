@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 import { getLocale, getTranslations } from 'next-intl/server';
 
-import { LOCALES_FOR_METADATA } from '@/lib/utils/locale-utils';
+import { LOCALES_FOR_METADATA } from '@/lib/utils';
 import { env, getBaseUrl } from '@/lib';
 
 /**

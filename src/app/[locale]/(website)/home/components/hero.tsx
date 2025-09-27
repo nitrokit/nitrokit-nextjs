@@ -1,16 +1,15 @@
-import { GITHUB_URL } from '@/constants/app';
+import { GITHUB_URL, TESTIMONIALS as staticTestimonials } from '@/constants';
 import { CompactBanner } from '@/components/banners';
 
 import { RandomText, TextRotator } from '@/components/shared';
-import { UserTrustSection } from '@/components/testimonial/user-trust-section';
+import { UserTrustSection } from '@/components/testimonial';
 import { useTranslations } from 'next-intl';
-import { TESTIMONIALS as staticTestimonials } from '@/constants/testimonials';
 
 function getTestimonialData() {
     return staticTestimonials;
 }
 
-export default function Hero() {
+export function Hero() {
     const t = useTranslations('home');
 
     const testimonials = getTestimonialData();

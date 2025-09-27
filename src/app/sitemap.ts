@@ -1,4 +1,4 @@
-import { ROUTES } from '@/constants/menu';
+import { ROUTES } from '@/constants';
 import { getBaseUrl } from '@/lib';
 
 import type { MetadataRoute } from 'next';

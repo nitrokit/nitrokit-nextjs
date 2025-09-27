@@ -5,7 +5,7 @@ import { Suspense } from 'react';
 import { SmallLoading } from '@/components/shared';
 import { ToggleGroup, ToggleGroupItem } from '@/components/ui/toggle-group';
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip';
-import useNextTheme from '@/hooks/useNextTheme';
+import { useNextTheme } from '@/hooks';
 
 export const CompactThemeSwitcher = () => {
     const [theme, mounted, setTheme] = useNextTheme();

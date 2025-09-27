@@ -51,7 +51,7 @@ const gradientStyles = {
     pink: 'bg-gradient-to-r from-pink-500 to-rose-500',
 };
 
-export default function PageHero({
+export function PageHero({
     h1 = 'Welcome to Our Platform',
     h2 = 'Hero Section',
     p = 'Discover amazing features and capabilities that will transform your experience.',

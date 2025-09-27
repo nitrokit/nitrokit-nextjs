@@ -7,9 +7,9 @@ import { Suspense, useEffect, useState } from 'react';
 import { SmallLoading } from '@/components/shared';
 import { Button } from '@/components/ui/button';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
-import { Locale } from '@/constants/locale';
+import { Locale } from '@/constants';
 import { usePathname, useRouter } from '@/lib/i18n/navigation';
-import { LOCALES_WITH_FLAG } from '@/lib/utils/locale-utils';
+import { LOCALES_WITH_FLAG } from '@/lib/utils';
 
 export const LocaleSwitcher = () => {
     const router = useRouter();

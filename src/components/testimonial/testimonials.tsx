@@ -2,7 +2,7 @@
 
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Star } from 'lucide-react';
-import { TESTIMONIALS } from '@/constants/testimonials';
+import { TESTIMONIALS } from '@/constants';
 import { useTranslations } from 'next-intl';
 
 interface Testimonial {

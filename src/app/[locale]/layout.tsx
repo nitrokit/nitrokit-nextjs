@@ -9,7 +9,7 @@ import { getLangDir } from 'rtl-detect';
 import { ThemeProvider } from '@/providers/theme-provider';
 import { UserProvider } from '@/contexts/user-context';
 import { SessionProvider } from 'next-auth/react';
-import { CookieConsent } from '@/components/shared/cookie-consent';
+import { CookieConsent } from '@/components/shared';
 import { TooltipProvider } from '@/components/ui/tooltip';
 
 import '@/styles/globals.css';
