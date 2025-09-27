@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip';
+import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui';
 
 export function DevelopedBy() {
     return (

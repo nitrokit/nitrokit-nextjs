@@ -1,5 +1,5 @@
 import { ServiceWorkerRegister } from '@/components/shared/service-worker-register';
-import { Toaster } from '@/components/ui/sonner';
+import { Toaster } from '@/components/ui';
 import AnalyticsProvider from '@/providers/analytics-provider';
 import { ReactNode } from 'react';
 

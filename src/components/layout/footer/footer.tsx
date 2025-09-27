@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { Button } from '@/components/ui/button';
+import { Button } from '@/components/ui';
 import { Heart, Palette } from 'lucide-react';
 import { CompactThemeSwitcher } from '@/components/switchers';
 import { DevelopedBy, Logo, Version } from '@/components/shared';

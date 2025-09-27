@@ -1,8 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
+import { Button, Input } from '@/components/ui';
 import { Heart, Mail, Send } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import { useNewsletterSubscription } from '@/hooks';

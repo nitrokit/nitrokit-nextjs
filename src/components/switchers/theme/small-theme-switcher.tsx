@@ -3,9 +3,8 @@ import { MoonIcon, SunIcon } from 'lucide-react';
 import { useId } from 'react';
 
 import { SmallLoading } from '@/components/shared';
-import { Switch } from '@/components/ui/switch';
+import { Switch, Label } from '@/components/ui';
 import { useNextTheme } from '@/hooks';
-import { Label } from '@radix-ui/react-label';
 
 export const SmallThemeSwitcher = () => {
     const [isDark, mounted, setTheme] = useNextTheme();

@@ -10,7 +10,7 @@ import { ThemeProvider } from '@/providers/theme-provider';
 import { UserProvider } from '@/contexts/user-context';
 import { SessionProvider } from 'next-auth/react';
 import { CookieConsent } from '@/components/shared';
-import { TooltipProvider } from '@/components/ui/tooltip';
+import { TooltipProvider } from '@/components/ui';
 
 import '@/styles/globals.css';
 

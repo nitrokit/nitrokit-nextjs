@@ -4,7 +4,7 @@ import {
     DialogHeader,
     DialogTitle,
     DialogDescription,
-} from '@/components/ui/dialog';
+} from '@/components/ui';
 import { CheckCircle2, XCircle } from 'lucide-react';
 import React from 'react';
 import { useTranslations } from 'next-intl';

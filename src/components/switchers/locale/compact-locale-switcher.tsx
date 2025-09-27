@@ -4,14 +4,18 @@ import { Check, ChevronDown } from 'lucide-react';
 import Image from 'next/image';
 import { Suspense, useEffect, useState } from 'react';
 import { useLocale } from 'next-intl';
-
 import { SmallLoading } from '@/components/shared';
-import { Button } from '@/components/ui/button';
-import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
-import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip';
+import {
+    Button,
+    Popover,
+    PopoverContent,
+    PopoverTrigger,
+    Tooltip,
+    TooltipContent,
+    TooltipTrigger,
+} from '@/components/ui';
 import { usePathname, useRouter } from '@/lib/i18n/navigation';
-import { cn } from '@/lib';
-import { LOCALES_WITH_FLAG } from '@/lib/utils';
+import { cn, LOCALES_WITH_FLAG } from '@/lib';
 import { Locale } from '@/constants';
 
 export const CompactLocaleSwitcher = () => {
