@@ -1,7 +1,97 @@
 {
     "about": {
         "title": "About Us",
-        "description": "Learn more about our story and mission."
+        "description": "We are passionate about creating innovative solutions that make a difference in the world.",
+        "pageHero": {
+            "h1": "About Our Company",
+            "h2": "About",
+            "p": "We're passionate about creating innovative solutions that make a difference in the world."
+        },
+        "stats": {
+            "experience": {
+                "value": "10+",
+                "label": "Years Experience"
+            },
+            "clients": {
+                "value": "500+",
+                "label": "Happy Clients"
+            },
+            "projects": {
+                "value": "1000+",
+                "label": "Projects Completed"
+            }
+        },
+        "mission": {
+            "title": "Our Mission",
+            "p": "To empower businesses and individuals with cutting-edge technology solutions that drive innovation, efficiency, and growth in an ever-evolving digital landscape.",
+            "list": {
+                "item1": "Deliver high-performance solutions that exceed expectations",
+                "item2": "Ensure security and reliability in every product we build",
+                "item3": "Create sustainable impact on a global scale"
+            }
+        },
+        "vision": {
+            "title": "Our Vision",
+            "p": "To become the leading technology partner for organizations worldwide, known for our innovation, excellence, and commitment to creating a better digital future.",
+            "goals": {
+                "title": "2025 Goals",
+                "goal1": {
+                    "label": "Global Expansion",
+                    "percentage": "75%"
+                }
+            }
+        },
+        "coreValues": {
+            "title": "Our Core Values",
+            "p": "The principles that guide our decisions and shape our culture every day.",
+            "items": {
+                "customerFirst": {
+                    "title": "Customer First",
+                    "description": "We put our customers at the center of everything we do, ensuring their success is our success."
+                },
+                "integrity": {
+                    "title": "Integrity",
+                    "description": "We maintain the highest ethical standards and transparency in all our business practices."
+                },
+                "innovation": {
+                    "title": "Innovation",
+                    "description": "We constantly push boundaries and embrace new technologies to stay ahead of the curve."
+                },
+                "excellence": {
+                    "title": "Excellence",
+                    "description": "We strive for perfection in every project and continuously improve our processes."
+                }
+            }
+        },
+        "team": {
+            "title": "Meet Our Team",
+            "p": "The talented individuals who make our vision a reality.",
+            "members": {
+                "johnSmith": {
+                    "name": "John Smith",
+                    "role": "CEO & Founder",
+                    "bio": "Visionary leader with 15+ years of experience in technology and business strategy."
+                },
+                "sarahJohnson": {
+                    "name": "Sarah Johnson",
+                    "role": "CTO",
+                    "bio": "Technical expert leading our engineering team with expertise in cloud architecture and AI."
+                },
+                "mikeChen": {
+                    "name": "Mike Chen",
+                    "role": "Design Lead",
+                    "bio": "Creative director ensuring exceptional user experiences across all our products."
+                }
+            }
+        },
+        "cta": {
+            "title": "Ready to Work Together?",
+            "description": "Let's discuss how we can help bring your vision to life.",
+            "buttons": {
+                "contact": "Contact Us",
+                "viewWork": "View Our Work"
+            }
+        }
     },
     "app": {
         "title": "Nitrokit Next.js Starter",

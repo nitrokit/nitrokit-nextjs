@@ -1,4 +1,94 @@
 {
     "title": "Hakkımızda",
-    "description": "Bizim hikayemiz ve misyonumuz hakkında daha fazla bilgi edinin."
+    "description": "Yenilikçi çözümler üreterek dünyada fark yaratma konusunda tutkuluyuz.",
+    "pageHero": {
+        "h1": "Şirketimiz Hakkında",
+        "h2": "Hakkımızda",
+        "p": "Fark yaratan yenilikçi teknoloji çözümleri oluşturma konusunda tutkuluyuz."
+    },
+    "stats": {
+        "experience": {
+            "value": "10+",
+            "label": "Yıllık Deneyim"
+        },
+        "clients": {
+            "value": "500+",
+            "label": "Mutlu Müşteri"
+        },
+        "projects": {
+            "value": "1000+",
+            "label": "Tamamlanan Proje"
+        }
+    },
+    "mission": {
+        "title": "Misyonumuz",
+        "p": "Sürekli gelişen dijital ortamda yeniliği, verimliliği ve büyümeyi teşvik eden son teknoloji çözümlerle işletmeleri ve bireyleri güçlendirmek.",
+        "list": {
+            "item1": "Beklentileri aşan yüksek performanslı çözümler sunmak",
+            "item2": "Geliştirdiğimiz her üründe güvenlik ve güvenilirliği sağlamak",
+            "item3": "Küresel ölçekte sürdürülebilir etki yaratmak"
+        }
+    },
+    "vision": {
+        "title": "Vizyonumuz",
+        "p": "Yenilikçiliği, mükemmelliği ve daha iyi bir dijital gelecek yaratma taahhüdümüzle tanınan, dünya çapında lider bir teknoloji ortağı olmak.",
+        "goals": {
+            "title": "2025 Hedefleri",
+            "goal1": {
+                "label": "Küresel Genişleme",
+                "percentage": "75%"
+            }
+        }
+    },
+    "coreValues": {
+        "title": "Temel Değerlerimiz",
+        "p": "Kararlarımıza rehberlik eden ve kültürümüzü her gün şekillendiren ilkeler.",
+        "items": {
+            "customerFirst": {
+                "title": "Önce Müşteri",
+                "description": "Müşterilerimizin başarısının bizim başarımız olmasını sağlayarak, onları yaptığımız her şeyin merkezine koyarız."
+            },
+            "integrity": {
+                "title": "Dürüstlük",
+                "description": "Tüm iş uygulamalarımızda en yüksek etik standartları ve şeffaflığı koruruz."
+            },
+            "innovation": {
+                "title": "Yenilikçilik",
+                "description": "Eğrinin önünde kalmak için sürekli olarak sınırları zorlar ve yeni teknolojileri benimseriz."
+            },
+            "excellence": {
+                "title": "Mükemmellik",
+                "description": "Her projede mükemmellik için çabalar ve süreçlerimizi sürekli iyileştiririz."
+            }
+        }
+    },
+    "team": {
+        "title": "Ekibimizle Tanışın",
+        "p": "Vizyonumuzu gerçeğe dönüştüren yetenekli bireyler.",
+        "members": {
+            "johnSmith": {
+                "name": "John Smith",
+                "role": "CEO & Kurucu",
+                "bio": "Teknoloji ve iş stratejisi alanında 15 yılı aşkın deneyime sahip vizyoner lider."
+            },
+            "sarahJohnson": {
+                "name": "Sarah Johnson",
+                "role": "CTO",
+                "bio": "Bulut mimarisi ve yapay zeka alanındaki uzmanlığıyla mühendislik ekibimize liderlik eden teknik uzman."
+            },
+            "mikeChen": {
+                "name": "Mike Chen",
+                "role": "Tasarım Lideri",
+                "bio": "Tüm ürünlerimizde olağanüstü kullanıcı deneyimleri sağlayan yaratıcı direktör."
+            }
+        }
+    },
+    "cta": {
+        "title": "Birlikte Çalışmaya Hazır mısınız?",
+        "description": "Vizyonunuzu hayata geçirmeye nasıl yardımcı olabileceğimizi tartışalım.",
+        "buttons": {
+            "contact": "Bize Ulaşın",
+            "viewWork": "Çalışmalarımızı Görün"
+        }
+    }
 }

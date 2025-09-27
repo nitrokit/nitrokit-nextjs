@@ -6,14 +6,13 @@ import { routing } from '@/lib/i18n/routing';
 import { generateSiteMetadata } from '@/lib';
 import { lexend, montserrat } from '@/constants/fonts';
 import { getLangDir } from 'rtl-detect';
-
-import '@/styles/globals.css';
-
 import { ThemeProvider } from '@/providers/theme-provider';
 import { UserProvider } from '@/contexts/user-context';
 import { SessionProvider } from 'next-auth/react';
 import { CookieConsent } from '@/components/shared/cookie-consent';
 import { TooltipProvider } from '@/components/ui/tooltip';
+
+import '@/styles/globals.css';
 
 export async function generateMetadata(): Promise<Metadata> {
     return await generateSiteMetadata();
