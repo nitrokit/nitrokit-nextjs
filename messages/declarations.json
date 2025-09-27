@@ -23,7 +23,15 @@
             "services": "Services",
             "pricing": "Pricing",
             "faq": "FAQ",
-            "contact": "Contact"
+            "contact": "Contact",
+            "features": "Features",
+            "blog": "Blog",
+            "docs": "Docs",
+            "getting_started": "Getting Started",
+            "community": "Community",
+            "storybook": "Storybook",
+            "products": "Products",
+            "support": "Support"
         },
         "errors": {
             "general": "An unexpected error occurred. Please try again later.",
