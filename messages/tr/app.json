@@ -2,5 +2,89 @@
     "title": "Nitrokit - Next.js Uygulamaları için Nihai Başlangıç Kiti",
     "description": "Nitrokit ile Next.js projelerinize hızlı bir başlangıç yapın; kimlik doğrulama, uluslararasılaştırma ve daha fazlasını içeren kapsamlı bir başlangıç kiti.",
     "name": "Nitrokit Next.js",
-    "shortName": "Nitrokit"
+    "shortName": "Nitrokit",
+    "welcome": "Nitrokit'e Hoş Geldiniz!",
+    "loading": "Yükleniyor...",
+    "allRightsReserved": "Tüm hakları saklıdır.",
+    "metadata": {
+        "applicationName": "Nitrokit Next.js",
+        "title": "Nitrokit - Yıldırım Hızında Next.js Başlangıç Kiti",
+        "description": "Nitrokit'in kapsamlı Next.js başlangıç kiti ile modern web uygulamaları geliştirin. TypeScript, Tailwind CSS, kimlik doğrulama ve daha fazlasını içerir.",
+        "author": "Nitrokit Ekibi"
+    },
+    "navigation": {
+        "home": "Ana Sayfa",
+        "about": "Hakkında",
+        "services": "Hizmetler",
+        "pricing": "Fiyatlar",
+        "faq": "S.S.S.",
+        "contact": "İletişim",
+        "features": "Özellikler",
+        "blog": "Blog",
+        "docs": "Belgeler",
+        "getting_started": "Başlarken",
+        "community": "Topluluk",
+        "storybook": "Storybook",
+        "products": "Ürünler",
+        "support": "Destek"
+    },
+    "errors": {
+        "general": "Beklenmedik bir hata oluştu. Lütfen tekrar deneyin.",
+        "rate_limit_unavailable": "Hız limiti servisi şu anda kullanılamıyor. Lütfen tekrar deneyin.",
+        "rate_limit_exceeded": "Çok fazla istek yaptınız. Lütfen biraz bekleyip tekrar deneyin."
+    },
+    "cookies": {
+        "banner": {
+            "title": "Çerezleri kullanıyoruz",
+            "description": "Tarama deneyiminizi geliştirmek, kişiselleştirilmiş içerik sunmak ve trafiğimizi analiz etmek için çerezleri kullanıyoruz.",
+            "learnMore": "Daha fazla bilgi edin",
+            "accept": "Tümünü Kabul Et",
+            "reject": "Tümünü Reddet",
+            "settings": "Çerez Ayarları"
+        },
+        "settings": {
+            "title": "Çerez Tercihleri",
+            "description": "Hangi çerezleri kabul etmek istediğinizi seçin. Bu ayarları istediğiniz zaman değiştirebilirsiniz.",
+            "save": "Tercihleri Kaydet",
+            "rejectAll": "Tümünü Reddet"
+        },
+        "categories": {
+            "necessary": {
+                "title": "Gerekli Çerezler",
+                "description": "Bu çerezler web sitesinin düzgün çalışması için gereklidir. Devre dışı bırakılamazlar."
+            },
+            "analytics": {
+                "title": "Analitik Çerezleri",
+                "description": "Bu çerezler, bilgileri anonim olarak toplayıp raporlayarak ziyaretçilerin web sitemizle nasıl etkileşim kurduğunu anlamamıza yardımcı olur."
+            },
+            "marketing": {
+                "title": "Pazarlama Çerezleri",
+                "description": "Bu çerezler, size ve ilgi alanlarınıza daha uygun reklamlar sunmak için kullanılır."
+            },
+            "functional": {
+                "title": "İşlevsel Çerezler",
+                "description": "Bu çerezler, tercihlerinizin hatırlanması gibi gelişmiş işlevsellik ve kişiselleştirme sağlar."
+            }
+        }
+    },
+    "newsletter": {
+        "title": "Bültenimize abone olun",
+        "description": "En son güncellemeleri, ipuçlarını ve fırsatları doğrudan gelen kutunuza alın.",
+        "emailPlaceholder": "E-posta adresinizi girin",
+        "sending": "Gönderiliyor...",
+        "thankYou": "Teşekkürler!",
+        "subscribe": "Abone Ol",
+        "success": "Abonelik başarılı. Onaylamak için e-postanızı kontrol edin.",
+        "unsubscribe": "İstediğiniz zaman abonelikten çıkabilirsiniz.",
+        "alreadySubscribed": "Bu e-posta zaten abone.",
+        "subscriptionConfirmation": "Haber Bülteni Aboneliği Onayı",
+        "confirmationLink": "Haber bültenimize abone olmak için şu linke tıklayın: ${confirmUrl}",
+        "confirmSuccess": "Aboneliğiniz başarıyla onaylandı!",
+        "confirmError": "Geçersiz veya süresi dolmuş bağlantı.",
+        "confirmDialogTitleSuccess": "Abonelik Onaylandı",
+        "confirmDialogTitleError": "Abonelik Onayı Hatası",
+        "confirmDialogTitleLoading": "Abonelik Onaylanıyor...",
+        "confirmDialogDescLoading": "Lütfen bekleyin.",
+        "invalidToken": "Geçersiz onay belirteci."
+    }
 }

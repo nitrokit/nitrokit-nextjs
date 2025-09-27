@@ -7,13 +7,29 @@
         "title": "Nitrokit Next.js Starter",
         "description": "A starter template for Next.js with i18n, Tailwind CSS, and more.",
         "name": "Nitrokit Next.js",
-        "shortName": "Nitrokit"
-    },
-    "auth": {},
-    "common": {
+        "shortName": "Nitrokit",
         "welcome": "Welcome to Nitrokit!",
         "loading": "Loading...",
-        "error": "An error occurred. Please try again.",
+        "allRightsReserved": "All rights reserved.",
+        "metadata": {
+            "applicationName": "Nitrokit Next.js",
+            "title": "Nitrokit - Lightning Fast Next.js Starter",
+            "description": "Build modern web applications with Nitrokit's comprehensive Next.js starter kit. Features TypeScript, Tailwind CSS, authentication, and more.",
+            "author": "Nitrokit Team"
+        },
+        "navigation": {
+            "home": "Home",
+            "about": "About",
+            "services": "Services",
+            "pricing": "Pricing",
+            "faq": "FAQ",
+            "contact": "Contact"
+        },
+        "errors": {
+            "general": "An unexpected error occurred. Please try again later.",
+            "rate_limit_unavailable": "Rate limit service is currently unavailable. Please try again later.",
+            "rate_limit_exceeded": "You have made too many requests. Please wait a while and try again."
+        },
         "cookies": {
             "banner": {
                 "title": "We use cookies",
@@ -47,8 +63,29 @@
                     "description": "These cookies enable enhanced functionality and personalization, such as remembering your preferences."
                 }
             }
+        },
+        "newsletter": {
+            "title": "Subscribe to our newsletter",
+            "description": "Get the latest updates, tips and offers straight to your inbox.",
+            "emailPlaceholder": "Enter your email",
+            "sending": "Sending...",
+            "thankYou": "Thanks!",
+            "subscribe": "Subscribe",
+            "success": "Subscription successful. Check your email to confirm.",
+            "unsubscribe": "You can unsubscribe at any time.",
+            "alreadySubscribed": "This email is already subscribed.",
+            "subscriptionConfirmation": "Newsletter Subscription Confirmation",
+            "confirmationLink": "Please click the following link to subscribe to our newsletter: ${confirmUrl}",
+            "confirmSuccess": "Your subscription has been confirmed!",
+            "confirmError": "Invalid or expired link.",
+            "confirmDialogTitleSuccess": "Subscription Confirmed",
+            "confirmDialogTitleError": "Subscription Confirmation Error",
+            "confirmDialogTitleLoading": "Confirming Subscription...",
+            "confirmDialogDescLoading": "Please wait.",
+            "invalidToken": "Invalid confirmation token."
         }
     },
+    "auth": {},
     "contact": {
         "title": "Contact",
         "description": "You can use the information below to get in touch with us."
@@ -95,20 +132,6 @@
             "docs": "Documentation"
         }
     },
-    "metadata": {
-        "applicationName": "Nitrokit Next.js",
-        "title": "Nitrokit - Lightning Fast Next.js Starter",
-        "description": "Build modern web applications with Nitrokit's comprehensive Next.js starter kit. Features TypeScript, Tailwind CSS, authentication, and more.",
-        "author": "Nitrokit Team"
-    },
-    "navigation": {
-        "home": "Home",
-        "about": "About",
-        "services": "Services",
-        "pricing": "Pricing",
-        "faq": "FAQ",
-        "contact": "Contact"
-    },
     "pricing": {
         "title": "Prices",
         "description": "Our range of pricing options to help you succeed."
@@ -116,5 +139,13 @@
     "services": {
         "title": "Services",
         "description": "Our range of services to help you succeed."
+    },
+    "validations": {
+        "required": {
+            "email": "Email is required"
+        },
+        "invalid": {
+            "email": "Email is not valid"
+        }
     }
 }

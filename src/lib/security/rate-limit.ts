@@ -11,7 +11,7 @@ try {
         });
     }
 } catch (error) {
-    console.error('Failed to initialize Redis:', error);
+    console.log(error);
     redis = null;
 }
 
@@ -53,7 +53,7 @@ export const smsRateLimit = redis
 
 export const fallbackRateLimit = {
     limit: async (key: string) => {
-        console.log(`Using fallback rate limit for key: ${key}`);
+        console.log(key);
         return {
             success: true,
             limit: 100,

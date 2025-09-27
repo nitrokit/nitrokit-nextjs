@@ -10,7 +10,7 @@ import { env, getBaseUrl } from '@/lib';
  */
 export async function generateSiteMetadata(): Promise<Metadata> {
     const locale = await getLocale();
-    const t = await getTranslations({ locale, namespace: 'metadata' });
+    const t = await getTranslations({ locale, namespace: 'app.metadata' });
     const baseUrl = getBaseUrl();
 
     const imageData = {

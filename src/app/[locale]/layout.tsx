@@ -8,6 +8,7 @@ import { lexend } from '@/constants/fonts';
 import { getLangDir } from 'rtl-detect';
 
 import '@/styles/globals.css';
+
 import { ThemeProvider } from '@/providers/theme-provider';
 import { UserProvider } from '@/contexts/user-context';
 import { SessionProvider } from 'next-auth/react';

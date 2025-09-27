@@ -14,14 +14,16 @@ import { CompactBanner } from '@/components/banners';
 import { Button } from '@/components/ui/button';
 import { Link } from '@/lib/i18n/navigation';
 import { ExternalLink as IconExternalLink, Github as IconGithub } from 'lucide-react';
+import { NewsletterConfirmDialog } from '@/components/newsletter';
 
 export default function Home() {
     const t = useTranslations('home');
 
     return (
         <div className="min-h-screen overflow-hidden bg-white transition-colors duration-300 dark:bg-[#111113]">
+            <NewsletterConfirmDialog />
             <BackgroundPatterns variant="default" />
-            <div className="relative z-10">
+            <div className="relative z-10 pt-16">
                 <div className="relative">
                     <div className="container mx-auto px-4 py-16 lg:py-10">
                         <div className="mb-12 text-center">

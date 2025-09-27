@@ -27,7 +27,7 @@ const COOKIE_CONSENT_KEY = 'nitrokit-cookie-consent';
 const COOKIE_PREFERENCES_KEY = 'nitrokit-cookie-preferences';
 
 export function CookieConsent() {
-    const t = useTranslations('common');
+    const t = useTranslations('app');
     const [isVisible, setIsVisible] = useState(false);
     const [showSettings, setShowSettings] = useState(false);
     const [preferences, setPreferences] = useState<CookiePreferences>({

@@ -2,30 +2,28 @@ import { NextRequest, NextResponse } from 'next/server';
 import createMiddleware from 'next-intl/middleware';
 import { routing } from './lib/i18n/routing';
 import { PUBLIC_ROUTES } from './constants/menu';
+import { handleRateLimit } from './middlewares/rate-limit';
 
 const intlMiddleware = createMiddleware(routing);
 
 export default function middleware(request: NextRequest) {
-    // if (process.env.NODE_ENV === 'development') {
-    //     return NextResponse.next();
-    // }
+    const publicRoutes = ['/api/newsletter/subscribe', ...PUBLIC_ROUTES];
 
     if (request.nextUrl.pathname.startsWith('/api/')) {
         const isAuthRoute = request.nextUrl.pathname.startsWith('/api/auth/');
         const isInternalRoute = request.nextUrl.pathname.startsWith('/api/internal/');
 
         if (!isAuthRoute && !isInternalRoute) {
-            // return handleRateLimit(request);//ToDo:update
-            return request;
+            return handleRateLimit(request);
         }
 
         return NextResponse.next();
     }
 
     const publicPathnameRegex = RegExp(
-        `^(/(${routing.locales.join('|')}))?(${PUBLIC_ROUTES.flatMap((p) =>
-            p === '/' ? ['', '/'] : p
-        ).join('|')})/?$`,
+        `^(/(${routing.locales.join('|')}))?(${publicRoutes
+            .flatMap((p) => (p === '/' ? ['', '/'] : p))
+            .join('|')})/?$`,
         'i'
     );
 
@@ -60,7 +58,6 @@ export const config = {
     // - … the ones containing a dot (e.g. `favicon.ico`)
     matcher: [
         '/api/(.*)',
-        '/app/:path*',
         '/((?!api|trpc|_next|_vercel|sitemap|robots|storybook|issues|.*\\..*).*)',
     ],
 };

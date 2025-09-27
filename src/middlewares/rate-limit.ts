@@ -2,6 +2,10 @@ import { NextRequest, NextResponse } from 'next/server';
 import { apiRateLimit, fallbackRateLimit } from '@/lib/security/rate-limit';
 
 export async function handleRateLimit(request: NextRequest) {
+    if (process.env.NODE_ENV === 'development') {
+        return NextResponse.next();
+    }
+
     const ip =
         request.headers.get('x-forwarded-for') || request.headers.get('x-real-ip') || 'anonymous';
 

@@ -1,6 +1,6 @@
 'use client';
 
-import { Navbar } from '@/components/layout';
+import { Navbar } from '@/components/navigation';
 import { Logo } from '@/components/shared/';
 import useStickyNavbar from '@/hooks/useStickyNavbar';
 import { CompactLocaleSwitcher } from '@/components/switchers';
@@ -9,7 +9,7 @@ export function Header() {
     const sticky = useStickyNavbar();
     return (
         <header
-            className={`sticky top-0 left-0 z-[999] w-full items-center px-3 ${
+            className={`sticky top-0 left-0 z-[49] w-full items-center px-3 ${
                 sticky
                     ? 'border-stroke bg-white/80 shadow-md backdrop-blur-[5px] transition dark:bg-black/40'
                     : 'border-0 bg-transparent'

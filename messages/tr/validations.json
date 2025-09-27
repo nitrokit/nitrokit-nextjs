@@ -1,0 +1,8 @@
+{
+    "required": {
+        "email": "E-posta gerekli"
+    },
+    "invalid": {
+        "email": "Geçersiz e-posta"
+    }
+}
