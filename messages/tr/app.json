@@ -87,5 +87,25 @@
         "confirmDialogTitleLoading": "Abonelik Onaylanıyor...",
         "confirmDialogDescLoading": "Lütfen bekleyin.",
         "invalidToken": "Geçersiz onay belirteci."
+    },
+    "privacyPolicy": {
+        "title": "Gizlilik Politikası",
+        "description": "Bu Gizlilik Politikası, Nitrokit mobil uygulaması ve/veya web sitesi aracılığıyla kişisel verilerinizi nasıl topladığımızı, kullandığımızı ve koruduğumuzu açıklar. Hizmetlerimizi kullanarak bu politikayı kabul etmiş olursunuz.",
+        "whatData": {
+            "title": "1. Hangi Verileri Topluyoruz?",
+            "text": "Bizimle iletişime geçtiğinizde veya hizmetlerimizi kullandığınızda, sağladığınız bilgileri toplarız. Bu bilgiler, adınız, e-posta adresiniz ve iletişim formları veya destek talepleri aracılığıyla bize ilettiğiniz diğer tüm verileri içerebilir."
+        },
+        "howWeUse": {
+            "title": "2. Verilerinizi Nasıl Kullanıyoruz?",
+            "text": "Topladığımız kişisel verileri aşağıdaki amaçlarla kullanırız:\n- Sorularınıza yanıt vermek ve destek sağlamak.\n- Hizmetlerimiz hakkında sizi bilgilendirmek ve güncellemeler göndermek.\n- Kullanıcı deneyimini geliştirmek ve hizmetlerimizi kişiselleştirmek."
+        },
+        "dataSharing": {
+            "title": "3. Veri Paylaşımı ve Koruma",
+            "text": "Kişisel verilerinizin yetkisiz erişim, değiştirme veya sızıntıdan korunması için makul ve uygun güvenlik önlemleri alırız. Verilerinizi, ilgili yasalara uygun olarak güvenli sunucularda saklarız. Verileriniz, yasal zorunluluklar veya rızanız dışında üçüncü taraflarla paylaşılmaz."
+        },
+        "contactInfo": {
+            "title": "4. İletişim Bilgileri",
+            "text": "Bu Gizlilik Politikası ile ilgili herhangi bir sorunuz varsa, lütfen bizimle hello@nitrokit.tr adresi üzerinden iletişime geçin."
+        }
     }
 }

@@ -48,6 +48,7 @@ const FOOTER_LINKS = {
 const PUBLIC_ROUTES = [
     NAV_LINKS.map((link) => link.path),
     '/faq',
+    '/privacy',
     '/login',
     '/error',
     '/verify-request',

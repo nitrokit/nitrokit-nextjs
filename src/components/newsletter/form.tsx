@@ -5,6 +5,7 @@ import { Button, Input } from '@/components/ui';
 import { Heart, Mail, Send } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import { useNewsletterSubscription } from '@/hooks';
+import { Link } from '@/lib/i18n/navigation';
 
 export function CompactNewsletter() {
     const t = useTranslations('app');
@@ -69,7 +70,12 @@ export function CompactNewsletter() {
             </form>
             {error && <p className="mt-2 text-xs text-red-500">{error}</p>}
             {success && <p className="mt-2 text-xs text-green-600">{t('newsletter.success')}</p>}
-            <p className="text-muted-foreground mt-2 text-[11px]">{t('newsletter.unsubscribe')}</p>
+            <div className="mt-2 flex gap-2 text-[11px]">
+                <p className="text-muted-foreground">{t('newsletter.unsubscribe')} </p>
+                <Link href="/privacy/" className="hover:text-[#2A72DF] hover:underline">
+                    {t('privacyPolicy.title')}
+                </Link>
+            </div>
         </div>
     );
 }

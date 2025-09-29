@@ -52,9 +52,9 @@ const gradientStyles = {
 };
 
 export function PageHero({
-    h1 = 'Welcome to Our Platform',
-    h2 = 'Hero Section',
-    p = 'Discover amazing features and capabilities that will transform your experience.',
+    h1 = '',
+    h2 = '',
+    p = '',
     variant = 'default',
     gradientVariant = 'blue',
     className,
