@@ -1,4 +1,42 @@
 {
-    "title": "Fiyatlar",
-    "description": "Başarıya ulaşmanız için sunduğumuz fiyatlandırma seçenekleri."
+    "title": "Fiyatlandırma",
+    "subtitle": "Sizinle birlikte büyüyen fiyatlandırma",
+    "description": "Kitlenizle etkileşim kurmak, müşteri sadakati oluşturmak ve satışları artırmak için en iyi özelliklerle dolu uygun fiyatlı bir plan seçin.",
+    "monthly": "Aylık",
+    "yearly": "Yıllık",
+    "annual-payment": "Yıllık faturalandırma ile <span>%20 tasarruf edin</span>.",
+    "pricePerMonth": "Ay",
+    "pricePerYear": "Yıl",
+    "purchasePlan": "Planı Satın Al",
+    "freelancer": {
+        "title": "Serbest Çalışan",
+        "description": "Müşterileriniz için en iyi işinizi sunmanın temelleri."
+    },
+    "startup": {
+        "title": "Startup",
+        "description": "Hızla büyüyen işinizle ölçeklenen bir plan."
+    },
+    "pro": {
+        "title": "Profesyonel",
+        "description": "Büyüyen şirketiniz için oluşturulmuş özel destek ve altyapı."
+    },
+    "enterprise": {
+        "title": "Kurumsal",
+        "description": "Kurumsal ihtiyaçlarınız için özel bir fiyat teklifi almak için iletişime geçin."
+    },
+    "features": {
+        "5products": "5 ürün",
+        "25products": "10 ürün",
+        "unlimitedproducts": "Sınırsız ürün",
+        "upto1000subscribers": "1000 aboneye kadar",
+        "upto10000subscribers": "10.000 aboneye kadar",
+        "unlimitedsubscribers": "Sınırsız abone",
+        "48hoursupport": "48 saat destek",
+        "24hoursupport": "24 saat destek",
+        "1hoursupport": "1 saat destek",
+        "basicanalytics": "Temel analizler",
+        "advancedanalytics": "Gelişmiş analizler",
+        "xhoursupport": "{count} saat destek",
+        "marketingautomations": "Pazarlama otomasyonları"
+    }
 }

@@ -1,4 +1,42 @@
 {
-    "title": "Prices",
-    "description": "Our range of pricing options to help you succeed."
+    "title": "Pricing",
+    "subtitle": "Pricing that grows with you",
+    "description": "Choose an affordable plan that’s packed with the best features for engaging your audience, creating customer loyalty, and driving sales.",
+    "monthly": "Monthly",
+    "yearly": "Yearly",
+    "annual-payment": "<span>Save 20%</span> with annual billing.",
+    "pricePerMonth": "Month",
+    "pricePerYear": "Year",
+    "purchasePlan": "Purchase Plan",
+    "freelancer": {
+        "title": "Freelancer",
+        "description": "The essentials to provide your best work for clients."
+    },
+    "startup": {
+        "title": "Startup",
+        "description": "A plan that scales with your rapidly growing business."
+    },
+    "pro": {
+        "title": "Professional",
+        "description": "Dedicated support and infrastructure built for your growing company."
+    },
+    "enterprise": {
+        "title": "Enterprise",
+        "description": "Get in touch for a custom quote for your enterprise needs."
+    },
+    "features": {
+        "5products": "5 products",
+        "25products": "10 products",
+        "unlimitedproducts": "Unlimited products",
+        "upto1000subscribers": "Up to 1000 subscribers",
+        "upto10000subscribers": "Up to 10,000 subscribers",
+        "unlimitedsubscribers": "Unlimited subscribers",
+        "48hoursupport": "48-hour support",
+        "24hoursupport": "24-hour support",
+        "1hoursupport": "1-hour support",
+        "basicanalytics": "Basic analytics",
+        "advancedanalytics": "Advanced analytics",
+        "xhoursupport": "{count}-hour support",
+        "marketingautomations": "Marketing automations"
+    }
 }

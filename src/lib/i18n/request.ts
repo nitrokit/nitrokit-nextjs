@@ -28,9 +28,9 @@ export default getRequestConfig(async ({ requestLocale }) => {
             validations: messageModules[3].default,
             contact: messageModules[4].default,
             home: messageModules[5].default,
-            metadata: messageModules[6].default,
-            pricing: messageModules[7].default,
-            services: messageModules[8].default,
+            pricing: messageModules[6].default,
+            services: messageModules[7].default,
+            faq: messageModules[8].default,
         },
     };
 });
