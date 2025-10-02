@@ -65,9 +65,7 @@ export function Footer() {
                         </div>
                     </div>
                 </section>
-
                 <Separator />
-
                 <section className="flex flex-col items-center justify-between gap-4 py-3 md:flex-row">
                     <div className="text-muted-foreground flex items-center gap-1 text-xs">
                         <span>
