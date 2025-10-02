@@ -27,6 +27,7 @@
     },
     "homepage": "https://nitrokit.tr",
     "private": false,
+    "packageManager": "pnpm@9.4.0",
     "scripts": {
         "predev": "./scripts/generate-i18n-declaration.sh",
         "dev": "prisma-import --schemas \"prisma/models/*.prisma\" --output \"prisma/schema.prisma\" --force && prisma generate --no-engine --data-proxy --no-hints && next dev --turbopack",

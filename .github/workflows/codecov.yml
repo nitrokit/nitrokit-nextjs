@@ -1,7 +1,6 @@
 name: Run tests and upload coverage
 
-on: 
-  push
+on: push
 
 jobs:
   test:
@@ -15,15 +14,18 @@ jobs:
         with:
           fetch-depth: 2
 
-      - name: Set up Node
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        # version, package.json dosyasından otomatik olarak okunacak
+
+      - name: Setup Node.js and cache pnpm store
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: "20"
+          cache: "pnpm"
 
-      - name: Install pnpm
-        uses: pnpm/action-setup@v4
-        with:
-          run_install: true
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
 
       - name: Run tests
         run: pnpm exec vitest --run --coverage --reporter=junit --outputFile=test-report.junit.xml
