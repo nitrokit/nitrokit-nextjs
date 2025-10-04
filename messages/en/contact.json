@@ -1,4 +1,18 @@
 {
     "title": "Contact",
-    "description": "You can use the information below to get in touch with us."
+    "description": "You can use the information below to get in touch with us.",
+    "pageHero": {
+        "title": "Get in touch",
+        "subtitle": "Contact Us",
+        "description": "You can use the information below to get in touch with us."
+    },
+    "name": "Your Name",
+    "email": "Your Email Address",
+    "message": "Your Message",
+    "send": "Send",
+    "message_sent": "Message sent successfully!",
+    "message_sent_description": "We'll get back to you as soon as possible.",
+    "form_heading": "Send us a message",
+    "form_description": "Fill out the form below and we'll get back to you...",
+    "privacy_policy_agreement": "By submitting this form, you agree to our <a>Privacy Policy</a>"
 }
