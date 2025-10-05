@@ -14,5 +14,11 @@
     "message_sent_description": "En kısa sürede sizinle iletişime geçilecektir.",
     "form_heading": "Bize bir mesaj gönderin",
     "form_description": "Aşağıdaki formu doldurun, en kısa süre içinde size geri döneceğiz.",
-    "privacy_policy_agreement": "Bu formu göndererek, <a>Gizlilik Politikamızı</a> kabul etmiş olursunuz"
+    "privacy_policy_agreement": "Bu formu göndererek, <a>Gizlilik Politikamızı</a> kabul etmiş olursunuz",
+    "phone": "Telefon",
+    "business_hours": "Çalışma Saatleri",
+    "address": "Adres",
+    "get_directions": "Yolunu Bul",
+    "call_now": "Şimdi Ara",
+    "send_email": "E-posta Gönder"
 }

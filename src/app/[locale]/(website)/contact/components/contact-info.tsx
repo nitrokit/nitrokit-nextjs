@@ -2,42 +2,44 @@
 
 import { MapPin, Phone, Mail, Clock, ExternalLink } from 'lucide-react';
 import { Button } from '@/components/ui';
+import { useTranslations } from 'next-intl';
 
 const contactDetails = [
     {
         icon: MapPin,
-        label: 'Address',
+        label: 'address',
         value: 'Maslak Mahallesi, Büyükdere Cd. No:123',
         subValue: '34398 Şişli/İstanbul, Turkey',
         action: () => {
             const url = 'https://www.google.com/maps/search/?api=1&query=41.1064,29.0236';
             window.open(url, '_blank');
         },
-        actionLabel: 'Get Directions',
+        actionLabel: 'get_directions',
     },
     {
         icon: Phone,
-        label: 'Phone',
+        label: 'phone',
         value: '+90 216 123 4567',
         action: () => window.open('tel:+902161234567'),
-        actionLabel: 'Call Now',
+        actionLabel: 'call_now',
     },
     {
         icon: Mail,
-        label: 'Email',
+        label: 'email',
         value: 'hello@nitrokit.tr',
         action: () => window.open('mailto:hello@nitrokit.tr'),
-        actionLabel: 'Send Email',
+        actionLabel: 'send_email',
     },
     {
         icon: Clock,
-        label: 'Business Hours',
+        label: 'business_hours',
         value: 'Monday - Friday',
         subValue: '9:00 AM - 6:00 PM (GMT+3)',
     },
 ];
 
 export const ContactInfo = () => {
+    const t = useTranslations('contact');
     return (
         <div className="space-y-8">
             <div className="space-y-6">
@@ -54,7 +56,7 @@ export const ContactInfo = () => {
                                 </div>
                                 <div className="flex-1 space-y-2">
                                     <p className="text-muted-foreground text-sm font-medium">
-                                        {detail.label}
+                                        {t(detail.label as any)}
                                     </p>
                                     <p className="text-lg font-semibold">{detail.value}</p>
                                     {detail.subValue && (
@@ -69,7 +71,7 @@ export const ContactInfo = () => {
                                             onClick={detail.action}
                                             className="text-primary hover:text-primary/80 h-auto p-0 font-normal transition-colors"
                                         >
-                                            {detail.actionLabel}
+                                            {t(detail.actionLabel as any)}
                                             <ExternalLink className="ml-2 h-3 w-3" />
                                         </Button>
                                     )}

@@ -31,7 +31,7 @@ export function Hero() {
 
     return (
         <div className="relative">
-            <div className="container mx-auto px-4 py-14 lg:py-10">
+            <div className="container mx-auto px-4 py-14 lg:py-8">
                 <div className="mb-10 text-center">
                     <CompactBanner
                         href={`${GITHUB_URL}/releases`}
@@ -41,7 +41,7 @@ export function Hero() {
                     />
                 </div>
 
-                <div className="mx-auto mt-22 max-w-5xl text-center">
+                <div className="mx-auto mt-20 max-w-5xl text-center">
                     <h1 className="mb-8 w-full text-5xl font-bold tracking-tight md:text-6xl lg:text-7xl">
                         <TextRotator
                             texts={titleArray}
