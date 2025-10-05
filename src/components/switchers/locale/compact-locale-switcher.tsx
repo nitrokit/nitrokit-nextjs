@@ -63,7 +63,7 @@ export const CompactLocaleSwitcher = () => {
                             <ChevronDown size={10} className="opacity-60" />
                         </Button>
                     </PopoverTrigger>
-                    <PopoverContent className="min-w-30 p-1">
+                    <PopoverContent className="w-30 p-1">
                         <div className="space-y-0.5">
                             {LOCALES_WITH_FLAG.map((LOCALE) => (
                                 <Button

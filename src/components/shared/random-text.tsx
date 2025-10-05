@@ -7,7 +7,7 @@ interface RandomTextProps {
     className?: string;
 }
 
-export function RandomText({ texts, className }: RandomTextProps) {
+export function RandomText({ texts }: RandomTextProps) {
     const [randomText] = useState(() => {
         if (!texts || texts.length === 0) {
             return null;
@@ -20,5 +20,5 @@ export function RandomText({ texts, className }: RandomTextProps) {
         return null;
     }
 
-    return <span className={`${className || ''}`}>{randomText}</span>;
+    return <>{randomText}</>;
 }

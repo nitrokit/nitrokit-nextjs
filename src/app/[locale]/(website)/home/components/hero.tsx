@@ -42,16 +42,16 @@ export function Hero() {
                 </div>
 
                 <div className="mx-auto mt-20 max-w-5xl text-center">
-                    <h1 className="mb-8 w-full text-5xl font-bold tracking-tight md:text-6xl lg:text-7xl">
+                    <div className="mb-8 w-full text-5xl font-bold tracking-tight md:text-6xl lg:text-7xl">
                         <TextRotator
                             texts={titleArray}
                             interval={10000}
                             className="mb-6 inline-block bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90% bg-clip-text text-center text-6xl leading-19 font-bold text-transparent text-shadow-xs"
                         />
-                    </h1>
+                    </div>
 
                     <p className="mx-auto mb-12 w-full max-w-4xl text-xl leading-relaxed text-gray-600 md:text-2xl dark:text-gray-300">
-                        <RandomText texts={descriptionArray} className="text-xl" />
+                        <RandomText texts={descriptionArray} />
                     </p>
 
                     <UserTrustSection
