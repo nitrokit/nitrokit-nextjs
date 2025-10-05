@@ -3,7 +3,7 @@ import {
     DialogContent,
     DialogHeader,
     DialogTitle,
-    DialogDescription,
+    DialogDescription
 } from '@/components/ui';
 import { CheckCircle2, XCircle } from 'lucide-react';
 import React from 'react';

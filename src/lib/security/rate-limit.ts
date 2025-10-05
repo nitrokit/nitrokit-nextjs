@@ -7,7 +7,7 @@ try {
     if (process.env.UPSTASH_REDIS_REST_URL && process.env.UPSTASH_REDIS_REST_TOKEN) {
         redis = new Redis({
             url: process.env.UPSTASH_REDIS_REST_URL,
-            token: process.env.UPSTASH_REDIS_REST_TOKEN,
+            token: process.env.UPSTASH_REDIS_REST_TOKEN
         });
     }
 } catch (error) {
@@ -20,7 +20,7 @@ export const apiRateLimit = redis
           redis,
           limiter: Ratelimit.slidingWindow(100, '1 m'), // 100 requests per minute
           analytics: true,
-          prefix: 'api',
+          prefix: 'api'
       })
     : null;
 
@@ -29,7 +29,7 @@ export const emailResendRateLimit = redis
           redis,
           limiter: Ratelimit.slidingWindow(3, '1 h'), // 3 attempts per hour
           analytics: true,
-          prefix: 'email_resend',
+          prefix: 'email_resend'
       })
     : null;
 
@@ -38,7 +38,7 @@ export const authRateLimit = redis
           redis,
           limiter: Ratelimit.slidingWindow(5, '15 m'), // 5 attempts per 15 minutes
           analytics: true,
-          prefix: 'auth',
+          prefix: 'auth'
       })
     : null;
 
@@ -47,7 +47,7 @@ export const smsRateLimit = redis
           redis,
           limiter: Ratelimit.slidingWindow(5, '1 h'), // 5 SMS per hour
           analytics: true,
-          prefix: 'sms',
+          prefix: 'sms'
       })
     : null;
 
@@ -58,9 +58,9 @@ export const fallbackRateLimit = {
             success: true,
             limit: 100,
             remaining: 99,
-            reset: Date.now() + 60000,
+            reset: Date.now() + 60000
         };
-    },
+    }
 };
 
 export async function checkRateLimit(
@@ -82,7 +82,7 @@ export async function checkRateLimit(
 
         return {
             ...result,
-            blocked: !result.success,
+            blocked: !result.success
         };
     } catch (error) {
         console.error('Rate limit error:', error);
@@ -99,7 +99,7 @@ export function getRateLimitHeaders(result: {
     return {
         'X-RateLimit-Limit': result.limit.toString(),
         'X-RateLimit-Remaining': result.remaining.toString(),
-        'X-RateLimit-Reset': result.reset.toString(),
+        'X-RateLimit-Reset': result.reset.toString()
     };
 }
 

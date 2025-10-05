@@ -1,4 +1,5 @@
 import { DefaultSession } from 'next-auth';
+import { UserData } from './user';
 import { locales } from '@/constants';
 
 export type UserRole = 'User' | 'Admin' | 'Moderator';

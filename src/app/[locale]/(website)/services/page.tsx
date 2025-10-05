@@ -7,11 +7,11 @@ export async function generateMetadata(): Promise<Metadata> {
     return await generatePageMetadata({
         params: Promise.resolve({
             title: t('title'),
-            description: t('description'),
-        }),
+            description: t('description')
+        })
     });
 }
 
-export default async function Page() {
+export default function Page() {
     return <>Services</>;
 }

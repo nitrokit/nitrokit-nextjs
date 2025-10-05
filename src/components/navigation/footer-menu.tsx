@@ -15,7 +15,7 @@ export function FooterMenu({
     icon: Icon,
     iconBgColor,
     iconTextColor,
-    links,
+    links
 }: FooterMenuProps) {
     const t = useTranslations();
 

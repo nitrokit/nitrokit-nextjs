@@ -9,7 +9,7 @@ export const env = createEnv({
         YANDEX_VERIFICATION: z.string().optional(),
         RESEND_API_KEY: z.string().optional(),
         RESEND_FROM_EMAIL: z.string().optional(),
-        RESEND_AUDIENCE_ID: z.string().optional(),
+        RESEND_AUDIENCE_ID: z.string().optional()
     },
     client: {},
     runtimeEnv: {
@@ -18,6 +18,6 @@ export const env = createEnv({
         YANDEX_VERIFICATION: process.env.YANDEX_VERIFICATION,
         RESEND_API_KEY: process.env.RESEND_API_KEY,
         RESEND_FROM_EMAIL: process.env.RESEND_FROM_EMAIL,
-        RESEND_AUDIENCE_ID: process.env.RESEND_AUDIENCE_ID,
-    },
+        RESEND_AUDIENCE_ID: process.env.RESEND_AUDIENCE_ID
+    }
 });

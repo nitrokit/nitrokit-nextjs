@@ -23,7 +23,7 @@ export const UserProvider = ({ children }: { children: ReactNode }) => {
     const contextValue: UserContextType = {
         user,
         updateUser,
-        isLoading: status === 'loading',
+        isLoading: status === 'loading'
     };
 
     return <UserContext.Provider value={contextValue}>{children}</UserContext.Provider>;

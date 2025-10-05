@@ -11,7 +11,7 @@ interface BackgroundPatternsProps {
 export function BackgroundPatterns({
     variant = 'default',
     className,
-    animated = true,
+    animated = true
 }: BackgroundPatternsProps) {
     const patterns = {
         default: (
@@ -25,7 +25,7 @@ export function BackgroundPatterns({
                                 linear-gradient(rgba(59, 130, 246, 0.08) 1px, transparent 1px),
                                 linear-gradient(90deg, rgba(59, 130, 246, 0.08) 1px, transparent 1px)
                             `,
-                            backgroundSize: '50px 50px',
+                            backgroundSize: '50px 50px'
                         }}
                     />
                     <div className="absolute top-10 -right-50 h-80 w-80 rounded-full bg-gradient-to-br from-blue-200 to-indigo-300 opacity-80 blur-3xl" />
@@ -59,7 +59,7 @@ export function BackgroundPatterns({
                                 linear-gradient(rgba(34, 197, 94, 0.1) 1px, transparent 1px),
                                 linear-gradient(90deg, rgba(34, 197, 94, 0.1) 1px, transparent 1px)
                             `,
-                            backgroundSize: '60px 60px',
+                            backgroundSize: '60px 60px'
                         }}
                     />
                     <div className="absolute top-22 -right-42 h-64 w-64 rounded-full bg-gradient-to-br from-emerald-500/20 to-teal-500/20 blur-3xl" />
@@ -97,7 +97,7 @@ export function BackgroundPatterns({
                                 linear-gradient(-45deg, transparent 75%, rgba(236, 72, 153, 0.1) 75%)
                             `,
                             backgroundSize: '100px 100px',
-                            backgroundPosition: '0 0, 0 50px, 50px -50px, -50px 0px',
+                            backgroundPosition: '0 0, 0 50px, 50px -50px, -50px 0px'
                         }}
                     />
                     <div className="absolute top-20 left-20 h-32 w-32 rotate-45 bg-gradient-to-br from-blue-300/30 to-indigo-400/30" />
@@ -117,7 +117,7 @@ export function BackgroundPatterns({
                                 linear-gradient(-45deg, transparent 75%, rgba(236, 72, 153, 0.15) 75%)
                             `,
                             backgroundSize: '120px 120px',
-                            backgroundPosition: '0 0, 0 60px, 60px -60px, -60px 0px',
+                            backgroundPosition: '0 0, 0 60px, 60px -60px, -60px 0px'
                         }}
                     />
                     <div className="absolute top-16 left-16 h-40 w-40 rotate-45 bg-gradient-to-br from-emerald-500/20 to-teal-500/20" />
@@ -140,7 +140,7 @@ export function BackgroundPatterns({
                                 radial-gradient(circle, rgba(147, 51, 234, 0.08) 1px, transparent 1px)
                             `,
                             backgroundSize: '40px 40px, 60px 60px, 80px 80px',
-                            backgroundPosition: '0 0, 20px 20px, 40px 40px',
+                            backgroundPosition: '0 0, 20px 20px, 40px 40px'
                         }}
                     />
                     {animated && (
@@ -172,7 +172,7 @@ export function BackgroundPatterns({
                                 radial-gradient(circle, rgba(147, 51, 234, 0.1) 1px, transparent 1px)
                             `,
                             backgroundSize: '50px 50px, 70px 70px, 90px 90px',
-                            backgroundPosition: '0 0, 25px 25px, 50px 50px',
+                            backgroundPosition: '0 0, 25px 25px, 50px 50px'
                         }}
                     />
                     {animated && (
@@ -312,7 +312,7 @@ export function BackgroundPatterns({
                                 linear-gradient(rgba(16, 185, 129, 0.05) 1px, transparent 1px),
                                 linear-gradient(90deg, rgba(16, 185, 129, 0.05) 1px, transparent 1px)
                             `,
-                            backgroundSize: '20px 20px, 20px 20px, 100px 100px, 100px 100px',
+                            backgroundSize: '20px 20px, 20px 20px, 100px 100px, 100px 100px'
                         }}
                     />
                     <div className="absolute top-16 left-16 h-8 w-8 bg-gradient-to-br from-blue-400/40 to-indigo-500/40" />
@@ -332,7 +332,7 @@ export function BackgroundPatterns({
                                 linear-gradient(rgba(59, 130, 246, 0.08) 1px, transparent 1px),
                                 linear-gradient(90deg, rgba(59, 130, 246, 0.08) 1px, transparent 1px)
                             `,
-                            backgroundSize: '25px 25px, 25px 25px, 120px 120px, 120px 120px',
+                            backgroundSize: '25px 25px, 25px 25px, 120px 120px, 120px 120px'
                         }}
                     />
                     <div className="absolute top-20 left-20 h-10 w-10 bg-gradient-to-br from-emerald-500/40 to-teal-500/40" />
@@ -356,9 +356,7 @@ export function BackgroundPatterns({
                                     left: `${Math.random() * 100}%`,
                                     top: `${Math.random() * 100}%`,
                                     animationDelay: animated ? `${Math.random() * 3}s` : '0s',
-                                    animationDuration: animated
-                                        ? `${2 + Math.random() * 2}s`
-                                        : '0s',
+                                    animationDuration: animated ? `${2 + Math.random() * 2}s` : '0s'
                                 }}
                             />
                         ))}
@@ -372,7 +370,7 @@ export function BackgroundPatterns({
                                     animationDelay: animated ? `${Math.random() * 3}s` : '0s',
                                     animationDuration: animated
                                         ? `${1.5 + Math.random() * 2}s`
-                                        : '0s',
+                                        : '0s'
                                 }}
                             />
                         ))}
@@ -386,7 +384,7 @@ export function BackgroundPatterns({
                                     animationDelay: animated ? `${Math.random() * 3}s` : '0s',
                                     animationDuration: animated
                                         ? `${2.5 + Math.random() * 2}s`
-                                        : '0s',
+                                        : '0s'
                                 }}
                             />
                         ))}
@@ -406,9 +404,7 @@ export function BackgroundPatterns({
                                     left: `${Math.random() * 100}%`,
                                     top: `${Math.random() * 100}%`,
                                     animationDelay: animated ? `${Math.random() * 3}s` : '0s',
-                                    animationDuration: animated
-                                        ? `${2 + Math.random() * 2}s`
-                                        : '0s',
+                                    animationDuration: animated ? `${2 + Math.random() * 2}s` : '0s'
                                 }}
                             />
                         ))}
@@ -422,7 +418,7 @@ export function BackgroundPatterns({
                                     animationDelay: animated ? `${Math.random() * 3}s` : '0s',
                                     animationDuration: animated
                                         ? `${1.5 + Math.random() * 2}s`
-                                        : '0s',
+                                        : '0s'
                                 }}
                             />
                         ))}
@@ -436,7 +432,7 @@ export function BackgroundPatterns({
                                     animationDelay: animated ? `${Math.random() * 3}s` : '0s',
                                     animationDuration: animated
                                         ? `${2.5 + Math.random() * 2}s`
-                                        : '0s',
+                                        : '0s'
                                 }}
                             />
                         ))}
@@ -506,7 +502,7 @@ export function BackgroundPatterns({
                     )}
                 </div>
             </>
-        ),
+        )
     };
 
     return <div className={cn('absolute inset-0', className)}>{patterns[variant]}</div>;

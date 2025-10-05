@@ -4,8 +4,8 @@ import createNextIntlPlugin from 'next-intl/plugin';
 const withNextIntl = createNextIntlPlugin({
     requestConfig: './src/lib/i18n/request.ts',
     experimental: {
-        createMessagesDeclaration: './messages/declarations.json',
-    },
+        createMessagesDeclaration: './messages/declarations.json'
+    }
 });
 
 const config: NextConfig = {
@@ -16,9 +16,9 @@ const config: NextConfig = {
                 protocol: 'https',
                 hostname: '*',
                 port: '',
-                pathname: '/**',
-            },
-        ],
+                pathname: '/**'
+            }
+        ]
     },
     async headers() {
         return [
@@ -27,37 +27,37 @@ const config: NextConfig = {
                 headers: [
                     {
                         key: 'X-Content-Type-Options',
-                        value: 'nosniff',
+                        value: 'nosniff'
                     },
                     {
                         key: 'X-Frame-Options',
-                        value: 'DENY',
+                        value: 'DENY'
                     },
                     {
                         key: 'Referrer-Policy',
-                        value: 'strict-origin-when-cross-origin',
-                    },
-                ],
+                        value: 'strict-origin-when-cross-origin'
+                    }
+                ]
             },
             {
                 source: '/sw.js',
                 headers: [
                     {
                         key: 'Content-Type',
-                        value: 'application/javascript; charset=utf-8',
+                        value: 'application/javascript; charset=utf-8'
                     },
                     {
                         key: 'Cache-Control',
-                        value: 'no-cache, no-store, must-revalidate',
+                        value: 'no-cache, no-store, must-revalidate'
                     },
                     {
                         key: 'Content-Security-Policy',
-                        value: "default-src 'self'; script-src 'self'",
-                    },
-                ],
-            },
+                        value: "default-src 'self'; script-src 'self'"
+                    }
+                ]
+            }
         ];
-    },
+    }
 };
 
 export default withNextIntl(config);

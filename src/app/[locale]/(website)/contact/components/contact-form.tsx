@@ -17,7 +17,7 @@ import {
     FormLabel,
     FormMessage,
     Input,
-    Textarea,
+    Textarea
 } from '@/components/ui';
 import { contactFormSchema, type ContactFormData, cn } from '@/lib';
 import { Link } from '@/lib/i18n/navigation';
@@ -26,26 +26,27 @@ type FormStatus = 'idle' | 'success' | 'error';
 
 export const ContactForm = () => {
     const t = useTranslations();
+    const simpleT = (key: string) => t(key as any);
     const [isPending, startTransition] = useTransition();
     const [formStatus, setFormStatus] = useState<FormStatus>('idle');
 
     const form = useForm<ContactFormData>({
-        resolver: zodResolver(contactFormSchema(t as any)),
+        resolver: zodResolver(contactFormSchema(simpleT)),
         defaultValues: {
             name: '',
             email: '',
             message: '',
-            turnstileToken: '',
+            turnstileToken: ''
         },
-        mode: 'onBlur',
+        mode: 'onBlur'
     });
 
     const {
-        formState: { isSubmitting, errors, isValid, touchedFields },
+        formState: { isSubmitting, errors, isValid, touchedFields }
     } = form;
 
-    const handleFormSubmit: SubmitHandler<ContactFormData> = async (data) => {
-        startTransition(async () => {
+    const handleFormSubmit: SubmitHandler<ContactFormData> = (data) => {
+        startTransition(() => {
             try {
                 setFormStatus('idle');
 
@@ -55,7 +56,7 @@ export const ContactForm = () => {
                 setFormStatus('success');
                 toast.success(t('contact.message_sent'), {
                     icon: <CheckCircle className="h-4 w-4" />,
-                    description: t('contact.message_sent_description'),
+                    description: t('contact.message_sent_description')
                 });
 
                 form.reset();
@@ -64,7 +65,7 @@ export const ContactForm = () => {
                 console.error(error);
                 setFormStatus('error');
                 toast.error(t('app.errors.general'), {
-                    icon: <AlertCircle className="h-4 w-4" />,
+                    icon: <AlertCircle className="h-4 w-4" />
                 });
             }
         });
@@ -221,7 +222,7 @@ export const ContactForm = () => {
                                     >
                                         {children}
                                     </Link>
-                                ),
+                                )
                             })}
                         </p>
                     </div>

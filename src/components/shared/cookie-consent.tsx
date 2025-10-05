@@ -14,7 +14,7 @@ import {
     SheetDescription,
     SheetHeader,
     SheetTitle,
-    SheetTrigger,
+    SheetTrigger
 } from '@/components/ui';
 import { Cookie, Settings, Shield, BarChart3, Target } from 'lucide-react';
 import type { GtagConsentParams } from '@/types/gtag';
@@ -37,7 +37,7 @@ export function CookieConsent() {
         necessary: true, // Always required
         analytics: false,
         marketing: false,
-        functional: false,
+        functional: false
     });
 
     useEffect(() => {
@@ -91,7 +91,7 @@ export function CookieConsent() {
     const enableAnalytics = () => {
         if (typeof window !== 'undefined' && window.gtag) {
             const consentParams: GtagConsentParams = {
-                analytics_storage: 'granted',
+                analytics_storage: 'granted'
             };
             window.gtag('consent', 'update', consentParams);
         }
@@ -100,7 +100,7 @@ export function CookieConsent() {
     const disableAnalytics = () => {
         if (typeof window !== 'undefined' && window.gtag) {
             window.gtag('consent', 'update', {
-                analytics_storage: 'denied',
+                analytics_storage: 'denied'
             });
         }
     };
@@ -110,7 +110,7 @@ export function CookieConsent() {
             const consentParams: GtagConsentParams = {
                 ad_storage: 'granted',
                 ad_user_data: 'granted',
-                ad_personalization: 'granted',
+                ad_personalization: 'granted'
             };
             window.gtag('consent', 'update', consentParams);
         }
@@ -121,7 +121,7 @@ export function CookieConsent() {
             window.gtag('consent', 'update', {
                 ad_storage: 'denied',
                 ad_user_data: 'denied',
-                ad_personalization: 'denied',
+                ad_personalization: 'denied'
             });
         }
     };
@@ -139,7 +139,7 @@ export function CookieConsent() {
             necessary: true,
             analytics: true,
             marketing: true,
-            functional: true,
+            functional: true
         };
         saveCookiePreferences(allAccepted);
     };
@@ -149,7 +149,7 @@ export function CookieConsent() {
             necessary: true,
             analytics: false,
             marketing: false,
-            functional: false,
+            functional: false
         };
         saveCookiePreferences(necessaryOnly);
     };
@@ -242,7 +242,7 @@ export function CookieConsent() {
                                                         onCheckedChange={(checked) =>
                                                             setPreferences((prev) => ({
                                                                 ...prev,
-                                                                analytics: !!checked,
+                                                                analytics: !!checked
                                                             }))
                                                         }
                                                     />
@@ -268,7 +268,7 @@ export function CookieConsent() {
                                                         onCheckedChange={(checked) =>
                                                             setPreferences((prev) => ({
                                                                 ...prev,
-                                                                marketing: !!checked,
+                                                                marketing: !!checked
                                                             }))
                                                         }
                                                     />
@@ -294,7 +294,7 @@ export function CookieConsent() {
                                                         onCheckedChange={(checked) =>
                                                             setPreferences((prev) => ({
                                                                 ...prev,
-                                                                functional: !!checked,
+                                                                functional: !!checked
                                                             }))
                                                         }
                                                     />

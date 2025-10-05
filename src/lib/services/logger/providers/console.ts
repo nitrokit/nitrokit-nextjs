@@ -46,7 +46,7 @@ export class ConsoleProvider implements LoggerProvider {
             console.error('Error Details:', {
                 name: error.name,
                 message: error.message,
-                stack: error.stack,
+                stack: error.stack
             });
         }
 
@@ -78,7 +78,7 @@ export class ConsoleProvider implements LoggerProvider {
                 email: userInfo.email,
                 name: userInfo.name,
                 role: userInfo.role,
-                lastLoginAt: userInfo.lastLoginAt,
+                lastLoginAt: userInfo.lastLoginAt
             });
         }
     }

@@ -9,7 +9,7 @@ const logos = [
         alt: 'Next.js',
         width: 150,
         height: 30,
-        href: 'https://nextjs.org/',
+        href: 'https://nextjs.org/'
     },
     {
         darkSrc: '/images/brands/typescript.svg',
@@ -17,7 +17,7 @@ const logos = [
         alt: 'Typescript',
         width: 36,
         height: 36,
-        href: 'https://www.typescriptlang.org/',
+        href: 'https://www.typescriptlang.org/'
     },
     {
         darkSrc: '/images/brands/tailwindcss.svg',
@@ -25,7 +25,7 @@ const logos = [
         alt: 'Tailwind CSS',
         width: 50,
         height: 30,
-        href: 'https://tailwindcss.com/',
+        href: 'https://tailwindcss.com/'
     },
     {
         darkSrc: '/images/brands/prisma-white.svg',
@@ -33,7 +33,7 @@ const logos = [
         alt: 'Prisma',
         width: 100,
         height: 30,
-        href: 'https://www.prisma.io/',
+        href: 'https://www.prisma.io/'
     },
     {
         darkSrc: '/images/brands/radix-white.svg',
@@ -41,7 +41,7 @@ const logos = [
         alt: 'Radix-UI',
         width: 95,
         height: 30,
-        href: 'https://www.radix-ui.com/',
+        href: 'https://www.radix-ui.com/'
     },
     {
         darkSrc: '/images/brands/next-intl-white.svg',
@@ -49,7 +49,7 @@ const logos = [
         alt: 'Next-Intl',
         width: 130,
         height: 30,
-        href: 'https://next-intl.dev/',
+        href: 'https://next-intl.dev/'
     },
     {
         darkSrc: '/images/brands/react-white.svg',
@@ -57,7 +57,7 @@ const logos = [
         alt: 'React',
         width: 33,
         height: 30,
-        href: 'https://react.dev/',
+        href: 'https://react.dev/'
     },
     {
         darkSrc: '/images/brands/authjs.svg',
@@ -65,7 +65,7 @@ const logos = [
         alt: 'Auth.js',
         width: 27,
         height: 30,
-        href: 'https://authjs.dev/',
+        href: 'https://authjs.dev/'
     },
     {
         darkSrc: '/images/brands/resend-white.svg',
@@ -73,7 +73,7 @@ const logos = [
         alt: 'Resend',
         width: 30,
         height: 30,
-        href: 'https://resend.com/',
+        href: 'https://resend.com/'
     },
     {
         darkSrc: '/images/brands/lucide-white.svg',
@@ -81,7 +81,7 @@ const logos = [
         alt: 'Lucide-react',
         width: 30,
         height: 30,
-        href: 'https://lucide.dev/',
+        href: 'https://lucide.dev/'
     },
     {
         darkSrc: '/images/brands/zod.svg',
@@ -89,8 +89,8 @@ const logos = [
         alt: 'Zod',
         width: 30,
         height: 30,
-        href: 'https://zod.dev/',
-    },
+        href: 'https://zod.dev/'
+    }
 ];
 
 interface LibraryLogosProps {

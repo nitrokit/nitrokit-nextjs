@@ -8,7 +8,7 @@ export const contactFormSchema = (t: (key: string) => string) => {
             .min(1, { message: t('validations.required.email') })
             .email(t('validations.invalid.email')),
         message: z.string().min(1, { message: t('validations.required.message') }),
-        turnstileToken: z.string().min(1, { message: t('validations.required.captcha') }),
+        turnstileToken: z.string().min(1, { message: t('validations.required.captcha') })
     });
 };
 

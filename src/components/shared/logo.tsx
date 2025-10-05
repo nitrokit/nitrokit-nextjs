@@ -5,7 +5,7 @@ import { ThemedImage } from '@/components/shared';
 export function Logo({
     size = 40,
     onlyIcon = false,
-    forceText = false,
+    forceText = false
 }: {
     size?: number;
     onlyIcon?: boolean;

@@ -33,7 +33,7 @@ export const ConfettiBanner = ({
     confettiEnabled = false,
     confettiIntensity = 'medium',
     confettiColors,
-    confettiEmoji,
+    confettiEmoji
 }: ConfettiBannerProps) => {
     const [isHovered, setIsHovered] = useState(false);
 
@@ -42,30 +42,30 @@ export const ConfettiBanner = ({
         enabled: confettiEnabled,
         intensity: confettiIntensity,
         colors: confettiColors,
-        emoji: confettiEmoji,
+        emoji: confettiEmoji
     });
 
     const variantStyles = {
         default: {
             container:
                 'bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200/50 text-blue-900 hover:from-blue-100 hover:to-indigo-100 dark:from-blue-950/50 dark:to-indigo-950/50 dark:border-blue-800/30 dark:text-blue-100',
-            badge: 'bg-blue-600 text-white shadow-lg',
+            badge: 'bg-blue-600 text-white shadow-lg'
         },
         gradient: {
             container:
                 'bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 text-white hover:from-purple-600 hover:via-pink-600 hover:to-red-600',
-            badge: 'bg-white/20 backdrop-blur-sm text-white border border-white/30',
+            badge: 'bg-white/20 backdrop-blur-sm text-white border border-white/30'
         },
         minimal: {
             container:
                 'bg-background/60 backdrop-blur-sm border border-border/50 text-foreground hover:bg-background/80 hover:border-border',
-            badge: 'bg-primary text-primary-foreground',
+            badge: 'bg-primary text-primary-foreground'
         },
         premium: {
             container:
                 'bg-gradient-to-r from-yellow-50 via-amber-50 to-orange-50 border border-yellow-200/50 text-amber-900 hover:from-yellow-100 hover:via-amber-100 hover:to-orange-100 dark:from-yellow-950/20 dark:via-amber-950/20 dark:to-orange-950/20 dark:border-yellow-800/30 dark:text-amber-100',
-            badge: 'bg-gradient-to-r from-yellow-500 to-amber-500 text-white shadow-lg',
-        },
+            badge: 'bg-gradient-to-r from-yellow-500 to-amber-500 text-white shadow-lg'
+        }
     };
 
     const currentVariant = variantStyles[variant];
@@ -136,7 +136,7 @@ export const ConfettiBanner = ({
 export const CelebrationBanner = ({
     href,
     text,
-    className,
+    className
 }: {
     href: string;
     text: string;
@@ -158,7 +158,7 @@ export const CelebrationBanner = ({
 export const LaunchBanner = ({
     href,
     text,
-    className,
+    className
 }: {
     href: string;
     text: string;
@@ -181,7 +181,7 @@ export const LaunchBanner = ({
 export const UpdateBanner = ({
     href,
     text,
-    className,
+    className
 }: {
     href: string;
     text: string;
@@ -203,7 +203,7 @@ export const UpdateBanner = ({
 export const FunBanner = ({
     href,
     text,
-    className,
+    className
 }: {
     href: string;
     text: string;

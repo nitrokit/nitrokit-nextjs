@@ -196,6 +196,6 @@ export const useHoverEffects = (options: HoverEffectsOptions) => {
 
     return {
         containerRef,
-        handleMouseEnter,
+        handleMouseEnter
     };
 };

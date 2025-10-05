@@ -14,7 +14,7 @@ export async function generateSiteMetadata(): Promise<Metadata> {
     const baseUrl = getBaseUrl();
 
     const imageData = {
-        images: [{ url: baseUrl + '/api/og' }],
+        images: [{ url: baseUrl + '/api/og' }]
     };
 
     return {
@@ -25,8 +25,8 @@ export async function generateSiteMetadata(): Promise<Metadata> {
         authors: [
             {
                 name: 'Nitrokit',
-                url: 'https://nitrokit.tr',
-            },
+                url: 'https://nitrokit.tr'
+            }
         ],
         creator: t('author'),
         publisher: t('author'),
@@ -37,41 +37,41 @@ export async function generateSiteMetadata(): Promise<Metadata> {
             startupImage: [
                 {
                     url: `${baseUrl}/images/apple-touch-startup-image.png`,
-                    media: '(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3)',
-                },
-            ],
+                    media: '(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3)'
+                }
+            ]
         },
         title: {
             default: t('title'),
-            template: `%s - ${t('title')}`,
+            template: `%s - ${t('title')}`
         },
         description: t('description'),
         alternates: {
             canonical: baseUrl,
             languages: Object.fromEntries(
                 LOCALES_FOR_METADATA().map((LOCALE) => [LOCALE.code, LOCALE.url])
-            ),
+            )
         },
         icons: {
-            icon: `${baseUrl}/favicon.ico`,
+            icon: `${baseUrl}/favicon.ico`
         },
         twitter: {
             card: 'summary_large_image',
             title: t('title'),
             description: t('description'),
             creator: t('author'),
-            ...imageData,
+            ...imageData
         },
         openGraph: {
             title: t('title'),
             description: t('description'),
             url: baseUrl,
             siteName: t('title'),
-            ...imageData,
+            ...imageData
         },
         verification: {
             google: env.GOOGLE_SITE_VERIFICATION,
-            yandex: env.YANDEX_VERIFICATION,
+            yandex: env.YANDEX_VERIFICATION
         },
         robots: {
             index: true,
@@ -81,9 +81,9 @@ export async function generateSiteMetadata(): Promise<Metadata> {
                 follow: true,
                 'max-video-preview': -1,
                 'max-image-preview': 'large',
-                'max-snippet': -1,
-            },
-        },
+                'max-snippet': -1
+            }
+        }
     };
 }
 
@@ -106,7 +106,7 @@ export type PageMetaDataProps = Promise<{ title: string; description: string }>;
  * const metadata = await generatePageMetadata({ params });
  */
 export async function generatePageMetadata({
-    params,
+    params
 }: {
     params: PageMetaDataProps;
 }): Promise<Metadata> {
@@ -114,10 +114,10 @@ export async function generatePageMetadata({
 
     const baseMetadata = {
         title: title,
-        description: description,
+        description: description
     };
 
     return {
-        ...baseMetadata,
+        ...baseMetadata
     };
 }

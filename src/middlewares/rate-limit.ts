@@ -20,16 +20,16 @@ export async function handleRateLimit(request: NextRequest) {
                     rateLimit: {
                         limit,
                         remaining: 0,
-                        reset: new Date(reset).toISOString(),
-                    },
+                        reset: new Date(reset).toISOString()
+                    }
                 },
                 {
                     status: 429,
                     headers: {
                         'X-RateLimit-Limit': limit.toString(),
                         'X-RateLimit-Remaining': '0',
-                        'X-RateLimit-Reset': new Date(reset).toISOString(),
-                    },
+                        'X-RateLimit-Reset': new Date(reset).toISOString()
+                    }
                 }
             );
         }

@@ -47,7 +47,7 @@ export const useCanvasConfetti = (options: ConfettiOptions) => {
             confetti({
                 ...settings,
                 origin: { x, y },
-                colors: options.colors || ['#3b82f6', '#8b5cf6', '#ef4444', '#10b981', '#f59e0b'],
+                colors: options.colors || ['#3b82f6', '#8b5cf6', '#ef4444', '#10b981', '#f59e0b']
             });
         },
         [options, getIntensitySettings]
@@ -70,7 +70,7 @@ export const useCanvasConfetti = (options: ConfettiOptions) => {
                         ...settings,
                         origin: { x, y },
                         angle: 90 + (i - 1) * 30,
-                        colors: options.colors,
+                        colors: options.colors
                     });
                 }, i * 100);
             }
@@ -107,9 +107,9 @@ export const useCanvasConfetti = (options: ConfettiOptions) => {
                     particleCount,
                     origin: {
                         x: randomInRange(x - 0.1, x + 0.1),
-                        y: randomInRange(y - 0.1, y + 0.1),
+                        y: randomInRange(y - 0.1, y + 0.1)
                     },
-                    colors: options.colors,
+                    colors: options.colors
                 });
             }, 250);
         },
@@ -128,7 +128,7 @@ export const useCanvasConfetti = (options: ConfettiOptions) => {
                 origin: { x, y },
                 shapes: ['star'],
                 colors: options.colors || ['#FFD700', '#FFA500', '#FF6347', '#FF1493', '#9370DB'],
-                scalar: options.intensity === 'high' ? 1.2 : 0.8,
+                scalar: options.intensity === 'high' ? 1.2 : 0.8
             });
         },
         [options]
@@ -147,7 +147,7 @@ export const useCanvasConfetti = (options: ConfettiOptions) => {
                 colors: ['#ffffff', '#e0e7ff', '#dbeafe'],
                 scalar: 0.6,
                 gravity: 0.4,
-                drift: 0.1,
+                drift: 0.1
             });
         },
         [options]
@@ -166,7 +166,7 @@ export const useCanvasConfetti = (options: ConfettiOptions) => {
                 spread: 70,
                 origin: { x, y },
                 shapes: emojis as any,
-                scalar: options.intensity === 'high' ? 1.5 : 1,
+                scalar: options.intensity === 'high' ? 1.5 : 1
             });
         },
         [options]
@@ -181,14 +181,14 @@ export const useCanvasConfetti = (options: ConfettiOptions) => {
                 angle: 60,
                 spread: 55,
                 origin: { x: 0 },
-                colors: options.colors || ['#3b82f6', '#1d4ed8'],
+                colors: options.colors || ['#3b82f6', '#1d4ed8']
             });
             confetti({
                 particleCount: 2,
                 angle: 120,
                 spread: 55,
                 origin: { x: 1 },
-                colors: options.colors || ['#ef4444', '#dc2626'],
+                colors: options.colors || ['#ef4444', '#dc2626']
             });
 
             if (Date.now() < end) {
@@ -212,43 +212,43 @@ export const useCanvasConfetti = (options: ConfettiOptions) => {
                     '#0000ff',
                     '#ffff00',
                     '#ff00ff',
-                    '#00ffff',
-                ],
+                    '#00ffff'
+                ]
             };
 
             function fire(particleRatio: number, opts: any) {
                 confetti({
                     ...defaults,
                     ...opts,
-                    particleCount: Math.floor(count * particleRatio),
+                    particleCount: Math.floor(count * particleRatio)
                 });
             }
 
             fire(0.25, {
                 spread: 26,
-                startVelocity: 55,
+                startVelocity: 55
             });
 
             fire(0.2, {
-                spread: 60,
+                spread: 60
             });
 
             fire(0.35, {
                 spread: 100,
                 decay: 0.91,
-                scalar: 0.8,
+                scalar: 0.8
             });
 
             fire(0.1, {
                 spread: 120,
                 startVelocity: 25,
                 decay: 0.92,
-                scalar: 1.2,
+                scalar: 1.2
             });
 
             fire(0.1, {
                 spread: 120,
-                startVelocity: 45,
+                startVelocity: 45
             });
         },
         [options]
@@ -296,11 +296,11 @@ export const useCanvasConfetti = (options: ConfettiOptions) => {
         triggerSchoolPride,
         triggerRealistic,
         triggerSnow,
-        triggerEmoji,
+        triggerEmoji
     ]);
 
     return {
         containerRef,
-        triggerConfetti: handleTrigger,
+        triggerConfetti: handleTrigger
     };
 };

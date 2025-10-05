@@ -75,7 +75,7 @@ export class ResendProvider implements EmailProvider {
                 to: Array.isArray(data.to) ? data.to.length : 1,
                 subject: data.subject,
                 hasHtml: !!data.html,
-                hasAttachments: !!data.attachments?.length,
+                hasAttachments: !!data.attachments?.length
             });
 
             const { Resend } = await import('resend');
@@ -88,7 +88,7 @@ export class ResendProvider implements EmailProvider {
                 from: this.config.from,
                 to: Array.isArray(data.to) ? data.to : [data.to],
                 subject: data.subject,
-                text: textContent,
+                text: textContent
             };
 
             if (data.html) emailOptions.html = data.html;
@@ -99,7 +99,7 @@ export class ResendProvider implements EmailProvider {
             if (data.attachments?.length) {
                 emailOptions.attachments = data.attachments.map((att) => ({
                     filename: att.filename,
-                    content: att.content,
+                    content: att.content
                 }));
             }
 
@@ -110,7 +110,7 @@ export class ResendProvider implements EmailProvider {
 
                 emailOptions.tags = sanitizedKeys.map((key) => ({
                     name: key,
-                    value: String(data.metadata![key]),
+                    value: String(data.metadata![key])
                 }));
             }
 
@@ -122,22 +122,22 @@ export class ResendProvider implements EmailProvider {
 
             logger.info('Email sent successfully via Resend', {
                 provider: 'resend',
-                messageId: result.data?.id,
+                messageId: result.data?.id
             });
 
             return {
                 success: true,
-                messageId: result.data?.id,
+                messageId: result.data?.id
             };
         } catch (error) {
             logger.error('Resend email failed', error instanceof Error ? error : undefined, {
                 provider: 'resend',
-                to: Array.isArray(data.to) ? data.to.length : 1,
+                to: Array.isArray(data.to) ? data.to.length : 1
             });
 
             return {
                 success: false,
-                error: error instanceof Error ? error.message : 'Unknown error',
+                error: error instanceof Error ? error.message : 'Unknown error'
             };
         }
     }

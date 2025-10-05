@@ -25,7 +25,7 @@ export function GoogleAnalytics({ measurementId }: { measurementId: string }) {
                             wait_for_update: 500,
                         });
                         gtag('config', '${measurementId}');
-                    `,
+                    `
                 }}
             />
         </>

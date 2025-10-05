@@ -9,7 +9,7 @@ export default async function manifest(): Promise<MetadataRoute.Manifest> {
     const direction = getLangDir(locale);
     const t = await getTranslations({ locale, namespace: 'app' });
 
-    const manifest = {
+    const manifest: MetadataRoute.Manifest = {
         id: 'nitrokit',
         name: t('name'),
         short_name: t('shortName'),
@@ -26,47 +26,47 @@ export default async function manifest(): Promise<MetadataRoute.Manifest> {
             {
                 src: `${baseUrl}/images/favicon/android-chrome-192x192.png`,
                 sizes: '192x192',
-                type: 'image/png',
+                type: 'image/png'
             },
             {
                 src: `${baseUrl}/images/favicon/android-chrome-512x512.png`,
                 sizes: '512x512',
-                type: 'image/png',
-            },
+                type: 'image/png'
+            }
         ],
         screenshots: [
             {
                 form_factor: 'wide',
                 src: `${baseUrl}/screenshots/screenshot-1.png`,
                 label: 'Home',
-                sizes: '1920x871',
+                sizes: '1920x871'
             },
             {
                 form_factor: 'wide',
                 src: `${baseUrl}/screenshots/screenshot-2.png`,
                 label: 'About',
-                sizes: '1920x871',
+                sizes: '1920x871'
             },
             {
                 form_factor: 'wide',
                 src: `${baseUrl}/screenshots/screenshot-3.png`,
                 label: 'Pricing',
-                sizes: '1920x871',
+                sizes: '1920x871'
             },
             {
                 form_factor: 'wide',
                 src: `${baseUrl}/screenshots/screenshot-4.png`,
                 label: 'Contact',
-                sizes: '1920x871',
+                sizes: '1920x871'
             },
             {
                 form_factor: 'wide',
                 src: `${baseUrl}/screenshots/screenshot-5.png`,
                 label: 'Login',
-                sizes: '1920x871',
-            },
+                sizes: '1920x871'
+            }
         ],
-        gcm_sender_id: '103953800507',
+        gcm_sender_id: '103953800507'
     };
-    return manifest as any;
+    return manifest;
 }

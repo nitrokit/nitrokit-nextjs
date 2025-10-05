@@ -11,9 +11,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         const normalizedRoute = `${route.replace(/^(?:\/)|(?:\/)$/g, '')}`;
         return {
             url: new URL(normalizedRoute.replace(/^\/|\/$/g, ''), baseUrl).toString(),
-            lastModified: lastModified,
+            lastModified: lastModified
         };
     });
+
+    //ToDo:
+    await Promise.all(staticRoutes.map(async () => {}));
 
     return [...staticRoutes];
 }

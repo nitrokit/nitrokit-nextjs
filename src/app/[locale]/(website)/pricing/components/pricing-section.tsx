@@ -25,7 +25,7 @@ export default function PricingSection({ plans }: PricingProps) {
                             {t.rich('annual-payment', {
                                 span: (children) => (
                                     <span className="font-bold text-fuchsia-700">{children}</span>
-                                ),
+                                )
                             })}
                         </p>
                     )}
@@ -66,7 +66,7 @@ export default function PricingSection({ plans }: PricingProps) {
                                         {format.number(price, {
                                             style: 'currency',
                                             currency: DEFAULT_CURRENCY,
-                                            maximumFractionDigits: 0,
+                                            maximumFractionDigits: 0
                                         })}
                                     </span>
                                     <span className="text-base font-medium text-gray-500">

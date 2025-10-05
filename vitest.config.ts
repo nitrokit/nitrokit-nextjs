@@ -36,25 +36,25 @@ export default defineConfig({
                 'stories/**',
                 '**/*.stories.{ts,tsx}',
                 'src/generated/**',
-                '**/prisma/**',
-            ],
+                '**/prisma/**'
+            ]
         },
         onConsoleLog(log) {
             if (log.includes('Failed to load source map')) {
                 return false;
             }
             return true;
-        },
+        }
     },
     define: {
-        'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'test'),
+        'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'test')
     },
     build: {
-        sourcemap: false, // Test için source map kapalı
+        sourcemap: false // Test için source map kapalı
     },
     resolve: {
         alias: {
-            '@': path.resolve(__dirname, './src'),
-        },
-    },
+            '@': path.resolve(__dirname, './src')
+        }
+    }
 });

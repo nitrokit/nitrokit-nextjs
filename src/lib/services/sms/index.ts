@@ -17,7 +17,7 @@ export function getSMSService(): SMSService {
                 config.aws = {
                     accessKeyId: process.env.AWS_SNS_ACCESS_KEY_ID!,
                     secretAccessKey: process.env.AWS_SNS_SECRET_ACCESS_KEY!,
-                    region: process.env.AWS_SNS_REGION || 'us-east-1',
+                    region: process.env.AWS_SNS_REGION || 'us-east-1'
                 };
                 break;
 
@@ -25,7 +25,7 @@ export function getSMSService(): SMSService {
                 config.twilio = {
                     accountSid: process.env.TWILIO_ACCOUNT_SID!,
                     authToken: process.env.TWILIO_AUTH_TOKEN!,
-                    phoneNumber: process.env.TWILIO_PHONE_NUMBER!,
+                    phoneNumber: process.env.TWILIO_PHONE_NUMBER!
                 };
                 break;
 

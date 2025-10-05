@@ -1,77 +1,61 @@
-import { dirname } from 'path';
-import { fileURLToPath } from 'url';
-import { FlatCompat } from '@eslint/eslintrc';
-import eslintPluginPrettier from 'eslint-plugin-prettier';
-import eslintPluginTypescript from '@typescript-eslint/eslint-plugin';
-import eslintParserTypescript from '@typescript-eslint/parser';
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
-
-const compat = new FlatCompat({
-    baseDirectory: __dirname,
-});
+import nextPlugin from '@next/eslint-plugin-next';
+import reactHooksPlugin from 'eslint-plugin-react-hooks';
+import tsPlugin from '@typescript-eslint/eslint-plugin';
+import tsParser from '@typescript-eslint/parser';
+import prettierPlugin from 'eslint-plugin-prettier';
+import prettierConfig from 'eslint-config-prettier';
 
 const eslintConfig = [
-    {
-        ignores: ['node_modules/**', '.next/**', 'out/**', 'build/**', 'next-env.d.ts'],
-    },
     {
         ignores: [
             'node_modules/**',
             '.next/**',
+            'out/**',
+            'build/**',
             'coverage/**',
             'dist/**',
-            'build/**',
+            'playwright-report/',
             'stories/**',
             'src/generated/**',
             '**/*.stories.{ts,tsx}',
-            'messages/**',
             '**/*.json',
         ],
     },
-    ...compat.extends('next/core-web-vitals'),
     {
-        files: ['**/*.{ts,tsx}'],
+        files: ['src/**/*.{js,mjs,cjs,ts,jsx,tsx}'],
         languageOptions: {
-            parser: eslintParserTypescript,
+            parser: tsParser,
             parserOptions: {
-                ecmaVersion: 'latest',
-                sourceType: 'module',
-                ecmaFeatures: {
-                    jsx: true,
-                },
+                project: true,
             },
         },
         plugins: {
-            '@typescript-eslint': eslintPluginTypescript,
-            prettier: eslintPluginPrettier,
+            '@typescript-eslint': tsPlugin,
+            '@next/next': nextPlugin,
+            'react-hooks': reactHooksPlugin,
+            prettier: prettierPlugin,
         },
         rules: {
+            ...tsPlugin.configs['recommended-type-checked'].rules,
+            ...nextPlugin.configs.recommended.rules,
+            ...nextPlugin.configs['core-web-vitals'].rules,
             quotes: ['error', 'single', { avoidEscape: true }],
             semi: ['error', 'always'],
-            '@typescript-eslint/interface-name-prefix': 'off',
-            '@typescript-eslint/explicit-function-return-type': 'off',
             '@typescript-eslint/no-explicit-any': 'off',
             '@typescript-eslint/ban-ts-comment': 'off',
-            'no-unused-vars': 'off',
             '@typescript-eslint/no-unused-vars': [
                 'error',
-                {
-                    argsIgnorePattern: '^_',
-                    varsIgnorePattern: '^_',
-                },
+                { argsIgnorePattern: '^_', varsIgnorePattern: '^_' },
             ],
             '@typescript-eslint/no-misused-promises': process.env.CI ? 'error' : 'off',
             'prefer-const': 'error',
-            'react-hooks/exhaustive-deps': 'error',
             'prettier/prettier': [
                 'error',
                 {
                     singleQuote: true,
                     semi: true,
                     tabWidth: 4,
-                    trailingComma: 'es5',
+                    trailingComma: 'none',
                     printWidth: 100,
                     bracketSpacing: true,
                     arrowParens: 'always',
@@ -87,6 +71,7 @@ const eslintConfig = [
             'prettier/prettier': 'off',
         },
     },
+    prettierConfig,
 ];
 
 export default eslintConfig;

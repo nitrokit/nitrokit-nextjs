@@ -33,7 +33,7 @@ function Calendar({
             captionLayout={captionLayout}
             formatters={{
                 formatMonthDropdown: (date) => date.toLocaleString('default', { month: 'short' }),
-                ...formatters,
+                ...formatters
             }}
             classNames={{
                 root: cn('w-fit', defaultClassNames.root),
@@ -105,7 +105,7 @@ function Calendar({
                 ),
                 disabled: cn('text-muted-foreground opacity-50', defaultClassNames.disabled),
                 hidden: cn('invisible', defaultClassNames.hidden),
-                ...classNames,
+                ...classNames
             }}
             components={{
                 Root: ({ className, rootRef, ...props }) => {
@@ -139,7 +139,7 @@ function Calendar({
                         </td>
                     );
                 },
-                ...components,
+                ...components
             }}
             {...props}
         />

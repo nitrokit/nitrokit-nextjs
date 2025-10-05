@@ -165,7 +165,7 @@ describe('Error Handler Utils', () => {
             const complexError = {
                 message: 'Complex error message',
                 code: 'ERR_001',
-                details: { field: 'validation error' },
+                details: { field: 'validation error' }
             };
             const result = getErrorMessage(complexError);
 
@@ -256,9 +256,9 @@ describe('Error Handler Utils', () => {
         it('should handle nested error objects', () => {
             const nestedError = {
                 error: {
-                    message: 'Nested error message',
+                    message: 'Nested error message'
                 },
-                message: 'Top level message',
+                message: 'Top level message'
             };
 
             expect(getErrorMessage(nestedError)).toBe('Top level message');
@@ -358,7 +358,7 @@ describe('Error Handler Utils', () => {
                 42,
                 true,
                 [],
-                {},
+                {}
             ];
 
             inputs.forEach((input) => {

@@ -6,7 +6,7 @@ export enum PricingPlanId {
     FREELANCER = 'freelancer',
     STARTUP = 'startup',
     PRO = 'pro',
-    ENTERPRISE = 'enterprise',
+    ENTERPRISE = 'enterprise'
 }
 
 export interface PricingPlan {

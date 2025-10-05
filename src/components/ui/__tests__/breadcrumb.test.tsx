@@ -5,7 +5,7 @@ import {
     BreadcrumbItem,
     BreadcrumbLink,
     BreadcrumbPage,
-    BreadcrumbSeparator,
+    BreadcrumbSeparator
 } from '../breadcrumb';
 
 describe('Breadcrumb', () => {

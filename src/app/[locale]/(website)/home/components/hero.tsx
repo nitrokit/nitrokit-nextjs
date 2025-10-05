@@ -16,14 +16,14 @@ export function Hero() {
 
     const titles = {
         title1: t.rich('hero.titles.title1', { br: () => <br /> }),
-        title2: t.rich('hero.titles.title2', { br: () => <br /> }),
+        title2: t.rich('hero.titles.title2', { br: () => <br /> })
     };
 
     const descriptions = {
         description1: t.rich('hero.description.description1', { br: () => <br /> }),
         description2: t.rich('hero.description.description2', { br: () => <br /> }),
         description3: t.rich('hero.description.description3', { br: () => <br /> }),
-        description4: t.rich('hero.description.description4', { br: () => <br /> }),
+        description4: t.rich('hero.description.description4', { br: () => <br /> })
     };
 
     const titleArray = Object.values(titles);

@@ -5,7 +5,7 @@ export const NewsletterFormSchema = (t: (key: string) => string) => {
         email: z
             .string()
             .min(1, { message: t('validation.required.email') })
-            .email(t('validation.invalid.email')),
+            .email(t('validation.invalid.email'))
     });
 };
 

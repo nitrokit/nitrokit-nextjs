@@ -14,28 +14,28 @@ const contactDetails = [
             const url = 'https://www.google.com/maps/search/?api=1&query=41.1064,29.0236';
             window.open(url, '_blank');
         },
-        actionLabel: 'get_directions',
+        actionLabel: 'get_directions'
     },
     {
         icon: Phone,
         label: 'phone',
         value: '+90 216 123 4567',
         action: () => window.open('tel:+902161234567'),
-        actionLabel: 'call_now',
+        actionLabel: 'call_now'
     },
     {
         icon: Mail,
         label: 'email',
         value: 'hello@nitrokit.tr',
         action: () => window.open('mailto:hello@nitrokit.tr'),
-        actionLabel: 'send_email',
+        actionLabel: 'send_email'
     },
     {
         icon: Clock,
         label: 'business_hours',
         value: 'Monday - Friday',
-        subValue: '9:00 AM - 6:00 PM (GMT+3)',
-    },
+        subValue: '9:00 AM - 6:00 PM (GMT+3)'
+    }
 ];
 
 export const ContactInfo = () => {

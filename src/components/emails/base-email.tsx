@@ -36,7 +36,7 @@ export function BaseEmail({ preview, headerTitle, headerGradient, children }: Ba
 const main = {
     backgroundColor: '#f6f9fc',
     fontFamily:
-        '-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Ubuntu,sans-serif',
+        '-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Ubuntu,sans-serif'
 };
 
 const container = {
@@ -44,28 +44,28 @@ const container = {
     margin: '0 auto',
     padding: '20px 0 48px',
     marginBottom: '64px',
-    maxWidth: '600px',
+    maxWidth: '600px'
 };
 
 const header = {
     padding: '30px',
     textAlign: 'center' as const,
-    borderRadius: '10px 10px 0 0',
+    borderRadius: '10px 10px 0 0'
 };
 
 const logo = {
-    margin: '0 auto',
+    margin: '0 auto'
 };
 
 const headerText = {
     color: '#ffffff',
     fontSize: '28px',
     fontWeight: 'bold',
-    margin: '10px 0 0 0',
+    margin: '10px 0 0 0'
 };
 
 const content = {
-    padding: '30px',
+    padding: '30px'
 };
 
 export const emailStyles = {
@@ -73,17 +73,17 @@ export const emailStyles = {
         fontSize: '24px',
         fontWeight: 'bold',
         color: '#333333',
-        margin: '0 0 20px 0',
+        margin: '0 0 20px 0'
     },
     paragraph: {
         fontSize: '16px',
         lineHeight: '26px',
         color: '#555555',
-        margin: '0 0 20px 0',
+        margin: '0 0 20px 0'
     },
     buttonContainer: {
         textAlign: 'center' as const,
-        margin: '30px 0',
+        margin: '30px 0'
     },
     button: {
         borderRadius: '5px',
@@ -93,12 +93,12 @@ export const emailStyles = {
         textDecoration: 'none',
         textAlign: 'center' as const,
         display: 'inline-block',
-        padding: '15px 30px',
+        padding: '15px 30px'
     },
     linkText: {
         fontSize: '14px',
         color: '#666666',
-        margin: '20px 0 0 0',
+        margin: '20px 0 0 0'
     },
     link: {
         backgroundColor: '#e9ecef',
@@ -107,16 +107,16 @@ export const emailStyles = {
         fontSize: '14px',
         color: '#333333',
         wordBreak: 'break-all' as const,
-        fontFamily: 'monospace',
+        fontFamily: 'monospace'
     },
     hr: {
         borderColor: '#dee2e6',
-        margin: '30px 0 20px 0',
+        margin: '30px 0 20px 0'
     },
     footer: {
         fontSize: '12px',
         color: '#6c757d',
         margin: '0',
-        lineHeight: '18px',
-    },
+        lineHeight: '18px'
+    }
 };

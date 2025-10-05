@@ -49,18 +49,18 @@ export async function GET(req: Request) {
         if (subscriber.verified) {
             return NextResponse.json({
                 success: true,
-                message: translate('app.newsletter.alreadySubscribed'),
+                message: translate('app.newsletter.alreadySubscribed')
             });
         }
 
         await prisma.newsletterSubscriber.update({
             where: { id: subscriber.id },
-            data: { verified: true, verifiedAt: new Date(), token: null },
+            data: { verified: true, verifiedAt: new Date(), token: null }
         });
 
         return NextResponse.json({
             success: true,
-            message: translate('app.newsletter.confirmSuccess'),
+            message: translate('app.newsletter.confirmSuccess')
         });
     } catch {
         return NextResponse.json(

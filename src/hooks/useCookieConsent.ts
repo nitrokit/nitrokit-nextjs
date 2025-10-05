@@ -29,7 +29,7 @@ function isBot(): boolean {
         'showyoubot',
         'outbrain',
         'pinterest',
-        'developers.google.com/+/web/snippet',
+        'developers.google.com/+/web/snippet'
     ];
 
     return botPatterns.some((pattern) => userAgent.includes(pattern));
@@ -80,6 +80,6 @@ export function useCookieConsent() {
         isBotDetected,
         canUseAnalytics: isBotDetected || (hasConsent && preferences?.analytics),
         canUseMarketing: isBotDetected || (hasConsent && preferences?.marketing),
-        canUseFunctional: isBotDetected || (hasConsent && preferences?.functional),
+        canUseFunctional: isBotDetected || (hasConsent && preferences?.functional)
     };
 }

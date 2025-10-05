@@ -51,7 +51,7 @@ class Logger {
             ...this.context,
             ip,
             userAgent,
-            requestId,
+            requestId
         };
     }
 
@@ -70,7 +70,7 @@ class Logger {
     private enrichMetadata(metadata?: LogMetadata): LogMetadata {
         const enriched: LogMetadata = {
             ...metadata,
-            timestamp: new Date().toISOString(),
+            timestamp: new Date().toISOString()
         };
 
         // Add context data
@@ -89,7 +89,7 @@ class Logger {
             info: 1,
             warn: 2,
             error: 3,
-            critical: 4,
+            critical: 4
         };
         return levels[level] >= levels[this.level];
     }
@@ -172,7 +172,7 @@ class Logger {
         this.logUserAction('session_create', sessionId, {
             deviceType: deviceInfo.deviceType,
             browser: deviceInfo.browser,
-            os: deviceInfo.os,
+            os: deviceInfo.os
         });
     }
 
@@ -183,7 +183,7 @@ class Logger {
         }
 
         this.logUserAction('session_terminate', sessionId, {
-            terminatedBy,
+            terminatedBy
         });
     }
 
@@ -195,7 +195,7 @@ class Logger {
 
         this.warn(`Security Event: ${event}`, {
             event,
-            ...details,
+            ...details
         });
     }
 
@@ -220,7 +220,7 @@ class Logger {
         this.info(`API Call: ${method} ${endpoint}`, {
             endpoint,
             method,
-            statusCode,
+            statusCode
         });
     }
 }
