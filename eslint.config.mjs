@@ -62,6 +62,7 @@ const eslintConfig = [
                 'error',
                 { argsIgnorePattern: '^_', varsIgnorePattern: '^_' }
             ],
+            '@typescript-eslint/require-await': 'error',
             '@typescript-eslint/no-misused-promises': process.env.CI ? 'error' : 'off',
             'prefer-const': 'error',
             'prettier/prettier': [
