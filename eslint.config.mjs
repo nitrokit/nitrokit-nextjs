@@ -5,7 +5,23 @@ import tsParser from '@typescript-eslint/parser';
 import prettierPlugin from 'eslint-plugin-prettier';
 import prettierConfig from 'eslint-config-prettier';
 
+const flattenNextRules = (config) => {
+    return {
+        rules: config.rules || {}
+    };
+};
+
 const eslintConfig = [
+    {
+        plugins: {
+            '@next/next': nextPlugin
+        },
+        rules: {
+            ...flattenNextRules(nextPlugin.configs.recommended).rules,
+            ...flattenNextRules(nextPlugin.configs['core-web-vitals']).rules
+        }
+    },
+
     {
         ignores: [
             'node_modules/**',
@@ -19,6 +35,7 @@ const eslintConfig = [
             'src/generated/**',
             '**/*.stories.{ts,tsx}',
             '**/*.json',
+            '.vercel',
             '**/__tests__/**'
         ]
     },
@@ -32,14 +49,11 @@ const eslintConfig = [
         },
         plugins: {
             '@typescript-eslint': tsPlugin,
-            '@next/next': nextPlugin,
             'react-hooks': reactHooksPlugin,
             prettier: prettierPlugin
         },
         rules: {
             ...tsPlugin.configs['recommended-type-checked'].rules,
-            ...nextPlugin.configs.recommended.rules,
-            ...nextPlugin.configs['core-web-vitals'].rules,
             quotes: ['error', 'single', { avoidEscape: true }],
             semi: ['error', 'always'],
             '@typescript-eslint/no-explicit-any': 'off',
