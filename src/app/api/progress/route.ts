@@ -23,7 +23,7 @@ export async function GET() {
 
         // Organization project - URL'den: https://github.com/orgs/nitrokit/projects/1
         const orgName = 'nitrokit';
-        const projectNumber = 1;
+        const projectNumber = 3;
 
         // GraphQL query to get project data
         const graphqlQuery = {
