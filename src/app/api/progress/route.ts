@@ -4,7 +4,7 @@ export async function GET() {
     console.log('=== Progress API Called ===');
     try {
         // GitHub API token (Projects API için gerekli)
-        const token = process.env.GITHUB_TOKEN;
+        const token = process.env.GH_ACCESS_TOKEN;
         console.log('GitHub token exists:', !!token);
 
         if (!token) {
