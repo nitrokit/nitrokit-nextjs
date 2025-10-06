@@ -52,7 +52,7 @@ export const smsRateLimit = redis
     : null;
 
 export const fallbackRateLimit = {
-    limit: async (key: string) => {
+    limit: (key: string) => {
         console.log(key);
         return {
             success: true,

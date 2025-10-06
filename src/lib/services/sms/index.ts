@@ -1,6 +1,7 @@
 import { SMSService } from './sms-service';
 import { SMSProviderType, SMSProviderConfig } from './providers';
 import { logger } from '@/lib/services/logger';
+import { unsupportedServiceError } from '@/lib';
 
 let smsService: SMSService;
 
@@ -30,7 +31,7 @@ export function getSMSService(): SMSService {
                 break;
 
             default:
-                throw new Error(`Unsupported SMS provider: ${providerType}`);
+                unsupportedServiceError('SMS Provider', providerType);
         }
 
         smsService = new SMSService(providerType, config);

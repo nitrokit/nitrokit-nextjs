@@ -72,7 +72,7 @@ export const ConfettiBanner = ({
 
     return (
         <Link
-            ref={containerRef as any}
+            ref={containerRef as React.RefObject<HTMLAnchorElement>}
             href={href}
             className={cn(
                 'group relative flex flex-row items-center justify-center gap-3 overflow-hidden rounded-full px-3 py-2 text-sm font-medium shadow-sm transition-all duration-300 ease-out',

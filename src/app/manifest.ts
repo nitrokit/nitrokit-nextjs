@@ -2,6 +2,7 @@ import { getLocale, getTranslations } from 'next-intl/server';
 import { getLangDir } from 'rtl-detect';
 import { getBaseUrl } from '@/lib';
 import type { MetadataRoute } from 'next';
+import 'next/dist/lib/metadata/types/manifest-types';
 
 export default async function manifest(): Promise<MetadataRoute.Manifest> {
     const baseUrl = getBaseUrl();
@@ -65,8 +66,8 @@ export default async function manifest(): Promise<MetadataRoute.Manifest> {
                 label: 'Login',
                 sizes: '1920x871'
             }
-        ],
-        gcm_sender_id: '103953800507'
+        ]
+        // gcm_sender_id: '103953800507'
     };
     return manifest;
 }

@@ -8,11 +8,13 @@ import {
 import { CheckCircle2, XCircle } from 'lucide-react';
 import React from 'react';
 import { useTranslations } from 'next-intl';
-import { useNewsletterConfirmDialog } from '@/hooks';
+import { useNewsletterConfirmDialog } from '@/hooks/useNewsletterConfirmDialog';
 
 export function NewsletterConfirmDialog() {
-    const { newsletterDialogOpen, onOpenChange, status, message } = useNewsletterConfirmDialog();
     const t = useTranslations();
+    const simpleT = (key: string) => t(key as any);
+    const { newsletterDialogOpen, onOpenChange, status, message } =
+        useNewsletterConfirmDialog(simpleT);
 
     return (
         <Dialog open={newsletterDialogOpen} onOpenChange={onOpenChange}>

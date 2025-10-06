@@ -18,27 +18,23 @@ import {
 } from '@/components/ui';
 import { Cookie, Settings, Shield, BarChart3, Target } from 'lucide-react';
 import type { GtagConsentParams } from '@/types/gtag';
-
-interface CookiePreferences {
-    necessary: boolean;
-    analytics: boolean;
-    marketing: boolean;
-    functional: boolean;
-}
+import { CookiePreferences, CookiePreferencesSchema } from '@/lib/validations/preferences';
 
 const COOKIE_CONSENT_KEY = 'nitrokit-cookie-consent';
 const COOKIE_PREFERENCES_KEY = 'nitrokit-cookie-preferences';
+
+const defaultPreferences: CookiePreferences = {
+    necessary: true,
+    analytics: false,
+    marketing: false,
+    functional: false
+};
 
 export function CookieConsent() {
     const t = useTranslations('app');
     const [isVisible, setIsVisible] = useState(false);
     const [showSettings, setShowSettings] = useState(false);
-    const [preferences, setPreferences] = useState<CookiePreferences>({
-        necessary: true, // Always required
-        analytics: false,
-        marketing: false,
-        functional: false
-    });
+    const [preferences, setPreferences] = useState<CookiePreferences>(defaultPreferences);
 
     useEffect(() => {
         const consent = localStorage.getItem(COOKIE_CONSENT_KEY);
@@ -50,7 +46,21 @@ export function CookieConsent() {
         }
 
         if (savedPreferences) {
-            setPreferences(JSON.parse(savedPreferences));
+            try {
+                const result = CookiePreferencesSchema.safeParse(JSON.parse(savedPreferences));
+
+                if (result.success) {
+                    setPreferences(result.data);
+                } else {
+                    console.error(
+                        'Bozuk çerez verisi tespit edildi, varsayılan ayarlar kullanılıyor.'
+                    );
+                    setPreferences(defaultPreferences);
+                }
+            } catch (error) {
+                console.error('Çerez verisi ayrıştırılamadı:', error);
+                setPreferences(defaultPreferences);
+            }
         }
 
         return () => {
@@ -135,7 +145,7 @@ export function CookieConsent() {
     };
 
     const acceptAll = () => {
-        const allAccepted = {
+        const allAccepted: CookiePreferences = {
             necessary: true,
             analytics: true,
             marketing: true,
@@ -145,7 +155,7 @@ export function CookieConsent() {
     };
 
     const acceptNecessary = () => {
-        const necessaryOnly = {
+        const necessaryOnly: CookiePreferences = {
             necessary: true,
             analytics: false,
             marketing: false,

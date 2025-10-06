@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import { hasLocale } from 'next-intl';
 import { getRequestConfig } from 'next-intl/server';
 import { routing } from './routing';

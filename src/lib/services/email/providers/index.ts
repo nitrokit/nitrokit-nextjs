@@ -1,3 +1,4 @@
+import { unsupportedServiceError } from '@/lib';
 import { EmailProvider } from '../types';
 import { ResendProvider, ResendConfig } from './resend';
 
@@ -17,7 +18,7 @@ export function createEmailProvider(
             return new ResendProvider(config.resend);
 
         default:
-            throw new Error(`Unsupported email provider: ${providerType}`);
+            unsupportedServiceError('E-mail Provider', providerType);
     }
 }
 

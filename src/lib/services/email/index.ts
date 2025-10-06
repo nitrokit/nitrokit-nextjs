@@ -1,3 +1,4 @@
+import { unsupportedServiceError } from '@/lib';
 import { EmailService } from './email-service';
 import { EmailProviderType, EmailProviderConfig } from './providers';
 import { logger } from '@/lib/services/logger';
@@ -21,7 +22,7 @@ export function getEmailService(): EmailService {
                 break;
 
             default:
-                throw new Error(`Unsupported email provider: ${providerType}`);
+                unsupportedServiceError('E-mail Provider', providerType);
         }
 
         emailService = new EmailService(providerType, config);

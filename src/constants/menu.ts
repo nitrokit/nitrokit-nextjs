@@ -3,7 +3,6 @@ import {
     Info as IconInfo,
     CreditCard as IconCreditCard,
     MessageCircle as IconMessageCircle,
-    HandPlatter as IconHandPlatter,
     LucideIcon
 } from 'lucide-react';
 
@@ -17,7 +16,6 @@ interface NavLink {
 const NAV_LINKS: readonly NavLink[] = [
     { name: 'app.navigation.home', description: '', path: '/', icon: IconHome },
     { name: 'app.navigation.about', description: '', path: '/about/', icon: IconInfo },
-    { name: 'app.navigation.services', description: '', path: '/services/', icon: IconHandPlatter },
     { name: 'app.navigation.pricing', description: '', path: '/pricing/', icon: IconCreditCard },
     { name: 'app.navigation.contact', description: '', path: '/contact/', icon: IconMessageCircle }
 ] as const;

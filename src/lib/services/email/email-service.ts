@@ -86,9 +86,12 @@ export class EmailService {
                     results.push(result.value);
                     if (result.value.success) successful++;
                 } else {
+                    const errorMessage =
+                        result.reason instanceof Error ? result.reason.message : 'Unknown error';
+
                     results.push({
                         success: false,
-                        error: result.reason?.message || 'Unknown error'
+                        error: errorMessage
                     });
                 }
             });

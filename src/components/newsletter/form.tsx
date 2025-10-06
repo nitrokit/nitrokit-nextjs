@@ -4,8 +4,8 @@ import React, { useState } from 'react';
 import { Button, Input } from '@/components/ui';
 import { Heart, Mail, Send } from 'lucide-react';
 import { useTranslations } from 'next-intl';
-import { useNewsletterSubscription } from '@/hooks';
 import { Link } from '@/lib/i18n/navigation';
+import { useNewsletterSubscription } from '@/hooks/useNewsletterSubscription';
 
 export function CompactNewsletter() {
     const t = useTranslations('app');

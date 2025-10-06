@@ -44,7 +44,7 @@ export const useCanvasConfetti = (options: ConfettiOptions) => {
 
             const settings = getIntensitySettings(options.intensity || 'medium');
 
-            confetti({
+            void confetti({
                 ...settings,
                 origin: { x, y },
                 colors: options.colors || ['#3b82f6', '#8b5cf6', '#ef4444', '#10b981', '#f59e0b']
@@ -61,12 +61,11 @@ export const useCanvasConfetti = (options: ConfettiOptions) => {
 
             const settings = getIntensitySettings(options.intensity || 'medium');
 
-            // Multiple bursts in sequence
             const count = options.intensity === 'high' ? 3 : options.intensity === 'low' ? 1 : 2;
 
             for (let i = 0; i < count; i++) {
                 setTimeout(() => {
-                    confetti({
+                    void confetti({
                         ...settings,
                         origin: { x, y },
                         angle: 90 + (i - 1) * 30,
@@ -84,7 +83,6 @@ export const useCanvasConfetti = (options: ConfettiOptions) => {
             const x = (rect.left + rect.width / 2) / window.innerWidth;
             const y = (rect.top + rect.height / 2) / window.innerHeight;
 
-            // Create firework effect
             const duration = options.intensity === 'high' ? 3000 : 2000;
             const animationEnd = Date.now() + duration;
             const defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 0 };
@@ -102,7 +100,7 @@ export const useCanvasConfetti = (options: ConfettiOptions) => {
 
                 const particleCount = 50 * (timeLeft / duration);
 
-                confetti({
+                void confetti({
                     ...defaults,
                     particleCount,
                     origin: {
@@ -122,7 +120,7 @@ export const useCanvasConfetti = (options: ConfettiOptions) => {
             const x = (rect.left + rect.width / 2) / window.innerWidth;
             const y = (rect.top + rect.height / 2) / window.innerHeight;
 
-            confetti({
+            void confetti({
                 particleCount: options.intensity === 'high' ? 80 : 50,
                 spread: 80,
                 origin: { x, y },
@@ -139,7 +137,7 @@ export const useCanvasConfetti = (options: ConfettiOptions) => {
             const rect = element.getBoundingClientRect();
             const x = (rect.left + rect.width / 2) / window.innerWidth;
 
-            confetti({
+            void confetti({
                 particleCount: options.intensity === 'high' ? 100 : 60,
                 spread: 60,
                 origin: { x, y: 0 },
@@ -159,13 +157,13 @@ export const useCanvasConfetti = (options: ConfettiOptions) => {
             const x = (rect.left + rect.width / 2) / window.innerWidth;
             const y = (rect.top + rect.height / 2) / window.innerHeight;
 
-            const emojis = options.emoji || ['🎉', '✨', '🎊', '🥳', '🎈'];
+            const emojis: string[] = options.emoji || ['🎉', '✨', '🎊', '🥳', '🎈'];
 
-            confetti({
+            void confetti({
                 particleCount: options.intensity === 'high' ? 80 : 50,
                 spread: 70,
                 origin: { x, y },
-                shapes: emojis as any,
+                shapes: emojis as confetti.Shape[], // Burada tip dönüşümü yapıldı
                 scalar: options.intensity === 'high' ? 1.5 : 1
             });
         },
@@ -176,14 +174,14 @@ export const useCanvasConfetti = (options: ConfettiOptions) => {
         const end = Date.now() + (options.intensity === 'high' ? 3000 : 2000);
 
         (function frame() {
-            confetti({
+            void confetti({
                 particleCount: 2,
                 angle: 60,
                 spread: 55,
                 origin: { x: 0 },
                 colors: options.colors || ['#3b82f6', '#1d4ed8']
             });
-            confetti({
+            void confetti({
                 particleCount: 2,
                 angle: 120,
                 spread: 55,
@@ -204,7 +202,8 @@ export const useCanvasConfetti = (options: ConfettiOptions) => {
             const y = (rect.top + rect.height / 2) / window.innerHeight;
 
             const count = options.intensity === 'high' ? 200 : 100;
-            const defaults = {
+
+            const defaults: confetti.Options = {
                 origin: { x, y },
                 colors: options.colors || [
                     '#ff0000',
@@ -216,8 +215,8 @@ export const useCanvasConfetti = (options: ConfettiOptions) => {
                 ]
             };
 
-            function fire(particleRatio: number, opts: any) {
-                confetti({
+            function fire(particleRatio: number, opts: confetti.Options) {
+                void confetti({
                     ...defaults,
                     ...opts,
                     particleCount: Math.floor(count * particleRatio)

@@ -348,7 +348,7 @@ export function BackgroundPatterns({
                 {/* Light mode */}
                 <div className="absolute inset-0 overflow-hidden dark:hidden">
                     <div className="absolute inset-0 opacity-60">
-                        {[...Array(20)].map((_, i) => (
+                        {Array.from({ length: 20 }).map((_, i) => (
                             <div
                                 key={i}
                                 className={`absolute h-1 w-1 rounded-full bg-blue-400 ${animated ? 'animate-twinkle' : ''}`}
@@ -360,7 +360,7 @@ export function BackgroundPatterns({
                                 }}
                             />
                         ))}
-                        {[...Array(15)].map((_, i) => (
+                        {Array.from({ length: 15 }).map((_, i) => (
                             <div
                                 key={`emerald-${i}`}
                                 className={`absolute h-0.5 w-0.5 rounded-full bg-emerald-400 ${animated ? 'animate-twinkle' : ''}`}
@@ -374,7 +374,7 @@ export function BackgroundPatterns({
                                 }}
                             />
                         ))}
-                        {[...Array(10)].map((_, i) => (
+                        {Array.from({ length: 10 }).map((_, i) => (
                             <div
                                 key={`purple-${i}`}
                                 className={`absolute h-1.5 w-1.5 rounded-full bg-purple-400 ${animated ? 'animate-twinkle' : ''}`}
@@ -396,7 +396,7 @@ export function BackgroundPatterns({
                 {/* Dark mode */}
                 <div className="absolute inset-0 hidden overflow-hidden dark:block">
                     <div className="absolute inset-0 opacity-70">
-                        {[...Array(25)].map((_, i) => (
+                        {Array.from({ length: 25 }).map((_, i) => (
                             <div
                                 key={i}
                                 className={`absolute h-1 w-1 rounded-full bg-emerald-400 ${animated ? 'animate-twinkle' : ''}`}
@@ -408,7 +408,7 @@ export function BackgroundPatterns({
                                 }}
                             />
                         ))}
-                        {[...Array(20)].map((_, i) => (
+                        {Array.from({ length: 20 }).map((_, i) => (
                             <div
                                 key={`blue-${i}`}
                                 className={`absolute h-0.5 w-0.5 rounded-full bg-blue-400 ${animated ? 'animate-twinkle' : ''}`}
@@ -422,7 +422,7 @@ export function BackgroundPatterns({
                                 }}
                             />
                         ))}
-                        {[...Array(15)].map((_, i) => (
+                        {Array.from({ length: 15 }).map((_, i) => (
                             <div
                                 key={`purple-${i}`}
                                 className={`absolute h-1.5 w-1.5 rounded-full bg-purple-400 ${animated ? 'animate-twinkle' : ''}`}

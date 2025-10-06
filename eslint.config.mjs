@@ -19,21 +19,22 @@ const eslintConfig = [
             'src/generated/**',
             '**/*.stories.{ts,tsx}',
             '**/*.json',
-        ],
+            '**/__tests__/**'
+        ]
     },
     {
         files: ['src/**/*.{js,mjs,cjs,ts,jsx,tsx}'],
         languageOptions: {
             parser: tsParser,
             parserOptions: {
-                project: true,
-            },
+                project: true
+            }
         },
         plugins: {
             '@typescript-eslint': tsPlugin,
             '@next/next': nextPlugin,
             'react-hooks': reactHooksPlugin,
-            prettier: prettierPlugin,
+            prettier: prettierPlugin
         },
         rules: {
             ...tsPlugin.configs['recommended-type-checked'].rules,
@@ -45,7 +46,7 @@ const eslintConfig = [
             '@typescript-eslint/ban-ts-comment': 'off',
             '@typescript-eslint/no-unused-vars': [
                 'error',
-                { argsIgnorePattern: '^_', varsIgnorePattern: '^_' },
+                { argsIgnorePattern: '^_', varsIgnorePattern: '^_' }
             ],
             '@typescript-eslint/no-misused-promises': process.env.CI ? 'error' : 'off',
             'prefer-const': 'error',
@@ -59,19 +60,19 @@ const eslintConfig = [
                     printWidth: 100,
                     bracketSpacing: true,
                     arrowParens: 'always',
-                    endOfLine: 'lf',
-                },
-            ],
-        },
+                    endOfLine: 'lf'
+                }
+            ]
+        }
     },
     {
         files: ['**/sanitization.ts'],
         rules: {
             quotes: 'off',
-            'prettier/prettier': 'off',
-        },
+            'prettier/prettier': 'off'
+        }
     },
-    prettierConfig,
+    prettierConfig
 ];
 
 export default eslintConfig;
