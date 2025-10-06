@@ -31,8 +31,9 @@
     "scripts": {
         "predev": "./scripts/generate-i18n-declaration.sh",
         "dev": "prisma-import --schemas \"prisma/models/*.prisma\" --output \"prisma/schema.prisma\" --force && prisma generate --no-engine --data-proxy --no-hints && next dev --turbopack",
-        "prebuild": "./scripts/generate-i18n-declaration.sh",
-        "build": "prisma-import --schemas \"prisma/models/*.prisma\" --output \"prisma/schema.prisma\" --force && prisma generate --no-engine --data-proxy && next build --turbopack",
+        "prebuild:prisma": "prisma-import --schemas \"prisma/models/*.prisma\" --output \"prisma/schema.prisma\" --force && prisma generate --no-engine --data-proxy",
+        "prebuild": "pnpm prebuild:prisma && ./scripts/generate-i18n-declaration.sh",
+        "build": "next build --turbopack",
         "start": "next start",
         "postinstall": "prisma-import --schemas \"prisma/models/*.prisma\" --output \"prisma/schema.prisma\" --force && prisma generate --no-engine --data-proxy",
         "prepare": "husky",

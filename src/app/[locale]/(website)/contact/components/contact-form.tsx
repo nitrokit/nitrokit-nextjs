@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/require-await */
 'use client';
 
 import { useState, useTransition } from 'react';
@@ -45,13 +46,12 @@ export const ContactForm = () => {
         formState: { isSubmitting, errors, isValid, touchedFields }
     } = form;
 
-    const handleFormSubmit: SubmitHandler<ContactFormData> = (data) => {
-        startTransition(() => {
+    const handleFormSubmit: SubmitHandler<ContactFormData> = async (data) => {
+        startTransition(async () => {
+            setFormStatus('idle');
             try {
-                setFormStatus('idle');
-
                 console.log(data);
-                //ToDo:
+                await new Promise((resolve) => setTimeout(resolve, 1500));
 
                 setFormStatus('success');
                 toast.success(t('contact.message_sent'), {
@@ -60,13 +60,13 @@ export const ContactForm = () => {
                 });
 
                 form.reset();
-                setFormStatus('idle');
             } catch (error) {
                 console.error(error);
                 setFormStatus('error');
                 toast.error(t('app.errors.general'), {
                     icon: <AlertCircle className="h-4 w-4" />
                 });
+            } finally {
             }
         });
     };
@@ -84,7 +84,7 @@ export const ContactForm = () => {
                             className="border-green-200 bg-green-50 text-green-700"
                         >
                             <CheckCircle className="mr-1 h-3 w-3" />
-                            Sent
+                            {t('contact.message_sent')}
                         </Badge>
                     )}
                 </div>
@@ -93,7 +93,6 @@ export const ContactForm = () => {
 
             <Form {...form}>
                 <form onSubmit={form.handleSubmit(handleFormSubmit)} className="space-y-6">
-                    {/* Name and Email Row */}
                     <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
                         <FormField
                             control={form.control}
