@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/require-await */
 'use client';
 
 import { useState, useTransition } from 'react';
@@ -46,12 +45,11 @@ export const ContactForm = () => {
         formState: { isSubmitting, errors, isValid, touchedFields }
     } = form;
 
-    const handleFormSubmit: SubmitHandler<ContactFormData> = async (data) => {
-        startTransition(async () => {
+    const handleFormSubmit: SubmitHandler<ContactFormData> = (data) => {
+        startTransition(() => {
             setFormStatus('idle');
             try {
                 console.log(data);
-                await new Promise((resolve) => setTimeout(resolve, 1500));
 
                 setFormStatus('success');
                 toast.success(t('contact.message_sent'), {
