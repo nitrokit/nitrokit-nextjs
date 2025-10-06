@@ -146,7 +146,7 @@
         "eslint-config-next": "15.5.4",
         "eslint-config-prettier": "^10.1.8",
         "eslint-plugin-prettier": "^5.5.4",
-        "eslint-plugin-react-hooks": "^5.2.0",
+        "eslint-plugin-react-hooks": "^6.1.1",
         "husky": "^9.1.7",
         "jsdom": "^27.0.0",
         "playwright": "^1.55.1",
