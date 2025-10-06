@@ -37,7 +37,12 @@ export function CompactNewsletter() {
                 </p>
             </div>
 
-            <form onSubmit={handleSubscribe} className="space-y-3">
+            <form
+                onSubmit={(e) => {
+                    void handleSubscribe(e);
+                }}
+                className="space-y-3"
+            >
                 <Input
                     type="email"
                     placeholder={t('newsletter.emailPlaceholder')}
