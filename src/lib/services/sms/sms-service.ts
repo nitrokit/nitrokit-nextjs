@@ -26,7 +26,7 @@ export class SMSService {
 
         logger.info('SMS Service initialized', {
             provider: providerType,
-            rateLimitingEnabled: this.isRateLimitingEnabled,
+            rateLimitingEnabled: this.isRateLimitingEnabled
         });
     }
 
@@ -36,13 +36,13 @@ export class SMSService {
             if (blockCheck.blocked) {
                 logger.warn('SMS sending blocked due to rate limiting', {
                     phoneNumber: phoneNumber.slice(-4),
-                    retryAfter: blockCheck.retryAfter,
+                    retryAfter: blockCheck.retryAfter
                 });
 
                 return {
                     success: false,
                     error: 'Rate limit exceeded',
-                    retryAfter: blockCheck.retryAfter,
+                    retryAfter: blockCheck.retryAfter
                 };
             }
 
@@ -60,13 +60,13 @@ export class SMSService {
 
             logger.error('SMS Service error', error instanceof Error ? error : undefined, {
                 provider: this.providerType,
-                phoneNumber: phoneNumber.slice(-4),
+                phoneNumber: phoneNumber.slice(-4)
             });
 
             return {
                 success: false,
                 error: error instanceof Error ? error.message : 'Failed to send SMS',
-                retryAfter: this.isRateLimitingEnabled ? this.getRetryDelay(phoneNumber) : 0,
+                retryAfter: this.isRateLimitingEnabled ? this.getRetryDelay(phoneNumber) : 0
             };
         }
     }
@@ -82,7 +82,7 @@ export class SMSService {
         if (attempt.blockedUntil && now < attempt.blockedUntil) {
             return {
                 blocked: true,
-                retryAfter: Math.ceil((attempt.blockedUntil - now) / 1000),
+                retryAfter: Math.ceil((attempt.blockedUntil - now) / 1000)
             };
         }
 
@@ -95,12 +95,12 @@ export class SMSService {
             const blockedUntil = now + this.BLOCK_DURATION;
             this.failedAttempts.set(phoneNumber, {
                 ...attempt,
-                blockedUntil,
+                blockedUntil
             });
 
             return {
                 blocked: true,
-                retryAfter: Math.ceil(this.BLOCK_DURATION / 1000),
+                retryAfter: Math.ceil(this.BLOCK_DURATION / 1000)
             };
         }
 
@@ -116,12 +116,12 @@ export class SMSService {
         if (existing && now - existing.lastFailure < this.FAILURE_WINDOW) {
             this.failedAttempts.set(phoneNumber, {
                 count: existing.count + 1,
-                lastFailure: now,
+                lastFailure: now
             });
         } else {
             this.failedAttempts.set(phoneNumber, {
                 count: 1,
-                lastFailure: now,
+                lastFailure: now
             });
         }
     }

@@ -10,15 +10,15 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
         signOut: '/logout',
         error: '/error',
         verifyRequest: '/verify-request',
-        newUser: '/register',
+        newUser: '/register'
     },
     session: {
         strategy: 'jwt',
         maxAge: 30 * 24 * 60 * 60, // 30 days
-        updateAge: 24 * 60 * 60, // 24 hours
+        updateAge: 24 * 60 * 60 // 24 hours
     },
     jwt: {
-        maxAge: 30 * 24 * 60 * 60, // 30 days
+        maxAge: 30 * 24 * 60 * 60 // 30 days
     },
     secret: process.env.AUTH_SECRET,
     debug: process.env.NODE_ENV === 'development',
@@ -33,9 +33,9 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
                 httpOnly: true,
                 sameSite: 'lax',
                 path: '/',
-                secure: process.env.NODE_ENV === 'production',
-            },
-        },
+                secure: process.env.NODE_ENV === 'production'
+            }
+        }
     },
     logger: {
         error(code: any, ...message: any[]) {
@@ -46,6 +46,6 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
         },
         debug(code: any, ...message: any[]) {
             console.debug(code, message);
-        },
-    },
+        }
+    }
 });

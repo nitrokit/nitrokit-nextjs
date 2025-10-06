@@ -1,3 +1,4 @@
+import { unsupportedServiceError } from '@/lib';
 import { SMSProvider } from '../types';
 import { AWSProvider, AWSConfig } from './aws';
 import { TwilioProvider, TwilioConfig } from './twilio';
@@ -23,7 +24,7 @@ export function createSMSProvider(
             return new TwilioProvider(config.twilio);
 
         default:
-            throw new Error(`Unsupported SMS provider: ${providerType}`);
+            unsupportedServiceError('SMS Provider', providerType);
     }
 }
 

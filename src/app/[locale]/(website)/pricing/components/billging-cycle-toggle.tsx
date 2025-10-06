@@ -10,7 +10,7 @@ interface BillingCycleToggleProps {
 
 export function BillingCycleToggle({
     billingCycle,
-    onBillingCycleChange,
+    onBillingCycleChange
 }: BillingCycleToggleProps) {
     const t = useTranslations('pricing');
 

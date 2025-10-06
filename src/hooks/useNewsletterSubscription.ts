@@ -1,3 +1,4 @@
+import { NewsletterSubscriptionResponse, NewsletterSubscriptionResponseSchema } from '@/lib';
 import { useState } from 'react';
 
 export const useNewsletterSubscription = () => {
@@ -14,9 +15,17 @@ export const useNewsletterSubscription = () => {
             const res = await fetch('/api/newsletter/subscribe', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ email }),
+                body: JSON.stringify({ email })
             });
-            const data = await res.json();
+
+            const parsed = NewsletterSubscriptionResponseSchema.safeParse(await res.json());
+
+            if (!parsed.success) {
+                setError('app.errors.general');
+                return;
+            }
+            const data: NewsletterSubscriptionResponse = parsed.data;
+
             if (data.success) {
                 setIsSubscribed(true);
                 setSuccess(true);

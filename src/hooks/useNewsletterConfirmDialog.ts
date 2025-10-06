@@ -1,10 +1,11 @@
+import { NewsletterConfirmResponseSchema } from '@/lib';
 import { useRouter } from '@/lib/i18n/navigation';
 import { useSearchParams } from 'next/navigation';
 import { useCallback, useEffect, useState } from 'react';
 
 type ConfirmationStatus = 'loading' | 'success' | 'error';
 
-export const useNewsletterConfirmDialog = () => {
+export const useNewsletterConfirmDialog = (t: (key: string) => string) => {
     const router = useRouter();
     const searchParams = useSearchParams();
 
@@ -16,7 +17,6 @@ export const useNewsletterConfirmDialog = () => {
     useEffect(() => {
         const token = searchParams.get('newsletter_confirm');
 
-        // Eğer token yoksa VEYA istek zaten gönderilmişse işlemi durdur
         if (!token || requestSent) {
             return;
         }
@@ -26,21 +26,30 @@ export const useNewsletterConfirmDialog = () => {
 
         fetch(`/api/newsletter/confirm?token=${token}`)
             .then(async (res) => {
-                const data = await res.json();
+                const parsed = NewsletterConfirmResponseSchema.safeParse(await res.json());
+
+                if (!parsed.success) {
+                    setStatus('error');
+                    setMessage(t('app.errors.general'));
+                    return;
+                }
+
+                const data = parsed.data;
+
                 if (data.success) {
                     setStatus('success');
-                    setMessage(data.message);
+                    setMessage(data.message || t('app.newsletter.success'));
                     const params = new URLSearchParams(searchParams.toString());
                     params.delete('newsletter_confirm');
                     router.replace(`?${params.toString()}`, { scroll: false });
                 } else {
                     setStatus('error');
-                    setMessage(data.error);
+                    setMessage(data.error || t('app.errors.general'));
                 }
             })
             .catch(() => {
                 setStatus('error');
-                setMessage('An unexpected error occurred.');
+                setMessage(t('app.errors.general'));
             });
     }, [searchParams, requestSent, router]);
 

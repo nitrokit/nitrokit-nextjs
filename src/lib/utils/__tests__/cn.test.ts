@@ -37,7 +37,7 @@ describe('cn utility function', () => {
                 cn({
                     'text-red-500': true,
                     'bg-blue-100': false,
-                    'p-4': true,
+                    'p-4': true
                 })
             ).toBe('text-red-500 p-4');
         });
@@ -49,7 +49,7 @@ describe('cn utility function', () => {
                     ['array-class-1', 'array-class-2'],
                     {
                         'object-class': true,
-                        'hidden-class': false,
+                        'hidden-class': false
                     },
                     undefined,
                     'final-class'
@@ -142,7 +142,7 @@ describe('cn utility function', () => {
             expect(
                 cn('btn-primary', {
                     'opacity-50 cursor-not-allowed': isDisabled,
-                    'opacity-75 pointer-events-none': isLoading,
+                    'opacity-75 pointer-events-none': isLoading
                 })
             ).toBe('btn-primary opacity-50 cursor-not-allowed');
         });
@@ -155,7 +155,7 @@ describe('cn utility function', () => {
                 cn('border rounded px-3 py-2', {
                     'border-red-500 text-red-900': hasError,
                     'border-blue-500 ring-2 ring-blue-200': isFocused && !hasError,
-                    'border-gray-300': !hasError && !isFocused,
+                    'border-gray-300': !hasError && !isFocused
                 })
             ).toBe('border rounded px-3 py-2 border-red-500 text-red-900');
         });

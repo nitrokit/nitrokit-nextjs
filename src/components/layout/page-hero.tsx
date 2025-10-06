@@ -21,26 +21,26 @@ const variantStyles = {
         container: 'mx-auto mb-10 max-w-3xl text-center leading-22',
         h2: 'font-semibold text-cyan-500 dark:text-shadow-2xs',
         h1: 'text-5xl leading-18 font-bold',
-        p: 'mt-10 text-xl',
+        p: 'mt-10 text-xl'
     },
     minimal: {
         container: 'mx-auto mb-8 max-w-2xl text-center',
         h2: 'text-sm font-medium uppercase tracking-wide text-gray-500 dark:text-gray-400',
         h1: 'text-3xl font-bold',
-        p: 'mt-4 text-lg text-gray-600 dark:text-gray-300',
+        p: 'mt-4 text-lg text-gray-600 dark:text-gray-300'
     },
     large: {
         container: 'mx-auto mb-16 max-w-4xl text-center',
         h2: 'text-lg font-semibold text-cyan-500 dark:text-shadow-2xs',
         h1: 'text-6xl lg:text-7xl font-extrabold',
-        p: 'mt-12 text-2xl',
+        p: 'mt-12 text-2xl'
     },
     center: {
         container: 'mx-auto mb-12 max-w-3xl text-center py-12',
         h2: 'font-semibold text-cyan-500 dark:text-shadow-2xs',
         h1: 'text-4xl md:text-5xl font-bold',
-        p: 'mt-8 text-xl',
-    },
+        p: 'mt-8 text-xl'
+    }
 };
 
 const gradientStyles = {
@@ -48,7 +48,7 @@ const gradientStyles = {
     purple: 'bg-gradient-to-r from-purple-500 to-pink-500',
     green: 'bg-gradient-to-r from-green-500 to-emerald-500',
     orange: 'bg-gradient-to-r from-orange-500 to-red-500',
-    pink: 'bg-gradient-to-r from-pink-500 to-rose-500',
+    pink: 'bg-gradient-to-r from-pink-500 to-rose-500'
 };
 
 export function PageHero({
@@ -60,7 +60,7 @@ export function PageHero({
     className,
     children,
     showBreadcrumb = false,
-    breadcrumbItems = [],
+    breadcrumbItems = []
 }: PageHeroProps) {
     const styles = variantStyles[variant];
     const gradientClass = gradientStyles[gradientVariant];

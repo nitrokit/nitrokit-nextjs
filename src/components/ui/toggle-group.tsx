@@ -9,7 +9,7 @@ import { toggleVariants } from '@/components/ui';
 
 const ToggleGroupContext = React.createContext<VariantProps<typeof toggleVariants>>({
     size: 'default',
-    variant: 'default',
+    variant: 'default'
 });
 
 const ToggleGroup = React.forwardRef<
@@ -43,7 +43,7 @@ const ToggleGroupItem = React.forwardRef<
             className={cn(
                 toggleVariants({
                     variant: context.variant || variant,
-                    size: context.size || size,
+                    size: context.size || size
                 }),
                 className
             )}

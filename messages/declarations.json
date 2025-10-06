@@ -324,10 +324,6 @@
             "marketingautomations": "Marketing automations"
         }
     },
-    "services": {
-        "title": "Services",
-        "description": "Our range of services to help you succeed."
-    },
     "validations": {
         "required": {
             "email": "Email is required",

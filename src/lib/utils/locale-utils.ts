@@ -4,7 +4,7 @@ import { LOCALES, LOCALE_CONFIG, type Locale } from '@/constants';
 export const LOCALES_WITH_FLAG = LOCALES.map((locale) => ({
     id: locale,
     name: LOCALE_CONFIG[locale].nativeName,
-    flag: LOCALE_CONFIG[locale].flag,
+    flag: LOCALE_CONFIG[locale].flag
 }));
 
 // For metadata generation
@@ -16,7 +16,7 @@ export function LOCALES_FOR_METADATA(): { code: string; url: string }[] {
 
     return LOCALES.map((locale) => ({
         code: locale,
-        url: `${baseUrl}/${locale}`,
+        url: `${baseUrl}/${locale}`
     }));
 }
 

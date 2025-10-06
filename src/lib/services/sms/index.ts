@@ -1,6 +1,7 @@
 import { SMSService } from './sms-service';
 import { SMSProviderType, SMSProviderConfig } from './providers';
 import { logger } from '@/lib/services/logger';
+import { unsupportedServiceError } from '@/lib';
 
 let smsService: SMSService;
 
@@ -17,7 +18,7 @@ export function getSMSService(): SMSService {
                 config.aws = {
                     accessKeyId: process.env.AWS_SNS_ACCESS_KEY_ID!,
                     secretAccessKey: process.env.AWS_SNS_SECRET_ACCESS_KEY!,
-                    region: process.env.AWS_SNS_REGION || 'us-east-1',
+                    region: process.env.AWS_SNS_REGION || 'us-east-1'
                 };
                 break;
 
@@ -25,12 +26,12 @@ export function getSMSService(): SMSService {
                 config.twilio = {
                     accountSid: process.env.TWILIO_ACCOUNT_SID!,
                     authToken: process.env.TWILIO_AUTH_TOKEN!,
-                    phoneNumber: process.env.TWILIO_PHONE_NUMBER!,
+                    phoneNumber: process.env.TWILIO_PHONE_NUMBER!
                 };
                 break;
 
             default:
-                throw new Error(`Unsupported SMS provider: ${providerType}`);
+                unsupportedServiceError('SMS Provider', providerType);
         }
 
         smsService = new SMSService(providerType, config);

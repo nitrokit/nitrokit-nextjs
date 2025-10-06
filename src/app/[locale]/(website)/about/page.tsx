@@ -9,8 +9,8 @@ export async function generateMetadata(): Promise<Metadata> {
     return await generatePageMetadata({
         params: Promise.resolve({
             title: t('title'),
-            description: t('description'),
-        }),
+            description: t('description')
+        })
     });
 }
 
@@ -21,13 +21,13 @@ export default async function Page() {
         {
             href: '/contact',
             label: t('cta.buttons.contact'),
-            variant: 'primary' as const,
+            variant: 'primary' as const
         },
         {
             href: '/projects',
             label: t('cta.buttons.viewWork'),
-            variant: 'secondary' as const,
-        },
+            variant: 'secondary' as const
+        }
     ];
     return (
         <div>

@@ -12,7 +12,7 @@ export function ThemeProvider({
         attribute: 'class' as const,
         defaultTheme: 'system' as const,
         enableSystem: true,
-        storageKey: 'nitrokit-theme',
+        storageKey: 'nitrokit-theme'
     };
 
     const mergedProps = { ...defaultProps, ...props };

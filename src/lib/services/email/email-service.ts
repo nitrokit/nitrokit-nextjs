@@ -16,7 +16,7 @@ export class EmailService {
         this.provider = createEmailProvider(providerType, config);
 
         logger.info('Email Service initialized', {
-            provider: providerType,
+            provider: providerType
         });
     }
 
@@ -26,12 +26,12 @@ export class EmailService {
 
             if (!this.checkRateLimit(Array.isArray(data.to) ? data.to[0] : data.to)) {
                 logger.warn('Email rate limit exceeded', {
-                    to: Array.isArray(data.to) ? data.to[0] : data.to,
+                    to: Array.isArray(data.to) ? data.to[0] : data.to
                 });
 
                 return {
                     success: false,
-                    error: 'Rate limit exceeded. Please try again later.',
+                    error: 'Rate limit exceeded. Please try again later.'
                 };
             }
 
@@ -45,7 +45,7 @@ export class EmailService {
                 logger.info('Email sent successfully', {
                     provider: this.providerType,
                     messageId: result.messageId,
-                    to: Array.isArray(data.to) ? data.to.length : 1,
+                    to: Array.isArray(data.to) ? data.to.length : 1
                 });
             }
 
@@ -53,12 +53,12 @@ export class EmailService {
         } catch (error) {
             logger.error('Email service error', error instanceof Error ? error : undefined, {
                 provider: this.providerType,
-                to: Array.isArray(data.to) ? data.to.length : 1,
+                to: Array.isArray(data.to) ? data.to.length : 1
             });
 
             return {
                 success: false,
-                error: error instanceof Error ? error.message : 'Unknown error',
+                error: error instanceof Error ? error.message : 'Unknown error'
             };
         }
     }
@@ -73,7 +73,7 @@ export class EmailService {
         logger.info('Starting bulk email send', {
             total: emailsData.length,
             batchSize,
-            provider: this.providerType,
+            provider: this.providerType
         });
 
         for (let i = 0; i < emailsData.length; i += batchSize) {
@@ -86,9 +86,12 @@ export class EmailService {
                     results.push(result.value);
                     if (result.value.success) successful++;
                 } else {
+                    const errorMessage =
+                        result.reason instanceof Error ? result.reason.message : 'Unknown error';
+
                     results.push({
                         success: false,
-                        error: result.reason?.message || 'Unknown error',
+                        error: errorMessage
                     });
                 }
             });
@@ -103,14 +106,14 @@ export class EmailService {
             total: emailsData.length,
             successful,
             failed: emailsData.length - successful,
-            provider: this.providerType,
+            provider: this.providerType
         });
 
         return {
             total: emailsData.length,
             successful,
             failed: emailsData.length - successful,
-            results,
+            results
         };
     }
 
@@ -118,7 +121,7 @@ export class EmailService {
         this.templates.set(template.id, template);
         logger.info('Email template registered', {
             templateId: template.id,
-            name: template.name,
+            name: template.name
         });
     }
 
@@ -141,7 +144,7 @@ export class EmailService {
             subject: this.replaceVariables(template.subject, variables),
             html: this.replaceVariables(template.html, variables),
             text: template.text ? this.replaceVariables(template.text, variables) : undefined,
-            templateData: variables,
+            templateData: variables
         });
     }
 
@@ -190,7 +193,7 @@ export class EmailService {
             ...data,
             html: data.html ? this.replaceVariables(data.html, data.templateData) : data.html,
             text: data.text ? this.replaceVariables(data.text, data.templateData) : data.text,
-            subject: this.replaceVariables(data.subject, data.templateData),
+            subject: this.replaceVariables(data.subject, data.templateData)
         };
     }
 

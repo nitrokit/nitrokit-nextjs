@@ -17,8 +17,8 @@ export class AWSProvider implements SMSProvider {
             region: this.config.region,
             credentials: {
                 accessKeyId: this.config.accessKeyId,
-                secretAccessKey: this.config.secretAccessKey,
-            },
+                secretAccessKey: this.config.secretAccessKey
+            }
         });
     }
 
@@ -39,7 +39,7 @@ export class AWSProvider implements SMSProvider {
             logger.info('Sending SMS via AWS SNS', {
                 provider: 'aws',
                 phoneNumber: phoneNumber.slice(-4), // Log only last 4 digits
-                messageLength: message.length,
+                messageLength: message.length
             });
 
             const command = new PublishCommand({
@@ -48,26 +48,26 @@ export class AWSProvider implements SMSProvider {
                 MessageAttributes: {
                     'AWS.SNS.SMS.SMSType': {
                         DataType: 'String',
-                        StringValue: 'Transactional',
-                    },
-                },
+                        StringValue: 'Transactional'
+                    }
+                }
             });
 
             const result = await this.snsClient.send(command);
 
             logger.info('SMS sent successfully via AWS SNS', {
                 provider: 'aws',
-                messageId: result.MessageId,
+                messageId: result.MessageId
             });
 
             return {
                 success: true,
-                messageId: result.MessageId,
+                messageId: result.MessageId
             };
         } catch (error) {
             logger.error('AWS SNS SMS failed', error instanceof Error ? error : undefined, {
                 provider: 'aws',
-                phoneNumber: phoneNumber.slice(-4),
+                phoneNumber: phoneNumber.slice(-4)
             });
 
             throw error;

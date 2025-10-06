@@ -2,7 +2,7 @@ import {
     Facebook as IconFacebook,
     Instagram as IconInstagram,
     Linkedin as IconLinkedin,
-    Github as IconGithub,
+    Github as IconGithub
 } from 'lucide-react';
 
 const GITHUB_URL = 'https://github.com/nitrokit/nitrokit-nextjs';
@@ -13,23 +13,23 @@ const SOCIAL_LINKS = [
     {
         name: 'instagram',
         url: 'https://www.instagram.com/nitrokittr',
-        icon: IconInstagram,
+        icon: IconInstagram
     },
     {
         name: 'facebook',
         url: 'https://www.facebook.com/nitrokittr',
-        icon: IconFacebook,
+        icon: IconFacebook
     },
     {
         name: 'linkedin',
         url: 'https://www.linkedin.com/company/nitrokit',
-        icon: IconLinkedin,
+        icon: IconLinkedin
     },
     {
         name: 'github',
         url: 'https://github.com/nitrokit',
-        icon: IconGithub,
-    },
+        icon: IconGithub
+    }
 ];
 
 const DEFAULT_CURRENCY = 'USD';

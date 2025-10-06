@@ -1,7 +1,7 @@
 import { Header, Footer } from '@/components/layout';
 
-export default async function WebSiteLayout({
-    children,
+export default function WebSiteLayout({
+    children
 }: Readonly<{
     children: React.ReactNode;
 }>) {

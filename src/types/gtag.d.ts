@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-redundant-type-constituents */
 export type DataLayerItem = {
     event?: string;
     [key: string]: string | number | boolean | object | undefined;

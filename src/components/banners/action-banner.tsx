@@ -30,7 +30,7 @@ export function ActionBanner({
     buttonVariant = 'primary',
     external = false,
     className,
-    animated = false,
+    animated = false
 }: ActionBannerProps) {
     const [isHovered, setIsHovered] = useState(false);
 
@@ -39,31 +39,31 @@ export function ActionBanner({
             container:
                 'bg-gradient-to-br from-blue-50 to-indigo-50 border border-blue-200/50 dark:from-blue-950/20 dark:to-indigo-950/20 dark:border-blue-800/30',
             title: 'text-blue-900 dark:text-blue-100',
-            description: 'text-blue-700 dark:text-blue-200',
+            description: 'text-blue-700 dark:text-blue-200'
         },
         gradient: {
             container:
                 'bg-gradient-to-br from-purple-500 via-pink-500 to-red-500 text-white border-0',
             title: 'text-white',
-            description: 'text-white/90',
+            description: 'text-white/90'
         },
         minimal: {
             container: 'bg-background border border-border/50 hover:border-border hover:shadow-lg',
             title: 'text-foreground',
-            description: 'text-muted-foreground',
+            description: 'text-muted-foreground'
         },
         enterprise: {
             container:
                 'bg-gradient-to-br from-slate-50 to-gray-50 border border-slate-200 dark:from-slate-900/50 dark:to-gray-900/50 dark:border-slate-700',
             title: 'text-slate-900 dark:text-slate-100',
-            description: 'text-slate-600 dark:text-slate-300',
+            description: 'text-slate-600 dark:text-slate-300'
         },
         premium: {
             container:
                 'bg-gradient-to-br from-yellow-50 via-amber-50 to-orange-50 border border-yellow-200/50 dark:from-yellow-950/20 dark:via-amber-950/20 dark:to-orange-950/20 dark:border-yellow-800/30',
             title: 'text-amber-900 dark:text-amber-100',
-            description: 'text-amber-700 dark:text-amber-200',
-        },
+            description: 'text-amber-700 dark:text-amber-200'
+        }
     };
 
     const sizeStyles = {
@@ -71,27 +71,27 @@ export function ActionBanner({
             container: 'p-4 gap-3 rounded-lg',
             title: 'text-lg font-semibold',
             description: 'text-sm',
-            button: 'px-4 py-2 text-sm',
+            button: 'px-4 py-2 text-sm'
         },
         md: {
             container: 'p-6 gap-4 rounded-xl',
             title: 'text-xl lg:text-2xl font-bold',
             description: 'text-base',
-            button: 'px-6 py-2.5 text-base',
+            button: 'px-6 py-2.5 text-base'
         },
         lg: {
             container: 'p-8 gap-6 rounded-2xl',
             title: 'text-2xl lg:text-4xl font-bold',
             description: 'text-lg',
-            button: 'px-8 py-3 text-lg',
-        },
+            button: 'px-8 py-3 text-lg'
+        }
     };
 
     const buttonStyles = {
         primary: 'bg-primary text-primary-foreground hover:bg-primary/90 shadow-md hover:shadow-lg',
         secondary: 'bg-secondary text-secondary-foreground hover:bg-secondary/80',
         outline: 'border-2 border-current bg-transparent hover:bg-current/10',
-        ghost: 'bg-transparent hover:bg-current/10',
+        ghost: 'bg-transparent hover:bg-current/10'
     };
 
     const currentVariant = variantStyles[variant];
@@ -179,7 +179,7 @@ export function EnterpriseBanner({
     description,
     buttonText,
     href,
-    className,
+    className
 }: {
     title: string;
     description: string;
@@ -207,7 +207,7 @@ export function PremiumBanner({
     buttonText,
     href,
     icon,
-    className,
+    className
 }: {
     title: string;
     description: string;
@@ -236,7 +236,7 @@ export function CallToActionBanner({
     description,
     buttonText,
     href,
-    className,
+    className
 }: {
     title: string;
     description: string;
@@ -262,7 +262,7 @@ export function MinimalBanner({
     description,
     buttonText,
     href,
-    className,
+    className
 }: {
     title: string;
     description: string;

@@ -13,7 +13,7 @@ export function useNextTheme() {
         setMounted(true);
     }, []);
 
-    const loadUserTheme = useCallback(async () => {
+    const loadUserTheme = useCallback(() => {
         // First check conditions
         if (!mounted || hasLoadedPrefs.current || isUserAction.current) {
             return;
@@ -49,7 +49,7 @@ export function useNextTheme() {
 
     // Enhanced setTheme with user sync
     const setThemeWithSync = useCallback(
-        async (newTheme: string) => {
+        (newTheme: string) => {
             // Mark as user action
             isUserAction.current = true;
 

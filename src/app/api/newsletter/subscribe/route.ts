@@ -11,10 +11,9 @@ import { getTranslations } from 'next-intl/server';
 export async function POST(req: Request) {
     const translate = await getTranslations();
     try {
-        const body = await req.json();
         const t = (key: string) => key;
         const schema = NewsletterFormSchema(t);
-        const parsed = schema.safeParse(body);
+        const parsed = schema.safeParse(await req.json());
 
         if (!parsed.success) {
             return NextResponse.json(
@@ -49,8 +48,8 @@ export async function POST(req: Request) {
         const emailToSearch = email.toLowerCase();
         const existing = await prisma.newsletterSubscriber.findUnique({
             where: {
-                email: emailToSearch,
-            },
+                email: emailToSearch
+            }
         });
 
         if (existing && existing.verified) {
@@ -64,7 +63,7 @@ export async function POST(req: Request) {
         await prisma.newsletterSubscriber.upsert({
             where: { email },
             update: { token, verified: false },
-            create: { email, token },
+            create: { email, token }
         });
 
         const emailService = getEmailService();
@@ -75,7 +74,7 @@ export async function POST(req: Request) {
             to: email,
             subject: translate('app.newsletter.subscriptionConfirmation'),
             html: emailHtml,
-            text: translate('app.newsletter.confirmationLink', { confirmUrl }),
+            text: translate('app.newsletter.confirmationLink', { confirmUrl })
         });
 
         return NextResponse.json({ success: true });

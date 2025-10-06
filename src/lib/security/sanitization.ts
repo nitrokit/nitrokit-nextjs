@@ -57,7 +57,7 @@ function isPrimitive(value: unknown): value is string | number | boolean | null 
 export function sanitizeHtml(dirty: string, options: SanitizeHtmlOptions = {}): string {
     if (!isString(dirty)) {
         logger.warn('Invalid input for HTML sanitization', {
-            inputType: typeof dirty,
+            inputType: typeof dirty
         });
         return '';
     }
@@ -65,7 +65,7 @@ export function sanitizeHtml(dirty: string, options: SanitizeHtmlOptions = {}): 
     try {
         logger.debug('Sanitizing HTML content', {
             inputLength: dirty.length,
-            stripTags: options.stripTags,
+            stripTags: options.stripTags
         });
 
         if (options.stripTags) {
@@ -96,21 +96,21 @@ export function sanitizeHtml(dirty: string, options: SanitizeHtmlOptions = {}): 
                 'ul',
                 'ol',
                 'li',
-                'blockquote',
+                'blockquote'
             ],
-            ALLOWED_ATTR: allowedAttrs.length > 0 ? allowedAttrs : undefined,
+            ALLOWED_ATTR: allowedAttrs.length > 0 ? allowedAttrs : undefined
         });
 
         logger.debug('HTML sanitization completed', {
             inputLength: dirty.length,
             outputLength: clean.length,
-            sanitized: dirty.length !== clean.length,
+            sanitized: dirty.length !== clean.length
         });
 
         return clean;
     } catch (error) {
         logger.error('HTML sanitization failed', error instanceof Error ? error : undefined, {
-            inputLength: dirty.length,
+            inputLength: dirty.length
         });
 
         return stripAllTags(dirty);
@@ -133,7 +133,7 @@ export function stripAllTags(input: string): string {
             sanitized = DOMPurify.sanitize(input, {
                 ALLOWED_TAGS: [],
                 ALLOWED_ATTR: [],
-                KEEP_CONTENT: true,
+                KEEP_CONTENT: true
             });
         }
 
@@ -142,7 +142,7 @@ export function stripAllTags(input: string): string {
             sanitized = DOMPurify.sanitize(sanitized, {
                 ALLOWED_TAGS: [],
                 ALLOWED_ATTR: [],
-                KEEP_CONTENT: true,
+                KEEP_CONTENT: true
             });
         }
 
@@ -154,13 +154,13 @@ export function stripAllTags(input: string): string {
         logger.debug('Tags stripped from content', {
             originalLength: input.length,
             sanitizedLength: sanitized.length,
-            removed: input.length - sanitized.length,
+            removed: input.length - sanitized.length
         });
 
         return sanitized;
     } catch (error) {
         logger.error('Tag stripping failed', error instanceof Error ? error : undefined, {
-            inputLength: input.length,
+            inputLength: input.length
         });
 
         // Fallback: very aggressive sanitization
@@ -175,7 +175,7 @@ export function stripAllTags(input: string): string {
 export function sanitizeSqlInput(input: string): string {
     if (!isString(input)) {
         logger.warn('Invalid input for SQL sanitization', {
-            inputType: typeof input,
+            inputType: typeof input
         });
         return '';
     }
@@ -192,7 +192,7 @@ export function sanitizeSqlInput(input: string): string {
             .trim();
     } catch (error) {
         logger.error('SQL input sanitization failed', error instanceof Error ? error : undefined, {
-            inputLength: input.length,
+            inputLength: input.length
         });
         return '';
     }
@@ -202,7 +202,7 @@ export function sanitizeSqlInput(input: string): string {
 export function sanitizeUserInput(input: string): string {
     if (!isString(input)) {
         logger.warn('Invalid input for user input sanitization', {
-            inputType: typeof input,
+            inputType: typeof input
         });
         return '';
     }
@@ -218,7 +218,7 @@ export function sanitizeUserInput(input: string): string {
             .trim();
     } catch (error) {
         logger.error('User input sanitization failed', error instanceof Error ? error : undefined, {
-            inputLength: input.length,
+            inputLength: input.length
         });
         return '';
     }
@@ -228,7 +228,7 @@ export function sanitizeUserInput(input: string): string {
 export function sanitizeFileName(fileName: string): string {
     if (!isString(fileName)) {
         logger.warn('Invalid input for filename sanitization', {
-            inputType: typeof fileName,
+            inputType: typeof fileName
         });
         return 'unnamed_file';
     }
@@ -253,7 +253,7 @@ export function sanitizeFileName(fileName: string): string {
         return sanitized;
     } catch (error) {
         logger.error('Filename sanitization failed', error instanceof Error ? error : undefined, {
-            inputLength: fileName.length,
+            inputLength: fileName.length
         });
         return 'unnamed_file';
     }
@@ -263,7 +263,7 @@ export function sanitizeFileName(fileName: string): string {
 export function sanitizeUrl(url: string): string | null {
     if (!isString(url)) {
         logger.warn('Invalid input for URL sanitization', {
-            inputType: typeof url,
+            inputType: typeof url
         });
         return null;
     }
@@ -275,7 +275,7 @@ export function sanitizeUrl(url: string): string | null {
         if (!['http:', 'https:'].includes(parsed.protocol)) {
             logger.warn('Suspicious URL protocol detected', {
                 protocol: parsed.protocol,
-                url: url.substring(0, 50),
+                url: url.substring(0, 50)
             });
             return null;
         }
@@ -284,7 +284,7 @@ export function sanitizeUrl(url: string): string | null {
     } catch (error) {
         logger.warn('Invalid URL format', {
             url: url.substring(0, 50),
-            error: error instanceof Error ? error.message : 'Unknown error',
+            error: error instanceof Error ? error.message : 'Unknown error'
         });
         return null;
     }
@@ -294,7 +294,7 @@ export function sanitizeUrl(url: string): string | null {
 export function sanitizePhoneNumber(phone: string): string {
     if (!isString(phone)) {
         logger.warn('Invalid input for phone sanitization', {
-            inputType: typeof phone,
+            inputType: typeof phone
         });
         return '';
     }
@@ -306,7 +306,7 @@ export function sanitizePhoneNumber(phone: string): string {
             'Phone number sanitization failed',
             error instanceof Error ? error : undefined,
             {
-                inputLength: phone.length,
+                inputLength: phone.length
             }
         );
         return '';
@@ -317,7 +317,7 @@ export function sanitizePhoneNumber(phone: string): string {
 export function sanitizeEmail(email: string): string {
     if (!isString(email)) {
         logger.warn('Invalid input for email sanitization', {
-            inputType: typeof email,
+            inputType: typeof email
         });
         return '';
     }
@@ -326,7 +326,7 @@ export function sanitizeEmail(email: string): string {
         return email.toLowerCase().trim();
     } catch (error) {
         logger.error('Email sanitization failed', error instanceof Error ? error : undefined, {
-            inputLength: email.length,
+            inputLength: email.length
         });
         return '';
     }
@@ -340,7 +340,7 @@ export function sanitizeObject<T extends Record<string, unknown>>(
 ): T {
     if (!isObject(obj)) {
         logger.warn('Invalid input for object sanitization', {
-            inputType: typeof obj,
+            inputType: typeof obj
         });
         return {} as T;
     }
@@ -349,7 +349,7 @@ export function sanitizeObject<T extends Record<string, unknown>>(
     if (currentDepth >= maxDepth) {
         logger.warn('Maximum depth reached during object sanitization', {
             currentDepth,
-            maxDepth,
+            maxDepth
         });
         return {} as T;
     }
@@ -361,7 +361,7 @@ export function sanitizeObject<T extends Record<string, unknown>>(
             // Type-safe key validation
             if (!isString(key)) {
                 logger.warn('Non-string key found during sanitization', {
-                    keyType: typeof key,
+                    keyType: typeof key
                 });
                 continue;
             }
@@ -396,11 +396,7 @@ export function sanitizeObject<T extends Record<string, unknown>>(
                         }
                         return sanitizedItem;
                     } else if (isObject(item)) {
-                        return sanitizeObject(
-                            item as Record<string, unknown>,
-                            options,
-                            currentDepth + 1
-                        );
+                        return sanitizeObject(item, options, currentDepth + 1);
                     }
                     return item;
                 });
@@ -408,7 +404,7 @@ export function sanitizeObject<T extends Record<string, unknown>>(
             } else if (isObject(value)) {
                 // Recursively sanitize nested objects
                 sanitized[key as keyof T] = sanitizeObject(
-                    value as Record<string, unknown>,
+                    value,
                     options,
                     currentDepth + 1
                 ) as T[keyof T];
@@ -418,7 +414,7 @@ export function sanitizeObject<T extends Record<string, unknown>>(
             } else {
                 logger.warn('Unsupported value type during sanitization', {
                     key,
-                    valueType: typeof value,
+                    valueType: typeof value
                 });
             }
         }
@@ -427,7 +423,7 @@ export function sanitizeObject<T extends Record<string, unknown>>(
     } catch (error) {
         logger.error('Object sanitization failed', error instanceof Error ? error : undefined, {
             objectKeys: Object.keys(obj).length,
-            currentDepth,
+            currentDepth
         });
         return {} as T;
     }
@@ -439,7 +435,7 @@ export function generateNonce(): string {
         const nonce = crypto.randomBytes(16).toString('base64');
 
         logger.debug('CSP nonce generated', {
-            nonceLength: nonce.length,
+            nonceLength: nonce.length
         });
 
         return nonce;
@@ -454,7 +450,7 @@ export function getCSPDirectives(nonce: string, customDirectives?: Partial<CSPDi
     if (!isString(nonce) || nonce.length === 0) {
         logger.warn('Invalid nonce provided for CSP directives', {
             nonceType: typeof nonce,
-            nonceLength: isString(nonce) ? nonce.length : 0,
+            nonceLength: isString(nonce) ? nonce.length : 0
         });
         nonce = generateNonce();
     }
@@ -471,7 +467,7 @@ export function getCSPDirectives(nonce: string, customDirectives?: Partial<CSPDi
             objectSrc: ["'none'"],
             baseUri: ["'self'"],
             formAction: ["'self'"],
-            upgradeInsecureRequests: true,
+            upgradeInsecureRequests: true
         };
 
         // Merge with custom directives
@@ -492,7 +488,7 @@ export function getCSPDirectives(nonce: string, customDirectives?: Partial<CSPDi
 
         logger.debug('CSP directives generated', {
             directiveCount: cspParts.length,
-            headerLength: cspHeader.length,
+            headerLength: cspHeader.length
         });
 
         return cspHeader;
@@ -510,7 +506,7 @@ export function getCSPDirectives(nonce: string, customDirectives?: Partial<CSPDi
             "frame-src 'none'",
             "object-src 'none'",
             "base-uri 'self'",
-            "form-action 'self'",
+            "form-action 'self'"
         ].join('; ');
     }
 }
@@ -522,7 +518,7 @@ export function sanitizeString(
 ): string {
     if (!isString(data)) {
         logger.warn('Invalid input for string sanitization', {
-            inputType: typeof data,
+            inputType: typeof data
         });
         return '';
     }
@@ -543,7 +539,7 @@ export function sanitizeStringArray(
 ): string[] {
     if (!isArray(data)) {
         logger.warn('Invalid input for string array sanitization', {
-            inputType: typeof data,
+            inputType: typeof data
         });
         return [];
     }
@@ -563,7 +559,7 @@ export function sanitizeFormData<T extends Record<string, string | string[] | un
 ): T {
     if (!isObject(formData)) {
         logger.warn('Invalid input for form data sanitization', {
-            inputType: typeof formData,
+            inputType: typeof formData
         });
         return {} as T;
     }
@@ -605,14 +601,14 @@ export function sanitizeContactForm(data: ContactFormData): ContactFormData {
         email: sanitizeEmail(data.email),
         message: sanitizeString(data.message, { sanitizeStrings: true, stripHtml: true }),
         ...(data.subject && {
-            subject: sanitizeString(data.subject, { sanitizeStrings: true, stripHtml: true }),
+            subject: sanitizeString(data.subject, { sanitizeStrings: true, stripHtml: true })
         }),
         ...(data.honeypot !== undefined && {
             honeypot: sanitizeString(data.honeypot || '', {
                 sanitizeStrings: true,
-                stripHtml: true,
-            }),
-        }),
+                stripHtml: true
+            })
+        })
     };
 }
 
@@ -636,9 +632,9 @@ export function sanitizeUserRegistration(data: UserRegistrationData): UserRegist
         ...(data.honeypot !== undefined && {
             honeypot: sanitizeString(data.honeypot || '', {
                 sanitizeStrings: true,
-                stripHtml: true,
-            }),
-        }),
+                stripHtml: true
+            })
+        })
     };
 }
 
@@ -651,7 +647,7 @@ export function isSafeString(input: string): boolean {
         /javascript:/i,
         /on\w+\s*=/i,
         /data:text\/html/i,
-        /vbscript:/i,
+        /vbscript:/i
     ];
 
     return !dangerousPatterns.some((pattern) => pattern.test(input));
@@ -704,7 +700,7 @@ export function maskEmail(email: string): string {
 export function sanitizeEmailTags(tags: string[]): string[] {
     if (!isArray(tags)) {
         logger.warn('Invalid input for email tag sanitization', {
-            inputType: typeof tags,
+            inputType: typeof tags
         });
         return [];
     }
@@ -714,7 +710,7 @@ export function sanitizeEmailTags(tags: string[]): string[] {
             .map((tag) => {
                 if (!isString(tag)) {
                     logger.warn('Non-string tag found during sanitization', {
-                        tagType: typeof tag,
+                        tagType: typeof tag
                     });
                     return '';
                 }
@@ -733,7 +729,7 @@ export function sanitizeEmailTags(tags: string[]): string[] {
         return sanitized;
     } catch (error) {
         logger.error('Email tag sanitization failed', error instanceof Error ? error : undefined, {
-            tagsCount: tags.length,
+            tagsCount: tags.length
         });
         return [];
     }
@@ -756,7 +752,7 @@ export interface EmailTemplateData {
 export function sanitizeEmailTemplateData(data: EmailTemplateData): EmailTemplateData {
     if (!isObject(data)) {
         logger.warn('Invalid input for email template data sanitization', {
-            inputType: typeof data,
+            inputType: typeof data
         });
         return {};
     }
@@ -769,8 +765,8 @@ export function sanitizeEmailTemplateData(data: EmailTemplateData): EmailTemplat
             sanitized[key] = sanitizeHtml(value, {
                 allowedTags: ['strong', 'em', 'u', 'br', 'p', 'a'],
                 allowedAttributes: {
-                    a: ['href', 'title'],
-                },
+                    a: ['href', 'title']
+                }
             });
         } else if (typeof value === 'number' || typeof value === 'boolean') {
             sanitized[key] = value;
@@ -779,7 +775,7 @@ export function sanitizeEmailTemplateData(data: EmailTemplateData): EmailTemplat
         } else {
             logger.warn('Unsupported value type in email template data', {
                 key,
-                valueType: typeof value,
+                valueType: typeof value
             });
             sanitized[key] = String(value);
         }

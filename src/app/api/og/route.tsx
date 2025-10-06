@@ -2,7 +2,7 @@
 import { ImageResponse } from 'next/og';
 import { getBaseUrl } from '@/lib';
 
-export async function GET() {
+export function GET() {
     const baseUrl = getBaseUrl();
     const logoSize = 170;
 
@@ -16,7 +16,7 @@ export async function GET() {
                     flexDirection: 'column',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    backgroundImage: `url(${baseUrl}/images/backgrounds/patterns/geometry2.png)`,
+                    backgroundImage: `url(${baseUrl}/images/backgrounds/patterns/geometry2.png)`
                 }}
             >
                 <div tw="flex">
@@ -33,7 +33,7 @@ export async function GET() {
                                     width: `${logoSize}px`,
                                     height: `${logoSize}px`,
                                     objectFit: 'cover',
-                                    marginBottom: '20px',
+                                    marginBottom: '20px'
                                 }}
                             />
                         </p>
@@ -52,7 +52,7 @@ export async function GET() {
         ),
         {
             width: 1200,
-            height: 630,
+            height: 630
         }
     );
 }

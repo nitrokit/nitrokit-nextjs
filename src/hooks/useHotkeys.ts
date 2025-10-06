@@ -59,6 +59,5 @@ export function useHotkeys(shortcuts: Shortcut[], dependencies: React.Dependency
         return () => {
             document.removeEventListener('keydown', down);
         };
-        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [...dependencies, shortcuts]);
 }

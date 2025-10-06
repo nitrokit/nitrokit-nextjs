@@ -7,7 +7,6 @@ export interface Messages {
     home: typeof import('../../messages/en/home.json');
     about: typeof import('../../messages/en/about.json');
     contact: typeof import('../../messages/en/contact.json');
-    services: typeof import('../../messages/en/services.json');
     pricing: typeof import('../../messages/en/pricing.json');
     faq: typeof import('../../messages/en/faq.json');
 }

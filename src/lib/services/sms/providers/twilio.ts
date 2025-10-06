@@ -34,29 +34,29 @@ export class TwilioProvider implements SMSProvider {
                 provider: 'twilio',
                 from: this.config.phoneNumber,
                 to: phoneNumber.slice(-4),
-                messageLength: message.length,
+                messageLength: message.length
             });
 
             const result = await this.client.messages.create({
                 body: message,
                 from: this.config.phoneNumber,
-                to: phoneNumber,
+                to: phoneNumber
             });
 
             logger.info('SMS sent successfully via Twilio', {
                 provider: 'twilio',
                 messageId: result.sid,
-                status: result.status,
+                status: result.status
             });
 
             return {
                 success: true,
-                messageId: result.sid,
+                messageId: result.sid
             };
         } catch (error) {
             logger.error('Twilio SMS failed', error instanceof Error ? error : undefined, {
                 provider: 'twilio',
-                phoneNumber: phoneNumber.slice(-4),
+                phoneNumber: phoneNumber.slice(-4)
             });
 
             throw error;

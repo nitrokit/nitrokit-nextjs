@@ -22,7 +22,7 @@ export function NewsletterConfirmationEmail({ confirmUrl }: { confirmUrl: string
                     style={{
                         ...emailStyles.button,
                         background: 'linear-gradient(90deg, #6366f1 0%, #8b5cf6 100%)',
-                        boxShadow: '0 2px 8px rgba(99,102,241,0.15)',
+                        boxShadow: '0 2px 8px rgba(99,102,241,0.15)'
                     }}
                 >
                     Aboneliği Onayla

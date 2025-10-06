@@ -6,7 +6,7 @@ export const PLANS: PricingPlan[] = [
         monthlyPrice: 19,
         yearlyPrice: 190,
         features: ['5products', 'upto1000subscribers', 'basicanalytics', '48hoursupport'],
-        isFeatured: false,
+        isFeatured: false
     },
     {
         id: PricingPlanId.STARTUP,
@@ -17,9 +17,9 @@ export const PLANS: PricingPlan[] = [
             'upto10000subscribers',
             'advancedanalytics',
             '24hoursupport',
-            'marketingautomations',
+            'marketingautomations'
         ],
-        isFeatured: true,
+        isFeatured: true
     },
     {
         id: PricingPlanId.PRO,
@@ -30,8 +30,8 @@ export const PLANS: PricingPlan[] = [
             'unlimitedsubscribers',
             'advancedanalytics',
             '1hoursupport',
-            'marketingautomations',
+            'marketingautomations'
         ],
-        isFeatured: false,
-    },
+        isFeatured: false
+    }
 ];

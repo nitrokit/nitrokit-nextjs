@@ -7,7 +7,7 @@ export interface LoadingProps {
     className?: string;
 }
 
-export async function Loading({ text, className }: LoadingProps) {
+export function Loading({ text, className }: LoadingProps) {
     return (
         <div className="m-auto my-10 w-full">
             <div className={`flex flex-col items-center justify-center space-y-2 ${className}`}>

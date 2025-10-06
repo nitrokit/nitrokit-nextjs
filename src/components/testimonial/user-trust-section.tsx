@@ -15,7 +15,7 @@ export function UserTrustSection({ testimonials, label }: UserTrustSectionProps)
         name: testimonial.author.name,
         title: testimonial.author.title,
         company: testimonial.author.company,
-        avatarUrl: testimonial.author.avatar,
+        avatarUrl: testimonial.author.avatar
     }));
 
     return (

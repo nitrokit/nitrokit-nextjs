@@ -7,7 +7,7 @@ import {
     NavigationMenuContent,
     NavigationMenuTrigger,
     NavigationMenuLink,
-    navigationMenuTriggerStyle,
+    navigationMenuTriggerStyle
 } from '../navigation-menu';
 
 describe('NavigationMenu', () => {

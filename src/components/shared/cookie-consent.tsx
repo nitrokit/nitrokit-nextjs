@@ -14,31 +14,27 @@ import {
     SheetDescription,
     SheetHeader,
     SheetTitle,
-    SheetTrigger,
+    SheetTrigger
 } from '@/components/ui';
 import { Cookie, Settings, Shield, BarChart3, Target } from 'lucide-react';
 import type { GtagConsentParams } from '@/types/gtag';
-
-interface CookiePreferences {
-    necessary: boolean;
-    analytics: boolean;
-    marketing: boolean;
-    functional: boolean;
-}
+import { CookiePreferences, CookiePreferencesSchema } from '@/lib/validations/preferences';
 
 const COOKIE_CONSENT_KEY = 'nitrokit-cookie-consent';
 const COOKIE_PREFERENCES_KEY = 'nitrokit-cookie-preferences';
+
+const defaultPreferences: CookiePreferences = {
+    necessary: true,
+    analytics: false,
+    marketing: false,
+    functional: false
+};
 
 export function CookieConsent() {
     const t = useTranslations('app');
     const [isVisible, setIsVisible] = useState(false);
     const [showSettings, setShowSettings] = useState(false);
-    const [preferences, setPreferences] = useState<CookiePreferences>({
-        necessary: true, // Always required
-        analytics: false,
-        marketing: false,
-        functional: false,
-    });
+    const [preferences, setPreferences] = useState<CookiePreferences>(defaultPreferences);
 
     useEffect(() => {
         const consent = localStorage.getItem(COOKIE_CONSENT_KEY);
@@ -50,7 +46,21 @@ export function CookieConsent() {
         }
 
         if (savedPreferences) {
-            setPreferences(JSON.parse(savedPreferences));
+            try {
+                const result = CookiePreferencesSchema.safeParse(JSON.parse(savedPreferences));
+
+                if (result.success) {
+                    setPreferences(result.data);
+                } else {
+                    console.error(
+                        'Bozuk çerez verisi tespit edildi, varsayılan ayarlar kullanılıyor.'
+                    );
+                    setPreferences(defaultPreferences);
+                }
+            } catch (error) {
+                console.error('Çerez verisi ayrıştırılamadı:', error);
+                setPreferences(defaultPreferences);
+            }
         }
 
         return () => {
@@ -91,7 +101,7 @@ export function CookieConsent() {
     const enableAnalytics = () => {
         if (typeof window !== 'undefined' && window.gtag) {
             const consentParams: GtagConsentParams = {
-                analytics_storage: 'granted',
+                analytics_storage: 'granted'
             };
             window.gtag('consent', 'update', consentParams);
         }
@@ -100,7 +110,7 @@ export function CookieConsent() {
     const disableAnalytics = () => {
         if (typeof window !== 'undefined' && window.gtag) {
             window.gtag('consent', 'update', {
-                analytics_storage: 'denied',
+                analytics_storage: 'denied'
             });
         }
     };
@@ -110,7 +120,7 @@ export function CookieConsent() {
             const consentParams: GtagConsentParams = {
                 ad_storage: 'granted',
                 ad_user_data: 'granted',
-                ad_personalization: 'granted',
+                ad_personalization: 'granted'
             };
             window.gtag('consent', 'update', consentParams);
         }
@@ -121,7 +131,7 @@ export function CookieConsent() {
             window.gtag('consent', 'update', {
                 ad_storage: 'denied',
                 ad_user_data: 'denied',
-                ad_personalization: 'denied',
+                ad_personalization: 'denied'
             });
         }
     };
@@ -135,21 +145,21 @@ export function CookieConsent() {
     };
 
     const acceptAll = () => {
-        const allAccepted = {
+        const allAccepted: CookiePreferences = {
             necessary: true,
             analytics: true,
             marketing: true,
-            functional: true,
+            functional: true
         };
         saveCookiePreferences(allAccepted);
     };
 
     const acceptNecessary = () => {
-        const necessaryOnly = {
+        const necessaryOnly: CookiePreferences = {
             necessary: true,
             analytics: false,
             marketing: false,
-            functional: false,
+            functional: false
         };
         saveCookiePreferences(necessaryOnly);
     };
@@ -242,7 +252,7 @@ export function CookieConsent() {
                                                         onCheckedChange={(checked) =>
                                                             setPreferences((prev) => ({
                                                                 ...prev,
-                                                                analytics: !!checked,
+                                                                analytics: !!checked
                                                             }))
                                                         }
                                                     />
@@ -268,7 +278,7 @@ export function CookieConsent() {
                                                         onCheckedChange={(checked) =>
                                                             setPreferences((prev) => ({
                                                                 ...prev,
-                                                                marketing: !!checked,
+                                                                marketing: !!checked
                                                             }))
                                                         }
                                                     />
@@ -294,7 +304,7 @@ export function CookieConsent() {
                                                         onCheckedChange={(checked) =>
                                                             setPreferences((prev) => ({
                                                                 ...prev,
-                                                                functional: !!checked,
+                                                                functional: !!checked
                                                             }))
                                                         }
                                                     />

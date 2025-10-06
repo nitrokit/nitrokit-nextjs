@@ -7,12 +7,12 @@ const config: Config = {
         './src/lib/**/*.{js,ts,jsx,tsx,mdx}',
         './src/hooks/**/*.{js,ts,jsx,tsx,mdx}',
         './src/constants/**/*.{js,ts,jsx,tsx,mdx}',
-        './src/types/**/*.{js,ts,jsx,tsx,mdx}',
+        './src/types/**/*.{js,ts,jsx,tsx,mdx}'
     ],
     theme: {
-        extend: {},
+        extend: {}
     },
-    plugins: [require('@tailwindcss/typography')],
+    plugins: [require('@tailwindcss/typography')]
 };
 
 export default config;

@@ -8,7 +8,7 @@ import {
     ToggleGroupItem,
     Tooltip,
     TooltipContent,
-    TooltipTrigger,
+    TooltipTrigger
 } from '@/components/ui';
 import { useNextTheme } from '@/hooks';
 
@@ -22,7 +22,7 @@ export const CompactThemeSwitcher = () => {
     const themes = [
         { value: 'light', icon: SunIcon, label: 'Light' },
         { value: 'dark', icon: MoonIcon, label: 'Dark' },
-        { value: 'system', icon: MonitorIcon, label: 'System' },
+        { value: 'system', icon: MonitorIcon, label: 'System' }
     ];
 
     return (

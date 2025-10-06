@@ -1,3 +1,4 @@
+import { unsupportedServiceError } from '@/lib';
 import { EmailService } from './email-service';
 import { EmailProviderType, EmailProviderConfig } from './providers';
 import { logger } from '@/lib/services/logger';
@@ -16,12 +17,12 @@ export function getEmailService(): EmailService {
             case 'resend':
                 config.resend = {
                     apiKey: process.env.RESEND_API_KEY!,
-                    from: process.env.RESEND_FROM_EMAIL!,
+                    from: process.env.RESEND_FROM_EMAIL!
                 };
                 break;
 
             default:
-                throw new Error(`Unsupported email provider: ${providerType}`);
+                unsupportedServiceError('E-mail Provider', providerType);
         }
 
         emailService = new EmailService(providerType, config);

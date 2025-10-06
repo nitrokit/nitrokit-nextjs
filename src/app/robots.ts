@@ -6,13 +6,13 @@ export default function robots(): MetadataRoute.Robots {
         rules: [
             {
                 userAgent: '*',
-                allow: '/',
+                allow: '/'
             },
             {
                 userAgent: '*',
-                allow: '/api/og',
-            },
+                allow: '/api/og'
+            }
         ],
-        sitemap: `${getBaseUrl()}/sitemap.xml`,
+        sitemap: `${getBaseUrl()}/sitemap.xml`
     };
 }
