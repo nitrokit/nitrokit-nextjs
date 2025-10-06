@@ -15,7 +15,6 @@ export default getRequestConfig(async ({ requestLocale }) => {
         import(`../../../messages/${locale}/contact.json`),
         import(`../../../messages/${locale}/home.json`),
         import(`../../../messages/${locale}/pricing.json`),
-        import(`../../../messages/${locale}/services.json`),
         import(`../../../messages/${locale}/faq.json`)
     ]);
 
@@ -29,8 +28,7 @@ export default getRequestConfig(async ({ requestLocale }) => {
             contact: messageModules[4].default,
             home: messageModules[5].default,
             pricing: messageModules[6].default,
-            services: messageModules[7].default,
-            faq: messageModules[8].default
+            faq: messageModules[7].default
         }
     };
 });
