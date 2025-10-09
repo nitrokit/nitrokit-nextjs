@@ -18,7 +18,10 @@ import {
 } from '@/components/ui';
 import { Cookie, Settings, Shield, BarChart3, Target } from 'lucide-react';
 import type { GtagConsentParams } from '@/types/gtag';
-import { CookiePreferences, CookiePreferencesSchema } from '@/lib/validations/preferences';
+import {
+    CookiePreferences,
+    CookiePreferencesSchema
+} from '@/lib/validations/cookie-preferences-schema';
 
 const COOKIE_CONSENT_KEY = 'nitrokit-cookie-consent';
 const COOKIE_PREFERENCES_KEY = 'nitrokit-cookie-preferences';

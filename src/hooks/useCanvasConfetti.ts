@@ -14,7 +14,7 @@ export type ConfettiEffectType =
     | 'snow'
     | 'emoji';
 
-interface ConfettiOptions {
+export interface ConfettiOptions {
     effect: ConfettiEffectType;
     enabled: boolean;
     intensity?: 'low' | 'medium' | 'high';
