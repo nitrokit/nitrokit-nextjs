@@ -22,18 +22,18 @@ const NAV_LINKS: readonly NavLink[] = [
 
 const FOOTER_LINKS = {
     SECTION1: [
-        { name: 'app.navigation.features', href: '/features', noLocale: false },
-        { name: 'app.navigation.pricing', href: '/pricing', noLocale: false },
+        { name: 'app.navigation.features', href: '#', noLocale: false },
+        { name: 'app.navigation.pricing', href: '#', noLocale: false },
         {
             name: 'app.navigation.docs',
-            href: 'https://github.com/mustafagenc/nitrokit/wiki',
+            href: '#',
             noLocale: true
         },
-        { name: 'app.navigation.storybook', href: 'https://storybook.nitrokit.tr', noLocale: true }
+        { name: 'app.navigation.storybook', href: '#', noLocale: true }
     ],
     SECTION2: [
-        { name: 'app.navigation.getting_started', href: '/docs/getting-started', noLocale: false },
-        { name: 'app.navigation.faq', href: '/faq', noLocale: false },
+        { name: 'app.navigation.getting_started', href: '#', noLocale: false },
+        { name: 'app.navigation.faq', href: '#', noLocale: false },
         {
             name: 'app.navigation.community',
             href: 'https://github.com/mustafagenc/nitrokit/discussions',

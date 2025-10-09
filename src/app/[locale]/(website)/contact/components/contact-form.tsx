@@ -19,7 +19,13 @@ import {
     Input,
     Textarea
 } from '@/components/ui';
-import { contactFormSchema, type ContactFormData, cn } from '@/lib';
+import {
+    sendContactEmail,
+    EmailServiceResult,
+    contactFormSchema,
+    type ContactFormData,
+    cn
+} from '@/lib';
 import { Link } from '@/lib/i18n/navigation';
 
 type FormStatus = 'idle' | 'success' | 'error';
@@ -35,8 +41,7 @@ export const ContactForm = () => {
         defaultValues: {
             name: '',
             email: '',
-            message: '',
-            turnstileToken: ''
+            message: ''
         },
         mode: 'onBlur'
     });
@@ -46,18 +51,25 @@ export const ContactForm = () => {
     } = form;
 
     const handleFormSubmit: SubmitHandler<ContactFormData> = (data) => {
-        startTransition(() => {
+        startTransition(async () => {
             setFormStatus('idle');
             try {
-                console.log(data);
+                const result: EmailServiceResult = await sendContactEmail(data);
+                console.log(result);
+                if (!result.success) {
+                    setFormStatus('error');
+                    toast.error(t('app.errors.general'), {
+                        icon: <AlertCircle className="h-4 w-4" />
+                    });
+                }
 
                 setFormStatus('success');
                 toast.success(t('contact.message_sent'), {
                     icon: <CheckCircle className="h-4 w-4" />,
                     description: t('contact.message_sent_description')
                 });
-
                 form.reset();
+                setFormStatus('idle');
             } catch (error) {
                 console.error(error);
                 setFormStatus('error');

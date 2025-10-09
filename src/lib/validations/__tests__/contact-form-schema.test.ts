@@ -15,8 +15,7 @@ describe('Contact Form Zod Schema Validation', () => {
         const validData: ContactFormData = {
             name: 'John Doe',
             email: 'john.doe@example.com',
-            message: 'This is a test message.',
-            turnstileToken: 'valid-token-123'
+            message: 'This is a test message.'
         };
 
         // Expect the parse to succeed without throwing an error
@@ -29,13 +28,12 @@ describe('Contact Form Zod Schema Validation', () => {
     // --- Failure Cases (Individual Fields) ---
 
     describe('Failure Cases', () => {
-        // Test 1: Empty Fields (name, message, turnstileToken)
+        // Test 1: Empty Fields (name, message)
         it('should fail validation and return required messages for empty fields', () => {
             const invalidData = {
                 name: '', // Required
                 email: 'test@test.com',
-                message: '', // Required
-                turnstileToken: '' // Required
+                message: '' // Required
             };
 
             try {
@@ -46,9 +44,6 @@ describe('Contact Form Zod Schema Validation', () => {
 
                 expect(fieldErrors.name).toEqual(['MOCK_MESSAGE_VALIDATIONS.REQUIRED.NAME']);
                 expect(fieldErrors.message).toEqual(['MOCK_MESSAGE_VALIDATIONS.REQUIRED.MESSAGE']);
-                expect(fieldErrors.turnstileToken).toEqual([
-                    'MOCK_MESSAGE_VALIDATIONS.REQUIRED.CAPTCHA'
-                ]);
 
                 // Ensure no unexpected errors
                 expect(fieldErrors.email).toBeUndefined();
@@ -60,8 +55,7 @@ describe('Contact Form Zod Schema Validation', () => {
             const invalidData = {
                 name: 'Jo', // Too short
                 email: 'test@test.com',
-                message: 'a',
-                turnstileToken: '1'
+                message: 'a'
             };
 
             try {
@@ -80,8 +74,7 @@ describe('Contact Form Zod Schema Validation', () => {
             const invalidData = {
                 name: 'Valid Name',
                 email: 'not-an-email', // Invalid format
-                message: 'a',
-                turnstileToken: '1'
+                message: 'a'
             };
 
             try {
@@ -100,8 +93,7 @@ describe('Contact Form Zod Schema Validation', () => {
             const invalidData = {
                 name: 'Valid Name',
                 email: '', // Empty
-                message: 'a',
-                turnstileToken: '1'
+                message: 'a'
             };
 
             try {
