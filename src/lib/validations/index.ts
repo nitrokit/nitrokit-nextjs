@@ -1,2 +1,2 @@
-export * from './newsletter';
-export * from './contact';
+export * from './newsletter-form-schema';
+export * from './contact-form-schema';
