@@ -17,13 +17,11 @@
 - 📘 **TypeScript** for type safety
 - 🎨 **TailwindCSS** for styling
 - 🌍 **Internationalization** with next-intl
-- 🔐 **Multi-provider authentication** (Google, GitHub, GitLab, Facebook)
 - 🗃️ **Database** with Prisma
 - 📧 **Email** with Resend
 - 📊 **Analytics** (Google Analytics, Yandex Metrica)
 - 🛠️ **Development automation** scripts
 - 🧪 **Testing** with Vitest
-- 📖 **Storybook** for components
 
 ## 🤝 Contributing
 
