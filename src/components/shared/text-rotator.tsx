@@ -10,29 +10,32 @@ interface TextRotatorProps {
 
 export function TextRotator({ texts, interval = 5000, className }: TextRotatorProps) {
     const [currentIndex, setCurrentIndex] = useState(0);
-    const [isVisible, setIsVisible] = useState(true);
+    const [isMounted, setIsMounted] = useState(false);
 
     useEffect(() => {
-        if (!texts || texts.length <= 1) return;
+        setIsMounted(true);
+    }, []);
+
+    useEffect(() => {
+        if (!texts || texts.length <= 1 || !isMounted) {
+            return;
+        }
 
         const timer = setInterval(() => {
-            setIsVisible(false);
-            setTimeout(() => {
-                setCurrentIndex((prevIndex) => (prevIndex + 1) % texts.length);
-                setIsVisible(true);
-            }, 1000); // Geçiş süresi
+            setCurrentIndex((prevIndex) => (prevIndex + 1) % texts.length);
         }, interval);
 
         return () => clearInterval(timer);
-    }, [texts, interval]);
+    }, [texts, interval, isMounted]);
 
-    if (!texts || texts.length === 0) {
+    if (!texts || texts.length === 0 || !isMounted) {
         return null;
     }
 
     return (
         <span
-            className={`transition-opacity duration-1000 ease-in-out ${isVisible ? 'opacity-100' : 'opacity-0'} ${className || ''} `}
+            className={`transition-opacity duration-1000 ease-in-out ${className || ''}`}
+            key={currentIndex}
         >
             {texts[currentIndex]}
         </span>

@@ -1,24 +1,26 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 interface RandomTextProps {
     texts: React.ReactNode[];
     className?: string;
 }
 
-export function RandomText({ texts }: RandomTextProps) {
-    const [randomText] = useState(() => {
+export function RandomText({ texts, className }: RandomTextProps) {
+    const [randomText, setRandomText] = useState<React.ReactNode>(null);
+
+    useEffect(() => {
         if (!texts || texts.length === 0) {
-            return null;
+            return;
         }
         const randomIndex = Math.floor(Math.random() * texts.length);
-        return texts[randomIndex];
-    });
+        setRandomText(texts[randomIndex]);
+    }, [texts]);
 
     if (!randomText) {
         return null;
     }
 
-    return <>{randomText}</>;
+    return <span className={className}>{randomText}</span>;
 }
