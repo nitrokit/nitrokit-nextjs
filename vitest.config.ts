@@ -10,7 +10,7 @@ export default defineConfig({
         globals: true,
         setupFiles: ['./vitest.setup.ts'],
         include: ['src/**/*.{test,spec}.{js,jsx,ts,tsx}', 'src/**/__tests__/**/*.{js,jsx,ts,tsx}'],
-        exclude: ['node_modules/**', '.next/**', 'dist/**', 'build/**'],
+        exclude: ['node_modules/**', '.next/**', 'dist/**', 'build/**', '.vercel/**'],
         coverage: {
             provider: 'v8',
             reporter: ['text', 'json', 'html', 'lcov'],
@@ -36,7 +36,8 @@ export default defineConfig({
                 'stories/**',
                 '**/*.stories.{ts,tsx}',
                 'src/generated/**',
-                '**/prisma/**'
+                '**/prisma/**',
+                'tests/**'
             ]
         },
         onConsoleLog(log) {
