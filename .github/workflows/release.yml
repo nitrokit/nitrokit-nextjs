@@ -26,6 +26,6 @@ jobs:
             - args: [--frozen-lockfile]
 
       - name: Run semantic-release
-        run: npx semantic-release --no-verify
+        run: npx semantic-release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
