@@ -1,6 +1,11 @@
 #!/bin/sh
 # .husky/pre-commit
 
+if [ "$CI" = "true" ] || git log -1 --pretty=%B | grep -q '\[skip ci]'; then
+  echo "🚀 Skipping pre-commit validation in CI or for release commit."
+  exit 0
+fi
+
 echo '🚀 Checking if pre-commit validation is needed...'
 
 BRANCH=$(git rev-parse --abbrev-ref HEAD 2>/dev/null || git branch --show-current 2>/dev/null || echo "unknown")
