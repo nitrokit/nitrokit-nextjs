@@ -1,3 +1,5 @@
+import '@/styles/globals.css';
+
 import { Metadata, Viewport } from 'next';
 import { notFound } from 'next/navigation';
 import { NextIntlClientProvider, hasLocale } from 'next-intl';
@@ -9,8 +11,8 @@ import { getLangDir } from 'rtl-detect';
 import { ThemeProvider } from '@/providers/theme-provider';
 import { CookieConsent } from '@/components/shared';
 import { TooltipProvider } from '@/components/ui';
-
-import '@/styles/globals.css';
+import { SessionProvider } from 'next-auth/react';
+import { UserProvider } from '@/contexts/user-context';
 
 export async function generateMetadata(): Promise<Metadata> {
     return await generateSiteMetadata();
@@ -48,15 +50,19 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
                 className={`${lexend.variable} ${montserrat.variable} font-[family-name:var(--font-lexend)] antialiased`}
             >
                 <NextIntlClientProvider locale={locale} messages={messages}>
-                    <ThemeProvider
-                        attribute="class"
-                        defaultTheme="system"
-                        enableSystem
-                        disableTransitionOnChange
-                    >
-                        <TooltipProvider delayDuration={100}>{children}</TooltipProvider>
-                        <CookieConsent />
-                    </ThemeProvider>
+                    <SessionProvider>
+                        <UserProvider>
+                            <ThemeProvider
+                                attribute="class"
+                                defaultTheme="system"
+                                enableSystem
+                                disableTransitionOnChange
+                            >
+                                <TooltipProvider delayDuration={100}>{children}</TooltipProvider>
+                                <CookieConsent />
+                            </ThemeProvider>
+                        </UserProvider>
+                    </SessionProvider>
                 </NextIntlClientProvider>
             </body>
         </html>
