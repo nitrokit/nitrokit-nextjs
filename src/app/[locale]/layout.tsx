@@ -7,8 +7,6 @@ import { generateSiteMetadata } from '@/lib';
 import { lexend, montserrat } from '@/constants/fonts';
 import { getLangDir } from 'rtl-detect';
 import { ThemeProvider } from '@/providers/theme-provider';
-import { UserProvider } from '@/contexts/user-context';
-import { SessionProvider } from 'next-auth/react';
 import { CookieConsent } from '@/components/shared';
 import { TooltipProvider } from '@/components/ui';
 
@@ -50,19 +48,15 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
                 className={`${lexend.variable} ${montserrat.variable} font-[family-name:var(--font-lexend)] antialiased`}
             >
                 <NextIntlClientProvider locale={locale} messages={messages}>
-                    <SessionProvider>
-                        <UserProvider>
-                            <ThemeProvider
-                                attribute="class"
-                                defaultTheme="system"
-                                enableSystem
-                                disableTransitionOnChange
-                            >
-                                <TooltipProvider delayDuration={100}>{children}</TooltipProvider>
-                                <CookieConsent />
-                            </ThemeProvider>
-                        </UserProvider>
-                    </SessionProvider>
+                    <ThemeProvider
+                        attribute="class"
+                        defaultTheme="system"
+                        enableSystem
+                        disableTransitionOnChange
+                    >
+                        <TooltipProvider delayDuration={100}>{children}</TooltipProvider>
+                        <CookieConsent />
+                    </ThemeProvider>
                 </NextIntlClientProvider>
             </body>
         </html>
