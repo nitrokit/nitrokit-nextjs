@@ -1,6 +1,5 @@
 import { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
-import { useTranslations } from 'next-intl';
 import { generatePageMetadata } from '@/lib';
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -13,8 +12,8 @@ export async function generateMetadata(): Promise<Metadata> {
     });
 }
 
-export default function PrivacyPolicyPage() {
-    const t = useTranslations('app.privacyPolicy');
+export default async function Page() {
+    const t = await getTranslations('app.privacyPolicy');
     return (
         <div className="w-full py-10 lg:mx-auto lg:w-7xl">
             <h1 className="py-6 text-3xl font-bold">{t('title')}</h1>

@@ -12,7 +12,7 @@ import { NewsletterConfirmDialog } from '@/components/newsletter';
 import { Testimonials } from '@/components/testimonial';
 import { Hero, GitHubSection } from './home/components';
 
-export default function Home() {
+export default function Page() {
     return (
         <div className="relative -top-20 min-h-screen overflow-hidden bg-white transition-colors duration-300 dark:bg-[#111113]">
             <NewsletterConfirmDialog />
