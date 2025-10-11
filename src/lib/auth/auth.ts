@@ -1,16 +1,17 @@
 import NextAuth from 'next-auth';
 import { PrismaAdapter } from '@auth/prisma-adapter';
-import { prisma } from './lib/prisma';
+import { prisma } from '../prisma';
+import { AUTH_ROUTES } from './constants';
 
 export const { handlers, auth, signIn, signOut } = NextAuth({
     adapter: PrismaAdapter(prisma),
     providers: [],
     pages: {
-        signIn: '/login',
-        signOut: '/logout',
-        error: '/error',
-        verifyRequest: '/verify-request',
-        newUser: '/register'
+        signIn: AUTH_ROUTES.SIGN_IN,
+        signOut: AUTH_ROUTES.SIGN_OUT,
+        newUser: AUTH_ROUTES.NEW_USER,
+        error: AUTH_ROUTES.ERROR,
+        verifyRequest: AUTH_ROUTES.VERIFY_REQUEST
     },
     session: {
         strategy: 'jwt',
