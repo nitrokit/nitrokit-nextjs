@@ -102,7 +102,12 @@ export const ContactForm = () => {
             </div>
 
             <Form {...form}>
-                <form onSubmit={form.handleSubmit(handleFormSubmit)} className="space-y-6">
+                <form
+                    onSubmit={(event) => {
+                        void form.handleSubmit(handleFormSubmit)(event);
+                    }}
+                    className="space-y-6"
+                >
                     <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
                         <FormField
                             control={form.control}
