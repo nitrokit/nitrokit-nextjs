@@ -1,3 +1,10 @@
+# [1.3.0](https://github.com/nitrokit/nitrokit-nextjs/compare/v1.2.0...v1.3.0) (2025-10-11)
+
+
+### Features
+
+* Adds 404 page with i18n support ([cd42e6d](https://github.com/nitrokit/nitrokit-nextjs/commit/cd42e6df3e6d21c0f3cc4be676b99205fdd8a807))
+
 # [1.2.0](https://github.com/nitrokit/nitrokit-nextjs/compare/v1.1.0...v1.2.0) (2025-10-11)
 
 ### Features
