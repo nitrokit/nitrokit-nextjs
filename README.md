@@ -7,7 +7,7 @@
 
 🚀 Modern Next.js boilerplate with TypeScript, authentication, and development automation
 
-<a href="https://github.com/nitrokit/nitrokit-nextjs"><img src="https://vercelbadge.vercel.app/api/nitrokit/nitrokit-nextjs"/></a> <a href="https://codecov.io/gh/nitrokit/nitrokit-nextjs"><img src="https://codecov.io/gh/nitrokit/nitrokit-nextjs/graph/badge.svg?token=7V4UDZX9FC"/></a> <a href="https://www.codefactor.io/repository/github/nitrokit/nitrokit-nextjs"><img src="https://img.shields.io/codefactor/grade/github/nitrokit/nitrokit-nextjs?style=flat" alt="CodeFactor Grade"></a> <a title="Crowdin" target="_blank" href="https://crowdin.com/project/nitrokit"><img src="https://badges.crowdin.net/nitrokit/localized.svg"></a> <a href="https://www.npmjs.com/package/nitrokit-cli"><img alt="NPM Version" src="https://img.shields.io/npm/v/nitrokit-cli?label=nitrokit-cli"></a> <a href="https://opensource.org/licenses/Apache-2.0"><img src="https://img.shields.io/badge/License-Apache%202.0-blue.svg" alt="License: Apache-2.0"></a> 
+<a href="https://github.com/nitrokit/nitrokit-nextjs"><img src="https://vercelbadge.vercel.app/api/nitrokit/nitrokit-nextjs"/></a> <a href="https://codecov.io/gh/nitrokit/nitrokit-nextjs"><img src="https://codecov.io/gh/nitrokit/nitrokit-nextjs/graph/badge.svg?token=7V4UDZX9FC"/></a> <a href="https://www.codefactor.io/repository/github/nitrokit/nitrokit-nextjs"><img src="https://img.shields.io/codefactor/grade/github/nitrokit/nitrokit-nextjs?style=flat" alt="CodeFactor Grade"></a> <a title="Crowdin" target="_blank" href="https://crowdin.com/project/nitrokit"><img src="https://badges.crowdin.net/nitrokit/localized.svg"></a> <a href="https://www.npmjs.com/package/nitrokit-cli"><img alt="NPM Version" src="https://img.shields.io/npm/v/nitrokit-cli?label=nitrokit-cli"></a> <a href="https://opensource.org/licenses/Apache-2.0"><img src="https://img.shields.io/badge/License-Apache%202.0-blue.svg" alt="License: Apache-2.0"></a>
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=http%3A%2F%2Fgithub.com%2Fnitrokit%2Fnitrokit-nextjs&env=AUTH_SECRET,DATABASE_URL,GOOGLE_SITE_VERIFICATION,GOOGLE_ANALYTICS,YANDEX_VERIFICATION,EMAIL_PROVIDER,RESEND_API_KEY,RESEND_AUDIENCE_ID,RESEND_FROM_EMAIL,UPSTASH_REDIS_REST_URL&project-name=nitrokit&repository-name=nitrokit-nextjs&demo-title=Nitrokit&demo-description=%F0%9F%9A%80%20A%20modern%20and%20production-ready%20Next.js%20boilerplate.%20It%20provides%20a%20quick%20start%20with%20TypeScript%2C%20i18n%20support%2C%20and%20automated%20tooling.&demo-url=https%3A%2F%2Fpreview.nitrokit.tr&demo-image=https%3A%2F%2Fraw.githubusercontent.com%2Fnitrokit%2Fnitrokit-nextjs%2Frefs%2Fheads%2Fmain%2Fpublic%2Fscreenshots%2Fscreenshot-1.png)
 
@@ -15,20 +15,20 @@
 
 ## ✨ Features
 
--   **Framework:** Next.js 15 (App Router)
--   **Styling:** Tailwind CSS 4 & shadcn/ui
--   **Language:** TypeScript
--   **Database & ORM:** PostgreSQL with Prisma
--   **Authentication:** NextAuth.js v5
--   **Internationalization (i18n):** Full App Router support with next-intl
--   **Form Management:** React Hook Form & Zod
--   **Containerization:** Optimized Docker support for development and production
--   **Linting & Formatting:** ESLint and Prettier
--   **Testing:** Vitest (Unit/Integration) & Playwright (E2E)
--   **UI Components:** `shadcn/ui` built on Radix UI
--   **Email:** Resend & React Email
--   **API Rate Limiting:** Upstash Ratelimit
--   **Automatic Versioning:** Semantic Release
+- **Framework:** Next.js 15 (App Router)
+- **Styling:** Tailwind CSS 4 & shadcn/ui
+- **Language:** TypeScript
+- **Database & ORM:** PostgreSQL with Prisma
+- **Authentication:** NextAuth.js v5
+- **Internationalization (i18n):** Full App Router support with next-intl
+- **Form Management:** React Hook Form & Zod
+- **Containerization:** Optimized Docker support for development and production
+- **Linting & Formatting:** ESLint and Prettier
+- **Testing:** Vitest (Unit/Integration) & Playwright (E2E)
+- **UI Components:** `shadcn/ui` built on Radix UI
+- **Email:** Resend & React Email
+- **API Rate Limiting:** Upstash Ratelimit
+- **Automatic Versioning:** Semantic Release
 
 ## 🚀 Getting Started
 
@@ -50,7 +50,7 @@ npx nitrokit-cli new my-app
     docker-compose up
     ```
 
-### Manual Setup 
+### Manual Setup
 
 1.  Install dependencies:
     ```bash

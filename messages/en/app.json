@@ -107,5 +107,10 @@
             "title": "4. Contact Information",
             "text": "If you have any questions about this Privacy Policy, please contact us at hello@nitrokit.tr."
         }
+    },
+    "notFound": {
+        "title": "Page Not Found",
+        "description": "Error! The page you are looking for does not exist.",
+        "returnHome": "Return to Homepage"
     }
 }
