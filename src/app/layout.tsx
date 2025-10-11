@@ -1,3 +1,5 @@
+import '@/styles/globals.css';
+
 import { ServiceWorkerRegister } from '@/components/shared/service-worker-register';
 import { Toaster } from '@/components/ui';
 import AnalyticsProvider from '@/providers/analytics-provider';

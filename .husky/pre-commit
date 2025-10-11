@@ -76,11 +76,11 @@ run_command() {
             return 1
         fi
     else
-        echo -e "${RED}❌ yarn, pnpm veya npm bulunamadı${NC}"
+        echo -e "${RED}❌ yarn, pnpm or npm not found${NC}"
         return 1
     fi
     
-    echo -e "${GREEN}✅ $command başarıyla tamamlandı${NC}"
+    echo -e "${GREEN}✅ $command successfully completed${NC}"
     return 0
 }
 
@@ -154,26 +154,29 @@ fi
 
 echo -e "\n${YELLOW}🔒 Sanitizing .env file before commit...${NC}"
 
-# .env dosyası var mı kontrol et
+# Check if .env file exists
 if [ -f .env ]; then
     echo -e "${BLUE}📝 Creating/updating .env.example with sanitized values...${NC}"
     
-    # Farklı değişken türleri için özel örnek değerler
+    # Specific example values for different variable types
     cat .env | while IFS='=' read -r key value; do
-        # Boş satırları atla
+        # Skip empty lines
         if [ -z "$key" ]; then
             echo ""
             continue
         fi
         
-        # Yorum satırlarını koru
+        # Preserve comment lines
         if echo "$key" | grep -q '^#'; then
             echo "$key"
             continue
         fi
         
-        # Değişken adına göre özel örnek değerler
+        # Specific example values based on variable name
         case "$key" in
+            *PROVIDER)
+                echo "${key}=provider_name"
+                ;;
             *API_KEY*|*SECRET*|*TOKEN*|*PASSWORD*)
                 echo "${key}=---$(echo ${key} | tr '[:upper:]' '[:lower:]')---"
                 ;;

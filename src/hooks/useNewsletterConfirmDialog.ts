@@ -51,7 +51,7 @@ export const useNewsletterConfirmDialog = (t: (key: string) => string) => {
                 setStatus('error');
                 setMessage(t('app.errors.general'));
             });
-    }, [searchParams, requestSent, router]);
+    }, [searchParams, requestSent, router, t]);
 
     const onOpenChange = useCallback(
         (open: boolean) => {

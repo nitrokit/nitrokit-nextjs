@@ -1,8 +1,5 @@
-import { getTranslations } from 'next-intl/server';
+import { PageLoading } from '@/components/shared';
 
-import { Loading } from '@/components/shared';
-
-export default async function PageLoading() {
-    const t = await getTranslations('app');
-    return <Loading text={t('loading')} className="h-[400px]" />;
+export default function Loading() {
+    return <PageLoading />;
 }

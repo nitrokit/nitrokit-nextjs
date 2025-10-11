@@ -1,6 +1,6 @@
-import Link from 'next/link';
 import { ArrowRight, LucideIcon } from 'lucide-react';
 import { useTranslations } from 'next-intl';
+import { CustomLink } from '.';
 
 interface FooterMenuProps {
     title: string;
@@ -29,14 +29,14 @@ export function FooterMenu({
             </h3>
             <nav className="space-y-3">
                 {links.map((item, index) => (
-                    <Link
+                    <CustomLink
                         key={index}
                         href={item.href}
                         className="text-muted-foreground hover:text-foreground group flex items-center text-sm transition-colors"
                     >
                         <span>{t(item.name as any)}</span>
                         <ArrowRight className="ml-1 h-3 w-3 opacity-0 transition-all group-hover:translate-x-1 group-hover:opacity-100" />
-                    </Link>
+                    </CustomLink>
                 ))}
             </nav>
         </div>

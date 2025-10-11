@@ -59,5 +59,5 @@ export function useHotkeys(shortcuts: Shortcut[], dependencies: React.Dependency
         return () => {
             document.removeEventListener('keydown', down);
         };
-    }, [...dependencies, shortcuts]);
+    }, [shortcuts, dependencies]);
 }
