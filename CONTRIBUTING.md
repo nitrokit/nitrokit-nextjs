@@ -39,9 +39,10 @@ Uygulama `http://localhost:3000` adresinde çalışacaktır.
 Projemiz, commit mesajları için Conventional Commits standardını takip etmektedir. Bu, sürümlerin otomatik olarak oluşturulmasını sağlar. Lütfen commit mesajlarınızı bu standarda uygun olarak yazın.
 
 Örnekler:
--   `feat: Kullanıcı profili sayfası eklendi`
--   `fix: Giriş formundaki doğrulama hatası düzeltildi`
--   `docs: Katkıda bulunma rehberi güncellendi`
+
+- `feat: Kullanıcı profili sayfası eklendi`
+- `fix: Giriş formundaki doğrulama hatası düzeltildi`
+- `docs: Katkıda bulunma rehberi güncellendi`
 
 ## 🤝 Davranış Kuralları
 
@@ -90,9 +91,10 @@ The application will be running at `http://localhost:3000`.
 Our project follows the Conventional Commits standard for commit messages. This allows for automated versioning. Please format your commit messages according to this standard.
 
 Examples:
--   `feat: Add user profile page`
--   `fix: Correct validation error in login form`
--   `docs: Update contributing guide`
+
+- `feat: Add user profile page`
+- `fix: Correct validation error in login form`
+- `docs: Update contributing guide`
 
 ## 🤝 Code of Conduct
 

@@ -107,5 +107,10 @@
             "title": "4. İletişim Bilgileri",
             "text": "Bu Gizlilik Politikası ile ilgili herhangi bir sorunuz varsa, lütfen bizimle hello@nitrokit.tr adresi üzerinden iletişime geçin."
         }
+    },
+    "notFound": {
+        "title": "Sayfa Bulunamadı",
+        "description": "Hata! Aradığınız sayfa mevcut değil.",
+        "returnHome": "Ana Sayfaya Dön"
     }
 }

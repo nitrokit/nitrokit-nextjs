@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import '@/styles/globals.css';
 
 import { Metadata, Viewport } from 'next';
