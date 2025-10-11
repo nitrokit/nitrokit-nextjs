@@ -20,8 +20,6 @@ export function CompactNewsletter() {
         }
     };
 
-    console.log(error);
-
     return (
         <div>
             <h3 className="text-foreground mb-4 flex items-center gap-2 font-semibold">

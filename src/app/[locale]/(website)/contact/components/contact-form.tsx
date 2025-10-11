@@ -55,7 +55,6 @@ export const ContactForm = () => {
             setFormStatus('idle');
             try {
                 const result: EmailServiceResult = await sendContactEmail(data);
-                console.log(result);
                 if (!result.success) {
                     setFormStatus('error');
                     toast.error(t('app.errors.general'), {

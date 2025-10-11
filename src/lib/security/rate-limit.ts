@@ -11,7 +11,7 @@ try {
         });
     }
 } catch (error) {
-    console.log(error);
+    console.error(error);
     redis = null;
 }
 
@@ -53,7 +53,7 @@ export const smsRateLimit = redis
 
 export const fallbackRateLimit = {
     limit: (key: string) => {
-        console.log(key);
+        console.info(key);
         return {
             success: true,
             limit: 100,

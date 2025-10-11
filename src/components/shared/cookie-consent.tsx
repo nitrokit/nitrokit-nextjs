@@ -139,13 +139,9 @@ export function CookieConsent() {
         }
     };
 
-    const enableFunctional = () => {
-        console.log('Functional cookies enabled');
-    };
+    const enableFunctional = () => {};
 
-    const disableFunctional = () => {
-        console.log('Functional cookies disabled');
-    };
+    const disableFunctional = () => {};
 
     const acceptAll = () => {
         const allAccepted: CookiePreferences = {

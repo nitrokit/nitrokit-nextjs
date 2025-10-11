@@ -4,7 +4,7 @@
 
 // export default function Home() {
 //     const { user, isLoading } = useUser();
-//     console.log('User', user, isLoading);
+//     console.info('User', user, isLoading);
 // }
 
 import { BackgroundPatterns, LibraryLogos } from '@/components/layout';
