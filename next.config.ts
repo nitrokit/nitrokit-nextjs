@@ -10,6 +10,7 @@ const withNextIntl = createNextIntlPlugin({
 
 const config: NextConfig = {
     trailingSlash: true,
+    typedRoutes: true,
     images: {
         remotePatterns: [
             {
@@ -19,9 +20,6 @@ const config: NextConfig = {
                 pathname: '/**'
             }
         ]
-    },
-    eslint: {
-        ignoreDuringBuilds: true
     },
     async headers() {
         return [
