@@ -1,0 +1,14 @@
+services:
+  nitrokit-nextjs:
+    build:
+      context: .
+      target: builder # Use the 'builder' stage for development
+    container_name: nitrokit-nextjs-dev
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/app # Mount the source code for instant reflection of code changes
+      - /app/node_modules # Prevent node_modules from being overwritten
+    command: pnpm dev # Start the development server
+    environment:
+      - NODE_ENV=development
