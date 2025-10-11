@@ -15,36 +15,69 @@
 
 ## ✨ Features
 
-- 🚀 **Next.js 15** with App Router
-- 📘 **TypeScript** for type safety
-- 🎨 **TailwindCSS** for styling
-- 🌍 **Internationalization** with next-intl
-- 🗃️ **Database** with Prisma
-- 📧 **Email** with Resend
-- 💻 **[Nitrokit CLI](https://github.com/nitrokit/nitrokit-cli)** for code generation and workflow automation
-- 🧪 **Testing** with Vitest
+-   **Framework:** Next.js 15 (App Router)
+-   **Styling:** Tailwind CSS 4 & shadcn/ui
+-   **Language:** TypeScript
+-   **Database & ORM:** PostgreSQL with Prisma
+-   **Authentication:** NextAuth.js v5
+-   **Internationalization (i18n):** Full App Router support with next-intl
+-   **Form Management:** React Hook Form & Zod
+-   **Containerization:** Optimized Docker support for development and production
+-   **Linting & Formatting:** ESLint and Prettier
+-   **Testing:** Vitest (Unit/Integration) & Playwright (E2E)
+-   **UI Components:** `shadcn/ui` built on Radix UI
+-   **Email:** Resend & React Email
+-   **API Rate Limiting:** Upstash Ratelimit
+-   **Automatic Versioning:** Semantic Release
 
-## ⚡️ Nitrokit CLI
+## 🚀 Getting Started
 
-Streamline your development workflow with the official [Nitrokit CLI](https://github.com/nitrokit/nitrokit-cli).
+You have a few options to get started with this boilerplate.
 
-### Quick Start
+### With `nitrokit-cli`
 
-You can initialize a new project using `npx`:
+You can create a new project using this boilerplate with the [Nitrokit CLI](https://www.npmjs.com/package/nitrokit-cli).
 
 ```bash
 npx nitrokit-cli new my-app
 ```
 
-For more commands and information, check out the [Nitrokit CLI](https://github.com/nitrokit/nitrokit-cli) repository.
+### With Docker
+
+1.  Ensure you have Docker installed and running on your machine.
+2.  Run the following command in the project directory:
+    ```bash
+    docker-compose up
+    ```
+
+### Manual Setup 
+
+1.  Install dependencies:
+    ```bash
+    pnpm install
+    ```
+2.  Start the development server:
+    ```bash
+    pnpm dev
+    ```
+
+The application will be available by default at `http://localhost:3000`.
+
+## 📜 Available Scripts
+
+| Script                | Description                        |
+| --------------------- | ---------------------------------- |
+| `pnpm dev`            | Starts the development server.     |
+| `pnpm build`          | Builds the project for production. |
+| `pnpm start`          | Starts the production-ready build. |
+| `pnpm lint:fix`       | Checks for code style and errors.  |
+| `pnpm format:write`   | Formats the code with Prettier.    |
+| `pnpm test`           | Runs unit and integration tests.   |
+| `pnpm prisma:migrate` | Creates a new database migration.  |
 
 ## 🤝 Contributing
 
-1. Fork the repository
-2. Create feature branch: `git checkout -b feature/name`
-3. Commit changes: `git commit -m 'Add feature'`
-4. Push branch: `git push origin feature/name`
-5. Open Pull Request
+Contributions are welcome! Please read the [Contributing Guide](CONTRIBUTING.md) and our [Code of Conduct](CODE_OF_CONDUCT.md) before submitting a pull request.
 
 ## 📝 License
 
