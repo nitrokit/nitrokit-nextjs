@@ -11,8 +11,6 @@ export interface Messages {
     faq: typeof import('../../messages/en/faq.json');
 }
 
-declare module '*.css';
-
 declare global {
     interface Window {
         gtag: Gtag;
