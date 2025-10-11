@@ -4,6 +4,7 @@ import { Navbar } from '@/components/navigation';
 import { Logo } from '@/components/shared/';
 import { useStickyNavbar } from '@/hooks';
 import { CompactLocaleSwitcher } from '@/components/switchers';
+import { SignInButton, SignUpButton } from '@/components/auth';
 
 export function Header() {
     const sticky = useStickyNavbar();
@@ -24,6 +25,8 @@ export function Header() {
                 </div>
                 <div className="flex grow flex-row items-center justify-end gap-2 lg:grow-0">
                     <CompactLocaleSwitcher />
+                    <SignInButton />
+                    <SignUpButton />
                 </div>
             </div>
         </header>
