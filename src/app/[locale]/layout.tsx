@@ -1,5 +1,3 @@
-import '@/styles/globals.css';
-
 import { Metadata, Viewport } from 'next';
 import { notFound } from 'next/navigation';
 import { NextIntlClientProvider, hasLocale } from 'next-intl';
@@ -57,6 +55,8 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
                                 defaultTheme="system"
                                 enableSystem
                                 disableTransitionOnChange
+                                themes={['light', 'dark', 'theme-zinc', 'theme-rose']}
+                                storageKey="nitrokit-theme"
                             >
                                 <TooltipProvider delayDuration={100}>{children}</TooltipProvider>
                                 <CookieConsent />
