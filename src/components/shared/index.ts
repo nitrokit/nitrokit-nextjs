@@ -9,4 +9,3 @@ export * from './small-loading';
 export * from './text-rotator';
 export * from './themed-image';
 export * from './version';
-export * from './page-loading';

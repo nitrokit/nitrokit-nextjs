@@ -10,7 +10,6 @@ import { PageHero } from '@/components/layout';
 
 export async function generateMetadata(): Promise<Metadata> {
     const t = await getTranslations('pricing');
-
     return await generatePageMetadata({
         params: Promise.resolve({
             title: t('title'),
