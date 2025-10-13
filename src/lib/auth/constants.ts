@@ -9,5 +9,5 @@ export const AUTH_ROUTES = {
     ERROR: '/error',
     VERIFY_REQUEST: '/verify-request',
     NEW_USER: '/register',
-    DASHBOARD: '/dashboard' // Sizin kullandığınız yönlendirme hedefi
+    APP: '/app'
 } as const;

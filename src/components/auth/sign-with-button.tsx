@@ -96,7 +96,7 @@ function SignWithButton({
             action={async () => {
                 'use server';
 
-                await signIn(provider, { redirectTo: AUTH_ROUTES.DASHBOARD });
+                await signIn(provider, { redirectTo: AUTH_ROUTES.APP });
             }}
             className={cn('w-full', className)}
         >
