@@ -3,7 +3,7 @@
 import { useTranslations } from 'next-intl';
 import { Link, usePathname } from '@/lib/i18n/navigation';
 
-import { NavigationMenu, NavigationMenuItem, NavigationMenuList } from '@/components/ui';
+import { NavigationMenu, NavigationMenuItem, NavigationMenuList } from '@/comp/ui';
 import { cn } from '@/lib';
 import { NAV_LINKS } from '@/constants';
 

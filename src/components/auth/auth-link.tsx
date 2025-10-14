@@ -1,7 +1,7 @@
 'use client';
 
 import { ReactNode } from 'react';
-import { Button, buttonVariants } from '@/components/ui';
+import { Button, buttonVariants } from '@/comp/ui';
 import { cn } from '@/lib';
 import { Link } from '@/lib/i18n/navigation';
 

@@ -1,6 +1,6 @@
 import { useTranslations } from 'next-intl';
 import { Link } from '@/lib/i18n/navigation';
-import { ThemedImage } from '@/components/shared';
+import { ThemedImage } from '@/comp/shared';
 
 export function Logo({
     size = 40,

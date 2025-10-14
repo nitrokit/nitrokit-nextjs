@@ -1,6 +1,6 @@
 'use client';
 
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui';
+import { Avatar, AvatarFallback, AvatarImage } from '@/comp/ui';
 import { Star } from 'lucide-react';
 import { TESTIMONIALS } from '@/constants';
 import { useTranslations } from 'next-intl';

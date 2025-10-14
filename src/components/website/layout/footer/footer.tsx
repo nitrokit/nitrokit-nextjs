@@ -1,15 +1,15 @@
 'use client';
 
 import React from 'react';
-import { Button } from '@/components/ui';
+import { Button } from '@/comp/ui';
 import { Heart, Palette } from 'lucide-react';
-import { CompactThemeSwitcher } from '@/components/switchers';
-import { DevelopedBy, Logo, Version } from '@/components/shared';
+import { CompactThemeSwitcher } from '@/comp/switchers';
+import { DevelopedBy, Logo, Version } from '@/comp/shared';
 import { SOCIAL_LINKS, FOOTER_LINKS } from '@/constants';
 import { Separator } from '@radix-ui/themes';
-import { CompactNewsletter } from '@/components/website/newsletter';
+import { CompactNewsletter } from '@/comp/website/newsletter';
 import { useTranslations } from 'next-intl';
-import { FooterMenu } from '@/components/website/navigation';
+import { FooterMenu } from '@/comp/website/navigation';
 
 export function Footer() {
     const t = useTranslations();

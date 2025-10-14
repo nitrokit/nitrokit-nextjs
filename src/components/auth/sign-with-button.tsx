@@ -3,7 +3,7 @@
 import { useTranslations } from 'next-intl';
 import * as React from 'react';
 
-import { Button, buttonVariants } from '@/components/ui/button';
+import { Button, buttonVariants } from '@/comp/ui/button';
 import { cn } from '@/lib';
 import { Provider } from '@/lib/auth/providers';
 import {
@@ -15,7 +15,7 @@ import {
     FacebookIcon,
     TwitterIcon,
     LinkedinIcon
-} from '@/components/icons';
+} from '@/comp/icons';
 import { signIn } from '@/lib/auth/auth';
 import { AUTH_ROUTES } from '@/lib/auth/constants';
 

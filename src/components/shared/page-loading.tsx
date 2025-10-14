@@ -1,6 +1,6 @@
 import { getTranslations } from 'next-intl/server';
 
-import { Loading } from '@/components/shared';
+import { Loading } from '@/comp/shared';
 import { cn } from '@/lib';
 
 interface Props {

@@ -1,4 +1,4 @@
-import { Badge } from '@/components/ui';
+import { Badge } from '@/comp/ui';
 import packageJson from '../../../package.json';
 
 export function Version() {

@@ -1,10 +1,4 @@
-import {
-    Dialog,
-    DialogContent,
-    DialogHeader,
-    DialogTitle,
-    DialogDescription
-} from '@/components/ui';
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from '@/comp/ui';
 import { CheckCircle2, XCircle } from 'lucide-react';
 import React from 'react';
 import { useTranslations } from 'next-intl';

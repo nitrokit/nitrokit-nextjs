@@ -1,10 +1,10 @@
 'use client';
 
-import { Navbar } from '@/components/website/navigation';
-import { Logo } from '@/components/shared/';
+import { Navbar } from '@/comp/website/navigation';
+import { Logo } from '@/comp/shared/';
 import { useStickyNavbar } from '@/hooks';
-import { CompactLocaleSwitcher } from '@/components/switchers';
-import { SignInButton, SignUpButton } from '@/components/auth';
+import { CompactLocaleSwitcher } from '@/comp/switchers';
+import { SignInButton, SignUpButton } from '@/comp/auth';
 
 export function Header() {
     const sticky = useStickyNavbar();

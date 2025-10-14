@@ -15,7 +15,7 @@ import {
     SheetHeader,
     SheetTitle,
     SheetTrigger
-} from '@/components/ui';
+} from '@/comp/ui';
 import { Cookie, Settings, Shield, BarChart3, Target } from 'lucide-react';
 import type { GtagConsentParams } from '@/types/gtag';
 import {
