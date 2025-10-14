@@ -1,8 +1,8 @@
 import { GITHUB_URL, TESTIMONIALS as staticTestimonials } from '@/constants';
-import { CompactBanner } from '@/components/banners';
+import { CompactBanner } from '@/components/website/banners';
 
 import { RandomText, TextRotator } from '@/components/shared';
-import { UserTrustSection } from '@/components/testimonial';
+import { UserTrustSection } from '@/components/website/testimonial';
 import { useTranslations } from 'next-intl';
 
 function getTestimonialData() {

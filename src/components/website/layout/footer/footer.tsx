@@ -7,9 +7,9 @@ import { CompactThemeSwitcher } from '@/components/switchers';
 import { DevelopedBy, Logo, Version } from '@/components/shared';
 import { SOCIAL_LINKS, FOOTER_LINKS } from '@/constants';
 import { Separator } from '@radix-ui/themes';
-import { CompactNewsletter } from '@/components/newsletter';
+import { CompactNewsletter } from '@/components/website/newsletter';
 import { useTranslations } from 'next-intl';
-import { FooterMenu } from '@/components/navigation';
+import { FooterMenu } from '@/components/website/navigation';
 
 export function Footer() {
     const t = useTranslations();

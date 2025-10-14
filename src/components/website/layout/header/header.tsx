@@ -1,6 +1,6 @@
 'use client';
 
-import { Navbar } from '@/components/navigation';
+import { Navbar } from '@/components/website/navigation';
 import { Logo } from '@/components/shared/';
 import { useStickyNavbar } from '@/hooks';
 import { CompactLocaleSwitcher } from '@/components/switchers';

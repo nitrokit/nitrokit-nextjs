@@ -1,4 +1,4 @@
-import { BackgroundPatterns } from '@/components/layout';
+import { BackgroundPatterns } from '@/components/website/layout';
 import { Link } from '@/lib/i18n/navigation';
 import { getTranslations } from 'next-intl/server';
 import Image from 'next/image';
