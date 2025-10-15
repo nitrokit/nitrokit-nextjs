@@ -1,5 +1,5 @@
 import { render } from '@react-email/render';
-import { ContactEmail } from '@/components/emails/contact-email';
+import { ContactEmail } from '@/comp/emails/contact-email';
 import { PUBLIC_EMAIL } from '@/constants';
 import { getEmailService } from '@/lib/services/email';
 

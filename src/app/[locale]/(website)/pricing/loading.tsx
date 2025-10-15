@@ -1,4 +1,4 @@
-import { PageLoading } from '@/components/shared/page-loading';
+import { PageLoading } from '@/comp/shared/page-loading';
 
 export default function Loading() {
     return <PageLoading />;

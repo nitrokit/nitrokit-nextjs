@@ -5,7 +5,7 @@ import {
     GithubIcon,
     GitlabIcon,
     LinkedinIcon
-} from '@/components/icons/brands';
+} from '@/comp/icons/brands';
 
 export type Provider =
     | 'google'

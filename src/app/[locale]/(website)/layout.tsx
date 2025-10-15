@@ -1,4 +1,4 @@
-import { Header, Footer } from '@/components/website/layout';
+import { Header, Footer } from '@/comp/website/layout';
 
 export default function WebSiteLayout({
     children

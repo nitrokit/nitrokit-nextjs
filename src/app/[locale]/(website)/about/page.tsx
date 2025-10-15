@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
 import { Users, Target, Award, Heart, Globe, Zap, Shield, TrendingUp } from 'lucide-react';
 import { generatePageMetadata } from '@/lib';
-import { CallToActionSection, PageHero } from '@/components/website/layout';
+import { CallToActionSection, PageHero } from '@/comp/website/layout';
 
 export async function generateMetadata(): Promise<Metadata> {
     const t = await getTranslations('about');

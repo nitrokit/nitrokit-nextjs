@@ -4,9 +4,9 @@ import { getTranslations } from 'next-intl/server';
 import { generatePageMetadata } from '@/lib';
 import PricingSection from './components/pricing-section';
 import { PLANS } from '@/constants';
-import { ActionBanner } from '@/components/website/banners/action-banner';
+import { ActionBanner } from '@/comp/website/banners/action-banner';
 import { Building } from 'lucide-react';
-import { PageHero } from '@/components/website/layout';
+import { PageHero } from '@/comp/website/layout';
 
 export async function generateMetadata(): Promise<Metadata> {
     const t = await getTranslations('pricing');

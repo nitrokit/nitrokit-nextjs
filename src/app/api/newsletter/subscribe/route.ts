@@ -4,7 +4,7 @@ import { randomUUID } from 'crypto';
 import { getEmailService } from '@/lib/services/email';
 import { getBaseUrl, NewsletterFormSchema } from '@/lib';
 import { render } from '@react-email/render';
-import { NewsletterConfirmationEmail } from '@/components/emails';
+import { NewsletterConfirmationEmail } from '@/comp/emails';
 import { emailResendRateLimit } from '@/lib/security/rate-limit';
 import { getTranslations } from 'next-intl/server';
 

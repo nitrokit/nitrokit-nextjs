@@ -18,7 +18,7 @@ import {
     FormMessage,
     Input,
     Textarea
-} from '@/components/ui';
+} from '@/comp/ui';
 import {
     sendContactEmail,
     EmailServiceResult,
