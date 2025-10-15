@@ -46,74 +46,42 @@ export function TerminalVisual() {
     return (
         <Card
             className={cn(
-                'relative min-h-fit w-full overflow-hidden bg-gray-50 text-slate-800 transition-colors',
-                'dark:bg-slate-900 dark:text-slate-200',
-                'font-mono text-sm'
+                'relative h-full w-full overflow-hidden border font-mono text-sm',
+                'bg-gray-50 text-slate-800 transition-colors dark:bg-slate-900 dark:text-slate-200'
             )}
         >
-            <div className="flex flex-col space-y-2 p-6">
-                {terminalLines.slice(0, currentLineIndex).map((line, index) => (
-                    <pre key={index} className={cn('animate-fade-in-up', line.className)}>
-                        {line.text}
-                    </pre>
-                ))}
-                {!isDone && (
-                    <div className="flex items-center">
-                        <pre className="inline-block text-slate-800 dark:text-slate-200">
-                            {terminalLines[currentLineIndex]?.text.split('').map((char, i) => (
-                                <span
-                                    key={i}
-                                    className="animate-type-out opacity-0"
-                                    style={{ animationDelay: `${i * 20}ms` }}
-                                >
-                                    {char}
-                                </span>
-                            ))}
-                        </pre>
-                        <span className="animate-blink ml-1 text-slate-800 dark:text-slate-200">
-                            _
-                        </span>
-                    </div>
-                )}
+            {/* Arkaplan Animasyonu */}
+            <div className="absolute inset-0 z-0">
+                <div className="bg-grid-lines animate-flow-down h-full w-full" />
+                <div className="absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-white dark:to-slate-900" />
             </div>
 
-            <style jsx global>{`
-                @keyframes fade-in-up {
-                    from {
-                        opacity: 0;
-                        transform: translateY(10px);
-                    }
-                    to {
-                        opacity: 1;
-                        transform: translateY(0);
-                    }
-                }
-                .animate-fade-in-up {
-                    animation: fade-in-up 0.5s ease-out;
-                }
-                @keyframes type-out {
-                    from {
-                        opacity: 0;
-                    }
-                    to {
-                        opacity: 1;
-                    }
-                }
-                .animate-type-out {
-                    animation-name: type-out;
-                    animation-duration: 20ms;
-                    animation-timing-function: ease-out;
-                    animation-fill-mode: forwards;
-                }
-                @keyframes blink {
-                    50% {
-                        opacity: 0;
-                    }
-                }
-                .animate-blink {
-                    animation: blink 1s step-end infinite;
-                }
-            `}</style>
+            {/* Terminal İçeriği */}
+            <div className="relative z-10 flex h-full flex-col space-y-2 p-6">
+                <div className="flex-1 overflow-auto">
+                    {terminalLines.slice(0, currentLineIndex).map((line, index) => (
+                        <pre key={index} className={cn('animate-fade-in-up', line.className)}>
+                            {line.text}
+                        </pre>
+                    ))}
+                    {!isDone && (
+                        <div className="flex items-center">
+                            <pre className="inline-block">
+                                {terminalLines[currentLineIndex]?.text.split('').map((char, i) => (
+                                    <span
+                                        key={i}
+                                        className="animate-type-out opacity-0"
+                                        style={{ animationDelay: `${i * 20}ms` }}
+                                    >
+                                        {char}
+                                    </span>
+                                ))}
+                            </pre>
+                            <span className="animate-blink ml-1">_</span>
+                        </div>
+                    )}
+                </div>
+            </div>
         </Card>
     );
 }
