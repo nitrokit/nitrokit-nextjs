@@ -1,3 +1,10 @@
+.hide-password-toggle::-ms-reveal,
+.hide-password-toggle::-ms-clear {
+    visibility: hidden;
+    pointer-events: none;
+    display: none;
+}
+
 .branded-bg {
     background-image: url('/images/backgrounds/bg-15.png');
 }

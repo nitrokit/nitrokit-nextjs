@@ -27,17 +27,17 @@ import {
     cn
 } from '@/lib';
 import { Link } from '@/lib/i18n/navigation';
+import { SimpleTFunction } from '@/types/i18n';
 
 type FormStatus = 'idle' | 'success' | 'error';
 
 export const ContactForm = () => {
     const t = useTranslations();
-    const simpleT = (key: string) => t(key as any);
     const [isPending, startTransition] = useTransition();
     const [formStatus, setFormStatus] = useState<FormStatus>('idle');
 
     const form = useForm<ContactFormData>({
-        resolver: zodResolver(contactFormSchema(simpleT)),
+        resolver: zodResolver(contactFormSchema(t as SimpleTFunction)),
         defaultValues: {
             name: '',
             email: '',

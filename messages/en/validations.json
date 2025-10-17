@@ -3,7 +3,8 @@
         "email": "Email is required",
         "name": "Name is required",
         "message": "Message is required",
-        "captcha": "Captcha is required"
+        "captcha": "Captcha is required",
+        "password": "Password is required"
     },
     "invalid": {
         "email": "Email is not valid"

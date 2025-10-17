@@ -3,7 +3,8 @@
         "email": "E-posta gerekli",
         "name": "İsim gerekli",
         "message": "Mesaj gerekli",
-        "captcha": "Captcha gerekli"
+        "captcha": "Captcha gerekli",
+        "password": "Şifre gerekli"
     },
     "invalid": {
         "email": "Geçersiz e-posta"
