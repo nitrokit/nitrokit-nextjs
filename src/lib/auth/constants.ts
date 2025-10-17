@@ -9,5 +9,9 @@ export const AUTH_ROUTES = {
     ERROR: '/error',
     VERIFY_REQUEST: '/verify-request',
     NEW_USER: '/register',
-    APP: '/app'
+    APP: '/app',
+    PASSWORD_RESET: '/password/reset',
+    PASSWORD_NEW: '/password/new',
+    PASSWORD_CHECK_EMAIL: '/password/check-email',
+    PASSWORD_CHANGED: '/password/changed'
 } as const;

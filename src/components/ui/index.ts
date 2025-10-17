@@ -47,3 +47,4 @@ export * from './field';
 export * from './input-group';
 export * from './kbd';
 export * from './spinner';
+export * from './password-input';

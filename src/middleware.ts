@@ -3,11 +3,16 @@ import createMiddleware from 'next-intl/middleware';
 import { routing } from './lib/i18n/routing';
 import { PUBLIC_ROUTES } from './constants';
 import { handleRateLimit } from './middlewares';
+import { AUTH_ROUTES } from './lib/auth/constants';
 
 const intlMiddleware = createMiddleware(routing);
 
 export default function middleware(request: NextRequest) {
-    const publicRoutes = ['/api/newsletter/subscribe', ...PUBLIC_ROUTES];
+    const publicRoutes = [
+        '/api/newsletter/subscribe',
+        ...PUBLIC_ROUTES,
+        ...Object.values(AUTH_ROUTES)
+    ];
 
     if (request.nextUrl.pathname.startsWith('/api/')) {
         const isAuthRoute = request.nextUrl.pathname.startsWith('/api/auth/');

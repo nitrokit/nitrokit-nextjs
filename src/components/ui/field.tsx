@@ -46,7 +46,7 @@ function FieldGroup({ className, ...props }: React.ComponentProps<'div'>) {
         <div
             data-slot="field-group"
             className={cn(
-                'group/field-group @container/field-group flex w-full flex-col gap-7 data-[slot=checkbox-group]:gap-3 [&>[data-slot=field-group]]:gap-4',
+                'group/field-group @container/field-group flex w-full flex-col gap-3 data-[slot=checkbox-group]:gap-3 [&>[data-slot=field-group]]:gap-3',
                 className
             )}
             {...props}
@@ -54,7 +54,7 @@ function FieldGroup({ className, ...props }: React.ComponentProps<'div'>) {
     );
 }
 
-const fieldVariants = cva('group/field data-[invalid=true]:text-destructive flex w-full gap-3', {
+const fieldVariants = cva('group/field data-[invalid=true]:text-destructive flex w-full gap-1', {
     variants: {
         orientation: {
             vertical: ['flex-col [&>*]:w-full [&>.sr-only]:w-auto'],

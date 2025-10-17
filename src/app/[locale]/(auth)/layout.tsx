@@ -5,6 +5,8 @@ import { TESTIMONIALS as staticTestimonials } from '@/constants';
 import { TerminalVisual } from './components/terminal-visual';
 import Image from 'next/image';
 import Link from 'next/link';
+import { BackButton } from '@/comp/shared/back-button';
+import { ThemeToggle } from '@/comp/switchers';
 
 export default function AuthLayout({
     children
@@ -15,7 +17,11 @@ export default function AuthLayout({
 
     return (
         <div className="grid min-h-screen grow lg:grid-cols-2">
-            <div className="order-2 flex items-center justify-center p-8 lg:order-1 lg:p-10">
+            <div className="relative order-2 flex items-center justify-center p-8 lg:order-1 lg:p-10">
+                <BackButton />
+                <div className="absolute top-20 left-8 z-10 lg:top-24 lg:left-10">
+                    <ThemeToggle />
+                </div>
                 <div className="w-full max-w-[370px]">{children}</div>
             </div>
             <div className="lg:border-border xxl:bg-center branded-bg order-1 bg-top bg-no-repeat lg:order-2 lg:m-4 lg:rounded-xl lg:border xl:bg-cover">

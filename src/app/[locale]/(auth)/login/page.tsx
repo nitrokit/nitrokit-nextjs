@@ -1,15 +1,15 @@
-import { Button, Input, Label } from '@/comp/ui';
+import { Button, Field, FieldGroup, FieldLabel, Input, PasswordInput } from '@/comp/ui';
 import { SignWithButtons } from '../components/sign-with-buttons';
 import { FormCard } from '../components/form-card';
+import { Link } from '@/lib/i18n/navigation';
+import { AUTH_ROUTES } from '@/lib/auth/constants';
 
 export default function Page() {
     return (
         <FormCard
-            title="Login to your account"
-            description="Enter your email below to login to your account"
+            title="Sign In"
             footer={
                 <>
-                    {' '}
                     <Button type="submit" className="w-full">
                         Login
                     </Button>
@@ -17,25 +17,34 @@ export default function Page() {
                 </>
             }
         >
+            <div className="mb-5 w-full text-center text-sm">
+                Need an account?{' '}
+                <Link
+                    href={AUTH_ROUTES.SIGN_UP}
+                    className="underline-offset-2 hover:text-blue-600 hover:underline"
+                >
+                    Sign up
+                </Link>
+            </div>
             <form>
-                <div className="flex flex-col gap-6">
-                    <div className="grid gap-2">
-                        <Label htmlFor="email">Email</Label>
+                <FieldGroup>
+                    <Field>
+                        <FieldLabel htmlFor="email">Email</FieldLabel>
                         <Input id="email" type="email" placeholder="m@example.com" required />
-                    </div>
-                    <div className="grid gap-2">
+                    </Field>
+                    <Field>
                         <div className="flex items-center">
-                            <Label htmlFor="password">Password</Label>
-                            <a
-                                href="#"
-                                className="ml-auto inline-block text-sm underline-offset-4 hover:underline"
+                            <FieldLabel htmlFor="password">Password</FieldLabel>
+                            <Link
+                                href={AUTH_ROUTES.PASSWORD_RESET}
+                                className="ml-auto inline-block text-xs underline-offset-2 hover:text-blue-600 hover:underline"
                             >
                                 Forgot your password?
-                            </a>
+                            </Link>
                         </div>
-                        <Input id="password" type="password" required />
-                    </div>
-                </div>
+                        <PasswordInput id="password" type="password" required />
+                    </Field>
+                </FieldGroup>
             </form>
         </FormCard>
     );
