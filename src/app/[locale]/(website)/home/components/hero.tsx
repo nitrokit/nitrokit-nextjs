@@ -57,6 +57,7 @@ export function Hero() {
                     <UserTrustSection
                         testimonials={testimonials}
                         label={t('testimonials.slogan')}
+                        className="mb-10"
                     />
 
                     <div className="mb-6 flex flex-col items-center justify-center gap-4 sm:flex-row"></div>

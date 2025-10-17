@@ -1,19 +1,22 @@
 import { useTranslations } from 'next-intl';
 import { Link } from '@/lib/i18n/navigation';
 import { ThemedImage } from '@/comp/shared';
+import { cn } from '@/lib';
 
 export function Logo({
     size = 40,
     onlyIcon = false,
-    forceText = false
+    forceText = false,
+    className = ''
 }: {
     size?: number;
     onlyIcon?: boolean;
     forceText?: boolean;
+    className?: string;
 }) {
     const t = useTranslations('app');
     return (
-        <Link href={'/'} className="flex items-center justify-start gap-4">
+        <Link href={'/'} className={cn('flex items-center justify-start gap-4', className)}>
             <ThemedImage
                 lightSrc={'/images/logos/nitrokit.png'}
                 darkSrc={'/images/logos/nitrokit.png'}

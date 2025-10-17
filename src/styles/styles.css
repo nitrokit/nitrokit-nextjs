@@ -1,0 +1,6 @@
+.branded-bg {
+    background-image: url('/images/backgrounds/bg-15.png');
+}
+.dark .branded-bg {
+    background-image: url('/images/backgrounds/bg-15-dark.png');
+}

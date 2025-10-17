@@ -10,7 +10,6 @@ type Line = {
     className?: string;
 };
 
-// Terminalde görünecek satırların listesi
 const terminalLines: Line[] = [
     { text: '$ nitrokit new amazing-app', delay: 1500 },
     { text: '> Which package manager would you like to use?', delay: 1000 },
@@ -46,17 +45,11 @@ export function TerminalVisual() {
     return (
         <Card
             className={cn(
-                'relative h-full w-full overflow-hidden border font-mono text-sm',
-                'bg-gray-50 text-slate-800 transition-colors dark:bg-slate-900 dark:text-slate-200'
+                'relative m-0 h-full w-full overflow-hidden p-0 font-mono text-sm',
+                'bg-gray-50/50 text-slate-800 transition-colors',
+                'dark:bg-slate-900/50 dark:text-slate-200'
             )}
         >
-            {/* Arkaplan Animasyonu */}
-            <div className="absolute inset-0 z-0">
-                <div className="bg-grid-lines animate-flow-down h-full w-full" />
-                <div className="absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-white dark:to-slate-900" />
-            </div>
-
-            {/* Terminal İçeriği */}
             <div className="relative z-10 flex h-full flex-col space-y-2 p-6">
                 <div className="flex-1 overflow-auto">
                     {terminalLines.slice(0, currentLineIndex).map((line, index) => (
