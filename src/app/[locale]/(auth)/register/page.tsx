@@ -1,4 +1,4 @@
-import { Button, Field, FieldDescription, FieldGroup, FieldLabel, Input } from '@/comp/ui';
+import { Button, Field, FieldGroup, FieldLabel, Input } from '@/comp/ui';
 import { SignWithButtons } from '../components/sign-with-buttons';
 import { FormCard } from '../components/form-card';
 
