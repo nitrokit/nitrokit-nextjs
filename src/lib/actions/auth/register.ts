@@ -1,7 +1,7 @@
 'use server';
 
 import { registerFormSchema, RegisterActionState } from '@/lib/validations/auth/register-schema';
-import { prisma } from '@/lib/prisma'; // Prisma client yolunuz
+import { prisma } from '@/lib/prisma';
 import { signIn } from '@/lib/auth/auth';
 import { hash } from 'bcryptjs';
 import { AuthError } from 'next-auth';

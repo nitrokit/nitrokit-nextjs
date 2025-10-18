@@ -295,6 +295,12 @@
             "acceptTerms": "Accept <button>terms and conditions</button>",
             "createAccount": "Create Account"
         },
+        "2fa": {
+            "title": "Two-Factor Authentication",
+            "enterCode": "Enter Your 6-Digit Code",
+            "checkApp": "Open your authenticator app (e.g., Google Authenticator) and enter the 6-digit code.",
+            "verifyAndSignIn": "Verify & Sign In"
+        },
         "signout": "Sign Out",
         "signinWithGoogle": "Sign In with Google",
         "signinWithFacebook": "Sign In with Facebook",

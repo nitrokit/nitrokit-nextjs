@@ -7,9 +7,15 @@ model User {
   image         String?
   accounts      Account[]
   sessions      Session[]
-  Authenticator Authenticator[]
+  
+  twoFactorEnabled       Boolean   @default(false) @map("two_factor_enabled")
+  twoFactorSecret        String?   @map("two_factor_secret")
+  twoFactorBackupCodes   String[]  @map("two_factor_backup_codes")
+  twoFactorVerifiedAt    DateTime? @map("two_factor_verified_at")
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+
+  Authenticator Authenticator[]
 }
  

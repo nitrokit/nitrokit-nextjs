@@ -6,7 +6,8 @@ export const loginFormSchema = (t: SimpleTFunction) => {
         email: z
             .email({ message: t('validations.invalid.email') })
             .min(1, { message: t('validations.required.email') }),
-        password: z.string().min(8, { message: t('validations.required.password') })
+        password: z.string().min(8, { message: t('validations.required.password') }),
+        twoFactorCode: z.string().optional()
     });
 };
 
@@ -14,16 +15,20 @@ export type TLoginFormData = z.infer<ReturnType<typeof loginFormSchema>>;
 
 export const DEFAULT_LOGIN_FORM_VALUES: TLoginFormData = {
     email: '',
-    password: ''
+    password: '',
+    twoFactorCode: undefined
 };
 
 export type LoginActionState = {
+    twoFactorRequired?: boolean;
     form?: {
         email?: string;
         password?: string;
+        twoFactorCode?: string;
     };
     errors?: {
         email?: string[];
         password?: string[];
+        twoFactorCode?: string[];
     };
 };

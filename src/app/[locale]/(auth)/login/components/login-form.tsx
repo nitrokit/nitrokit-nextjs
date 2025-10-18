@@ -3,11 +3,15 @@
 import {
     Form,
     FormControl,
+    FormDescription,
     FormField,
     FormItem,
     FormLabel,
     FormMessage,
     Input,
+    InputOTP,
+    InputOTPGroup,
+    InputOTPSlot,
     PasswordInput
 } from '@/comp/ui';
 import { Link } from '@/lib/i18n/navigation';
@@ -25,13 +29,29 @@ import { useForm } from 'react-hook-form';
 import { useEffect, useActionState } from 'react';
 import { SimpleTFunction } from '@/types/i18n';
 import { SubmitButton } from '@/comp/shared';
+import React from 'react';
+import { REGEXP_ONLY_DIGITS_AND_CHARS } from 'input-otp';
+import { MoveRight as IconMoveRight } from 'lucide-react';
 
-export function LoginForm() {
+interface LoginFormProps {
+    onFlowChange?: (is2FA: boolean) => void;
+}
+
+function renderOTPSlots(count: number) {
+    const slots = [];
+    for (let i = 0; i < count; i++) {
+        slots.push(<InputOTPSlot key={i} index={i} />);
+    }
+    return slots;
+}
+
+export function LoginForm({ onFlowChange }: LoginFormProps) {
     const t = useTranslations();
 
     const initialFormState: LoginActionState = {};
     const [state, formAction] = useActionState(loginAction, initialFormState);
     const schema = loginFormSchema(t as SimpleTFunction);
+    const isTwoFactorRequired = state?.twoFactorRequired;
 
     const form = useForm<TLoginFormData>({
         resolver: zodResolver(schema),
@@ -50,58 +70,96 @@ export function LoginForm() {
                 }
             });
         }
-    }, [state, form, t]);
+        if (onFlowChange) {
+            onFlowChange(!!isTwoFactorRequired);
+        }
+    }, [state, form, t, onFlowChange, isTwoFactorRequired]);
 
     return (
         <Form {...form}>
             <form action={formAction} className="space-y-6">
-                <FormField
-                    control={form.control}
-                    name="email"
-                    render={({ field }) => (
-                        <FormItem>
-                            <FormLabel>{t('app.common.email')}</FormLabel>
-                            <FormControl>
-                                <Input
-                                    placeholder={t('app.placeholders.email')}
-                                    type="email"
-                                    {...field}
-                                />
-                            </FormControl>
-                            <FormMessage />
-                        </FormItem>
-                    )}
-                />
-                <FormField
-                    control={form.control}
-                    name="password"
-                    render={({ field }) => (
-                        <FormItem>
-                            <div className="flex items-center">
-                                <FormLabel>{t('app.common.password')}</FormLabel>
-                                <Link
-                                    href={AUTH_ROUTES.PASSWORD_RESET}
-                                    className="ml-auto inline-block text-xs underline-offset-2 hover:text-blue-600 hover:underline"
-                                >
-                                    {t('auth.signin.forgotPassword')}
-                                </Link>
-                            </div>
-                            <FormControl>
-                                <PasswordInput
-                                    placeholder={t('app.placeholders.password')}
-                                    {...field}
-                                />
-                            </FormControl>
-                            <FormMessage />
-                        </FormItem>
-                    )}
-                />
+                {!isTwoFactorRequired && (
+                    <>
+                        <FormField
+                            control={form.control}
+                            name="email"
+                            render={({ field }) => (
+                                <FormItem>
+                                    <FormLabel>{t('app.common.email')}</FormLabel>
+                                    <FormControl>
+                                        <Input
+                                            placeholder={t('app.placeholders.email')}
+                                            type="email"
+                                            {...field}
+                                        />
+                                    </FormControl>
+                                    <FormMessage />
+                                </FormItem>
+                            )}
+                        />
+                        <FormField
+                            control={form.control}
+                            name="password"
+                            render={({ field }) => (
+                                <FormItem>
+                                    <div className="flex items-center">
+                                        <FormLabel>{t('app.common.password')}</FormLabel>
+                                        <Link
+                                            href={AUTH_ROUTES.PASSWORD_RESET}
+                                            className="ml-auto inline-block text-xs underline-offset-2 hover:text-blue-600 hover:underline"
+                                        >
+                                            {t('auth.signin.forgotPassword')}
+                                        </Link>
+                                    </div>
+                                    <FormControl>
+                                        <PasswordInput
+                                            placeholder={t('app.placeholders.password')}
+                                            {...field}
+                                        />
+                                    </FormControl>
+                                    <FormMessage />
+                                </FormItem>
+                            )}
+                        />
+                    </>
+                )}
+                {isTwoFactorRequired && (
+                    <FormField
+                        control={form.control}
+                        name="twoFactorCode"
+                        render={({ field }) => (
+                            <FormItem className="flex flex-col items-center">
+                                <FormLabel className="py-4 text-center">
+                                    {t('auth.2fa.enterCode')}
+                                </FormLabel>
+                                <FormControl>
+                                    <InputOTP
+                                        maxLength={6}
+                                        id="otp"
+                                        pattern={REGEXP_ONLY_DIGITS_AND_CHARS}
+                                        required
+                                        {...field}
+                                    >
+                                        <InputOTPGroup>{renderOTPSlots(6)}</InputOTPGroup>
+                                    </InputOTP>
+                                </FormControl>
+                                <FormDescription className="py-4 text-center">
+                                    {t('auth.2fa.checkApp')}
+                                </FormDescription>
+                                <FormMessage />
+                            </FormItem>
+                        )}
+                    />
+                )}
                 {state?.errors && !state.errors.email && !state.errors.password && (
                     <div className="text-sm font-medium text-red-500">
                         {t('app.errors.general')}
                     </div>
                 )}
-                <SubmitButton textKey="app.common.submit" />
+                <SubmitButton
+                    textKey={isTwoFactorRequired ? 'auth.2fa.verifyAndSignIn' : 'app.common.submit'}
+                    endIcon={<IconMoveRight />}
+                />
             </form>
         </Form>
     );
