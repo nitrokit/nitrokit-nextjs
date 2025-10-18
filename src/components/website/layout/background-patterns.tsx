@@ -3,7 +3,7 @@
 import { cn } from '@/lib/utils';
 
 interface BackgroundPatternsProps {
-    variant?: 'default' | 'geometric' | 'dots' | 'waves' | 'grid' | 'stars' | 'circles';
+    variant?: 'default' | 'geometric' | 'dots' | 'waves' | 'grid' | 'stars' | 'circles' | 'network';
     className?: string;
     animated?: boolean;
 }
@@ -497,6 +497,62 @@ export function BackgroundPatterns({
                             <div
                                 className="absolute bottom-1/3 left-1/3 h-1.5 w-1.5 animate-ping rounded-full bg-purple-400 opacity-50"
                                 style={{ animationDelay: '2.4s' }}
+                            />
+                        </>
+                    )}
+                </div>
+            </>
+        ),
+        network: (
+            <>
+                <div className="absolute inset-0 overflow-hidden dark:hidden">
+                    <div
+                        className="absolute inset-0 opacity-40"
+                        style={{
+                            backgroundImage: `
+                                linear-gradient(rgba(59, 130, 246, 0.1) 1px, transparent 1px),
+                                linear-gradient(90deg, rgba(59, 130, 246, 0.1) 1px, transparent 1px)
+                            `,
+                            backgroundSize: '40px 40px'
+                        }}
+                    />
+
+                    <div className="absolute top-1/4 left-1/4 h-8 w-8 rounded-full bg-blue-400/50 blur-xl" />
+                    <div className="absolute right-1/3 bottom-1/3 h-6 w-6 rounded-full bg-emerald-400/40 blur-xl" />
+                    <div className="absolute top-1/2 left-1/3 h-5 w-5 rounded-full bg-purple-400/30 blur-xl" />
+
+                    {animated && (
+                        <>
+                            <div className="animate-slow-flow absolute top-0 left-1/2 h-full w-px bg-gradient-to-b from-transparent via-blue-400/30 to-transparent" />
+                            <div
+                                className="animate-slow-flow absolute top-0 left-1/4 h-full w-px bg-gradient-to-b from-transparent via-emerald-400/20 to-transparent"
+                                style={{ animationDelay: '5s' }}
+                            />
+                        </>
+                    )}
+                </div>
+
+                <div className="absolute inset-0 hidden overflow-hidden dark:block">
+                    <div
+                        className="absolute inset-0 opacity-30"
+                        style={{
+                            backgroundImage: `
+                                linear-gradient(rgba(34, 197, 94, 0.15) 1px, transparent 1px),
+                                linear-gradient(90deg, rgba(34, 197, 94, 0.15) 1px, transparent 1px)
+                            `,
+                            backgroundSize: '50px 50px'
+                        }}
+                    />
+
+                    <div className="absolute top-1/3 left-1/3 h-10 w-10 rounded-full bg-emerald-500/20 blur-xl" />
+                    <div className="absolute right-1/4 bottom-1/4 h-8 w-8 rounded-full bg-blue-500/15 blur-xl" />
+
+                    {animated && (
+                        <>
+                            <div className="animate-slow-flow absolute top-0 right-1/3 h-full w-px bg-gradient-to-b from-transparent via-emerald-500/40 to-transparent" />
+                            <div
+                                className="animate-slow-flow absolute top-0 left-2/3 h-full w-px bg-gradient-to-b from-transparent via-blue-500/30 to-transparent"
+                                style={{ animationDelay: '3s' }}
                             />
                         </>
                     )}

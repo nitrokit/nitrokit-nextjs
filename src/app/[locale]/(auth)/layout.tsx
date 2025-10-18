@@ -7,6 +7,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { BackButton } from '@/comp/shared/back-button';
 import { LocaleSwitcher, ThemeToggle } from '@/comp/switchers';
+import { BackgroundPatterns } from '@/comp/website/layout';
 
 export default function AuthLayout({
     children
@@ -17,6 +18,7 @@ export default function AuthLayout({
 
     return (
         <div className="grid min-h-screen grow lg:grid-cols-2">
+            <BackgroundPatterns variant="dots" animated={true} />
             <div className="relative order-2 flex items-center justify-center p-8 lg:order-1 lg:p-10">
                 <BackButton />
                 <div className="absolute top-20 left-8 z-10 lg:top-24 lg:left-10">
@@ -27,7 +29,7 @@ export default function AuthLayout({
                 </div>
                 <div className="w-full max-w-[370px]">{children}</div>
             </div>
-            <div className="lg:border-border xxl:bg-center branded-bg order-1 bg-top bg-no-repeat lg:order-2 lg:m-4 lg:rounded-xl lg:border xl:bg-cover">
+            <div className="lg:border-border xxl:bg-center branded-bg z-[99] order-1 bg-top bg-no-repeat lg:order-2 lg:m-4 lg:rounded-xl lg:border xl:bg-cover">
                 <div className="flex h-full flex-col gap-4 p-12">
                     <Logo className="mb-3" />
                     <div className="flex flex-1 flex-col gap-3">

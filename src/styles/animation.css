@@ -66,3 +66,16 @@
 .animate-blink {
     animation: blink 1s step-end infinite;
 }
+
+@keyframes slow-flow {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(100vh);
+    }
+}
+
+.animate-slow-flow {
+    animation: slow-flow 25s linear infinite;
+}
