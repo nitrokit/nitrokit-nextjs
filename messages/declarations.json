@@ -333,7 +333,8 @@
                 "credentials": "Invalid credentials provided.",
                 "sessionrequired": "Sign in is required to access this page.",
                 "accessdenied": "You do not have permission to sign in.",
-                "verification": "The email verification link is no longer valid."
+                "verification": "The email verification link is no longer valid.",
+                "configuration": "Server Configuration Error: An issue occurred during the sign-in process. Please try again later or contact the system administrator. (This may be due to incorrect ENV settings or API keys.)"
             }
         },
         "signout": "Sign Out",
