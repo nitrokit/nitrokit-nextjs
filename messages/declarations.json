@@ -371,6 +371,26 @@
         "call_now": "Call Now",
         "send_email": "Send Email"
     },
+    "email": {
+        "contactMessage": {
+            "preview": "New contact form submission: {name}",
+            "headerTitle": "📬 New Contact Message",
+            "introText": "You have received a new message from the contact form on your website:",
+            "fromLabel": "👤 From:",
+            "emailLabel": "📧 Email:",
+            "messageLabel": "💬 Message:",
+            "replyButton": "📩 Reply to {name}",
+            "footerText": "This email was sent from the contact form on your website. Use the button above to reply to the sender, or reply directly to <strong>{email}</strong>."
+        },
+        "newsletterConfirmation": {
+            "preview": "Newsletter Subscription Confirmation",
+            "headerTitle": "📰 Newsletter Confirmation",
+            "greeting": "Complete your subscription!",
+            "paragraph1": "Thank you for subscribing to our newsletter. To stay up to date with the latest developments and exclusive content, you need to confirm your subscription.",
+            "button": "Confirm Subscription",
+            "footerNote": "If you did not make this request, you can disregard this email. You can unsubscribe at any time."
+        }
+    },
     "faq": {
         "title": "Frequently Asked Questions",
         "description": "Frequently asked questions we provide to help you succeed."

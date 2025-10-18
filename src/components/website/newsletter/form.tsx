@@ -10,15 +10,18 @@ import { useNewsletterSubscription } from '@/hooks/useNewsletterSubscription';
 export function CompactNewsletter() {
     const t = useTranslations('app');
     const [email, setEmail] = useState('');
-    const { subscribe, loading, isSubscribed, error, success } = useNewsletterSubscription();
+    const { subscribe, loading, isSubscribed, error, success, isInitialLoading } =
+        useNewsletterSubscription();
 
-    const handleSubscribe = async (e: React.FormEvent) => {
+    const handleSubscribe = (e: React.FormEvent) => {
         e.preventDefault();
-        await subscribe(email);
+        subscribe(email);
         if (success) {
             setEmail('');
         }
     };
+
+    const isDisabled = loading || isSubscribed || isInitialLoading;
 
     return (
         <div>
@@ -48,14 +51,9 @@ export function CompactNewsletter() {
                     onChange={(e) => setEmail(e.target.value)}
                     className="h-9 w-full"
                     required
-                    disabled={loading || isSubscribed}
+                    disabled={isDisabled}
                 />
-                <Button
-                    type="submit"
-                    disabled={isSubscribed || loading}
-                    size="sm"
-                    className="h-9 w-full"
-                >
+                <Button type="submit" disabled={isDisabled} size="sm" className="h-9 w-full">
                     {loading ? (
                         t('newsletter.sending')
                     ) : isSubscribed ? (

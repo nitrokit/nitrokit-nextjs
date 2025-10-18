@@ -2,7 +2,7 @@
 
 import { AuthError } from 'next-auth';
 import { signIn } from '@/lib/auth/auth';
-import { loginFormSchema, LoginActionState } from '@/lib/validations/auth/login-schema';
+import { loginFormSchema, LoginActionState } from '@/lib';
 import { SimpleTFunction } from '@/types/i18n';
 import { getTranslations } from 'next-intl/server';
 import { prisma } from '@/lib/prisma';

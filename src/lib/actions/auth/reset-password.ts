@@ -1,10 +1,7 @@
 'use server';
 
 import { SimpleTFunction } from '@/types/i18n';
-import {
-    ResetPasswordActionState,
-    resetPasswordSchema
-} from '@/lib/validations/auth/reset-password-schema';
+import { ResetPasswordActionState, resetPasswordSchema } from '@/lib';
 import { prisma } from '@/lib/prisma';
 import { getTranslations } from 'next-intl/server';
 import { nanoid } from 'nanoid';

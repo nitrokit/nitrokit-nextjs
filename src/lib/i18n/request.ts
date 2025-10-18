@@ -3,7 +3,6 @@ import { getRequestConfig } from 'next-intl/server';
 import { routing } from './routing';
 
 export default getRequestConfig(async ({ requestLocale }) => {
-    // Typically corresponds to the `[locale]` segment
     const requested = await requestLocale;
     const locale = hasLocale(routing.locales, requested) ? requested : routing.defaultLocale;
 
@@ -15,7 +14,8 @@ export default getRequestConfig(async ({ requestLocale }) => {
         import(`../../../messages/${locale}/contact.json`),
         import(`../../../messages/${locale}/home.json`),
         import(`../../../messages/${locale}/pricing.json`),
-        import(`../../../messages/${locale}/faq.json`)
+        import(`../../../messages/${locale}/faq.json`),
+        import(`../../../messages/${locale}/email.json`)
     ]);
 
     return {
@@ -28,7 +28,8 @@ export default getRequestConfig(async ({ requestLocale }) => {
             contact: messageModules[4].default,
             home: messageModules[5].default,
             pricing: messageModules[6].default,
-            faq: messageModules[7].default
+            faq: messageModules[7].default,
+            email: messageModules[8].default
         }
     };
 });

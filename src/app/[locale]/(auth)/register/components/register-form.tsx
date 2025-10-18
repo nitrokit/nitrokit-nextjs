@@ -18,13 +18,13 @@ import {
     FormMessage
 } from '@/components/ui';
 
-import { registerAction } from '@/lib/actions/auth/register';
 import {
     registerFormSchema,
     TRegisterFormData,
     DEFAULT_REGISTER_FORM_VALUES,
-    RegisterActionState
-} from '@/lib/validations/auth/register-schema';
+    RegisterActionState,
+    registerAction
+} from '@/lib';
 import { SimpleTFunction } from '@/types/i18n';
 import { Link } from '@/lib/i18n/navigation';
 import { SubmitButton } from '@/comp/shared';

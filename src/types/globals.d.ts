@@ -9,6 +9,7 @@ export interface Messages {
     contact: typeof import('../../messages/en/contact.json');
     pricing: typeof import('../../messages/en/pricing.json');
     faq: typeof import('../../messages/en/faq.json');
+    email: typeof import('../../messages/en/email.json');
 }
 
 declare global {

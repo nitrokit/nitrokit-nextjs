@@ -17,14 +17,14 @@ import {
     FormMessage,
     Input
 } from '@/components/ui';
-import { SubmitButton } from '@/components/shared/submit-button';
+import { SubmitButton } from '@/components/shared';
 import {
     resetPasswordSchema,
     TResetPasswordData,
     DEFAULT_RESET_PASSWORD_VALUES,
-    ResetPasswordActionState
-} from '@/lib/validations/auth/reset-password-schema';
-import { resetPasswordAction } from '@/lib/actions/auth/reset-password';
+    ResetPasswordActionState,
+    resetPasswordAction
+} from '@/lib';
 import { AUTH_ROUTES } from '@/lib/auth/constants';
 import { SimpleTFunction } from '@/types/i18n';
 

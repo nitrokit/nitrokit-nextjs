@@ -21,9 +21,9 @@ import {
     DEFAULT_LOGIN_FORM_VALUES,
     LoginActionState,
     loginFormSchema,
-    TLoginFormData
-} from '@/lib/validations/auth/login-schema';
-import { loginAction } from '@/lib/actions/auth/login';
+    TLoginFormData,
+    loginAction
+} from '@/lib';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import { useEffect, useActionState } from 'react';
