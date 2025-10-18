@@ -3,20 +3,26 @@ import { RegisterForm } from './components/register-form';
 import { SignWithButtons } from '../components/sign-with-buttons';
 import { FormCard } from '../components/form-card';
 import { Link } from '@/lib/i18n/navigation';
+import { useTranslations } from 'next-intl';
+import { generatePageMetadata } from '@/lib';
+import { getTranslations } from 'next-intl/server';
+import { Metadata } from 'next';
 
-export function generateMetadata() {
-    return {
-        title: 'Sign Up',
-        alternates: {
-            canonical: AUTH_ROUTES.SIGN_UP
-        }
-    };
+export async function generateMetadata(): Promise<Metadata> {
+    const t = await getTranslations('auth.signup');
+    return await generatePageMetadata({
+        params: Promise.resolve({
+            title: t('title'),
+            description: t('description')
+        })
+    });
 }
 
 export default function Page() {
+    const t = useTranslations();
     return (
         <FormCard
-            title="Sign up"
+            title={t('auth.signup.title')}
             footer={
                 <>
                     <SignWithButtons />
@@ -24,13 +30,16 @@ export default function Page() {
             }
         >
             <div className="mb-5 w-full text-center text-sm">
-                Already have an Account ?{' '}
-                <Link
-                    href={AUTH_ROUTES.SIGN_IN}
-                    className="underline-offset-2 hover:text-blue-600 hover:underline"
-                >
-                    Sign In
-                </Link>
+                {t.rich('auth.signup.hasAccount', {
+                    link: (chunks) => (
+                        <Link
+                            href={AUTH_ROUTES.SIGN_IN}
+                            className="underline-offset-2 hover:text-blue-600 hover:underline"
+                        >
+                            {chunks}
+                        </Link>
+                    )
+                })}
             </div>
             <RegisterForm />
         </FormCard>

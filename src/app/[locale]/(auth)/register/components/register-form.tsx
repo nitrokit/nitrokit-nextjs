@@ -29,14 +29,15 @@ import {
     RegisterActionState
 } from '@/lib/validations/auth/register-schema';
 import { Spinner } from '@radix-ui/themes';
+import { SimpleTFunction } from '@/types/i18n';
 
 function SubmitButton() {
     const { pending } = useFormStatus();
-
+    const t = useTranslations();
     return (
         <Button type="submit" className="w-full" disabled={pending} aria-disabled={pending}>
             {pending ? <Spinner /> : null}
-            Create Account
+            {t('auth.signup.createAccount')}
         </Button>
     );
 }
@@ -49,8 +50,7 @@ export function RegisterForm() {
     const initialFormState: RegisterActionState = {};
     const [state, formAction] = useActionState(registerAction, initialFormState);
 
-    const simpleT = (key: string) => t(key as any);
-    const schema = registerFormSchema(simpleT);
+    const schema = registerFormSchema(t as SimpleTFunction);
 
     const form = useForm<TRegisterFormData>({
         resolver: zodResolver(schema),
@@ -64,12 +64,12 @@ export function RegisterForm() {
                 if (state.errors?.[errorKey]) {
                     form.setError(errorKey, {
                         type: 'server',
-                        message: state.errors[errorKey]?.[0] || 'Server Error'
+                        message: state.errors[errorKey]?.[0] || t('app.errors.general')
                     });
                 }
             });
         }
-    }, [state, form]);
+    }, [state, form, t]);
 
     return (
         <>
@@ -77,29 +77,27 @@ export function RegisterForm() {
                 <form action={formAction} className="space-y-6">
                     {' '}
                     <div className="grid grid-cols-2 gap-4">
-                        {/* FIRSTNAME */}
                         <FormField
                             control={form.control}
                             name="firstname"
                             render={({ field }) => (
                                 <FormItem>
-                                    <FormLabel>Firstname</FormLabel>
+                                    <FormLabel>{t('app.common.firstname')}</FormLabel>
                                     <FormControl>
-                                        <Input placeholder="Firstname" {...field} />
+                                        <Input {...field} />
                                     </FormControl>
                                     <FormMessage />
                                 </FormItem>
                             )}
                         />
-                        {/* LASTNAME */}
                         <FormField
                             control={form.control}
                             name="lastname"
                             render={({ field }) => (
                                 <FormItem>
-                                    <FormLabel>Lastname</FormLabel>
+                                    <FormLabel>{t('app.common.lastname')}</FormLabel>
                                     <FormControl>
-                                        <Input placeholder="Lastname" {...field} />
+                                        <Input {...field} />
                                     </FormControl>
                                     <FormMessage />
                                 </FormItem>
@@ -124,7 +122,7 @@ export function RegisterForm() {
                         name="password"
                         render={({ field }) => (
                             <FormItem>
-                                <FormLabel>Password</FormLabel>
+                                <FormLabel>{t('app.common.password')}</FormLabel>
                                 <FormControl>
                                     <PasswordInput {...field} />
                                 </FormControl>
@@ -137,7 +135,7 @@ export function RegisterForm() {
                         name="confirmPassword"
                         render={({ field }) => (
                             <FormItem>
-                                <FormLabel>Confirm Password</FormLabel>
+                                <FormLabel>{t('app.common.confirmPassword')}</FormLabel>
                                 <FormControl>
                                     <PasswordInput {...field} />
                                 </FormControl>
@@ -158,15 +156,18 @@ export function RegisterForm() {
                                 </FormControl>
                                 <div className="space-y-1 leading-none">
                                     <FormLabel className="font-normal">
-                                        Accept
-                                        <Button
-                                            type="button"
-                                            variant="link"
-                                            onClick={() => setIsTermsModalOpen(true)}
-                                            className="ml-1 h-auto p-0 text-sm underline-offset-2 hover:text-blue-600"
-                                        >
-                                            terms and conditions
-                                        </Button>
+                                        {t.rich('auth.signup.acceptTerms', {
+                                            button: (chunks) => (
+                                                <Button
+                                                    type="button"
+                                                    variant="link"
+                                                    onClick={() => setIsTermsModalOpen(true)}
+                                                    className="ml-1 h-auto p-0 text-sm underline-offset-2 hover:text-blue-600"
+                                                >
+                                                    {chunks}
+                                                </Button>
+                                            )
+                                        })}
                                     </FormLabel>
                                     <FormMessage />
                                 </div>

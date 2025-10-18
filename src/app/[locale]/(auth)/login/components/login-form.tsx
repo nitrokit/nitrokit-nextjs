@@ -29,12 +29,13 @@ import { SimpleTFunction } from '@/types/i18n';
 import { useFormStatus } from 'react-dom';
 
 function SubmitButton() {
+    const t = useTranslations();
     const { pending } = useFormStatus();
 
     return (
         <Button type="submit" className="w-full" disabled={pending} aria-disabled={pending}>
             {pending ? <Spinner /> : null}
-            Submit
+            {t('app.common.submit')}
         </Button>
     );
 }
@@ -58,12 +59,12 @@ export function LoginForm() {
                 if (state.errors?.[errorKey]) {
                     form.setError(errorKey, {
                         type: 'server',
-                        message: state.errors[errorKey]?.[0] || 'Sunucu Hatası'
+                        message: state.errors[errorKey]?.[0] || t('app.errors.general')
                     });
                 }
             });
         }
-    }, [state, form]);
+    }, [state, form, t]);
 
     return (
         <Form {...form}>
@@ -73,9 +74,13 @@ export function LoginForm() {
                     name="email"
                     render={({ field }) => (
                         <FormItem>
-                            <FormLabel>E-mail</FormLabel>
+                            <FormLabel>{t('app.common.email')}</FormLabel>
                             <FormControl>
-                                <Input placeholder={'m@example.com'} type="email" {...field} />
+                                <Input
+                                    placeholder={t('app.placeholders.email')}
+                                    type="email"
+                                    {...field}
+                                />
                             </FormControl>
                             <FormMessage />
                         </FormItem>
@@ -87,23 +92,28 @@ export function LoginForm() {
                     render={({ field }) => (
                         <FormItem>
                             <div className="flex items-center">
-                                <FormLabel>Password</FormLabel>
+                                <FormLabel>{t('app.common.password')}</FormLabel>
                                 <Link
                                     href={AUTH_ROUTES.PASSWORD_RESET}
                                     className="ml-auto inline-block text-xs underline-offset-2 hover:text-blue-600 hover:underline"
                                 >
-                                    Forgot your password?
+                                    {t('auth.signin.forgotPassword')}
                                 </Link>
                             </div>
                             <FormControl>
-                                <PasswordInput placeholder={'*****'} {...field} />
+                                <PasswordInput
+                                    placeholder={t('app.placeholders.password')}
+                                    {...field}
+                                />
                             </FormControl>
                             <FormMessage />
                         </FormItem>
                     )}
                 />
                 {state?.errors && !state.errors.email && !state.errors.password && (
-                    <div className="text-sm font-medium text-red-500">Genel hata</div>
+                    <div className="text-sm font-medium text-red-500">
+                        {t('app.errors.general')}
+                    </div>
                 )}
                 <SubmitButton />
             </form>
