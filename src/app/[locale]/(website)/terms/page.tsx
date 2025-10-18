@@ -1,6 +1,17 @@
-import * as React from 'react';
+import { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
+import { generatePageMetadata } from '@/lib';
 import { TermsComponent } from './components/terms-content';
+
+export async function generateMetadata(): Promise<Metadata> {
+    const t = await getTranslations('app.terms');
+    return await generatePageMetadata({
+        params: Promise.resolve({
+            title: t('title'),
+            description: t('description')
+        })
+    });
+}
 
 export default async function Page() {
     const t = await getTranslations('app.terms');

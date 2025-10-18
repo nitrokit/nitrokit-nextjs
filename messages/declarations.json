@@ -203,21 +203,23 @@
         "privacyPolicy": {
             "title": "Privacy Policy",
             "description": "This Privacy Policy explains how we collect, use, and protect your personal data through the Nitrokit mobile application and/or website. By using our Services, you agree to this policy.",
-            "whatData": {
-                "title": "1. What Data Do We Collect?",
-                "text": "We collect the information you provide when you contact us or use our services. This information may include your name, email address, and any other data you submit to us via contact forms or support requests."
-            },
-            "howWeUse": {
-                "title": "2. How Do We Use Your Data?",
-                "text": "We use the personal data we collect for the following purposes:\n- To respond to your inquiries and provide support.\n- To inform you about our Services and send you updates.\n- To improve the user experience and personalize our Services."
-            },
-            "dataSharing": {
-                "title": "3. Data Sharing and Protection",
-                "text": "We take reasonable and appropriate security measures to protect your personal data from unauthorized access, alteration, or disclosure. We store your data on secure servers in compliance with relevant laws. Your data will not be shared with third parties unless required by law or with your explicit consent."
-            },
-            "contactInfo": {
-                "title": "4. Contact Information",
-                "text": "If you have any questions about this Privacy Policy, please contact us at hello@nitrokit.tr."
+            "sections": {
+                "whatData": {
+                    "title": "What Data Do We Collect?",
+                    "content": "We collect the information you provide when you contact us or use our services. This information may include your name, email address, and any other data you submit to us via contact forms or support requests."
+                },
+                "howWeUse": {
+                    "title": "How Do We Use Your Data?",
+                    "content": "We use the personal data we collect for the following purposes:\n- To respond to your inquiries and provide support.\n- To inform you about our Services and send you updates.\n- To improve the user experience and personalize our Services."
+                },
+                "dataSharing": {
+                    "title": "Data Sharing and Protection",
+                    "content": "We take reasonable and appropriate security measures to protect your personal data from unauthorized access, alteration, or disclosure. We store your data on secure servers in compliance with relevant laws. Your data will not be shared with third parties unless required by law or with your explicit consent."
+                },
+                "contactInfo": {
+                    "title": "Contact Information",
+                    "content": "If you have any questions about this Privacy Policy, please contact us at hello@nitrokit.tr."
+                }
             }
         },
         "terms": {
