@@ -105,6 +105,7 @@
         "embla-carousel-react": "^8.6.0",
         "input-otp": "^1.4.2",
         "lucide-react": "^0.546.0",
+        "nanoid": "^5.1.6",
         "next": "15.5.6",
         "next-auth": "5.0.0-beta.29",
         "next-intl": "^4.3.12",
