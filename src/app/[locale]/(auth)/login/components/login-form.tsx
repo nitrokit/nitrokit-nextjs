@@ -1,7 +1,6 @@
 'use client';
 
 import {
-    Button,
     Form,
     FormControl,
     FormField,
@@ -9,8 +8,7 @@ import {
     FormLabel,
     FormMessage,
     Input,
-    PasswordInput,
-    Spinner
+    PasswordInput
 } from '@/comp/ui';
 import { Link } from '@/lib/i18n/navigation';
 import { AUTH_ROUTES } from '@/lib/auth/constants';
@@ -26,19 +24,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import { useEffect, useActionState } from 'react';
 import { SimpleTFunction } from '@/types/i18n';
-import { useFormStatus } from 'react-dom';
-
-function SubmitButton() {
-    const t = useTranslations();
-    const { pending } = useFormStatus();
-
-    return (
-        <Button type="submit" className="w-full" disabled={pending} aria-disabled={pending}>
-            {pending ? <Spinner /> : null}
-            {t('app.common.submit')}
-        </Button>
-    );
-}
+import { SubmitButton } from '@/comp/shared';
 
 export function LoginForm() {
     const t = useTranslations();
@@ -115,7 +101,7 @@ export function LoginForm() {
                         {t('app.errors.general')}
                     </div>
                 )}
-                <SubmitButton />
+                <SubmitButton textKey="app.common.submit" />
             </form>
         </Form>
     );

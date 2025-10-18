@@ -11,3 +11,4 @@ export * from './themed-image';
 export * from './version';
 export * from './library-logos';
 export * from './page-loading';
+export * from './submit-button';

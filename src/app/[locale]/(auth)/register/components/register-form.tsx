@@ -4,11 +4,9 @@ import * as React from 'react';
 import { useTranslations } from 'next-intl';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { useFormStatus } from 'react-dom';
-import { useActionState, useState } from 'react';
+import { useActionState } from 'react';
 
 import {
-    Button,
     Checkbox,
     Input,
     PasswordInput,
@@ -17,8 +15,7 @@ import {
     FormItem,
     FormControl,
     FormLabel,
-    FormMessage,
-    Modal
+    FormMessage
 } from '@/components/ui';
 
 import { registerAction } from '@/lib/actions/auth/register';
@@ -28,24 +25,12 @@ import {
     DEFAULT_REGISTER_FORM_VALUES,
     RegisterActionState
 } from '@/lib/validations/auth/register-schema';
-import { Spinner } from '@radix-ui/themes';
 import { SimpleTFunction } from '@/types/i18n';
-
-function SubmitButton() {
-    const { pending } = useFormStatus();
-    const t = useTranslations();
-    return (
-        <Button type="submit" className="w-full" disabled={pending} aria-disabled={pending}>
-            {pending ? <Spinner /> : null}
-            {t('auth.signup.createAccount')}
-        </Button>
-    );
-}
+import { Link } from '@/lib/i18n/navigation';
+import { SubmitButton } from '@/comp/shared';
 
 export function RegisterForm() {
     const t = useTranslations();
-
-    const [isTermsModalOpen, setIsTermsModalOpen] = useState(false);
 
     const initialFormState: RegisterActionState = {};
     const [state, formAction] = useActionState(registerAction, initialFormState);
@@ -158,14 +143,13 @@ export function RegisterForm() {
                                     <FormLabel className="font-normal">
                                         {t.rich('auth.signup.acceptTerms', {
                                             button: (chunks) => (
-                                                <Button
-                                                    type="button"
-                                                    variant="link"
-                                                    onClick={() => setIsTermsModalOpen(true)}
-                                                    className="ml-1 h-auto p-0 text-sm underline-offset-2 hover:text-blue-600"
+                                                <Link
+                                                    href="/terms"
+                                                    target="_blank"
+                                                    className="h-auto p-0 text-sm underline underline-offset-2 hover:text-blue-600"
                                                 >
                                                     {chunks}
-                                                </Button>
+                                                </Link>
                                             )
                                         })}
                                     </FormLabel>
@@ -174,31 +158,9 @@ export function RegisterForm() {
                             </FormItem>
                         )}
                     />
-                    <SubmitButton />
+                    <SubmitButton textKey="auth.signup.createAccount" />
                 </form>
             </Form>
-            <Modal
-                title="Terms and Conditions"
-                open={isTermsModalOpen}
-                onOpenChange={setIsTermsModalOpen}
-                footer={
-                    <Button type="button" onClick={() => setIsTermsModalOpen(false)}>
-                        Close
-                    </Button>
-                }
-            >
-                <div className="max-h-96 overflow-y-auto pr-2">
-                    <p className="whitespace-pre-line text-gray-700 dark:text-gray-300">
-                        By creating an account with Nitrokit, you agree to be bound by these Terms
-                        of Service and any other policies referenced herein. 1. Intellectual
-                        Property: All intellectual property rights in the service are owned by
-                        Nitrokit. 2. User Responsibility: You are responsible for maintaining the
-                        confidentiality of your account password. 3. Termination: We reserve the
-                        right to suspend or terminate accounts that violate our usage policies.
-                        (Continue your full legal text here...)
-                    </p>
-                </div>
-            </Modal>
         </>
     );
 }

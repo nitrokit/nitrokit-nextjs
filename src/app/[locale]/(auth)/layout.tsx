@@ -6,7 +6,7 @@ import { TerminalVisual } from './components/terminal-visual';
 import Image from 'next/image';
 import Link from 'next/link';
 import { BackButton } from '@/comp/shared/back-button';
-import { ThemeToggle } from '@/comp/switchers';
+import { LocaleSwitcher, ThemeToggle } from '@/comp/switchers';
 
 export default function AuthLayout({
     children
@@ -21,6 +21,9 @@ export default function AuthLayout({
                 <BackButton />
                 <div className="absolute top-20 left-8 z-10 lg:top-24 lg:left-10">
                     <ThemeToggle />
+                </div>
+                <div className="absolute top-32 left-8 z-10 lg:top-40 lg:left-10">
+                    <LocaleSwitcher side="right" />
                 </div>
                 <div className="w-full max-w-[370px]">{children}</div>
             </div>

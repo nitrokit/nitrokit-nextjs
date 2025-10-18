@@ -21,7 +21,8 @@
         "confirmPassword": "Şifreyi Doğrula",
         "submit": "Gönder",
         "cancel": "İptal",
-        "save": "Kaydet"
+        "save": "Kaydet",
+        "close": "Kapat"
     },
     "placeholders": {
         "email": "merhaba@nitrokit.tr",
@@ -120,6 +121,59 @@
         "contactInfo": {
             "title": "4. İletişim Bilgileri",
             "text": "Bu Gizlilik Politikası ile ilgili herhangi bir sorunuz varsa, lütfen bizimle hello@nitrokit.tr adresi üzerinden iletişime geçin."
+        }
+    },
+    "terms": {
+        "title": "Kullanım Şartları ve Koşulları",
+        "description": "Bu Kullanım Şartları ve Koşulları (\"Şartlar\"), **Nitrokit** mobil uygulaması ve/veya web sitesi (https://nitrokit.tr) aracılığıyla sunulan hizmetleri (\"Hizmetler\") kullanımınızı düzenler. Uygulamayı indirerek, kurarak veya kullanarak bu Şartları kabul etmiş olursunuz. Bu Şartları kabul etmiyorsanız, uygulamayı kullanmayın.",
+        "sections": {
+            "descriptionOfServices": {
+                "title": "Hizmetlerin Tanımı",
+                "content": "Nitrokit, Next.js tabanlı projeler için bir başlangıç kiti ve geliştirme ortamı sağlayarak kullanıcıların hızlıca uygulama geliştirmelerini amaçlar. Hizmetlerimiz, proje şablonları, entegrasyon araçları ve geliştirme dokümantasyonu sunmaktadır."
+            },
+            "userAccounts": {
+                "title": "Kullanıcı Hesapları",
+                "content": "Hizmetlerin bazı özelliklerini kullanabilmek için bir hesap oluşturmanız gerekebilir. Hesap oluştururken doğru, güncel ve eksiksiz bilgi vermeyi kabul edersiniz. Hesabınızın güvenliğini sağlamak sizin sorumluluğunuzdadır. Hesabınızda yetkisiz bir kullanım fark ettiğinizde derhal bizi bilgilendirmelisiniz."
+            },
+            "userConduct": {
+                "title": "Kullanıcı Davranışları",
+                "content": [
+                    "Uygulamayı kullanırken yasalara uygun davranmayı ve başkalarının haklarına saygı göstermeyi kabul edersiniz. Aşağıdaki eylemler yasaktır:",
+                    "Yasa dışı veya yetkisiz herhangi bir amaçla uygulamayı kullanmak.",
+                    "Uygulamanın veya sunucuların güvenliğini ihlal etmek veya kesintiye uğratmak.",
+                    "Diğer kullanıcıların kişisel bilgilerini toplamak veya saklamak.",
+                    "Virüs, truva atı veya diğer kötü amaçlı kodları iletmek.",
+                    "Uygulamanın düzgün çalışmasını engelleyecek eylemlerde bulunmak."
+                ]
+            },
+            "intellectualPropertyRights": {
+                "title": "Fikri Mülkiyet Hakları",
+                "content": "Uygulamanın ve Hizmetlerin tüm fikri mülkiyet hakları Nitrokit veya lisans verenlerine aittir. Bu Şartlar size uygulamayı kullanma lisansı verir, ancak fikri mülkiyet haklarımızı devretmez. Uygulamamızın içeriğini kopyalayamaz, değiştiremez, dağıtamaz veya tersine mühendislik yapamazsınız."
+            },
+            "privacy": {
+                "title": "Gizlilik",
+                "content": "Gizliliğiniz bizim için önemlidir. Kişisel verilerinizin nasıl toplandığı, kullanıldığı ve korunduğu hakkında bilgi almak için **Gizlilik Politikamızı** (<policyUrl>https://nitrokit.tr/privacy</policyUrl>) okuyun. Uygulamayı kullanarak Gizlilik Politikamızdaki uygulamaları kabul etmiş olursunuz."
+            },
+            "thirdPartyLinks": {
+                "title": "Üçüncü Taraf Bağlantıları",
+                "content": "Uygulama, üçüncü taraf web sitelerine veya hizmetlere bağlantılar içerebilir. Bu bağlantılar sadece sizin kolaylığınız için sağlanmıştır. Üçüncü taraf sitelerin içeriği, gizlilik uygulamaları veya politikaları üzerinde herhangi bir kontrolümüz yoktur ve bunlardan sorumlu değiliz."
+            },
+            "disclaimerOfWarranties": {
+                "title": "Sorumluluğun Reddi",
+                "content": "Hizmetlerimiz \"olduğu gibi\" ve \"mevcut olduğu şekilde\" sunulmaktadır. Uygulamanın kesintisiz, hatasız veya güvenli olacağına dair herhangi bir garanti vermeyiz. Uygulamanın kullanımından doğacak riskler tamamen size aittir."
+            },
+            "limitationOfLiability": {
+                "title": "Sorumluluğun Sınırlandırılması",
+                "content": "Yasaların izin verdiği ölçüde, Nitrokit, uygulamayı kullanımınızdan veya kullanamamanızdan kaynaklanan hiçbir doğrudan, dolaylı, arızi, özel, sonuçsal veya cezai zararlardan sorumlu olmayacaktır."
+            },
+            "changesToTerms": {
+                "title": "Şartların Değiştirilmesi",
+                "content": "Bu Şartları dilediğimiz zaman değiştirme hakkımızı saklı tutarız. Değişiklikler uygulamada yayınlandığında yürürlüğe girer. Değişikliklerden sonra uygulamayı kullanmaya devam etmeniz, revize edilmiş Şartları kabul ettiğiniz anlamına gelir."
+            },
+            "contact": {
+                "title": "İletişim",
+                "content": "Bu Şartlar hakkında herhangi bir sorunuz varsa, lütfen bizimle <email>hello@nitrokit.tr</email> adresinden iletişime geçin."
+            }
         }
     },
     "notFound": {

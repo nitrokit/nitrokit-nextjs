@@ -9,8 +9,10 @@ export const registerFormSchema = (t: SimpleTFunction) => {
             email: z
                 .email({ message: t('validations.invalid.email') })
                 .min(1, { message: t('validations.required.email') }),
-            password: z.string().min(8, { message: t('validations.min8.password') }), // Min 8 karakter önerisi
-            confirmPassword: z.string().min(8, { message: t('validations.min8.confirmPassword') }),
+            password: z.string().min(8, { message: t('validations.min.password', { min: 8 }) }), // Min 8 karakter önerisi
+            confirmPassword: z
+                .string()
+                .min(8, { message: t('validations.min.confirmPassword', { min: 8 }) }),
             terms: z
                 .boolean()
                 .refine((val) => val === true, { message: t('validations.required.terms') })

@@ -47,6 +47,7 @@ const PUBLIC_ROUTES = [
     NAV_LINKS.map((link) => link.path),
     '/faq',
     '/privacy',
+    '/terms',
     '/login',
     '/error',
     '/verify-request',

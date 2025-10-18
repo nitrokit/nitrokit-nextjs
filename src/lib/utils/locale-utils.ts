@@ -1,4 +1,5 @@
 import { LOCALES, LOCALE_CONFIG, type Locale } from '@/constants';
+import { useTranslations } from 'next-intl';
 
 // Generate from config to avoid duplication
 export const LOCALES_WITH_FLAG = LOCALES.map((locale) => ({
@@ -35,3 +36,7 @@ export const getDefaultLocale = () => LOCALES[0];
 // Returns array of locale names, either native or English
 export const getAllLocaleNames = (native = false) =>
     LOCALES.map((locale) => (native ? getLocaleNativeName(locale) : getLocaleName(locale)));
+
+export const translateSafely = (t: ReturnType<typeof useTranslations>, key: string): string => {
+    return t(key as any);
+};

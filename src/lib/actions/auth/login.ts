@@ -3,13 +3,16 @@
 import { AuthError } from 'next-auth';
 import { signIn } from '@/lib/auth/auth';
 import { loginFormSchema, LoginActionState } from '@/lib/validations/auth/login-schema';
+import { SimpleTFunction } from '@/types/i18n';
+import { getTranslations } from 'next-intl/server';
 
 export async function loginAction(
     prevState: LoginActionState,
     formData: FormData
 ): Promise<LoginActionState> {
     const data = Object.fromEntries(formData.entries());
-    const validatedFields = loginFormSchema(() => '').safeParse(data);
+    const t = await getTranslations();
+    const validatedFields = loginFormSchema(t as SimpleTFunction).safeParse(data);
 
     if (!validatedFields.success) {
         const fieldErrors = validatedFields.error.flatten().fieldErrors;

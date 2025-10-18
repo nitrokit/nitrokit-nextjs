@@ -21,7 +21,8 @@
         "confirmPassword": "Confirm Password",
         "submit": "Submit",
         "cancel": "Cancel",
-        "save": "Save"
+        "save": "Save",
+        "close": "Close"
     },
     "placeholders": {
         "email": "hello@nitrokit.tr",
@@ -120,6 +121,59 @@
         "contactInfo": {
             "title": "4. Contact Information",
             "text": "If you have any questions about this Privacy Policy, please contact us at hello@nitrokit.tr."
+        }
+    },
+    "terms": {
+        "title": "Terms and Conditions",
+        "description": "These Terms and Conditions (\"Terms\") govern your use of the **Nitrokit** mobile application and/or website (https://nitrokit.tr) and the services provided through them (\"Services\"). By downloading, installing, or using the application, you agree to these Terms. If you do not agree to these Terms, do not use the application.",
+        "sections": {
+            "descriptionOfServices": {
+                "title": "Description of Services",
+                "content": "Nitrokit aims to help users quickly develop applications by providing a boilerplate and development environment for Next.js-based projects. Our Services offer project templates, integration tools, and development documentation."
+            },
+            "userAccounts": {
+                "title": "User Accounts",
+                "content": "To use some features of the Services, you may need to create an account. You agree to provide accurate, current, and complete information when creating an account. It's your responsibility to maintain the security of your account. You must notify us immediately if you become aware of any unauthorized use of your account."
+            },
+            "userConduct": {
+                "title": "User Conduct",
+                "content": [
+                    "You agree to comply with laws and respect the rights of others when using the application. The following actions are prohibited:",
+                    "Using the application for any illegal or unauthorized purpose.",
+                    "Violating or disrupting the security of the application or servers.",
+                    "Collecting or storing personal information of other users.",
+                    "Transmitting viruses, Trojan horses, or other malicious code.",
+                    "Engaging in actions that would interfere with the proper functioning of the application."
+                ]
+            },
+            "intellectualPropertyRights": {
+                "title": "Intellectual Property Rights",
+                "content": "All intellectual property rights of the application and Services belong to Nitrokit or its licensors. These Terms grant you a license to use the application but do not transfer our intellectual property rights. You may not copy, modify, distribute, or reverse engineer the content of our application."
+            },
+            "privacy": {
+                "title": "Privacy",
+                "content": "Your privacy is important to us. Please read our **Privacy Policy** (<policyUrl>https://nitrokit.tr/privacy-policy</policyUrl>) for information on how your personal data is collected, used, and protected. By using the application, you agree to the practices in our Privacy Policy."
+            },
+            "thirdPartyLinks": {
+                "title": "Third-Party Links",
+                "content": "The application may contain links to third-party websites or services. These links are provided solely for your convenience. We have no control over and are not responsible for the content, privacy practices, or policies of third-party sites."
+            },
+            "disclaimerOfWarranties": {
+                "title": "Disclaimer of Warranties",
+                "content": "Our Services are provided \"as is\" and \"as available.\" We do not guarantee that the application will be uninterrupted, error-free, or secure. Your use of the application is solely at your own risk."
+            },
+            "limitationOfLiability": {
+                "title": "Limitation of Liability",
+                "content": "To the extent permitted by law, Nitrokit will not be liable for any direct, indirect, incidental, special, consequential, or punitive damages arising from your use or inability to use the application."
+            },
+            "changesToTerms": {
+                "title": "Changes to Terms",
+                "content": "We reserve the right to modify these Terms at any time. Changes will become effective when published in the application. Your continued use of the application after changes are published means you accept the revised Terms."
+            },
+            "contact": {
+                "title": "Contact",
+                "content": "If you have any questions about these Terms, please contact us at <email>hello@nitrokit.tr</email>."
+            }
         }
     },
     "notFound": {

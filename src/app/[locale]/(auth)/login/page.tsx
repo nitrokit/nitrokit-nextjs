@@ -28,7 +28,7 @@ export default function Page() {
                     link: (chunks) => (
                         <Link
                             href={AUTH_ROUTES.SIGN_UP}
-                            className="underline-offset-2 hover:text-blue-600 hover:underline"
+                            className="inline-block bg-gradient-to-r from-orange-500 via-red-500 to-pink-500 bg-clip-text font-bold text-transparent underline-offset-2 transition-all duration-300 hover:bg-gradient-to-l hover:underline"
                         >
                             {chunks}
                         </Link>

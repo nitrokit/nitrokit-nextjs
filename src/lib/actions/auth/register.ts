@@ -5,14 +5,16 @@ import { prisma } from '@/lib/prisma'; // Prisma client yolunuz
 import { signIn } from '@/lib/auth/auth';
 import { hash } from 'bcryptjs';
 import { AuthError } from 'next-auth';
+import { getTranslations } from 'next-intl/server';
+import { SimpleTFunction } from '@/types/i18n';
 
 export async function registerAction(
     prevState: RegisterActionState,
     formData: FormData
 ): Promise<RegisterActionState> {
     const data = Object.fromEntries(formData.entries());
-
-    const validatedFields = registerFormSchema(() => '').safeParse({
+    const t = await getTranslations();
+    const validatedFields = registerFormSchema(t as SimpleTFunction).safeParse({
         ...data,
         terms: formData.get('terms') === 'on'
     });
