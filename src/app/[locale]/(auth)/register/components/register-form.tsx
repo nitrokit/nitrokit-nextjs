@@ -1,0 +1,203 @@
+'use client';
+
+import * as React from 'react';
+import { useTranslations } from 'next-intl';
+import { useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { useFormStatus } from 'react-dom';
+import { useActionState, useState } from 'react';
+
+import {
+    Button,
+    Checkbox,
+    Input,
+    PasswordInput,
+    Form,
+    FormField,
+    FormItem,
+    FormControl,
+    FormLabel,
+    FormMessage,
+    Modal
+} from '@/components/ui';
+
+import { registerAction } from '@/lib/actions/auth/register';
+import {
+    registerFormSchema,
+    TRegisterFormData,
+    DEFAULT_REGISTER_FORM_VALUES,
+    RegisterActionState
+} from '@/lib/validations/auth/register-schema';
+import { Spinner } from '@radix-ui/themes';
+
+function SubmitButton() {
+    const { pending } = useFormStatus();
+
+    return (
+        <Button type="submit" className="w-full" disabled={pending} aria-disabled={pending}>
+            {pending ? <Spinner /> : null}
+            Create Account
+        </Button>
+    );
+}
+
+export function RegisterForm() {
+    const t = useTranslations();
+
+    const [isTermsModalOpen, setIsTermsModalOpen] = useState(false);
+
+    const initialFormState: RegisterActionState = {};
+    const [state, formAction] = useActionState(registerAction, initialFormState);
+
+    const simpleT = (key: string) => t(key as any);
+    const schema = registerFormSchema(simpleT);
+
+    const form = useForm<TRegisterFormData>({
+        resolver: zodResolver(schema),
+        defaultValues: DEFAULT_REGISTER_FORM_VALUES
+    });
+
+    React.useEffect(() => {
+        if (state?.errors) {
+            Object.keys(state.errors).forEach((key) => {
+                const errorKey = key as keyof TRegisterFormData;
+                if (state.errors?.[errorKey]) {
+                    form.setError(errorKey, {
+                        type: 'server',
+                        message: state.errors[errorKey]?.[0] || 'Server Error'
+                    });
+                }
+            });
+        }
+    }, [state, form]);
+
+    return (
+        <>
+            <Form {...form}>
+                <form action={formAction} className="space-y-6">
+                    {' '}
+                    <div className="grid grid-cols-2 gap-4">
+                        {/* FIRSTNAME */}
+                        <FormField
+                            control={form.control}
+                            name="firstname"
+                            render={({ field }) => (
+                                <FormItem>
+                                    <FormLabel>Firstname</FormLabel>
+                                    <FormControl>
+                                        <Input placeholder="Firstname" {...field} />
+                                    </FormControl>
+                                    <FormMessage />
+                                </FormItem>
+                            )}
+                        />
+                        {/* LASTNAME */}
+                        <FormField
+                            control={form.control}
+                            name="lastname"
+                            render={({ field }) => (
+                                <FormItem>
+                                    <FormLabel>Lastname</FormLabel>
+                                    <FormControl>
+                                        <Input placeholder="Lastname" {...field} />
+                                    </FormControl>
+                                    <FormMessage />
+                                </FormItem>
+                            )}
+                        />
+                    </div>
+                    <FormField
+                        control={form.control}
+                        name="email"
+                        render={({ field }) => (
+                            <FormItem>
+                                <FormLabel>Email</FormLabel>
+                                <FormControl>
+                                    <Input type="email" placeholder="m@example.com" {...field} />
+                                </FormControl>
+                                <FormMessage />
+                            </FormItem>
+                        )}
+                    />
+                    <FormField
+                        control={form.control}
+                        name="password"
+                        render={({ field }) => (
+                            <FormItem>
+                                <FormLabel>Password</FormLabel>
+                                <FormControl>
+                                    <PasswordInput {...field} />
+                                </FormControl>
+                                <FormMessage />
+                            </FormItem>
+                        )}
+                    />
+                    <FormField
+                        control={form.control}
+                        name="confirmPassword"
+                        render={({ field }) => (
+                            <FormItem>
+                                <FormLabel>Confirm Password</FormLabel>
+                                <FormControl>
+                                    <PasswordInput {...field} />
+                                </FormControl>
+                                <FormMessage />
+                            </FormItem>
+                        )}
+                    />
+                    <FormField
+                        control={form.control}
+                        name="terms"
+                        render={({ field }) => (
+                            <FormItem className="flex flex-row items-start space-y-0 space-x-3">
+                                <FormControl>
+                                    <Checkbox
+                                        checked={field.value}
+                                        onCheckedChange={field.onChange}
+                                    />
+                                </FormControl>
+                                <div className="space-y-1 leading-none">
+                                    <FormLabel className="font-normal">
+                                        Accept
+                                        <Button
+                                            type="button"
+                                            variant="link"
+                                            onClick={() => setIsTermsModalOpen(true)}
+                                            className="ml-1 h-auto p-0 text-sm underline-offset-2 hover:text-blue-600"
+                                        >
+                                            terms and conditions
+                                        </Button>
+                                    </FormLabel>
+                                    <FormMessage />
+                                </div>
+                            </FormItem>
+                        )}
+                    />
+                    <SubmitButton />
+                </form>
+            </Form>
+            <Modal
+                title="Terms and Conditions"
+                open={isTermsModalOpen}
+                onOpenChange={setIsTermsModalOpen}
+                footer={
+                    <Button type="button" onClick={() => setIsTermsModalOpen(false)}>
+                        Close
+                    </Button>
+                }
+            >
+                <div className="max-h-96 overflow-y-auto pr-2">
+                    <p className="whitespace-pre-line text-gray-700 dark:text-gray-300">
+                        By creating an account with Nitrokit, you agree to be bound by these Terms
+                        of Service and any other policies referenced herein. 1. Intellectual
+                        Property: All intellectual property rights in the service are owned by
+                        Nitrokit. 2. User Responsibility: You are responsible for maintaining the
+                        confidentiality of your account password. 3. Termination: We reserve the
+                        right to suspend or terminate accounts that violate our usage policies.
+                        (Continue your full legal text here...)
+                    </p>
+                </div>
+            </Modal>
+        </>
+    );
+}
