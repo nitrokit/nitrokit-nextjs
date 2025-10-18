@@ -19,7 +19,6 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default function Page() {
     const t = useTranslations();
-
     const serverFooter = <SignWithButtons />;
 
     const serverSignupText = (

@@ -117,7 +117,9 @@
             "submit": "Submit",
             "cancel": "Cancel",
             "save": "Save",
-            "close": "Close"
+            "close": "Close",
+            "continue": "Continue",
+            "reset": "Reset"
         },
         "placeholders": {
             "email": "hello@nitrokit.tr",
@@ -286,20 +288,44 @@
             "title": "Sign In",
             "description": "Welcome back! Please sign in to continue.",
             "noAccountYet": "Need an account? <link>Sign up</link>",
-            "forgotPassword": "Forgot your password?"
+            "forgotPassword": "Forgot your password?",
+            "invalidCredentials": "Invalid credentials."
         },
         "signup": {
             "title": "Sign Up",
             "description": "Join us to access exclusive features and content.",
             "hasAccount": "Already have an account? <link>Sign In</link>",
             "acceptTerms": "Accept <button>terms and conditions</button>",
-            "createAccount": "Create Account"
+            "createAccount": "Create Account",
+            "mustAcceptTerms": "You must accept the terms.",
+            "emailAlreadyInUse": "This email address is already in use.",
+            "emailAlreadyRegistered": "This email address is already registered.",
+            "unexpectedRegistrationError": "An unexpected error occurred during registration."
         },
         "2fa": {
             "title": "Two-Factor Authentication",
             "enterCode": "Enter Your 6-Digit Code",
             "checkApp": "Open your authenticator app (e.g., Google Authenticator) and enter the 6-digit code.",
-            "verifyAndSignIn": "Verify & Sign In"
+            "verifyAndSignIn": "Verify & Sign In",
+            "invalidVerificationCode": "Invalid verification code."
+        },
+        "reset-password": {
+            "title": "Reset Your Password",
+            "description": "Enter the email address associated with your account, and we'll email you a link to reset your password.",
+            "unexpectedError": "An unexpected error occurred during the operation. Please try again."
+        },
+        "error": {
+            "title": "Something went wrong",
+            "description": "We encountered an unexpected issue while processing your request. Please go back to the sign-in page and try again. If the problem persists, please contact support.",
+            "backToLogin": "Go back to Sign In",
+            "messages": {
+                "default": "An unknown error occurred. Please <link>try signing in</link> again.",
+                "oauthsignin": "This email is already registered with another account provider.",
+                "credentials": "Invalid credentials provided.",
+                "sessionrequired": "Sign in is required to access this page.",
+                "accessdenied": "You do not have permission to sign in.",
+                "verification": "The email verification link is no longer valid."
+            }
         },
         "signout": "Sign Out",
         "signinWithGoogle": "Sign In with Google",

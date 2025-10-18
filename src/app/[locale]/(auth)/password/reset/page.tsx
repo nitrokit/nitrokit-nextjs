@@ -1,28 +1,28 @@
-import { Button, Field, FieldGroup, FieldLabel, Input } from '@/comp/ui';
+import { useTranslations } from 'next-intl';
 import { FormCard } from '../../components/form-card';
-import { MoveRight as IconMoveRight } from 'lucide-react';
+import { ResetPasswordForm } from './components/reset-password-form';
+import { Metadata } from 'next';
+import { getTranslations } from 'next-intl/server';
+import { generatePageMetadata } from '@/lib';
+
+export async function generateMetadata(): Promise<Metadata> {
+    const t = await getTranslations('auth.reset-password');
+    return await generatePageMetadata({
+        params: Promise.resolve({
+            title: t('title'),
+            description: t('description')
+        })
+    });
+}
 
 export default function Page() {
+    const t = useTranslations();
     return (
         <FormCard
-            title="Your Email"
-            description="Enter your email to reset password"
-            footer={
-                <>
-                    <Button type="submit" className="w-full">
-                        Continue <IconMoveRight />
-                    </Button>
-                </>
-            }
+            title={t('auth.reset-password.title')}
+            description={t('auth.reset-password.description')}
         >
-            <form>
-                <FieldGroup>
-                    <Field>
-                        <FieldLabel htmlFor="email">Email</FieldLabel>
-                        <Input id="email" type="email" placeholder="m@example.com" required />
-                    </Field>
-                </FieldGroup>
-            </form>
+            <ResetPasswordForm />
         </FormCard>
     );
 }

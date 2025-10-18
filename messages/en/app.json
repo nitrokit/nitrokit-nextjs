@@ -22,7 +22,9 @@
         "submit": "Submit",
         "cancel": "Cancel",
         "save": "Save",
-        "close": "Close"
+        "close": "Close",
+        "continue": "Continue",
+        "reset": "Reset"
     },
     "placeholders": {
         "email": "hello@nitrokit.tr",

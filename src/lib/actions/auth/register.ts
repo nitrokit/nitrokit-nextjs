@@ -27,7 +27,7 @@ export async function registerAction(
                 ...fieldErrors,
                 terms:
                     fieldErrors.terms ||
-                    (data.terms !== 'on' ? ['Şartları kabul etmelisiniz.'] : undefined)
+                    (data.terms !== 'on' ? [t('auth.signup.mustAcceptTerms')] : undefined)
             },
             form: data as RegisterActionState['form']
         } as RegisterActionState;
@@ -52,15 +52,17 @@ export async function registerAction(
             redirect: false
         });
 
+        //ToDo: Welcome Email
+
         return {};
     } catch (error) {
         if (error instanceof AuthError && error.type === 'CredentialsSignin') {
-            return { errors: { email: ['Bu e-posta adresi zaten kullanımda.'] } };
+            return { errors: { email: [t('auth.signup.emailAlreadyInUse')] } };
         }
         if (error instanceof Error && 'code' in error && error.code === 'P2002') {
-            return { errors: { email: ['Bu e-posta adresi zaten kayıtlı.'] } };
+            return { errors: { email: [t('auth.signup.emailAlreadyRegistered')] } };
         }
 
-        return { errors: { email: ['Kayıt işlemi sırasında beklenmeyen bir hata oluştu.'] } };
+        return { errors: { email: [t('auth.signup.unexpectedRegistrationError')] } };
     }
 }

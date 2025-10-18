@@ -40,7 +40,7 @@ export async function loginAction(
     try {
         const existingUser = await prisma.user.findUnique({
             where: { email: email.toLowerCase() },
-            select: { id: true, twoFactorEnabled: true, twoFactorSecret: true } // Sadece gerekli alanları çek
+            select: { id: true, twoFactorEnabled: true, twoFactorSecret: true }
         });
 
         if (existingUser?.twoFactorEnabled && !twoFactorCode) {
@@ -55,7 +55,7 @@ export async function loginAction(
 
             if (!isCodeValid) {
                 return {
-                    errors: { twoFactorCode: ['Geçersiz doğrulama kodu.'] },
+                    errors: { twoFactorCode: [t('auth.2fa.invalidVerificationCode')] },
                     twoFactorRequired: true
                 } as UpdatedLoginActionState;
             }
@@ -72,15 +72,14 @@ export async function loginAction(
         if (error instanceof AuthError) {
             switch (error.type) {
                 case 'CredentialsSignin':
-                    // Kullanıcı bulunamadı veya parola yanlış
                     return {
                         errors: {
-                            email: ['Geçersiz kimlik bilgileri.'],
-                            password: ['Geçersiz kimlik bilgileri.']
+                            email: [t('auth.signin.invalidCredentials')],
+                            password: [t('auth.signin.invalidCredentials')]
                         }
                     };
                 default:
-                    return { errors: { email: ['Bilinmeyen bir hata oluştu.'] } };
+                    return { errors: { email: [t('app.errors.general')] } };
             }
         }
         if (error && (error as Error).message?.includes('NEXT_REDIRECT')) {

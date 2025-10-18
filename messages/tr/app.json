@@ -22,7 +22,9 @@
         "submit": "Gönder",
         "cancel": "İptal",
         "save": "Kaydet",
-        "close": "Kapat"
+        "close": "Kapat",
+        "continue": "Devam Et",
+        "reset": "Sıfırla"
     },
     "placeholders": {
         "email": "merhaba@nitrokit.tr",
