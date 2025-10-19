@@ -339,10 +339,12 @@
             "messages": {
                 "missingToken": "Verification token is missing. Please ensure you copied the link completely.",
                 "success": "Success! Your email address has been verified. You are being redirected...",
-                "generalError": "An unexpected error occurred during verification. Please try again."
+                "generalError": "An unexpected error occurred during verification. Please try again.",
+                "successWait": "Success! Your email address has been verified. Please wait while you are being redirected to the control panel..."
             },
             "status": {
                 "successTitle": "Verification Successful!",
+                "redirectingIn": "Redirecting in {seconds} seconds...",
                 "errorTitle": "Verification Failed!",
                 "goToLogin": "Go to Login Page"
             },

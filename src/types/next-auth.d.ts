@@ -2,7 +2,7 @@ import { DefaultSession } from 'next-auth';
 import { UserData } from './user';
 import { locales } from '@/constants';
 
-export type UserRole = 'User' | 'Admin' | 'Moderator';
+// export type UserRole = 'User' | 'Admin' | 'Moderator';
 export type Theme = 'light' | 'dark' | 'system';
 export type Locale = (typeof locales)[number];
 
@@ -24,13 +24,11 @@ declare module 'next-auth' {
 
 declare module 'next-auth/jwt' {
     interface JWT {
-        /** OpenID ID Token */
-        idToken?: string;
         sub: string;
         email?: string;
         name?: string;
         picture?: string;
-        role: UserRole;
+        // role: UserRole;
         locale?: Locale;
         theme?: Theme;
         receiveUpdates?: boolean;

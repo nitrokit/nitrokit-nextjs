@@ -14,8 +14,8 @@ import {
     InputOTPSlot,
     PasswordInput
 } from '@/comp/ui';
-import { Link } from '@/lib/i18n/navigation';
-import { AUTH_ROUTES } from '@/lib/auth/constants';
+import { Link, useRouter } from '@/lib/i18n/navigation';
+import { APP_ROUTES, AUTH_ROUTES } from '@/lib/auth/constants';
 import { useTranslations } from 'next-intl';
 import {
     DEFAULT_LOGIN_FORM_VALUES,
@@ -32,6 +32,7 @@ import { SubmitButton } from '@/comp/shared';
 import React from 'react';
 import { REGEXP_ONLY_DIGITS_AND_CHARS } from 'input-otp';
 import { MoveRight as IconMoveRight } from 'lucide-react';
+import { useSearchParams } from 'next/navigation';
 
 interface LoginFormProps {
     onFlowChange?: (is2FA: boolean) => void;
@@ -47,11 +48,14 @@ function renderOTPSlots(count: number) {
 
 export function LoginForm({ onFlowChange }: LoginFormProps) {
     const t = useTranslations();
+    const router = useRouter();
+    const searchParams = useSearchParams();
 
     const initialFormState: LoginActionState = {};
     const [state, formAction] = useActionState(loginAction, initialFormState);
     const schema = loginFormSchema(t as SimpleTFunction);
     const isTwoFactorRequired = state?.twoFactorRequired;
+    const callbackUrl = searchParams.get('callbackUrl') || APP_ROUTES.HOME;
 
     const form = useForm<TLoginFormData>({
         resolver: zodResolver(schema),
@@ -73,7 +77,11 @@ export function LoginForm({ onFlowChange }: LoginFormProps) {
         if (onFlowChange) {
             onFlowChange(!!isTwoFactorRequired);
         }
-    }, [state, form, t, onFlowChange, isTwoFactorRequired]);
+        if (state?.success) {
+            form.reset(DEFAULT_LOGIN_FORM_VALUES);
+            router.push(callbackUrl);
+        }
+    }, [state, form, t, onFlowChange, isTwoFactorRequired, router, callbackUrl]);
 
     return (
         <Form {...form}>

@@ -3,16 +3,21 @@ import createMiddleware from 'next-intl/middleware';
 import { routing } from './lib/i18n/routing';
 import { PUBLIC_ROUTES } from './constants';
 import { handleRateLimit } from './middlewares';
-import { AUTH_ROUTES } from './lib/auth/constants';
+import { APP_ROUTES, AUTH_ROUTES } from './lib/auth/constants';
+import { checkAuthentication, handleSessionTracking } from './middlewares/session';
 
 const intlMiddleware = createMiddleware(routing);
 
-export default function middleware(request: NextRequest) {
+export default async function middleware(request: NextRequest) {
     const publicRoutes = [
         '/api/newsletter/subscribe',
         ...PUBLIC_ROUTES,
         ...Object.values(AUTH_ROUTES)
     ];
+
+    if (request.nextUrl.pathname.startsWith(APP_ROUTES.HOME)) {
+        await handleSessionTracking(request);
+    }
 
     if (request.nextUrl.pathname.startsWith('/api/')) {
         const isAuthRoute = request.nextUrl.pathname.startsWith('/api/auth/');
@@ -21,7 +26,6 @@ export default function middleware(request: NextRequest) {
         if (!isAuthRoute && !isInternalRoute) {
             return handleRateLimit(request);
         }
-
         return NextResponse.next();
     }
 
@@ -38,7 +42,6 @@ export default function middleware(request: NextRequest) {
         return intlMiddleware(request);
     }
 
-    // Check for session token in cookies
     const sessionToken = request.cookies.get(
         process.env.NODE_ENV === 'production'
             ? '__Secure-authjs.session-token'
@@ -46,22 +49,22 @@ export default function middleware(request: NextRequest) {
     );
 
     if (!sessionToken?.value) {
-        const signInUrl = new URL('/login', request.url);
-        if (request.nextUrl.pathname !== '/login') {
-            signInUrl.searchParams.set('callbackUrl', request.url);
+        const signInUrl = new URL(AUTH_ROUTES.SIGN_IN, request.url);
+        if (request.nextUrl.pathname !== AUTH_ROUTES.SIGN_IN) {
+            signInUrl.searchParams.set('callbackUrl', request.nextUrl.pathname);
         }
         return NextResponse.redirect(signInUrl);
     }
+
+    const authResponse = await checkAuthentication(request);
+    if (authResponse) return authResponse;
 
     return intlMiddleware(request);
 }
 
 export const config = {
-    // Match all pathnames except for
-    // - … if they start with `/api`, `/trpc`, `/_next` or `/_vercel`
-    // - … the ones containing a dot (e.g. `favicon.ico`)
     matcher: [
         '/api/(.*)',
-        '/((?!api|trpc|_next|_vercel|sitemap|robots|storybook|issues|.*\\..*).*)'
+        '/((?!api|trpc|_next|sitemap|robots|storybook|issues|_vercel|.*\\..*).*)'
     ]
 };

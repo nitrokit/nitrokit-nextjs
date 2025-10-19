@@ -67,7 +67,7 @@ export async function loginAction(
             redirect: false
         });
 
-        return {};
+        return { success: true };
     } catch (error) {
         if (error instanceof AuthError) {
             switch (error.type) {

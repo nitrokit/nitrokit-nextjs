@@ -1,7 +1,8 @@
-import NextAuth from 'next-auth';
+import NextAuth, { Account, Profile, Session, User } from 'next-auth';
 import { PrismaAdapter } from '@auth/prisma-adapter';
 import { prisma } from '../prisma';
 import { AUTH_ROUTES } from './constants';
+import Credentials from 'next-auth/providers/credentials';
 import GitHub from 'next-auth/providers/github';
 import GitLab from 'next-auth/providers/gitlab';
 import Google from 'next-auth/providers/google';
@@ -12,11 +13,27 @@ import Facebook from 'next-auth/providers/facebook';
 import Twitter from 'next-auth/providers/twitter';
 import LinkedIn from 'next-auth/providers/linkedin';
 import { NextAuthProfileReturnType } from '@/types/auth';
+import bcrypt from 'bcryptjs';
+import { TwoFactorService } from './2fa-service';
+import { refreshAccessToken } from './token-service';
+import { AdapterUser } from 'next-auth/adapters';
+import { JWT } from 'next-auth/jwt';
 
 const defaultLocale = 'en';
 const defaultTheme = 'system';
 const defaultRole = 'User';
 const defaultReceiveUpdates = true;
+
+type JwtParams = {
+    token: JWT;
+    user?: User | AdapterUser;
+    account?: Account | null;
+    profile?: Profile;
+    email?: { verificationRequest?: boolean | undefined };
+    credentials?: Record<string, unknown>;
+    trigger?: 'signIn' | 'signUp' | 'update' | undefined;
+    isNewUser?: boolean;
+};
 
 export const { handlers, auth, signIn, signOut } = NextAuth({
     adapter: PrismaAdapter(prisma),
@@ -213,8 +230,193 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
                     isActive: true
                 } as NextAuthProfileReturnType;
             }
+        }),
+        Credentials({
+            name: 'credentials',
+            credentials: {
+                email: { label: 'Email', type: 'email' },
+                password: { label: 'Password', type: 'password' },
+                twoFactorCode: { label: '2FA Code', type: 'text' }
+            },
+            async authorize(credentials: any) {
+                if (!credentials?.email || !credentials?.password) {
+                    return null;
+                }
+
+                try {
+                    const user = await prisma.user.findUnique({
+                        where: {
+                            email: credentials.email as string
+                        }
+                    });
+
+                    if (!user || !user.password) {
+                        return null;
+                    }
+
+                    if (!user.emailVerified) {
+                        return null;
+                    }
+
+                    const isValidPassword = await bcrypt.compare(
+                        credentials.password as string,
+                        user.password
+                    );
+
+                    if (!isValidPassword) {
+                        return null;
+                    }
+
+                    if (user.twoFactorEnabled) {
+                        if (!credentials.twoFactorCode) {
+                            return null;
+                        }
+
+                        const verification = await TwoFactorService.verifyToken(
+                            user.id,
+                            credentials.twoFactorCode as string
+                        );
+
+                        if (!verification.success) {
+                            return null;
+                        }
+                    }
+
+                    await prisma.user.update({
+                        where: { id: user.id },
+                        data: { lastLoginAt: new Date() }
+                    });
+
+                    const { ...userWithoutPassword } = user;
+                    return {
+                        ...userWithoutPassword,
+                        emailVerified: !!user.emailVerified,
+                        createdAt: user.createdAt,
+                        updatedAt: user.updatedAt,
+                        lastLoginAt: user.lastLoginAt || undefined
+                    };
+                } catch (error) {
+                    console.error(error);
+                    return null;
+                }
+            }
         })
     ],
+    events: {
+        async session({ session }) {
+            if (session?.user?.id) {
+                try {
+                    await prisma.user.update({
+                        where: { id: session.user.id },
+                        data: { lastLoginAt: new Date() }
+                    });
+                } catch {}
+            }
+        }
+    },
+    callbacks: {
+        async signIn({ user, account }) {
+            if (account?.provider === 'credentials') {
+                return true;
+            }
+            if (user.email) {
+                try {
+                    const existingUser = await prisma.user.findUnique({
+                        where: { email: user.email },
+                        include: {
+                            accounts: true
+                        }
+                    });
+                    if (existingUser) {
+                        const existingAccount = existingUser.accounts.find(
+                            (acc) => acc.provider === account?.provider
+                        );
+
+                        if (!existingAccount && account) {
+                            console.log(
+                                `Linking ${account.provider} to existing user ${existingUser.id}`
+                            );
+                        }
+
+                        user.id = existingUser.id;
+                        return true;
+                    } else {
+                        return true;
+                    }
+                } catch {
+                    return false;
+                }
+            }
+            return true;
+        },
+        async session(params: { session: Session; token: JWT; user?: AdapterUser | undefined }) {
+            const { session, token } = params;
+            if (token && token.sub) {
+                session.user.id = token.sub;
+
+                session.user.email = token.email || session.user.email;
+                session.user.name = token.name || session.user.name;
+                session.user.image = token.picture || session.user.image;
+
+                session.user.locale = token.locale || 'tr';
+                session.user.theme = token.theme || 'light';
+                session.user.twoFactorEnabled = token.twoFactorEnabled ?? false;
+
+                const dbUser = await prisma.user.findUnique({
+                    where: { id: token.sub },
+                    include: { accounts: true }
+                });
+
+                if (dbUser) {
+                    session.user.linkedAccounts = dbUser.accounts.map((account) => ({
+                        provider: account.provider,
+                        type: account.type,
+                        providerAccountId: account.providerAccountId,
+                        accessToken: account.access_token,
+                        refreshToken: account.refresh_token,
+                        expiresAt: account.expires_at
+                    }));
+                }
+            }
+
+            return session;
+        },
+        async jwt(params: JwtParams): Promise<JWT> {
+            const { token, user } = params;
+            if (user) {
+                const dbUser = await prisma.user.findUnique({
+                    where: { id: user.id },
+                    select: {
+                        twoFactorEnabled: true,
+                        locale: true,
+                        theme: true
+                    }
+                });
+
+                if (dbUser) {
+                    token.twoFactorEnabled = dbUser.twoFactorEnabled;
+                    token.locale = dbUser.locale;
+                }
+            }
+
+            const shouldRefresh =
+                token.exp && token.exp - Math.floor(Date.now() / 1000) < 24 * 60 * 60;
+
+            if (shouldRefresh && token.refreshToken) {
+                try {
+                    const newTokens = await refreshAccessToken(token.refreshToken);
+                    return {
+                        ...token,
+                        ...newTokens
+                    };
+                } catch {
+                    return token;
+                }
+            }
+
+            return token;
+        }
+    },
     pages: {
         signIn: AUTH_ROUTES.SIGN_IN,
         signOut: AUTH_ROUTES.SIGN_OUT,
