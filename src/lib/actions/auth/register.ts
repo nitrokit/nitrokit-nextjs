@@ -14,21 +14,15 @@ export async function registerAction(
 ): Promise<RegisterActionState> {
     const data = Object.fromEntries(formData.entries());
     const t = await getTranslations();
-    const validatedFields = registerFormSchema(t as SimpleTFunction).safeParse({
-        ...data,
-        terms: formData.get('terms') === 'on'
-    });
+
+    console.log('Before Valida:', data);
+    const validatedFields = registerFormSchema(t as SimpleTFunction).safeParse(data);
 
     if (!validatedFields.success) {
         const fieldErrors = validatedFields.error.flatten().fieldErrors;
 
         return {
-            errors: {
-                ...fieldErrors,
-                terms:
-                    fieldErrors.terms ||
-                    (data.terms !== 'on' ? [t('auth.signup.mustAcceptTerms')] : undefined)
-            },
+            errors: fieldErrors,
             form: data as RegisterActionState['form']
         } as RegisterActionState;
     }
@@ -42,7 +36,10 @@ export async function registerAction(
             data: {
                 email: email.toLowerCase(),
                 password: hashedPassword,
-                name: `${firstname} ${lastname}`
+                name: `${firstname} ${lastname}`,
+                twoFactorEnabled: false,
+                createdAt: new Date(),
+                updatedAt: new Date()
             }
         });
 

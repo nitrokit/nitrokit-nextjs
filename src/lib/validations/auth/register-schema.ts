@@ -9,13 +9,16 @@ export const registerFormSchema = (t: SimpleTFunction) => {
             email: z
                 .email({ message: t('validations.invalid.email') })
                 .min(1, { message: t('validations.required.email') }),
-            password: z.string().min(8, { message: t('validations.min.password', { min: 8 }) }), // Min 8 karakter önerisi
+            password: z.string().min(8, { message: t('validations.min.password', { min: 8 }) }),
             confirmPassword: z
                 .string()
                 .min(8, { message: t('validations.min.confirmPassword', { min: 8 }) }),
             terms: z
-                .boolean()
-                .refine((val) => val === true, { message: t('validations.required.terms') })
+                .any()
+                .transform((val) => val === 'on' || val === true)
+                .refine((val) => val === true, {
+                    message: t('validations.required.terms')
+                })
         })
         .superRefine(({ password, confirmPassword }, ctx) => {
             if (password !== confirmPassword) {
@@ -31,11 +34,11 @@ export const registerFormSchema = (t: SimpleTFunction) => {
 export type TRegisterFormData = z.infer<ReturnType<typeof registerFormSchema>>;
 
 export const DEFAULT_REGISTER_FORM_VALUES: TRegisterFormData = {
-    firstname: '',
-    lastname: '',
-    email: '',
-    password: '',
-    confirmPassword: '',
+    firstname: 'Mustafa',
+    lastname: 'Genç',
+    email: 'eposta@mustafagenc.info',
+    password: '1234567890',
+    confirmPassword: '1234567890',
     terms: false
 };
 

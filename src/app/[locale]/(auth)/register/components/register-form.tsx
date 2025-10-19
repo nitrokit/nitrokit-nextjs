@@ -133,6 +133,11 @@ export function RegisterForm() {
                         name="terms"
                         render={({ field }) => (
                             <FormItem className="flex flex-row items-start space-y-0 space-x-3">
+                                <input
+                                    type="hidden"
+                                    name={field.name}
+                                    value={field.value ? 'on' : 'false'}
+                                />
                                 <FormControl>
                                     <Checkbox
                                         checked={field.value}
