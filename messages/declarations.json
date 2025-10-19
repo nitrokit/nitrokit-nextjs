@@ -401,7 +401,7 @@
         "description": "Welcome to our website!",
         "banner": {
             "badge": "New",
-            "text": "v2.0.1 is out! See what's new"
+            "text": "v1.0.0 is out! See what's new"
         },
         "hero": {
             "titles": {

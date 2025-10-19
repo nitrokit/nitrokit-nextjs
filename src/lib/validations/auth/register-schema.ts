@@ -34,11 +34,11 @@ export const registerFormSchema = (t: SimpleTFunction) => {
 export type TRegisterFormData = z.infer<ReturnType<typeof registerFormSchema>>;
 
 export const DEFAULT_REGISTER_FORM_VALUES: TRegisterFormData = {
-    firstname: 'Mustafa',
-    lastname: 'Genç',
-    email: 'eposta@mustafagenc.info',
-    password: '1234567890',
-    confirmPassword: '1234567890',
+    firstname: '',
+    lastname: '',
+    email: '',
+    password: '',
+    confirmPassword: '',
     terms: false
 };
 

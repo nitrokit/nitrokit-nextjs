@@ -1,9 +1,9 @@
 {
     "title": "",
-    "description": "Welcome to our website!",
+    "description": "",
     "banner": {
         "badge": "Yeni",
-        "text": "v2.0.1 çıktı! Yeniliklere göz atın"
+        "text": "v1.0.0 çıktı! Yeniliklere göz atın"
     },
     "hero": {
         "titles": {
