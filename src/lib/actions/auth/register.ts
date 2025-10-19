@@ -2,20 +2,26 @@
 
 import { registerFormSchema, RegisterActionState } from '@/lib/validations';
 import { prisma } from '@/lib/prisma';
-import { signIn } from '@/lib/auth/auth';
 import { hash } from 'bcryptjs';
 import { AuthError } from 'next-auth';
-import { getTranslations } from 'next-intl/server';
+import { getLocale, getTranslations } from 'next-intl/server';
 import { SimpleTFunction } from '@/types/i18n';
+import { User } from '@/generated/prisma';
+import { nanoid } from 'nanoid';
+import { getEmailService } from '@/lib/services/email';
+import { getBaseUrl } from '@/lib';
+import { render } from '@react-email/render';
+import { VerificationEmail } from '@/comp/emails/verification-email';
+import { AUTH_ROUTES } from '@/lib/auth/constants';
 
 export async function registerAction(
     prevState: RegisterActionState,
     formData: FormData
 ): Promise<RegisterActionState> {
     const data = Object.fromEntries(formData.entries());
+    const locale = await getLocale();
     const t = await getTranslations();
 
-    console.log('Before Valida:', data);
     const validatedFields = registerFormSchema(t as SimpleTFunction).safeParse(data);
 
     if (!validatedFields.success) {
@@ -32,7 +38,7 @@ export async function registerAction(
     try {
         const hashedPassword = await hash(password, 10);
 
-        await prisma.user.create({
+        const user: User = await prisma.user.create({
             data: {
                 email: email.toLowerCase(),
                 password: hashedPassword,
@@ -43,15 +49,46 @@ export async function registerAction(
             }
         });
 
-        await signIn('credentials', {
-            email,
-            password,
-            redirect: false
+        const verificationTokenValue = nanoid(32);
+        const expires = new Date(Date.now() + 3600000 * 24);
+
+        await prisma.verificationToken.deleteMany({
+            where: { identifier: user.email }
         });
 
-        //ToDo: Welcome Email
+        await prisma.verificationToken.create({
+            data: {
+                identifier: user.email,
+                token: verificationTokenValue,
+                expires: expires
+            }
+        });
 
-        return {};
+        const emailService = getEmailService();
+        const verificationUrl = `${getBaseUrl()}/${AUTH_ROUTES.NEW_USER_VERIFY_EMAIL}?token=${verificationTokenValue}`;
+
+        const emailHtml = await render(
+            VerificationEmail({
+                name: user.name!,
+                verificationUrl: verificationUrl,
+                locale: locale
+            })
+        );
+
+        await emailService.sendEmail({
+            to: user.email,
+            subject: t('email.verification.subject'),
+            html: emailHtml,
+            text: t('email.verification.textVersion', { verificationUrl: verificationUrl })
+        });
+
+        // await signIn('credentials', {
+        //     email,
+        //     password,
+        //     redirect: false
+        // });
+
+        return { success: true };
     } catch (error) {
         if (error instanceof AuthError && error.type === 'CredentialsSignin') {
             return { errors: { email: [t('auth.signup.emailAlreadyInUse')] } };

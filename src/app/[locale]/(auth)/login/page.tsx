@@ -26,7 +26,7 @@ export default function Page() {
             {t.rich('auth.signin.noAccountYet', {
                 link: (chunks) => (
                     <Link
-                        href={AUTH_ROUTES.SIGN_UP}
+                        href={AUTH_ROUTES.NEW_USER}
                         className="inline-block bg-gradient-to-r from-orange-500 via-red-500 to-pink-500 bg-clip-text font-bold text-transparent underline-offset-2 transition-all duration-300 hover:bg-gradient-to-l hover:underline"
                     >
                         {chunks}

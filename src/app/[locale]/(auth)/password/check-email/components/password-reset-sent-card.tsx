@@ -35,8 +35,8 @@ export function PasswordResetSentCard({ userEmail, messages }: PasswordResetSent
                         <Button
                             variant="link"
                             size="sm"
-                            onClick={handleResend}
                             className="ml-0.5 h-auto p-0 text-xs"
+                            onClick={handleResend}
                         >
                             {messages.resend}
                         </Button>

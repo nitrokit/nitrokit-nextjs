@@ -9,7 +9,7 @@ export function SignUpButton() {
     return (
         <AuthLink
             className="hidden bg-blue-600 hover:bg-blue-700 lg:inline-flex dark:bg-gray-700 dark:text-white dark:hover:bg-gray-600"
-            href={AUTH_ROUTES.SIGN_UP}
+            href={AUTH_ROUTES.NEW_USER}
         >
             <span>{t('signup.title')}</span>
         </AuthLink>

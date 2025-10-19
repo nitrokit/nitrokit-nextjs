@@ -26,10 +26,12 @@ import {
     registerAction
 } from '@/lib';
 import { SimpleTFunction } from '@/types/i18n';
-import { Link } from '@/lib/i18n/navigation';
+import { Link, useRouter } from '@/lib/i18n/navigation';
 import { SubmitButton } from '@/comp/shared';
+import { AUTH_ROUTES } from '@/lib/auth/constants';
 
 export function RegisterForm() {
+    const router = useRouter();
     const t = useTranslations();
 
     const initialFormState: RegisterActionState = {};
@@ -54,7 +56,10 @@ export function RegisterForm() {
                 }
             });
         }
-    }, [state, form, t]);
+        if (state?.success) {
+            router.push(AUTH_ROUTES.NEW_USER_VERIFY_EMAIL_SENT);
+        }
+    }, [state, form, t, router]);
 
     return (
         <>

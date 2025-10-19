@@ -9,7 +9,7 @@ export async function generateMetadata(): Promise<Metadata> {
     return await generatePageMetadata({
         params: Promise.resolve({
             title: t('title'),
-            description: t('description') // Yeni description key'i JSON'a ekleyebilirsiniz
+            description: t('description')
         })
     });
 }

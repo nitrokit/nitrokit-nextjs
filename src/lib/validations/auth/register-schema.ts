@@ -43,6 +43,7 @@ export const DEFAULT_REGISTER_FORM_VALUES: TRegisterFormData = {
 };
 
 export type RegisterActionState = {
+    success?: boolean;
     form?: {
         firstname?: string;
         lastname?: string;

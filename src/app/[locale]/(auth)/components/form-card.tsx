@@ -3,7 +3,7 @@ import React from 'react';
 
 interface FormCardProps {
     children: React.ReactNode;
-    title: string;
+    title?: string;
     description?: string;
     footer?: React.ReactNode;
 }
@@ -11,10 +11,12 @@ interface FormCardProps {
 export function FormCard({ children, title, description, footer }: FormCardProps) {
     return (
         <Card className="w-full max-w-sm">
-            <CardHeader className="text-center">
-                <CardTitle>{title}</CardTitle>
-                {description && <CardDescription>{description}</CardDescription>}
-            </CardHeader>
+            {(title || description) && (
+                <CardHeader className="text-center">
+                    {title && <CardTitle>{title}</CardTitle>}
+                    {description && <CardDescription>{description}</CardDescription>}
+                </CardHeader>
+            )}
             <CardContent>{children}</CardContent>
             <CardFooter className="flex-col gap-2">{footer}</CardFooter>
         </Card>

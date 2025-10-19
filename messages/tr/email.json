@@ -16,5 +16,31 @@
         "paragraph1": "Haber bültenimize abone olduğunuz için teşekkürler. En güncel gelişmelerden ve özel içeriklerden haberdar olmak için aboneliğinizi onaylamanız gerekiyor.",
         "button": "Aboneliği Onayla",
         "footerNote": "Eğer bu isteği siz yapmadıysanız, bu e-postayı dikkate almayabilirsiniz. Her zaman abonelikten çıkabilirsiniz."
+    },
+    "verification": {
+        "subject": "E-posta Adresinizi Doğrulayın - Nitrokit'e Hoş Geldiniz!",
+        "preview": "E-posta Adresinizi Doğrulayın - Nitrokit'e Hoş Geldiniz!",
+        "headerTitle": "Nitrokit'e Hoş Geldiniz!",
+        "greeting": "Merhaba {name}! 👋",
+        "paragraph1": "Kaydolduğunuz için teşekkür ederiz! Kaydınızı tamamlamak ve hesabınızı güvence altına almak için lütfen aşağıdaki düğmeye tıklayarak e-posta adresinizi doğrulayın:",
+        "verifyButton": "✅ E-posta Adresini Doğrula",
+        "linkText": "Veya bu bağlantıyı kopyalayıp tarayıcınıza yapıştırın:",
+        "footerNote": "Güvenlik nedeniyle bu doğrulama bağlantısı 24 saat içinde sona erecektir. Eğer bir hesap oluşturmadıysanız, bu e-postayı güvenle yoksayabilirsiniz.",
+        "textVersion": "Lütfen e-postanızı doğrulamak için bu bağlantıyı kullanın: {verificationUrl}"
+    },
+    "welcome": {
+        "subject": "Nitrokit'e Hoş Geldiniz! Hesabınız artık aktif 🚀",
+        "preview": "Nitrokit'e Hoş Geldiniz! Hesabınız artık aktif 🚀",
+        "headerTitle": "Nitrokit'e Hoş Geldiniz! 🚀",
+        "greeting": "Hoş Geldin {name}! 🎉",
+        "paragraph1": "E-posta adresiniz doğrulandı ve hesabınız artık aktif! Nitrokit'in güçlü özelliklerini keşfetmeye hazırsınız.",
+        "paragraph2": "İşte şimdi yapabilecekleriniz:",
+        "feature1": "✨ Işık hızında uygulamalar oluşturun",
+        "feature2": "🔧 Hazır bileşenleri ve araçları kullanın",
+        "feature3": "🚀 Güvenle dağıtım yapın (Deploy)",
+        "feature4": "📊 Projelerinizi gerçek zamanlı izleyin",
+        "dashboardButton": "🎯 Kontrol Paneline Git",
+        "paragraph3": "Başlamak için yardıma mı ihtiyacınız var? Belgelerimizi inceleyin veya destek ekibimize ulaşın.",
+        "footerNote": "Nitrokit'e katıldığınız için teşekkürler! Herhangi bir sorunuz olursa, bu e-postayı yanıtlamaktan çekinmeyin. Başarılı olmanız için buradayız! 💪"
     }
 }

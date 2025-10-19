@@ -16,5 +16,31 @@
         "paragraph1": "Thank you for subscribing to our newsletter. To stay up to date with the latest developments and exclusive content, you need to confirm your subscription.",
         "button": "Confirm Subscription",
         "footerNote": "If you did not make this request, you can disregard this email. You can unsubscribe at any time."
+    },
+    "verification": {
+        "subject": "Verify your Email Address - Welcome to Nitrokit!",
+        "preview": "Verify your email address - Welcome to Nitrokit!",
+        "headerTitle": "Welcome to Nitrokit!",
+        "greeting": "Hi {name}! 👋",
+        "paragraph1": "Thank you for signing up! To complete your registration and secure your account, please verify your email address by clicking the button below:",
+        "verifyButton": "✅ Verify Email Address",
+        "linkText": "Or copy and paste this link into your browser:",
+        "footerNote": "This verification link will expire in 24 hours for security reasons. If you didn't create an account, you can safely ignore this email.",
+        "textVersion": "Please use this link to verify your email address: {verificationUrl}"
+    },
+    "welcome": {
+        "subject": "Welcome to Nitrokit! Your account is now active 🚀",
+        "preview": "Welcome to Nitrokit! Your account is now active 🚀",
+        "headerTitle": "Welcome to Nitrokit! 🚀",
+        "greeting": "Welcome {name}! 🎉",
+        "paragraph1": "Your email has been verified and your account is now active! You're all set to start exploring Nitrokit's powerful features.",
+        "paragraph2": "Here's what you can do now:",
+        "feature1": "✨ Build blazing-fast applications",
+        "feature2": "🔧 Use pre-built components and utilities",
+        "feature3": "🚀 Deploy with confidence",
+        "feature4": "📊 Monitor your projects in real-time",
+        "dashboardButton": "🎯 Go to Dashboard",
+        "paragraph3": "Need help getting started? Check out our documentation or reach out to our support team.",
+        "footerNote": "Thanks for joining Nitrokit! If you have any questions, feel free to reply to this email. We're here to help you succeed! 💪"
     }
 }
