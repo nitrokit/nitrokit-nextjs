@@ -5,11 +5,11 @@ import { getTranslations } from 'next-intl/server'; // next-intl importu
 
 interface WelcomeEmailProps {
     name: string;
-    dashboardUrl?: string;
+    appUrl?: string;
     locale: Locale;
 }
 
-export async function WelcomeEmail({ name, dashboardUrl, locale }: WelcomeEmailProps) {
+export async function WelcomeEmail({ name, appUrl, locale }: WelcomeEmailProps) {
     const t = await getTranslations({ locale, namespace: 'email.welcome' });
 
     return (
@@ -31,10 +31,10 @@ export async function WelcomeEmail({ name, dashboardUrl, locale }: WelcomeEmailP
                 <Text style={featureItem}>{t('feature4')}</Text>
             </Section>
 
-            {dashboardUrl && (
+            {appUrl && (
                 <Section style={emailStyles.buttonContainer}>
                     <Button
-                        href={dashboardUrl}
+                        href={appUrl}
                         style={{
                             ...emailStyles.button,
                             backgroundColor: '#22c55e'

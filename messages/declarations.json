@@ -333,6 +333,23 @@
             "resendSuccess": "Verification email successfully resent!",
             "resendError": "Failed to resend email. Please contact the system administrator."
         },
+        "verification": {
+            "title": "Email Verification",
+            "description": "Email verification process.",
+            "messages": {
+                "missingToken": "Verification token is missing. Please ensure you copied the link completely.",
+                "success": "Success! Your email address has been verified. You are being redirected...",
+                "generalError": "An unexpected error occurred during verification. Please try again."
+            },
+            "status": {
+                "successTitle": "Verification Successful!",
+                "errorTitle": "Verification Failed!",
+                "goToLogin": "Go to Login Page"
+            },
+            "errors": {
+                "userNotFound": "User not found. Please check your registration."
+            }
+        },
         "error": {
             "title": "Something went wrong",
             "description": "We encountered an unexpected issue while processing your request. Please go back to the sign-in page and try again. If the problem persists, please contact support.",
@@ -344,7 +361,8 @@
                 "sessionrequired": "Sign in is required to access this page.",
                 "accessdenied": "You do not have permission to sign in.",
                 "verification": "The email verification link is no longer valid.",
-                "configuration": "Server Configuration Error: An issue occurred during the sign-in process. Please try again later or contact the system administrator. (This may be due to incorrect ENV settings or API keys.)"
+                "configuration": "Server Configuration Error: An issue occurred during the sign-in process. Please try again later or contact the system administrator. (This may be due to incorrect ENV settings or API keys.)",
+                "usernotfound": "No account found with this email address."
             }
         },
         "signout": "Sign Out",
@@ -425,7 +443,8 @@
             "feature4": "📊 Monitor your projects in real-time",
             "dashboardButton": "🎯 Go to Dashboard",
             "paragraph3": "Need help getting started? Check out our documentation or reach out to our support team.",
-            "footerNote": "Thanks for joining Nitrokit! If you have any questions, feel free to reply to this email. We're here to help you succeed! 💪"
+            "footerNote": "Thanks for joining Nitrokit! If you have any questions, feel free to reply to this email. We're here to help you succeed! 💪",
+            "textVersion": "Your email has been verified and your account is now active! You're all set to start exploring Nitrokit's powerful features."
         }
     },
     "faq": {

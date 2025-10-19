@@ -56,8 +56,9 @@ export function RegisterForm() {
                 }
             });
         }
+
         if (state?.success) {
-            router.push(AUTH_ROUTES.NEW_USER_VERIFY_EMAIL_SENT);
+            router.push(`${AUTH_ROUTES.NEW_USER_VERIFY_EMAIL_SENT}?email=${state?.email}`);
         }
     }, [state, form, t, router]);
 

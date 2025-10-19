@@ -29,7 +29,7 @@ export default function AuthLayout({
                 </div>
                 <div className="w-full max-w-[370px]">{children}</div>
             </div>
-            <div className="lg:border-border xxl:bg-center branded-bg z-[99] order-1 bg-top bg-no-repeat lg:order-2 lg:m-4 lg:rounded-xl lg:border xl:bg-cover">
+            <div className="lg:border-border xxl:bg-center branded-bg z-[20] order-1 bg-top bg-no-repeat lg:order-2 lg:m-4 lg:rounded-xl lg:border xl:bg-cover">
                 <div className="flex h-full flex-col gap-4 p-12">
                     <Logo className="mb-3" />
                     <div className="flex flex-1 flex-col gap-3">

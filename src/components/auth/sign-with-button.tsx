@@ -15,7 +15,7 @@ import {
     LinkedinIcon
 } from '@/comp/icons';
 import { signIn } from '@/lib/auth/auth';
-import { AUTH_ROUTES } from '@/lib/auth/constants';
+import { APP_ROUTES } from '@/lib/auth/constants';
 
 type ButtonVariantProps = NonNullable<Parameters<typeof buttonVariants>[0]>;
 
@@ -94,7 +94,7 @@ function SignWithButton({
             action={async () => {
                 'use server';
 
-                await signIn(provider, { redirectTo: AUTH_ROUTES.APP });
+                await signIn(provider, { redirectTo: APP_ROUTES.HOME });
             }}
             className={cn('w-full', className)}
         >

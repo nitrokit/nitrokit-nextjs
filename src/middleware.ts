@@ -46,7 +46,6 @@ export default function middleware(request: NextRequest) {
     );
 
     if (!sessionToken?.value) {
-        // Redirect to login page with locale support
         const signInUrl = new URL('/login', request.url);
         if (request.nextUrl.pathname !== '/login') {
             signInUrl.searchParams.set('callbackUrl', request.url);

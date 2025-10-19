@@ -145,6 +145,12 @@ export async function revokeRefreshToken(token: string): Promise<void> {
     });
 }
 
+export async function revokeVerificationToken(token: string): Promise<void> {
+    await prisma.verificationToken.delete({
+        where: { token }
+    });
+}
+
 export function generateAccessToken(user: User): string {
     const payload = {
         sub: user.id,

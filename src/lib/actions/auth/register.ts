@@ -33,7 +33,8 @@ export async function registerAction(
         } as RegisterActionState;
     }
 
-    const { email, password, firstname, lastname } = validatedFields.data;
+    const { firstname, lastname, email, password } = validatedFields.data;
+
     let user: User | null = null;
     try {
         const hashedPassword = await hash(password, 10);
@@ -43,8 +44,11 @@ export async function registerAction(
                 email: email.toLowerCase(),
                 password: hashedPassword,
                 name: `${firstname} ${lastname}`,
+                firstName: firstname,
+                lastName: lastname,
                 twoFactorEnabled: false,
                 locale: locale,
+                receiveUpdates: false,
                 createdAt: new Date(),
                 updatedAt: new Date()
             }
@@ -87,7 +91,7 @@ export async function registerAction(
         //     redirect: false
         // });
 
-        return { success: true };
+        return { success: true, email: email.toLowerCase() };
     } catch (error: unknown) {
         function isPrismaClientKnownRequestErrorWithCode(err: unknown, code: string): boolean {
             return (
