@@ -2,14 +2,8 @@
 import { MoonIcon, SunIcon, MonitorIcon } from 'lucide-react';
 import { Suspense } from 'react';
 
-import { SmallLoading } from '@/components/shared';
-import {
-    ToggleGroup,
-    ToggleGroupItem,
-    Tooltip,
-    TooltipContent,
-    TooltipTrigger
-} from '@/components/ui';
+import { SmallLoading } from '@/comp/shared';
+import { ToggleGroup, ToggleGroupItem, Tooltip, TooltipContent, TooltipTrigger } from '@/comp/ui';
 import { useNextTheme } from '@/hooks';
 
 export const CompactThemeSwitcher = () => {

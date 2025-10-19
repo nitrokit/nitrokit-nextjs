@@ -1,0 +1,82 @@
+'use client';
+
+import React, { useState } from 'react';
+import { Button, Input } from '@/comp/ui';
+import { Heart, Mail, Send } from 'lucide-react';
+import { useTranslations } from 'next-intl';
+import { Link } from '@/lib/i18n/navigation';
+import { useNewsletterSubscription } from '@/hooks/useNewsletterSubscription';
+
+export function CompactNewsletter() {
+    const t = useTranslations('app');
+    const [email, setEmail] = useState('');
+    const { subscribe, loading, isSubscribed, error, success, isInitialLoading } =
+        useNewsletterSubscription();
+
+    const handleSubscribe = (e: React.FormEvent) => {
+        e.preventDefault();
+        subscribe(email);
+        if (success) {
+            setEmail('');
+        }
+    };
+
+    const isDisabled = loading || isSubscribed || isInitialLoading;
+
+    return (
+        <div>
+            <h3 className="text-foreground mb-4 flex items-center gap-2 font-semibold">
+                <div className="flex h-6 w-6 items-center justify-center rounded bg-purple-500/10">
+                    <Mail className="h-3 w-3 text-purple-500" />
+                </div>
+                {t('newsletter.title')}
+            </h3>
+
+            <div className="mb-4">
+                <p className="text-muted-foreground text-sm leading-relaxed">
+                    {t('newsletter.description')}
+                </p>
+            </div>
+
+            <form
+                onSubmit={(e) => {
+                    void handleSubscribe(e);
+                }}
+                className="space-y-3"
+            >
+                <Input
+                    type="email"
+                    placeholder={t('newsletter.emailPlaceholder')}
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    className="h-9 w-full"
+                    required
+                    disabled={isDisabled}
+                />
+                <Button type="submit" disabled={isDisabled} size="sm" className="h-9 w-full">
+                    {loading ? (
+                        t('newsletter.sending')
+                    ) : isSubscribed ? (
+                        <>
+                            <Heart className="mr-2 h-3 w-3 fill-current" />
+                            {t('newsletter.thankYou')}
+                        </>
+                    ) : (
+                        <>
+                            <Send className="mr-2 h-3 w-3" />
+                            {t('newsletter.subscribe')}
+                        </>
+                    )}
+                </Button>
+            </form>
+            {error && <p className="mt-2 text-xs text-red-500">{error}</p>}
+            {success && <p className="mt-2 text-xs text-green-600">{t('newsletter.success')}</p>}
+            <div className="mt-2 flex gap-2 text-[11px]">
+                <p className="text-muted-foreground">{t('newsletter.unsubscribe')} </p>
+                <Link href="/privacy/" className="hover:text-[#2A72DF] hover:underline">
+                    {t('privacyPolicy.title')}
+                </Link>
+            </div>
+        </div>
+    );
+}

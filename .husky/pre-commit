@@ -10,7 +10,7 @@ echo '🚀 Checking if pre-commit validation is needed...'
 
 BRANCH=$(git rev-parse --abbrev-ref HEAD 2>/dev/null || git branch --show-current 2>/dev/null || echo "unknown")
 
-PROTECTED_BRANCHES=("main")
+PROTECTED_BRANCHES=("main" "next")
 DEVELOPMENT_BRANCHES=( "preview" "develop")
 
 RED='\033[0;31m'

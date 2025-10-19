@@ -3,7 +3,19 @@
         "email": "Email is required",
         "name": "Name is required",
         "message": "Message is required",
-        "captcha": "Captcha is required"
+        "captcha": "Captcha is required",
+        "password": "Password is required",
+        "firstname": "First name is required",
+        "lastname": "Last name is required",
+        "confirmPassword": "Confirm password is required",
+        "terms": "You must accept the terms and conditions to proceed."
+    },
+    "min": {
+        "password": "Your password must be at least {min} characters long.",
+        "confirmPassword": "Confirm password must contain at least {min} characters."
+    },
+    "mismatch": {
+        "passwords": "Passwords do not match."
     },
     "invalid": {
         "email": "Email is not valid"

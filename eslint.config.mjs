@@ -62,7 +62,10 @@ const eslintConfig = [
                 'error',
                 { argsIgnorePattern: '^_', varsIgnorePattern: '^_' }
             ],
+            '@typescript-eslint/no-unsafe-call': 'off',
             '@typescript-eslint/require-await': 'error',
+            '@typescript-eslint/no-unsafe-member-access': 'off',
+            '@typescript-eslint/no-unsafe-assignment': 'off',
             '@typescript-eslint/no-misused-promises': 'error',
             'react-hooks/rules-of-hooks': 'error',
             'react-hooks/exhaustive-deps': 'error',

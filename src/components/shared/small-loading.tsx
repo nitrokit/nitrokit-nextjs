@@ -2,7 +2,7 @@
 
 import { Loader } from 'lucide-react';
 
-import { Button } from '@/components/ui';
+import { Button } from '@/comp/ui';
 
 export function SmallLoading() {
     return (

@@ -4,15 +4,16 @@
 
 // export default function Home() {
 //     const { user, isLoading } = useUser();
-//     console.log('User', user, isLoading);
+//     console.info('User', user, isLoading);
 // }
 
-import { BackgroundPatterns, LibraryLogos } from '@/components/layout';
-import { NewsletterConfirmDialog } from '@/components/newsletter';
-import { Testimonials } from '@/components/testimonial';
+import { BackgroundPatterns } from '@/comp/website/layout';
+import { NewsletterConfirmDialog } from '@/comp/website/newsletter';
+import { Testimonials } from '@/comp/website/testimonial';
 import { Hero, GitHubSection } from './home/components';
+import { LibraryLogos } from '@/comp/shared';
 
-export default function Home() {
+export default function Page() {
     return (
         <div className="relative -top-20 min-h-screen overflow-hidden bg-white transition-colors duration-300 dark:bg-[#111113]">
             <NewsletterConfirmDialog />

@@ -58,3 +58,5 @@ test-results/
 /src/generated
 
 messages/*.d.json.ts
+
+.notes

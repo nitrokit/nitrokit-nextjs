@@ -3,13 +3,29 @@ model User {
   name          String?
   email         String          @unique
   emailVerified DateTime?
+  password      String?
   image         String?
-  accounts      Account[]
-  sessions      Session[]
-  // Optional for WebAuthn support
-  Authenticator Authenticator[]
+  
+  twoFactorEnabled       Boolean   @default(false) @map("two_factor_enabled")
+  twoFactorSecret        String?   @map("two_factor_secret")
+  twoFactorBackupCodes   String[]  @map("two_factor_backup_codes")
+  twoFactorVerifiedAt    DateTime? @map("two_factor_verified_at")
 
+  firstName String?
+  lastName  String?
+  username  String?
+
+  locale    String  @default("en")
+  theme     String  @default("system")
+  receiveUpdates  Boolean @default(true) @map("receive_updates") 
+
+  lastLoginAt DateTime?
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+
+  authenticator Authenticator[]
+  refreshTokens RefreshToken[]
+  accounts       Account[]
+  sessions       Session[]
 }
  

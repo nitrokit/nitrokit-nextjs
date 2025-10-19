@@ -25,7 +25,6 @@ export function BaseEmail({ preview, headerTitle, headerGradient, children }: Ba
                         />
                         <Text style={headerText}>{headerTitle}</Text>
                     </Section>
-
                     <Section style={content}>{children}</Section>
                 </Container>
             </Body>

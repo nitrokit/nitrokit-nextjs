@@ -108,6 +108,23 @@
             "description": "Build modern web applications with Nitrokit's comprehensive Next.js starter kit. Features TypeScript, Tailwind CSS, authentication, and more.",
             "author": "Nitrokit Team"
         },
+        "common": {
+            "email": "E-mail",
+            "firstname": "First Name",
+            "lastname": "Last Name",
+            "password": "Password",
+            "confirmPassword": "Confirm Password",
+            "submit": "Submit",
+            "cancel": "Cancel",
+            "save": "Save",
+            "close": "Close",
+            "continue": "Continue",
+            "reset": "Reset"
+        },
+        "placeholders": {
+            "email": "hello@nitrokit.tr",
+            "password": "********"
+        },
         "navigation": {
             "home": "Home",
             "about": "About",
@@ -186,21 +203,76 @@
         "privacyPolicy": {
             "title": "Privacy Policy",
             "description": "This Privacy Policy explains how we collect, use, and protect your personal data through the Nitrokit mobile application and/or website. By using our Services, you agree to this policy.",
-            "whatData": {
-                "title": "1. What Data Do We Collect?",
-                "text": "We collect the information you provide when you contact us or use our services. This information may include your name, email address, and any other data you submit to us via contact forms or support requests."
-            },
-            "howWeUse": {
-                "title": "2. How Do We Use Your Data?",
-                "text": "We use the personal data we collect for the following purposes:\n- To respond to your inquiries and provide support.\n- To inform you about our Services and send you updates.\n- To improve the user experience and personalize our Services."
-            },
-            "dataSharing": {
-                "title": "3. Data Sharing and Protection",
-                "text": "We take reasonable and appropriate security measures to protect your personal data from unauthorized access, alteration, or disclosure. We store your data on secure servers in compliance with relevant laws. Your data will not be shared with third parties unless required by law or with your explicit consent."
-            },
-            "contactInfo": {
-                "title": "4. Contact Information",
-                "text": "If you have any questions about this Privacy Policy, please contact us at hello@nitrokit.tr."
+            "sections": {
+                "whatData": {
+                    "title": "What Data Do We Collect?",
+                    "content": "We collect the information you provide when you contact us or use our services. This information may include your name, email address, and any other data you submit to us via contact forms or support requests."
+                },
+                "howWeUse": {
+                    "title": "How Do We Use Your Data?",
+                    "content": "We use the personal data we collect for the following purposes:\n- To respond to your inquiries and provide support.\n- To inform you about our Services and send you updates.\n- To improve the user experience and personalize our Services."
+                },
+                "dataSharing": {
+                    "title": "Data Sharing and Protection",
+                    "content": "We take reasonable and appropriate security measures to protect your personal data from unauthorized access, alteration, or disclosure. We store your data on secure servers in compliance with relevant laws. Your data will not be shared with third parties unless required by law or with your explicit consent."
+                },
+                "contactInfo": {
+                    "title": "Contact Information",
+                    "content": "If you have any questions about this Privacy Policy, please contact us at hello@nitrokit.tr."
+                }
+            }
+        },
+        "terms": {
+            "title": "Terms and Conditions",
+            "description": "These Terms and Conditions (\"Terms\") govern your use of the **Nitrokit** mobile application and/or website (https://nitrokit.tr) and the services provided through them (\"Services\"). By downloading, installing, or using the application, you agree to these Terms. If you do not agree to these Terms, do not use the application.",
+            "sections": {
+                "descriptionOfServices": {
+                    "title": "Description of Services",
+                    "content": "Nitrokit aims to help users quickly develop applications by providing a boilerplate and development environment for Next.js-based projects. Our Services offer project templates, integration tools, and development documentation."
+                },
+                "userAccounts": {
+                    "title": "User Accounts",
+                    "content": "To use some features of the Services, you may need to create an account. You agree to provide accurate, current, and complete information when creating an account. It's your responsibility to maintain the security of your account. You must notify us immediately if you become aware of any unauthorized use of your account."
+                },
+                "userConduct": {
+                    "title": "User Conduct",
+                    "content": [
+                        "You agree to comply with laws and respect the rights of others when using the application. The following actions are prohibited:",
+                        "Using the application for any illegal or unauthorized purpose.",
+                        "Violating or disrupting the security of the application or servers.",
+                        "Collecting or storing personal information of other users.",
+                        "Transmitting viruses, Trojan horses, or other malicious code.",
+                        "Engaging in actions that would interfere with the proper functioning of the application."
+                    ]
+                },
+                "intellectualPropertyRights": {
+                    "title": "Intellectual Property Rights",
+                    "content": "All intellectual property rights of the application and Services belong to Nitrokit or its licensors. These Terms grant you a license to use the application but do not transfer our intellectual property rights. You may not copy, modify, distribute, or reverse engineer the content of our application."
+                },
+                "privacy": {
+                    "title": "Privacy",
+                    "content": "Your privacy is important to us. Please read our **Privacy Policy** (<policyUrl>https://nitrokit.tr/privacy-policy</policyUrl>) for information on how your personal data is collected, used, and protected. By using the application, you agree to the practices in our Privacy Policy."
+                },
+                "thirdPartyLinks": {
+                    "title": "Third-Party Links",
+                    "content": "The application may contain links to third-party websites or services. These links are provided solely for your convenience. We have no control over and are not responsible for the content, privacy practices, or policies of third-party sites."
+                },
+                "disclaimerOfWarranties": {
+                    "title": "Disclaimer of Warranties",
+                    "content": "Our Services are provided \"as is\" and \"as available.\" We do not guarantee that the application will be uninterrupted, error-free, or secure. Your use of the application is solely at your own risk."
+                },
+                "limitationOfLiability": {
+                    "title": "Limitation of Liability",
+                    "content": "To the extent permitted by law, Nitrokit will not be liable for any direct, indirect, incidental, special, consequential, or punitive damages arising from your use or inability to use the application."
+                },
+                "changesToTerms": {
+                    "title": "Changes to Terms",
+                    "content": "We reserve the right to modify these Terms at any time. Changes will become effective when published in the application. Your continued use of the application after changes are published means you accept the revised Terms."
+                },
+                "contact": {
+                    "title": "Contact",
+                    "content": "If you have any questions about these Terms, please contact us at <email>hello@nitrokit.tr</email>."
+                }
             }
         },
         "notFound": {
@@ -209,7 +281,103 @@
             "returnHome": "Return to Homepage"
         }
     },
-    "auth": {},
+    "auth": {
+        "layout": {
+            "title": "Authentication for Easy & Secure Access",
+            "description": "Give your projects a rocket 🚀 start! Save time with Nitrokit and focus on development..."
+        },
+        "signin": {
+            "title": "Sign In",
+            "description": "Welcome back! Please sign in to continue.",
+            "noAccountYet": "Need an account? <link>Sign up</link>",
+            "forgotPassword": "Forgot your password?",
+            "invalidCredentials": "Invalid credentials."
+        },
+        "signup": {
+            "title": "Sign Up",
+            "description": "Join us to access exclusive features and content.",
+            "hasAccount": "Already have an account? <link>Sign In</link>",
+            "acceptTerms": "Accept <button>terms and conditions</button>",
+            "createAccount": "Create Account",
+            "mustAcceptTerms": "You must accept the terms.",
+            "emailAlreadyInUse": "This email address is already in use.",
+            "emailAlreadyRegistered": "This email address is already registered.",
+            "unexpectedRegistrationError": "An unexpected error occurred during registration."
+        },
+        "2fa": {
+            "title": "Two-Factor Authentication",
+            "enterCode": "Enter Your 6-Digit Code",
+            "checkApp": "Open your authenticator app (e.g., Google Authenticator) and enter the 6-digit code.",
+            "verifyAndSignIn": "Verify & Sign In",
+            "invalidVerificationCode": "Invalid verification code."
+        },
+        "reset-password": {
+            "title": "Reset Your Password",
+            "description": "Enter the email address associated with your account, and we'll email you a link to reset your password.",
+            "unexpectedError": "An unexpected error occurred during the operation. Please try again."
+        },
+        "password-reset-sent": {
+            "title": "Check Your Inbox",
+            "description": "Please click the link sent to your email hello@nitrokit.tr to reset your password. Thank you.",
+            "button": "Skip for now",
+            "noEmail": "Didn’t receive an email?",
+            "resend": "Resend"
+        },
+        "verificationSent": {
+            "title": "Email Verification Required",
+            "heading": "You're almost there!",
+            "description": "We've sent an email with a verification link to <email>{email}</email> to activate your account. Please check your inbox (or spam folder).",
+            "noEmail": "Didn’t receive an email?",
+            "resend": "Resend",
+            "backToLogin": "Back to Login Page",
+            "resendSuccess": "Verification email successfully resent!",
+            "resendError": "Failed to resend email. Please contact the system administrator."
+        },
+        "verification": {
+            "title": "Email Verification",
+            "description": "Email verification process.",
+            "messages": {
+                "missingToken": "Verification token is missing. Please ensure you copied the link completely.",
+                "success": "Success! Your email address has been verified. You are being redirected...",
+                "generalError": "An unexpected error occurred during verification. Please try again.",
+                "successWait": "Success! Your email address has been verified. Please wait while you are being redirected to the control panel..."
+            },
+            "status": {
+                "successTitle": "Verification Successful!",
+                "redirectingIn": "Redirecting in {seconds} seconds...",
+                "errorTitle": "Verification Failed!",
+                "goToLogin": "Go to Login Page"
+            },
+            "errors": {
+                "userNotFound": "User not found. Please check your registration."
+            }
+        },
+        "error": {
+            "title": "Something went wrong",
+            "description": "We encountered an unexpected issue while processing your request. Please go back to the sign-in page and try again. If the problem persists, please contact support.",
+            "backToLogin": "Go back to Sign In",
+            "messages": {
+                "default": "An unknown error occurred. Please <link>try signing in</link> again.",
+                "oauthsignin": "This email is already registered with another account provider.",
+                "credentials": "Invalid credentials provided.",
+                "sessionrequired": "Sign in is required to access this page.",
+                "accessdenied": "You do not have permission to sign in.",
+                "verification": "The email verification link is no longer valid.",
+                "configuration": "Server Configuration Error: An issue occurred during the sign-in process. Please try again later or contact the system administrator. (This may be due to incorrect ENV settings or API keys.)",
+                "usernotfound": "No account found with this email address."
+            }
+        },
+        "signout": "Sign Out",
+        "signinWithGoogle": "Sign In with Google",
+        "signinWithFacebook": "Sign In with Facebook",
+        "signinWithTwitter": "Sign In with Twitter",
+        "signinWithGithub": "Sign In with Github",
+        "signinWithApple": "Sign In with Apple",
+        "signinWithLinkedIn": "Sign In with LinkedIn",
+        "signinWithGitlab": "Sign In with GitLab",
+        "signinWithMicrosoft": "Sign In with Microsoft",
+        "signinWithInstagram": "Sign In with Instagram"
+    },
     "contact": {
         "title": "Contact",
         "description": "You can use the information below to get in touch with us.",
@@ -234,6 +402,53 @@
         "call_now": "Call Now",
         "send_email": "Send Email"
     },
+    "email": {
+        "contactMessage": {
+            "preview": "New contact form submission: {name}",
+            "headerTitle": "📬 New Contact Message",
+            "introText": "You have received a new message from the contact form on your website:",
+            "fromLabel": "👤 From:",
+            "emailLabel": "📧 Email:",
+            "messageLabel": "💬 Message:",
+            "replyButton": "📩 Reply to {name}",
+            "footerText": "This email was sent from the contact form on your website. Use the button above to reply to the sender, or reply directly to <strong>{email}</strong>."
+        },
+        "newsletterConfirmation": {
+            "preview": "Newsletter Subscription Confirmation",
+            "headerTitle": "📰 Newsletter Confirmation",
+            "greeting": "Complete your subscription!",
+            "paragraph1": "Thank you for subscribing to our newsletter. To stay up to date with the latest developments and exclusive content, you need to confirm your subscription.",
+            "button": "Confirm Subscription",
+            "footerNote": "If you did not make this request, you can disregard this email. You can unsubscribe at any time."
+        },
+        "verification": {
+            "subject": "Verify your Email Address - Welcome to Nitrokit!",
+            "preview": "Verify your email address - Welcome to Nitrokit!",
+            "headerTitle": "Welcome to Nitrokit!",
+            "greeting": "Hi {name}! 👋",
+            "paragraph1": "Thank you for signing up! To complete your registration and secure your account, please verify your email address by clicking the button below:",
+            "verifyButton": "✅ Verify Email Address",
+            "linkText": "Or copy and paste this link into your browser:",
+            "footerNote": "This verification link will expire in 24 hours for security reasons. If you didn't create an account, you can safely ignore this email.",
+            "textVersion": "Please use this link to verify your email address: {verificationUrl}"
+        },
+        "welcome": {
+            "subject": "Welcome to Nitrokit! Your account is now active 🚀",
+            "preview": "Welcome to Nitrokit! Your account is now active 🚀",
+            "headerTitle": "Welcome to Nitrokit! 🚀",
+            "greeting": "Welcome {name}! 🎉",
+            "paragraph1": "Your email has been verified and your account is now active! You're all set to start exploring Nitrokit's powerful features.",
+            "paragraph2": "Here's what you can do now:",
+            "feature1": "✨ Build blazing-fast applications",
+            "feature2": "🔧 Use pre-built components and utilities",
+            "feature3": "🚀 Deploy with confidence",
+            "feature4": "📊 Monitor your projects in real-time",
+            "dashboardButton": "🎯 Go to Dashboard",
+            "paragraph3": "Need help getting started? Check out our documentation or reach out to our support team.",
+            "footerNote": "Thanks for joining Nitrokit! If you have any questions, feel free to reply to this email. We're here to help you succeed! 💪",
+            "textVersion": "Your email has been verified and your account is now active! You're all set to start exploring Nitrokit's powerful features."
+        }
+    },
     "faq": {
         "title": "Frequently Asked Questions",
         "description": "Frequently asked questions we provide to help you succeed."
@@ -243,7 +458,7 @@
         "description": "Welcome to our website!",
         "banner": {
             "badge": "New",
-            "text": "v2.0.1 is out! See what's new"
+            "text": "v1.0.0 is out! See what's new"
         },
         "hero": {
             "titles": {
@@ -334,7 +549,19 @@
             "email": "Email is required",
             "name": "Name is required",
             "message": "Message is required",
-            "captcha": "Captcha is required"
+            "captcha": "Captcha is required",
+            "password": "Password is required",
+            "firstname": "First name is required",
+            "lastname": "Last name is required",
+            "confirmPassword": "Confirm password is required",
+            "terms": "You must accept the terms and conditions to proceed."
+        },
+        "min": {
+            "password": "Your password must be at least {min} characters long.",
+            "confirmPassword": "Confirm password must contain at least {min} characters."
+        },
+        "mismatch": {
+            "passwords": "Passwords do not match."
         },
         "invalid": {
             "email": "Email is not valid"

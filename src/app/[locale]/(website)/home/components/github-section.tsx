@@ -1,6 +1,6 @@
 import { useTranslations } from 'next-intl';
 import { GITHUB_URL } from '@/constants';
-import { Button } from '@/components/ui';
+import { Button } from '@/comp/ui';
 import { Link } from '@/lib/i18n/navigation';
 import { ExternalLink as IconExternalLink, Github as IconGithub } from 'lucide-react';
 

@@ -65,7 +65,7 @@ export function useNextTheme() {
                 // if (response.ok) {
                 //     const result = await response.json();
                 //     if (result.success && result.themeChanged) {
-                //         console.log('💾 Theme preference saved to database');
+                //         console.info('💾 Theme preference saved to database');
                 //     }
                 // }
             } catch (error) {

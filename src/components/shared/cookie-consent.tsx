@@ -15,7 +15,7 @@ import {
     SheetHeader,
     SheetTitle,
     SheetTrigger
-} from '@/components/ui';
+} from '@/comp/ui';
 import { Cookie, Settings, Shield, BarChart3, Target } from 'lucide-react';
 import type { GtagConsentParams } from '@/types/gtag';
 import {
@@ -139,13 +139,9 @@ export function CookieConsent() {
         }
     };
 
-    const enableFunctional = () => {
-        console.log('Functional cookies enabled');
-    };
+    const enableFunctional = () => {};
 
-    const disableFunctional = () => {
-        console.log('Functional cookies disabled');
-    };
+    const disableFunctional = () => {};
 
     const acceptAll = () => {
         const allAccepted: CookiePreferences = {

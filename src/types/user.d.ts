@@ -10,6 +10,9 @@ export interface UserData {
     phoneVerified?: boolean | null;
     role: UserRole;
     twoFactorEnabled?: boolean;
+    twoFactorSecret?: string;
+    twoFactorBackupCodes?: string[];
+    twoFactorVerifiedAt?: Date;
     emailVerified?: boolean;
     locale: Locale;
     theme: string;

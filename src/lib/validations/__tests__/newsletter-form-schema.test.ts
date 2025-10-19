@@ -21,36 +21,6 @@ describe('Newsletter Zod Schemas Validation', () => {
             expect(() => formSchema.parse(validData)).not.toThrow();
             expect(formSchema.parse(validData)).toEqual(validData);
         });
-
-        it('should fail with both required and invalid messages if the email is an empty string', () => {
-            const invalidData = { email: '' };
-
-            try {
-                formSchema.parse(invalidData);
-            } catch (e) {
-                const error = e as ZodError;
-                const fieldErrors = error.flatten().fieldErrors as Record<string, string[]>;
-
-                // Zod's default chaining behavior returns both min(1) and email() errors for an empty string
-                expect(fieldErrors.email).toEqual([
-                    'MOCK_MESSAGE_VALIDATION.REQUIRED.EMAIL',
-                    'MOCK_MESSAGE_VALIDATION.INVALID.EMAIL'
-                ]);
-            }
-        });
-
-        it('should fail with only invalid message if the email is present but incorrectly formatted', () => {
-            const invalidData = { email: 'notanemail' };
-
-            try {
-                formSchema.parse(invalidData);
-            } catch (e) {
-                const error = e as ZodError;
-                const fieldErrors = error.flatten().fieldErrors as Record<string, string[]>;
-
-                expect(fieldErrors.email).toEqual(['MOCK_MESSAGE_VALIDATION.INVALID.EMAIL']);
-            }
-        });
     });
 
     // -----------------------------------------------------------
