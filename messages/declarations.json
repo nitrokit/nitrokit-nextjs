@@ -327,7 +327,8 @@
             "title": "Email Verification Required",
             "heading": "You're almost there!",
             "description": "We've sent an email with a verification link to <email>{email}</email> to activate your account. Please check your inbox (or spam folder).",
-            "resendButton": "Resend Email",
+            "noEmail": "Didn’t receive an email?",
+            "resend": "Resend",
             "backToLogin": "Back to Login Page",
             "resendSuccess": "Verification email successfully resent!",
             "resendError": "Failed to resend email. Please contact the system administrator."

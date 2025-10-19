@@ -16,9 +16,6 @@ export interface LinkedAccount {
 }
 
 declare module 'next-auth' {
-    /**
-     * Returned by `useSession`, `getSession` and received as a prop on the `SessionProvider` React Context
-     */
     interface Session {
         user: UserData & DefaultSession['user'];
         expires: Date;
@@ -26,7 +23,6 @@ declare module 'next-auth' {
 }
 
 declare module 'next-auth/jwt' {
-    /** Returned by the `jwt` callback and `getToken`, when using JWT sessions */
     interface JWT {
         /** OpenID ID Token */
         idToken?: string;
