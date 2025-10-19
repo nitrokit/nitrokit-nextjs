@@ -79,7 +79,7 @@ export async function loginAction(
                         }
                     };
                 default:
-                    return { errors: { email: [t('app.errors.general')] } };
+                    return { errors: { email: [t('common.errors.general')] } };
             }
         }
         if (error && (error as Error).message?.includes('NEXT_REDIRECT')) {

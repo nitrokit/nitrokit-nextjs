@@ -34,7 +34,7 @@ const defaultPreferences: CookiePreferences = {
 };
 
 export function CookieConsent() {
-    const t = useTranslations('app');
+    const t = useTranslations('common');
     const [isVisible, setIsVisible] = useState(false);
     const [showSettings, setShowSettings] = useState(false);
     const [preferences, setPreferences] = useState<CookiePreferences>(defaultPreferences);

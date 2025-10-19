@@ -8,7 +8,7 @@ import { Link } from '@/lib/i18n/navigation';
 import { useNewsletterSubscription } from '@/hooks/useNewsletterSubscription';
 
 export function CompactNewsletter() {
-    const t = useTranslations('app');
+    const t = useTranslations('common');
     const [email, setEmail] = useState('');
     const { subscribe, loading, isSubscribed, error, success, isInitialLoading } =
         useNewsletterSubscription();

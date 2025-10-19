@@ -51,6 +51,6 @@ export async function resendVerificationEmailAction(
         return { success: true };
     } catch (error) {
         console.error('RESEND EMAIL HATA:', error);
-        return { success: false, message: t('app.errors.general') };
+        return { success: false, message: t('common.errors.general') };
     }
 }

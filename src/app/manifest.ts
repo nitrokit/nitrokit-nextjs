@@ -7,7 +7,7 @@ export default async function manifest(): Promise<MetadataRoute.Manifest> {
     const baseUrl = getBaseUrl();
     const locale = await getLocale();
     const direction = getLangDir(locale);
-    const t = await getTranslations({ locale, namespace: 'app' });
+    const t = await getTranslations({ locale, namespace: 'common' });
 
     const manifest: MetadataRoute.Manifest = {
         id: 'nitrokit',

@@ -14,7 +14,7 @@ export function Logo({
     forceText?: boolean;
     className?: string;
 }) {
-    const t = useTranslations('app');
+    const t = useTranslations('common');
     return (
         <Link href={'/'} className={cn('flex items-center justify-start gap-4', className)}>
             <ThemedImage

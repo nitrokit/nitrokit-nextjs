@@ -4,7 +4,7 @@ import { generatePageMetadata } from '@/lib';
 import { PrivacyComponent } from './components/privacy-content';
 
 export async function generateMetadata(): Promise<Metadata> {
-    const t = await getTranslations('app.privacyPolicy');
+    const t = await getTranslations('common.privacyPolicy');
     return await generatePageMetadata({
         params: Promise.resolve({
             title: t('title'),
@@ -14,7 +14,7 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function Page() {
-    const t = await getTranslations('app.privacyPolicy');
+    const t = await getTranslations('common.privacyPolicy');
     return (
         <div className="mx-auto max-w-4xl px-4 py-12 sm:px-6 lg:px-8">
             <h1 className="mb-8 text-4xl font-bold text-gray-900 dark:text-gray-100">

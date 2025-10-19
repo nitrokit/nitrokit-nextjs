@@ -69,7 +69,7 @@ export function LoginForm({ onFlowChange }: LoginFormProps) {
                 if (state.errors?.[errorKey]) {
                     form.setError(errorKey, {
                         type: 'server',
-                        message: state.errors[errorKey]?.[0] || t('app.errors.general')
+                        message: state.errors[errorKey]?.[0] || t('common.errors.general')
                     });
                 }
             });
@@ -93,10 +93,10 @@ export function LoginForm({ onFlowChange }: LoginFormProps) {
                             name="email"
                             render={({ field }) => (
                                 <FormItem>
-                                    <FormLabel>{t('app.common.email')}</FormLabel>
+                                    <FormLabel>{t('common.buttons.email')}</FormLabel>
                                     <FormControl>
                                         <Input
-                                            placeholder={t('app.placeholders.email')}
+                                            placeholder={t('common.placeholders.email')}
                                             type="email"
                                             {...field}
                                         />
@@ -111,7 +111,7 @@ export function LoginForm({ onFlowChange }: LoginFormProps) {
                             render={({ field }) => (
                                 <FormItem>
                                     <div className="flex items-center">
-                                        <FormLabel>{t('app.common.password')}</FormLabel>
+                                        <FormLabel>{t('common.buttons.password')}</FormLabel>
                                         <Link
                                             href={AUTH_ROUTES.PASSWORD_RESET}
                                             className="ml-auto inline-block text-xs underline-offset-2 hover:text-blue-600 hover:underline"
@@ -121,7 +121,7 @@ export function LoginForm({ onFlowChange }: LoginFormProps) {
                                     </div>
                                     <FormControl>
                                         <PasswordInput
-                                            placeholder={t('app.placeholders.password')}
+                                            placeholder={t('common.placeholders.password')}
                                             {...field}
                                         />
                                     </FormControl>
@@ -161,11 +161,13 @@ export function LoginForm({ onFlowChange }: LoginFormProps) {
                 )}
                 {state?.errors && !state.errors.email && !state.errors.password && (
                     <div className="text-sm font-medium text-red-500">
-                        {t('app.errors.general')}
+                        {t('common.errors.general')}
                     </div>
                 )}
                 <SubmitButton
-                    textKey={isTwoFactorRequired ? 'auth.2fa.verifyAndSignIn' : 'app.common.submit'}
+                    textKey={
+                        isTwoFactorRequired ? 'auth.2fa.verifyAndSignIn' : 'common.buttons.submit'
+                    }
                     endIcon={<IconMoveRight />}
                 />
             </form>

@@ -4,7 +4,7 @@ import { getTranslations } from 'next-intl/server';
 import Image from 'next/image';
 
 export default async function NotFound() {
-    const t = await getTranslations('app');
+    const t = await getTranslations('common');
     return (
         <div className="grid min-h-screen place-content-center text-center select-none">
             <BackgroundPatterns variant="stars" animated={true} />

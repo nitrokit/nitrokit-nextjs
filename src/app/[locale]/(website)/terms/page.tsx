@@ -4,7 +4,7 @@ import { generatePageMetadata } from '@/lib';
 import { TermsComponent } from './components/terms-content';
 
 export async function generateMetadata(): Promise<Metadata> {
-    const t = await getTranslations('app.terms');
+    const t = await getTranslations('common.terms');
     return await generatePageMetadata({
         params: Promise.resolve({
             title: t('title'),
@@ -14,7 +14,7 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function Page() {
-    const t = await getTranslations('app.terms');
+    const t = await getTranslations('common.terms');
 
     return (
         <div className="mx-auto max-w-4xl px-4 py-12 sm:px-6 lg:px-8">

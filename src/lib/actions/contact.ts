@@ -60,6 +60,6 @@ export async function contactAction(
 
         return { success: true, message: t('contact.message_sent') };
     } catch {
-        return { success: false, error: t('app.errors.general') };
+        return { success: false, error: t('common.errors.general') };
     }
 }

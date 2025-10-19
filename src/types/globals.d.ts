@@ -1,7 +1,7 @@
 import type { Gtag, DataLayerItem } from './gtag';
 
 export interface Messages {
-    common: typeof import('../../messages/en/validations.json');
+    validations: typeof import('../../messages/en/validations.json');
     app: typeof import('../../messages/en/app.json');
     auth: typeof import('../../messages/en/auth.json');
     home: typeof import('../../messages/en/home.json');
@@ -10,6 +10,7 @@ export interface Messages {
     pricing: typeof import('../../messages/en/pricing.json');
     faq: typeof import('../../messages/en/faq.json');
     email: typeof import('../../messages/en/email.json');
+    common: typeof import('../../messages/en/common.json');
 }
 
 declare global {

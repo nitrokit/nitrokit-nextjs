@@ -1,0 +1,188 @@
+{
+    "title": "Nitrokit Next.js Starter",
+    "description": "A starter template for Next.js with i18n, Tailwind CSS, and more.",
+    "name": "Nitrokit Next.js",
+    "shortName": "Nitrokit",
+    "welcome": "Welcome to Nitrokit!",
+    "loading": "Loading...",
+    "allRightsReserved": "All rights reserved.",
+    "contactUs": "Contact Us",
+    "metadata": {
+        "applicationName": "Nitrokit Next.js",
+        "title": "Nitrokit - Lightning Fast Next.js Starter",
+        "description": "Build modern web applications with Nitrokit's comprehensive Next.js starter kit. Features TypeScript, Tailwind CSS, authentication, and more.",
+        "author": "Nitrokit Team"
+    },
+    "buttons": {
+        "email": "E-mail",
+        "firstname": "First Name",
+        "lastname": "Last Name",
+        "password": "Password",
+        "confirmPassword": "Confirm Password",
+        "submit": "Submit",
+        "cancel": "Cancel",
+        "save": "Save",
+        "close": "Close",
+        "continue": "Continue",
+        "reset": "Reset"
+    },
+    "placeholders": {
+        "email": "hello@nitrokit.tr",
+        "password": "********"
+    },
+    "navigation": {
+        "home": "Home",
+        "about": "About",
+        "services": "Services",
+        "pricing": "Pricing",
+        "faq": "FAQ",
+        "contact": "Contact",
+        "features": "Features",
+        "blog": "Blog",
+        "docs": "Docs",
+        "getting_started": "Getting Started",
+        "community": "Community",
+        "storybook": "Storybook",
+        "products": "Products",
+        "support": "Support"
+    },
+    "errors": {
+        "general": "An unexpected error occurred. Please try again later.",
+        "rate_limit_unavailable": "Rate limit service is currently unavailable. Please try again later.",
+        "rate_limit_exceeded": "You have made too many requests. Please wait a while and try again."
+    },
+    "cookies": {
+        "banner": {
+            "title": "We use cookies",
+            "description": "We use cookies to enhance your browsing experience, serve personalized content, and analyze our traffic.",
+            "learnMore": "Learn more",
+            "accept": "Accept All",
+            "reject": "Reject All",
+            "settings": "Cookie Settings"
+        },
+        "settings": {
+            "title": "Cookie Preferences",
+            "description": "Choose which cookies you want to accept. You can change these settings at any time.",
+            "save": "Save Preferences",
+            "rejectAll": "Reject All"
+        },
+        "categories": {
+            "necessary": {
+                "title": "Necessary Cookies",
+                "description": "These cookies are essential for the website to function properly. They cannot be disabled."
+            },
+            "analytics": {
+                "title": "Analytics Cookies",
+                "description": "These cookies help us understand how visitors interact with our website by collecting and reporting information anonymously."
+            },
+            "marketing": {
+                "title": "Marketing Cookies",
+                "description": "These cookies are used to deliver advertisements that are more relevant to you and your interests."
+            },
+            "functional": {
+                "title": "Functional Cookies",
+                "description": "These cookies enable enhanced functionality and personalization, such as remembering your preferences."
+            }
+        }
+    },
+    "newsletter": {
+        "title": "Subscribe to our newsletter",
+        "description": "Get the latest updates, tips and offers straight to your inbox.",
+        "emailPlaceholder": "Enter your email",
+        "sending": "Sending...",
+        "thankYou": "Thanks!",
+        "subscribe": "Subscribe",
+        "success": "Subscription successful. Check your email to confirm.",
+        "unsubscribe": "You can unsubscribe at any time.",
+        "alreadySubscribed": "This email is already subscribed.",
+        "subscriptionConfirmation": "Newsletter Subscription Confirmation",
+        "confirmationLink": "Please click the following link to subscribe to our newsletter: ${confirmUrl}",
+        "confirmSuccess": "Your subscription has been confirmed!",
+        "confirmError": "Invalid or expired link.",
+        "confirmDialogTitleSuccess": "Subscription Confirmed",
+        "confirmDialogTitleError": "Subscription Confirmation Error",
+        "confirmDialogTitleLoading": "Confirming Subscription...",
+        "confirmDialogDescLoading": "Please wait.",
+        "invalidToken": "Invalid confirmation token."
+    },
+    "privacyPolicy": {
+        "title": "Privacy Policy",
+        "description": "This Privacy Policy explains how we collect, use, and protect your personal data through the Nitrokit mobile application and/or website. By using our Services, you agree to this policy.",
+        "sections": {
+            "whatData": {
+                "title": "What Data Do We Collect?",
+                "content": "We collect the information you provide when you contact us or use our services. This information may include your name, email address, and any other data you submit to us via contact forms or support requests."
+            },
+            "howWeUse": {
+                "title": "How Do We Use Your Data?",
+                "content": "We use the personal data we collect for the following purposes:\n- To respond to your inquiries and provide support.\n- To inform you about our Services and send you updates.\n- To improve the user experience and personalize our Services."
+            },
+            "dataSharing": {
+                "title": "Data Sharing and Protection",
+                "content": "We take reasonable and appropriate security measures to protect your personal data from unauthorized access, alteration, or disclosure. We store your data on secure servers in compliance with relevant laws. Your data will not be shared with third parties unless required by law or with your explicit consent."
+            },
+            "contactInfo": {
+                "title": "Contact Information",
+                "content": "If you have any questions about this Privacy Policy, please contact us at hello@nitrokit.tr."
+            }
+        }
+    },
+    "terms": {
+        "title": "Terms and Conditions",
+        "description": "These Terms and Conditions (\"Terms\") govern your use of the **Nitrokit** mobile application and/or website (https://nitrokit.tr) and the services provided through them (\"Services\"). By downloading, installing, or using the application, you agree to these Terms. If you do not agree to these Terms, do not use the application.",
+        "sections": {
+            "descriptionOfServices": {
+                "title": "Description of Services",
+                "content": "Nitrokit aims to help users quickly develop applications by providing a boilerplate and development environment for Next.js-based projects. Our Services offer project templates, integration tools, and development documentation."
+            },
+            "userAccounts": {
+                "title": "User Accounts",
+                "content": "To use some features of the Services, you may need to create an account. You agree to provide accurate, current, and complete information when creating an account. It's your responsibility to maintain the security of your account. You must notify us immediately if you become aware of any unauthorized use of your account."
+            },
+            "userConduct": {
+                "title": "User Conduct",
+                "content": [
+                    "You agree to comply with laws and respect the rights of others when using the application. The following actions are prohibited:",
+                    "Using the application for any illegal or unauthorized purpose.",
+                    "Violating or disrupting the security of the application or servers.",
+                    "Collecting or storing personal information of other users.",
+                    "Transmitting viruses, Trojan horses, or other malicious code.",
+                    "Engaging in actions that would interfere with the proper functioning of the application."
+                ]
+            },
+            "intellectualPropertyRights": {
+                "title": "Intellectual Property Rights",
+                "content": "All intellectual property rights of the application and Services belong to Nitrokit or its licensors. These Terms grant you a license to use the application but do not transfer our intellectual property rights. You may not copy, modify, distribute, or reverse engineer the content of our application."
+            },
+            "privacy": {
+                "title": "Privacy",
+                "content": "Your privacy is important to us. Please read our **Privacy Policy** (<policyUrl>https://nitrokit.tr/privacy-policy</policyUrl>) for information on how your personal data is collected, used, and protected. By using the application, you agree to the practices in our Privacy Policy."
+            },
+            "thirdPartyLinks": {
+                "title": "Third-Party Links",
+                "content": "The application may contain links to third-party websites or services. These links are provided solely for your convenience. We have no control over and are not responsible for the content, privacy practices, or policies of third-party sites."
+            },
+            "disclaimerOfWarranties": {
+                "title": "Disclaimer of Warranties",
+                "content": "Our Services are provided \"as is\" and \"as available.\" We do not guarantee that the application will be uninterrupted, error-free, or secure. Your use of the application is solely at your own risk."
+            },
+            "limitationOfLiability": {
+                "title": "Limitation of Liability",
+                "content": "To the extent permitted by law, Nitrokit will not be liable for any direct, indirect, incidental, special, consequential, or punitive damages arising from your use or inability to use the application."
+            },
+            "changesToTerms": {
+                "title": "Changes to Terms",
+                "content": "We reserve the right to modify these Terms at any time. Changes will become effective when published in the application. Your continued use of the application after changes are published means you accept the revised Terms."
+            },
+            "contact": {
+                "title": "Contact",
+                "content": "If you have any questions about these Terms, please contact us at <email>hello@nitrokit.tr</email>."
+            }
+        }
+    },
+    "notFound": {
+        "title": "Page Not Found",
+        "description": "Error! The page you are looking for does not exist.",
+        "returnHome": "Return to Homepage"
+    }
+}

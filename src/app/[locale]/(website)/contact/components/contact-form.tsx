@@ -70,7 +70,7 @@ export const ContactForm = () => {
                     setFormStatus('error');
 
                     const generalError: string =
-                        result.error || result.message || t('app.errors.general');
+                        result.error || result.message || t('common.errors.general');
                     setActionError(generalError);
 
                     if (result.error) {
@@ -78,7 +78,7 @@ export const ContactForm = () => {
                             const field = key as keyof ContactFormData;
                             form.setError(field, {
                                 type: 'server',
-                                message: result.error || t('app.errors.general')
+                                message: result.error || t('common.errors.general')
                             });
                         });
                     }
@@ -99,8 +99,8 @@ export const ContactForm = () => {
             } catch (error) {
                 console.error(error);
                 setFormStatus('error');
-                setActionError(t('app.errors.general'));
-                toast.error(t('app.errors.general'), {
+                setActionError(t('common.errors.general'));
+                toast.error(t('common.errors.general'), {
                     icon: <AlertCircle className="h-4 w-4" />
                 });
             }

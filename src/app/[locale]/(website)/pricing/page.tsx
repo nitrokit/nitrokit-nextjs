@@ -34,7 +34,7 @@ export default async function Page() {
                 <ActionBanner
                     title={t('pricing.enterprise.title')}
                     description={t('pricing.enterprise.description')}
-                    buttonText={t('app.contactUs')}
+                    buttonText={t('common.contactUs')}
                     href="/contact"
                     icon={<Building size={32} />}
                     size="lg"

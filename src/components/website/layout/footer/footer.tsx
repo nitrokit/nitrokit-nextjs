@@ -22,7 +22,7 @@ export function Footer() {
                         <div className="lg:col-span-3 lg:pr-20">
                             <Logo />
                             <p className="text-muted-foreground my-4 leading-relaxed">
-                                {t('app.description')}
+                                {t('common.description')}
                             </p>
 
                             <div className="flex gap-2">
@@ -47,14 +47,14 @@ export function Footer() {
                             </div>
                         </div>
                         <FooterMenu
-                            title={t('app.navigation.products')}
+                            title={t('common.navigation.products')}
                             icon={Palette}
                             iconBgColor="bg-blue-500/10"
                             iconTextColor="text-blue-500"
                             links={FOOTER_LINKS.SECTION1}
                         />
                         <FooterMenu
-                            title={t('app.navigation.support')}
+                            title={t('common.navigation.support')}
                             icon={Heart}
                             iconBgColor="bg-green-500/10"
                             iconTextColor="text-green-500"
@@ -69,8 +69,8 @@ export function Footer() {
                 <section className="flex flex-col items-center justify-between gap-4 py-3 md:flex-row">
                     <div className="text-muted-foreground flex items-center gap-1 text-xs">
                         <span>
-                            © {new Date().getFullYear()} {t('app.shortName')} •{' '}
-                            {t('app.allRightsReserved')}
+                            © {new Date().getFullYear()} {t('common.shortName')} •{' '}
+                            {t('common.allRightsReserved')}
                         </span>
                     </div>
 
