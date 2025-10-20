@@ -7,14 +7,14 @@ export default getRequestConfig(async ({ requestLocale }) => {
     const locale = hasLocale(routing.locales, requested) ? requested : routing.defaultLocale;
 
     const messageModules = await Promise.all([
-        import(`../../../messages/${locale}/about.json`),
-        import(`../../../messages/${locale}/app.json`),
+        import(`../../../messages/${locale}/website/about.json`),
+        import(`../../../messages/${locale}/app/app.json`),
         import(`../../../messages/${locale}/auth.json`),
         import(`../../../messages/${locale}/validations.json`),
-        import(`../../../messages/${locale}/contact.json`),
-        import(`../../../messages/${locale}/home.json`),
-        import(`../../../messages/${locale}/pricing.json`),
-        import(`../../../messages/${locale}/faq.json`),
+        import(`../../../messages/${locale}/website/contact.json`),
+        import(`../../../messages/${locale}/website/home.json`),
+        import(`../../../messages/${locale}/website/pricing.json`),
+        import(`../../../messages/${locale}/website/faq.json`),
         import(`../../../messages/${locale}/email.json`),
         import(`../../../messages/${locale}/common.json`)
     ]);
