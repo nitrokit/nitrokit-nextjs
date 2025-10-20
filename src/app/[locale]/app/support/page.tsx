@@ -11,7 +11,7 @@ export default function DashboardPage({
     return (
         <div className="flex h-full flex-col">
             <ScrollArea className="h-full">
-                <div className="px-4 py-6 lg:px-6">Invoices</div>
+                <div className="px-4 py-6 lg:px-6">Support</div>
             </ScrollArea>
         </div>
     );

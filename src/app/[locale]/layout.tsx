@@ -45,7 +45,7 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
             className="scroll-smooth"
         >
             <body
-                className={`${lexend.variable} ${montserrat.variable} font-[family-name:var(--font-lexend)] antialiased`}
+                className={`${lexend.variable} ${montserrat.variable} font-(family-name:--font-lexend) antialiased`}
             >
                 <NextIntlClientProvider locale={locale} messages={messages}>
                     <SessionProvider>

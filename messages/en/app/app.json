@@ -1,1 +1,7 @@
-{}
+{
+    "navigation": {
+        "dashboard": "Dashboard",
+        "invoices": "Invoices",
+        "support": "Support"
+    }
+}

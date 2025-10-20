@@ -14,5 +14,12 @@ export const AUTH_ROUTES = {
 } as const;
 
 export const APP_ROUTES = {
-    HOME: '/app'
+    HOME: '/app',
+    ACCOUNT: '/app/account',
+    SUPPORT: '/app/support',
+    INVOICES: '/app/invoices'
+};
+
+export const ADMIN_ROUTES = {
+    HOME: '/admin'
 };
