@@ -1,6 +1,7 @@
 'use client';
 
 import { ReactNode } from 'react';
+import { MobileSidebar } from '../sidebar/mobile';
 import { Logo } from './logo';
 
 interface DashboardHeaderProps {
@@ -11,7 +12,7 @@ export function DashboardHeader({ children }: DashboardHeaderProps) {
     return (
         <header className="flex h-15 w-full items-center justify-between bg-gray-100 px-4 dark:bg-zinc-900">
             <div className="flex items-center space-x-4">
-                {/* MobileSidebarTrigger */}
+                <MobileSidebar />
                 <Logo />
                 <div className="hidden md:block">{children}</div>
             </div>
