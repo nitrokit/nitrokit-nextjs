@@ -15,9 +15,15 @@ export const AUTH_ROUTES = {
 
 export const APP_ROUTES = {
     HOME: '/app',
-    ACCOUNT: '/app/account',
     SUPPORT: '/app/support',
-    INVOICES: '/app/invoices'
+    INVOICES: '/app/invoices',
+    SECURITY: '/app/security',
+    ACCOUNT: '/app/account',
+    ACCOUNT_PROFILE: '/app/account/profile',
+    ACCOUNT_NOTIFICATIONS: '/app/account/notifications',
+    SECURITY_PASSWORD: '/app/security/password',
+    SECURITY_2FA: '/app/security/two-factor',
+    SECURITY_SESSIONS: '/app/security/sessions'
 };
 
 export const ADMIN_ROUTES = {

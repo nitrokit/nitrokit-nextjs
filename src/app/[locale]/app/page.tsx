@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 
 import { generatePageMetadata } from '@/lib';
-import { ScrollArea } from '@/components/ui/scroll-area';
+import { ScrollArea } from '@/components/ui';
 
 export async function generateMetadata(): Promise<Metadata> {
     return await generatePageMetadata({

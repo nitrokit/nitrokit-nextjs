@@ -10,7 +10,7 @@ import {
     BreadcrumbList,
     BreadcrumbPage,
     BreadcrumbSeparator
-} from '@/components/ui/breadcrumb';
+} from '@/components/ui';
 import { Link, usePathname } from '@/lib/i18n/navigation';
 import { translateSafely } from '@/lib/utils';
 

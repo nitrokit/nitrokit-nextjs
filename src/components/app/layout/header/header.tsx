@@ -1,8 +1,7 @@
 'use client';
 
 import { ReactNode } from 'react';
-import { MobileSidebar } from '../sidebar/mobile';
-import { Logo } from './logo';
+import { Logo, MobileSidebar, UserMenu } from '@/components/app';
 
 interface DashboardHeaderProps {
     children?: ReactNode;
@@ -18,7 +17,7 @@ export function DashboardHeader({ children }: DashboardHeaderProps) {
             </div>
             <div className="mr-1 flex items-center space-x-2">
                 {/* Notifications */}
-                {/* UserMenu */}
+                <UserMenu />
             </div>
         </header>
     );

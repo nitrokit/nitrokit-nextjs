@@ -3,5 +3,24 @@
         "dashboard": "Kontrol Paneli",
         "invoices": "Faturalar",
         "support": "Destek"
+    },
+    "user": {
+        "defaultUserName": "Varsayılan Kullanıcı Adı",
+        "menu": {
+            "security": {
+                "title": "Güvenlik",
+                "overview": "Genel Bakış",
+                "password": "Şifre",
+                "twoFactor": "İki Faktörlü Doğrulama",
+                "sessions": "Oturumlar"
+            },
+            "account": {
+                "title": "Hesap",
+                "overview": "Genel Bakış",
+                "profile": "Profil",
+                "notifications": "Bildirimler"
+            },
+            "other": "Diğer"
+        }
     }
 }

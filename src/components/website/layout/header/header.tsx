@@ -4,13 +4,12 @@ import { Navbar } from '@/components/website/navigation';
 import { Logo } from '@/components/shared/';
 import { useStickyNavbar } from '@/hooks';
 import { CompactLocaleSwitcher } from '@/components/switchers';
-import { SignInButton, SignOutButton, SignUpButton } from '@/components/auth';
 import { useSession } from 'next-auth/react';
-import { Spinner } from '@radix-ui/themes';
+import { UserMenu } from '@/components/app';
 
 export function Header() {
     const { data: session, status } = useSession();
-    console.log('Session', session);
+    console.log('Session-Status', session, status);
     const sticky = useStickyNavbar();
     return (
         <header
@@ -29,14 +28,7 @@ export function Header() {
                 </div>
                 <div className="flex grow flex-row items-center justify-end gap-2 lg:grow-0">
                     <CompactLocaleSwitcher />
-                    {status === 'loading' && <Spinner />}
-                    {status === 'unauthenticated' && (
-                        <>
-                            <SignInButton />
-                            <SignUpButton />
-                        </>
-                    )}
-                    {status === 'authenticated' && <SignOutButton />}
+                    <UserMenu />
                 </div>
             </div>
         </header>
