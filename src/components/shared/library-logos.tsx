@@ -108,20 +108,20 @@ function DefaultLibraryLogosView() {
                     </p>
                 </div>
                 <div className="relative">
-                    <div className="pointer-events-none absolute start-0 top-0 z-10 h-full w-20 bg-gradient-to-r to-transparent"></div>
-                    <div className="pointer-events-none absolute end-0 top-0 z-10 h-full w-20 bg-gradient-to-l to-transparent"></div>
-                    <div className="group flex flex-row [gap:var(--gap)] overflow-hidden p-2 [--duration:40s] [--gap:2rem]">
+                    <div className="pointer-events-none absolute start-0 top-0 z-10 h-full w-20 bg-linear-to-r to-transparent"></div>
+                    <div className="pointer-events-none absolute end-0 top-0 z-10 h-full w-20 bg-linear-to-l to-transparent"></div>
+                    <div className="group flex flex-row gap-(--gap) overflow-hidden p-2 [--duration:40s] [--gap:2rem]">
                         {Array(4)
                             .fill(0)
                             .map((_, i) => (
                                 <div
                                     key={i}
-                                    className="animate-marquee flex shrink-0 flex-row justify-around [gap:var(--gap)] group-hover:[animation-play-state:paused]"
+                                    className="animate-marquee group-hover:paused flex shrink-0 flex-row justify-around gap-(--gap)"
                                 >
                                     {logos.map((logo, idx) => (
                                         <div
                                             key={logo.alt + i + idx}
-                                            className="mx-8 flex flex-shrink-0 items-center gap-3 whitespace-nowrap opacity-50 transition-all duration-300"
+                                            className="mx-8 flex shrink-0 items-center gap-3 whitespace-nowrap opacity-50 transition-all duration-300"
                                         >
                                             <ThemedImage
                                                 darkSrc={logo.darkSrc}

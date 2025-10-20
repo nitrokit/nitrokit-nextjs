@@ -1,12 +1,5 @@
 'use client';
 
-// import { useUser } from '@/contexts/user-context';
-
-// export default function Home() {
-//     const { user, isLoading } = useUser();
-//     console.info('User', user, isLoading);
-// }
-
 import { BackgroundPatterns } from '@/components/website/layout';
 import { NewsletterConfirmDialog } from '@/components/website/newsletter';
 import { Testimonials } from '@/components/website/testimonial';

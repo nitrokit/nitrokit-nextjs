@@ -33,6 +33,7 @@ import React from 'react';
 import { REGEXP_ONLY_DIGITS_AND_CHARS } from 'input-otp';
 import { MoveRight as IconMoveRight } from 'lucide-react';
 import { useSearchParams } from 'next/navigation';
+import { useSession } from 'next-auth/react';
 
 interface LoginFormProps {
     onFlowChange?: (is2FA: boolean) => void;
@@ -50,6 +51,7 @@ export function LoginForm({ onFlowChange }: LoginFormProps) {
     const t = useTranslations();
     const router = useRouter();
     const searchParams = useSearchParams();
+    const { update: updateSession } = useSession();
 
     const initialFormState: LoginActionState = {};
     const [state, formAction] = useActionState(loginAction, initialFormState);
@@ -78,10 +80,11 @@ export function LoginForm({ onFlowChange }: LoginFormProps) {
             onFlowChange(!!isTwoFactorRequired);
         }
         if (state?.success) {
+            void updateSession();
             form.reset(DEFAULT_LOGIN_FORM_VALUES);
             router.push(callbackUrl);
         }
-    }, [state, form, t, onFlowChange, isTwoFactorRequired, router, callbackUrl]);
+    }, [state, form, t, onFlowChange, isTwoFactorRequired, router, callbackUrl, updateSession]);
 
     return (
         <Form {...form}>

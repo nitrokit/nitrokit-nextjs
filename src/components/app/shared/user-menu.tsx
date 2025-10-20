@@ -45,6 +45,8 @@ export function UserMenu({ size = 'size-10' }: UserMenuProps) {
     const [securityOpen, setSecurityOpen] = React.useState(false);
     const router = useRouter();
 
+    console.log(user, isLoading);
+
     const t = useTranslations('app');
 
     const handleNavigation = React.useCallback(
@@ -91,6 +93,19 @@ export function UserMenu({ size = 'size-10' }: UserMenuProps) {
     );
 
     useHotkeys(shortcuts, [shortcuts]);
+
+    if (isLoading) {
+        return <Spinner />;
+    }
+
+    if (!user) {
+        return (
+            <div className="flex items-center gap-2 lg:ml-4">
+                <SignInButton />
+                <SignUpButton />
+            </div>
+        );
+    }
 
     const getDisplayName = () => {
         if (user?.firstName && user?.lastName) {
@@ -158,21 +173,6 @@ export function UserMenu({ size = 'size-10' }: UserMenuProps) {
             </PopoverContent>
         </Popover>
     );
-
-    if (!isLoading && !user) {
-        return (
-            <div className="flex items-center gap-2 lg:ml-4">
-                <SignInButton />
-                <SignUpButton />
-            </div>
-        );
-    }
-
-    if (isLoading) {
-        return <Spinner />;
-    }
-
-    if (!user) return null;
 
     return (
         <Popover open={open} onOpenChange={setOpen}>

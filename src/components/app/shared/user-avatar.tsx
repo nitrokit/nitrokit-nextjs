@@ -2,9 +2,9 @@
 
 import React, { useEffect, useState } from 'react';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui';
+import { useUser } from '@/contexts/user-context';
 import { cn } from '@/lib';
 import { useSession } from 'next-auth/react';
-import { useUser } from '@/contexts/user-context';
 
 const sizeClasses = {
     'size-8': 'h-8 w-8',
@@ -46,6 +46,7 @@ export const UserAvatar = React.forwardRef<HTMLButtonElement, UserAvatarProps>(
 
         const getAvatarSrc = () => {
             if (useSessionData) {
+                // Prefer user from context, fallback to session, then props
                 return user?.image || session?.user?.image || src || null;
             }
             return src || null;
@@ -75,8 +76,8 @@ export const UserAvatar = React.forwardRef<HTMLButtonElement, UserAvatarProps>(
                         return `${names[0].charAt(0)}${names[names.length - 1].charAt(0)}`.toUpperCase();
                     }
                     return fullName.charAt(0).toUpperCase();
-                } else if (session.user.email) {
-                    return session.user.email.charAt(0).toUpperCase();
+                } else if (user?.email) {
+                    return user.email.charAt(0).toUpperCase();
                 }
             }
 
