@@ -1,4 +1,4 @@
-import { ScrollArea } from '@/comp/ui';
+import { ScrollArea } from '@/components/ui';
 
 export default function DashboardPage({
     searchParams: _searchParams

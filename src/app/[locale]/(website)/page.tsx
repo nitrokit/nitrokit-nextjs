@@ -7,11 +7,11 @@
 //     console.info('User', user, isLoading);
 // }
 
-import { BackgroundPatterns } from '@/comp/website/layout';
-import { NewsletterConfirmDialog } from '@/comp/website/newsletter';
-import { Testimonials } from '@/comp/website/testimonial';
+import { BackgroundPatterns } from '@/components/website/layout';
+import { NewsletterConfirmDialog } from '@/components/website/newsletter';
+import { Testimonials } from '@/components/website/testimonial';
 import { Hero, GitHubSection } from './home/components';
-import { LibraryLogos } from '@/comp/shared';
+import { LibraryLogos } from '@/components/shared';
 
 export default function Page() {
     return (

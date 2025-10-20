@@ -10,7 +10,7 @@ import { NewsletterFormSchema, NewsletterSubscriptionResponse } from '@/lib/vali
 import { getEmailService } from '@/lib/services/email';
 import { getBaseUrl } from '@/lib/config';
 import { render } from '@react-email/render';
-import { NewsletterConfirmationEmail } from '@/comp/emails';
+import { NewsletterConfirmationEmail } from '@/components/emails';
 
 type NewsletterActionState = NewsletterSubscriptionResponse & {
     errors?: { [key in keyof z.infer<typeof NewsletterFormSchema>]: string[] };

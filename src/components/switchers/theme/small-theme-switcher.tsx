@@ -2,8 +2,8 @@
 import { MoonIcon, SunIcon } from 'lucide-react';
 import { useId } from 'react';
 
-import { SmallLoading } from '@/comp/shared';
-import { Switch, Label } from '@/comp/ui';
+import { SmallLoading } from '@/components/shared';
+import { Switch, Label } from '@/components/ui';
 import { useNextTheme } from '@/hooks';
 
 export const SmallThemeSwitcher = () => {

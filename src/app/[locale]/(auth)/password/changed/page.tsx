@@ -1,4 +1,4 @@
-import { Button } from '@/comp/ui';
+import { Button } from '@/components/ui';
 import { FormCard } from '../../components/form-card';
 
 export default function Page() {

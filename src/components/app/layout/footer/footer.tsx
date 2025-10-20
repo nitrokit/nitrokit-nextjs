@@ -1,6 +1,6 @@
 'use client';
 
-import { CompactThemeSwitcher } from '@/comp/switchers';
+import { CompactThemeSwitcher } from '@/components/switchers';
 import { DevelopedBy, Version } from '@/components/shared';
 
 export function DashboardFooter() {

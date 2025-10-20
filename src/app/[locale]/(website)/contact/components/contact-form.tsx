@@ -16,7 +16,7 @@ import {
     FormMessage,
     Input,
     Textarea
-} from '@/comp/ui';
+} from '@/components/ui';
 import { Link } from '@/lib/i18n/navigation';
 import { SimpleTFunction } from '@/types/i18n';
 import { useTransition } from 'react';

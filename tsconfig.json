@@ -28,15 +28,6 @@
       }
     ],
     "paths": {
-      "@/comp/*": [
-        "./src/components/*"
-      ],
-      "@/ui/*": [
-        "./src/components/ui/*"
-      ],
-      "@/styles/*": [
-        "./src/styles/*"
-      ],
       "@/*": ["./src/*"]
     }
   },

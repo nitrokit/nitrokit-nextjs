@@ -2,8 +2,8 @@
 
 import { useState } from 'react';
 import { useFormatter, useTranslations } from 'next-intl';
-import { Button } from '@/comp/ui/button';
-import { CheckIcon } from '@/comp/icons/check';
+import { Button } from '@/components/ui/button';
+import { CheckIcon } from '@/components/icons/check';
 import { PricingProps } from '@/types/pricing';
 import { BillingCycleToggle } from './billging-cycle-toggle';
 import { DEFAULT_CURRENCY } from '@/constants/site';

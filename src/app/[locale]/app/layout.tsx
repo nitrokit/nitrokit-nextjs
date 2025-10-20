@@ -1,4 +1,9 @@
-import { DashboardHeader, DashboardFooter, DashboardSidebar, AppBreadcrumb } from '@/comp/app';
+import {
+    DashboardHeader,
+    DashboardFooter,
+    DashboardSidebar,
+    AppBreadcrumb
+} from '@/components/app';
 import { APP_ROUTES, AUTH_ROUTES } from '@/lib/auth/constants';
 import { requireAuth } from '@/lib/auth/server';
 import { redirect } from 'next/navigation';

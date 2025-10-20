@@ -27,7 +27,7 @@ import {
 } from '@/lib';
 import { SimpleTFunction } from '@/types/i18n';
 import { Link, useRouter } from '@/lib/i18n/navigation';
-import { SubmitButton } from '@/comp/shared';
+import { SubmitButton } from '@/components/shared';
 import { AUTH_ROUTES } from '@/lib/auth/constants';
 
 export function RegisterForm() {

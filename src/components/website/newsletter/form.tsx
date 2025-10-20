@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Button, Input } from '@/comp/ui';
+import { Button, Input } from '@/components/ui';
 import { Heart, Mail, Send } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import { Link } from '@/lib/i18n/navigation';

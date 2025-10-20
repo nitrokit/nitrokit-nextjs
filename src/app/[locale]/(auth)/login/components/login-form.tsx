@@ -13,7 +13,7 @@ import {
     InputOTPGroup,
     InputOTPSlot,
     PasswordInput
-} from '@/comp/ui';
+} from '@/components/ui';
 import { Link, useRouter } from '@/lib/i18n/navigation';
 import { APP_ROUTES, AUTH_ROUTES } from '@/lib/auth/constants';
 import { useTranslations } from 'next-intl';
@@ -28,7 +28,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import { useEffect, useActionState } from 'react';
 import { SimpleTFunction } from '@/types/i18n';
-import { SubmitButton } from '@/comp/shared';
+import { SubmitButton } from '@/components/shared';
 import React from 'react';
 import { REGEXP_ONLY_DIGITS_AND_CHARS } from 'input-otp';
 import { MoveRight as IconMoveRight } from 'lucide-react';

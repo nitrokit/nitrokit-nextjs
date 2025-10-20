@@ -1,20 +1,20 @@
 'use client';
 
-import { Navbar } from '@/comp/website/navigation';
-import { Logo } from '@/comp/shared/';
+import { Navbar } from '@/components/website/navigation';
+import { Logo } from '@/components/shared/';
 import { useStickyNavbar } from '@/hooks';
-import { CompactLocaleSwitcher } from '@/comp/switchers';
-import { SignInButton, SignOutButton, SignUpButton } from '@/comp/auth';
+import { CompactLocaleSwitcher } from '@/components/switchers';
+import { SignInButton, SignOutButton, SignUpButton } from '@/components/auth';
 import { useSession } from 'next-auth/react';
 import { Spinner } from '@radix-ui/themes';
 
 export function Header() {
     const { data: session, status } = useSession();
-    console.log(session);
+    console.log('Session', session);
     const sticky = useStickyNavbar();
     return (
         <header
-            className={`sticky top-0 left-0 z-[49] w-full items-center px-3 ${
+            className={`sticky top-0 left-0 z-49 w-full items-center px-3 ${
                 sticky
                     ? 'border-stroke bg-white/80 shadow-md backdrop-blur-[5px] transition dark:bg-black/40'
                     : 'border-0 bg-transparent'

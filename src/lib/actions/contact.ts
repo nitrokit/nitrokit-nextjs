@@ -7,7 +7,7 @@ import { SimpleTFunction } from '@/types/i18n';
 import { getEmailService } from '@/lib/services/email';
 
 import { render } from '@react-email/render';
-import { ContactEmail } from '@/comp/emails';
+import { ContactEmail } from '@/components/emails';
 import { ContactActionResponse, ContactFormSchema } from '@/lib/validations';
 import { PUBLIC_EMAIL } from '@/constants';
 

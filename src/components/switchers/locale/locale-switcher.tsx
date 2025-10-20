@@ -4,8 +4,8 @@ import { Globe } from 'lucide-react';
 import Image from 'next/image';
 import { Suspense, useEffect, useState } from 'react';
 
-import { SmallLoading } from '@/comp/shared';
-import { Button, Popover, PopoverContent, PopoverTrigger } from '@/comp/ui';
+import { SmallLoading } from '@/components/shared';
+import { Button, Popover, PopoverContent, PopoverTrigger } from '@/components/ui';
 import { Locale } from '@/constants';
 import { usePathname, useRouter } from '@/lib/i18n/navigation';
 import { LOCALES_WITH_FLAG } from '@/lib/utils';

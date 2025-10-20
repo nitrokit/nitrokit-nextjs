@@ -10,7 +10,7 @@ import { User } from '@/generated/prisma';
 import { getEmailService } from '@/lib/services/email';
 import { getBaseUrl } from '@/lib';
 import { render } from '@react-email/render';
-import { VerificationEmail } from '@/comp/emails/verification-email';
+import { VerificationEmail } from '@/components/emails/verification-email';
 import { AUTH_ROUTES } from '@/lib/auth/constants';
 import { generateVerificationToken } from '@/lib/auth/token-service';
 

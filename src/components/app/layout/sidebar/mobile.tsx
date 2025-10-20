@@ -30,7 +30,7 @@ export function MobileSidebar() {
     const pathname = usePathname();
     const t = useTranslations('app');
     const { data: session } = useSession();
-    console.log(session);
+    console.log('Session', session);
     const navigationItems = getNavigationItems('Moderator'); // TODO: Replace with session.user.role
 
     useEffect(() => {

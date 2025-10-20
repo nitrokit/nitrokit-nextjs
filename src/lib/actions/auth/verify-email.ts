@@ -5,7 +5,7 @@ import { revokeVerificationToken, verifyToken } from '@/lib/auth/token-service';
 import { getLocale, getTranslations } from 'next-intl/server';
 import { APP_ROUTES } from '@/lib/auth/constants';
 import { getEmailService } from '@/lib/services/email';
-import { WelcomeEmail } from '@/comp/emails';
+import { WelcomeEmail } from '@/components/emails';
 import { render } from '@react-email/render';
 import { getBaseUrl } from '@/lib/config';
 

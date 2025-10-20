@@ -1,6 +1,6 @@
 'use client';
 
-import { ToggleGroup, ToggleGroupItem } from '@/comp/ui';
+import { ToggleGroup, ToggleGroupItem } from '@/components/ui';
 import { useTranslations } from 'next-intl';
 
 interface BillingCycleToggleProps {

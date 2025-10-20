@@ -1,4 +1,4 @@
-import { ThemedImage } from '@/comp/shared';
+import { ThemedImage } from '@/components/shared';
 import { useTranslations } from 'next-intl';
 import React from 'react';
 

@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import React from 'react';
-import { Tooltip, TooltipContent, TooltipTrigger } from '@/comp/ui';
+import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui';
 
 interface AvatarGroupProps {
     users: { id: string; name: string; title: string; company: string; avatarUrl: string }[];

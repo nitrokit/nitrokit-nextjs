@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
 import { generatePageMetadata } from '@/lib';
-import { PageHero } from '@/comp/website/layout';
+import { PageHero } from '@/components/website/layout';
 import { ContactForm } from './components/contact-form';
 import { ContactInfo } from './components/contact-info';
 

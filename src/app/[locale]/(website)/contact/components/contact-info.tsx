@@ -1,7 +1,7 @@
 'use client';
 
 import { MapPin, Phone, Mail, Clock, ExternalLink } from 'lucide-react';
-import { Button } from '@/comp/ui';
+import { Button } from '@/components/ui';
 import { useTranslations } from 'next-intl';
 
 const contactDetails = [
