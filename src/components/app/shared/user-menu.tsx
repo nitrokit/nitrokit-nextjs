@@ -11,7 +11,8 @@ import {
     Smartphone,
     Monitor,
     ChevronRight,
-    LucideIcon
+    LucideIcon,
+    Loader2
 } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import React from 'react';
@@ -44,8 +45,6 @@ export function UserMenu({ size = 'size-10' }: UserMenuProps) {
     const [open, setOpen] = React.useState(false);
     const [securityOpen, setSecurityOpen] = React.useState(false);
     const router = useRouter();
-
-    console.log(user, isLoading);
 
     const t = useTranslations('app');
 
@@ -95,7 +94,7 @@ export function UserMenu({ size = 'size-10' }: UserMenuProps) {
     useHotkeys(shortcuts, [shortcuts]);
 
     if (isLoading) {
-        return <Spinner />;
+        return <Loader2 className={`ml-4 h-6 w-6 animate-spin ${size}`} />;
     }
 
     if (!user) {
