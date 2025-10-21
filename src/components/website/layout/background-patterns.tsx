@@ -28,14 +28,14 @@ export function BackgroundPatterns({
                             backgroundSize: '50px 50px'
                         }}
                     />
-                    <div className="absolute top-10 -right-50 h-80 w-80 rounded-full bg-gradient-to-br from-blue-200 to-indigo-300 opacity-80 blur-3xl" />
-                    <div className="absolute top-1/3 -left-32 h-64 w-64 rounded-full bg-gradient-to-br from-emerald-200 to-teal-300 opacity-70 blur-3xl" />
-                    <div className="absolute right-1/4 bottom-20 h-48 w-48 rounded-full bg-gradient-to-br from-purple-200 to-pink-300 opacity-60 blur-3xl" />
+                    <div className="absolute top-10 -right-50 h-80 w-80 rounded-full bg-linear-to-br from-blue-200 to-indigo-300 opacity-80 blur-3xl" />
+                    <div className="absolute top-1/3 -left-32 h-64 w-64 rounded-full bg-linear-to-br from-emerald-200 to-teal-300 opacity-70 blur-3xl" />
+                    <div className="absolute right-1/4 bottom-20 h-48 w-48 rounded-full bg-linear-to-br from-purple-200 to-pink-300 opacity-60 blur-3xl" />
                     <div className="absolute top-1/4 left-1/4 h-3 w-3 rotate-45 bg-blue-400 opacity-40" />
                     <div className="absolute top-1/2 right-1/3 h-4 w-4 rotate-12 bg-emerald-400 opacity-45" />
                     <div className="absolute bottom-1/3 left-1/2 h-2 w-2 rotate-45 bg-purple-400 opacity-35" />
-                    <div className="absolute top-32 right-1/2 h-1 w-16 bg-gradient-to-r from-transparent via-blue-300/40 to-transparent" />
-                    <div className="absolute bottom-1/4 left-1/4 h-12 w-1 bg-gradient-to-b from-transparent via-emerald-300/30 to-transparent" />
+                    <div className="absolute top-32 right-1/2 h-1 w-16 bg-linear-to-r from-transparent via-blue-300/40 to-transparent" />
+                    <div className="absolute bottom-1/4 left-1/4 h-12 w-1 bg-linear-to-b from-transparent via-emerald-300/30 to-transparent" />
                     {animated && (
                         <>
                             <div className="absolute top-1/5 right-1/5 h-2 w-2 animate-pulse rounded-full bg-blue-300 opacity-50" />
@@ -62,9 +62,9 @@ export function BackgroundPatterns({
                             backgroundSize: '60px 60px'
                         }}
                     />
-                    <div className="absolute top-22 -right-42 h-64 w-64 rounded-full bg-gradient-to-br from-emerald-500/20 to-teal-500/20 blur-3xl" />
-                    <div className="absolute top-1/4 -left-24 h-48 w-48 rounded-full bg-gradient-to-br from-blue-500/15 to-indigo-500/15 blur-3xl" />
-                    <div className="absolute right-1/3 bottom-32 h-56 w-56 rounded-full bg-gradient-to-br from-purple-500/10 to-pink-500/10 blur-3xl" />
+                    <div className="absolute top-22 -right-42 h-64 w-64 rounded-full bg-linear-to-br from-emerald-500/20 to-teal-500/20 blur-3xl" />
+                    <div className="absolute top-1/4 -left-24 h-48 w-48 rounded-full bg-linear-to-br from-blue-500/15 to-indigo-500/15 blur-3xl" />
+                    <div className="absolute right-1/3 bottom-32 h-56 w-56 rounded-full bg-linear-to-br from-purple-500/10 to-pink-500/10 blur-3xl" />
                     {animated && (
                         <>
                             <div className="absolute top-1/3 left-1/4 h-1 w-1 animate-pulse bg-emerald-400 opacity-60" />
@@ -78,8 +78,8 @@ export function BackgroundPatterns({
                             />
                         </>
                     )}
-                    <div className="absolute top-20 left-1/2 h-px w-32 bg-gradient-to-r from-transparent via-emerald-500/30 to-transparent" />
-                    <div className="absolute right-1/4 bottom-40 h-24 w-px bg-gradient-to-b from-transparent via-blue-500/20 to-transparent" />
+                    <div className="absolute top-20 left-1/2 h-px w-32 bg-linear-to-r from-transparent via-emerald-500/30 to-transparent" />
+                    <div className="absolute right-1/4 bottom-40 h-24 w-px bg-linear-to-b from-transparent via-blue-500/20 to-transparent" />
                 </div>
             </>
         ),
@@ -100,10 +100,10 @@ export function BackgroundPatterns({
                             backgroundPosition: '0 0, 0 50px, 50px -50px, -50px 0px'
                         }}
                     />
-                    <div className="absolute top-20 left-20 h-32 w-32 rotate-45 bg-gradient-to-br from-blue-300/30 to-indigo-400/30" />
-                    <div className="absolute top-40 right-32 h-24 w-24 -rotate-12 bg-gradient-to-br from-emerald-300/25 to-teal-400/25" />
-                    <div className="absolute bottom-32 left-1/3 h-28 w-28 rotate-12 bg-gradient-to-br from-purple-300/20 to-pink-400/20" />
-                    <div className="absolute top-1/2 right-1/4 h-20 w-20 -rotate-45 bg-gradient-to-br from-orange-300/15 to-red-400/15" />
+                    <div className="absolute top-20 left-20 h-32 w-32 rotate-45 bg-linear-to-br from-blue-300/30 to-indigo-400/30" />
+                    <div className="absolute top-40 right-32 h-24 w-24 -rotate-12 bg-linear-to-br from-emerald-300/25 to-teal-400/25" />
+                    <div className="absolute bottom-32 left-1/3 h-28 w-28 rotate-12 bg-linear-to-br from-purple-300/20 to-pink-400/20" />
+                    <div className="absolute top-1/2 right-1/4 h-20 w-20 -rotate-45 bg-linear-to-br from-orange-300/15 to-red-400/15" />
                 </div>
                 {/* Dark mode */}
                 <div className="absolute inset-0 hidden overflow-hidden dark:block">
@@ -120,10 +120,10 @@ export function BackgroundPatterns({
                             backgroundPosition: '0 0, 0 60px, 60px -60px, -60px 0px'
                         }}
                     />
-                    <div className="absolute top-16 left-16 h-40 w-40 rotate-45 bg-gradient-to-br from-emerald-500/20 to-teal-500/20" />
-                    <div className="absolute top-32 right-40 h-32 w-32 -rotate-12 bg-gradient-to-br from-blue-500/15 to-indigo-500/15" />
-                    <div className="absolute bottom-40 left-1/4 h-36 w-36 rotate-12 bg-gradient-to-br from-purple-500/10 to-pink-500/10" />
-                    <div className="absolute top-1/2 right-1/3 h-24 w-24 -rotate-45 bg-gradient-to-br from-orange-500/10 to-red-500/10" />
+                    <div className="absolute top-16 left-16 h-40 w-40 rotate-45 bg-linear-to-br from-emerald-500/20 to-teal-500/20" />
+                    <div className="absolute top-32 right-40 h-32 w-32 -rotate-12 bg-linear-to-br from-blue-500/15 to-indigo-500/15" />
+                    <div className="absolute bottom-40 left-1/4 h-36 w-36 rotate-12 bg-linear-to-br from-purple-500/10 to-pink-500/10" />
+                    <div className="absolute top-1/2 right-1/3 h-24 w-24 -rotate-45 bg-linear-to-br from-orange-500/10 to-red-500/10" />
                 </div>
             </>
         ),
@@ -315,11 +315,11 @@ export function BackgroundPatterns({
                             backgroundSize: '20px 20px, 20px 20px, 100px 100px, 100px 100px'
                         }}
                     />
-                    <div className="absolute top-16 left-16 h-8 w-8 bg-gradient-to-br from-blue-400/40 to-indigo-500/40" />
-                    <div className="absolute top-32 right-32 h-6 w-6 bg-gradient-to-br from-emerald-400/35 to-teal-500/35" />
-                    <div className="absolute bottom-32 left-1/3 h-7 w-7 bg-gradient-to-br from-purple-400/30 to-pink-500/30" />
-                    <div className="absolute top-1/2 right-1/4 h-5 w-5 bg-gradient-to-br from-orange-400/25 to-red-500/25" />
-                    <div className="absolute right-1/3 bottom-1/4 h-6 w-6 bg-gradient-to-br from-cyan-400/20 to-blue-500/20" />
+                    <div className="absolute top-16 left-16 h-8 w-8 bg-linear-to-br from-blue-400/40 to-indigo-500/40" />
+                    <div className="absolute top-32 right-32 h-6 w-6 bg-linear-to-br from-emerald-400/35 to-teal-500/35" />
+                    <div className="absolute bottom-32 left-1/3 h-7 w-7 bg-linear-to-br from-purple-400/30 to-pink-500/30" />
+                    <div className="absolute top-1/2 right-1/4 h-5 w-5 bg-linear-to-br from-orange-400/25 to-red-500/25" />
+                    <div className="absolute right-1/3 bottom-1/4 h-6 w-6 bg-linear-to-br from-cyan-400/20 to-blue-500/20" />
                 </div>
                 {/* Dark mode */}
                 <div className="absolute inset-0 hidden overflow-hidden dark:block">
@@ -335,11 +335,11 @@ export function BackgroundPatterns({
                             backgroundSize: '25px 25px, 25px 25px, 120px 120px, 120px 120px'
                         }}
                     />
-                    <div className="absolute top-20 left-20 h-10 w-10 bg-gradient-to-br from-emerald-500/40 to-teal-500/40" />
-                    <div className="absolute top-40 right-40 h-8 w-8 bg-gradient-to-br from-blue-500/35 to-indigo-500/35" />
-                    <div className="absolute bottom-40 left-1/4 h-9 w-9 bg-gradient-to-br from-purple-500/30 to-pink-500/30" />
-                    <div className="absolute top-1/2 right-1/3 h-7 w-7 bg-gradient-to-br from-orange-500/25 to-red-500/25" />
-                    <div className="absolute right-1/4 bottom-1/3 h-8 w-8 bg-gradient-to-br from-cyan-500/20 to-blue-500/20" />
+                    <div className="absolute top-20 left-20 h-10 w-10 bg-linear-to-br from-emerald-500/40 to-teal-500/40" />
+                    <div className="absolute top-40 right-40 h-8 w-8 bg-linear-to-br from-blue-500/35 to-indigo-500/35" />
+                    <div className="absolute bottom-40 left-1/4 h-9 w-9 bg-linear-to-br from-purple-500/30 to-pink-500/30" />
+                    <div className="absolute top-1/2 right-1/3 h-7 w-7 bg-linear-to-br from-orange-500/25 to-red-500/25" />
+                    <div className="absolute right-1/4 bottom-1/3 h-8 w-8 bg-linear-to-br from-cyan-500/20 to-blue-500/20" />
                 </div>
             </>
         ),
@@ -389,9 +389,9 @@ export function BackgroundPatterns({
                             />
                         ))}
                     </div>
-                    <div className="absolute top-1/4 left-1/4 h-32 w-32 rounded-full bg-gradient-to-br from-blue-200/30 to-indigo-300/30 blur-2xl" />
-                    <div className="absolute top-1/2 right-1/3 h-24 w-24 rounded-full bg-gradient-to-br from-emerald-200/25 to-teal-300/25 blur-2xl" />
-                    <div className="absolute bottom-1/3 left-1/2 h-28 w-28 rounded-full bg-gradient-to-br from-purple-200/20 to-pink-300/20 blur-2xl" />
+                    <div className="absolute top-1/4 left-1/4 h-32 w-32 rounded-full bg-linear-to-br from-blue-200/30 to-indigo-300/30 blur-2xl" />
+                    <div className="absolute top-1/2 right-1/3 h-24 w-24 rounded-full bg-linear-to-br from-emerald-200/25 to-teal-300/25 blur-2xl" />
+                    <div className="absolute bottom-1/3 left-1/2 h-28 w-28 rounded-full bg-linear-to-br from-purple-200/20 to-pink-300/20 blur-2xl" />
                 </div>
                 {/* Dark mode */}
                 <div className="absolute inset-0 hidden overflow-hidden dark:block">
@@ -437,9 +437,9 @@ export function BackgroundPatterns({
                             />
                         ))}
                     </div>
-                    <div className="absolute top-1/3 left-1/3 h-40 w-40 rounded-full bg-gradient-to-br from-emerald-500/20 to-teal-500/20 blur-3xl" />
-                    <div className="absolute top-1/2 right-1/4 h-32 w-32 rounded-full bg-gradient-to-br from-blue-500/15 to-indigo-500/15 blur-3xl" />
-                    <div className="absolute bottom-1/4 left-1/3 h-36 w-36 rounded-full bg-gradient-to-br from-purple-500/10 to-pink-500/10 blur-3xl" />
+                    <div className="absolute top-1/3 left-1/3 h-40 w-40 rounded-full bg-linear-to-br from-emerald-500/20 to-teal-500/20 blur-3xl" />
+                    <div className="absolute top-1/2 right-1/4 h-32 w-32 rounded-full bg-linear-to-br from-blue-500/15 to-indigo-500/15 blur-3xl" />
+                    <div className="absolute bottom-1/4 left-1/3 h-36 w-36 rounded-full bg-linear-to-br from-purple-500/10 to-pink-500/10 blur-3xl" />
                 </div>
             </>
         ),
@@ -523,9 +523,9 @@ export function BackgroundPatterns({
 
                     {animated && (
                         <>
-                            <div className="animate-slow-flow absolute top-0 left-1/2 h-full w-px bg-gradient-to-b from-transparent via-blue-400/30 to-transparent" />
+                            <div className="animate-slow-flow absolute top-0 left-1/2 h-full w-px bg-linear-to-b from-transparent via-blue-400/30 to-transparent" />
                             <div
-                                className="animate-slow-flow absolute top-0 left-1/4 h-full w-px bg-gradient-to-b from-transparent via-emerald-400/20 to-transparent"
+                                className="animate-slow-flow absolute top-0 left-1/4 h-full w-px bg-linear-to-b from-transparent via-emerald-400/20 to-transparent"
                                 style={{ animationDelay: '5s' }}
                             />
                         </>
@@ -549,9 +549,9 @@ export function BackgroundPatterns({
 
                     {animated && (
                         <>
-                            <div className="animate-slow-flow absolute top-0 right-1/3 h-full w-px bg-gradient-to-b from-transparent via-emerald-500/40 to-transparent" />
+                            <div className="animate-slow-flow absolute top-0 right-1/3 h-full w-px bg-linear-to-b from-transparent via-emerald-500/40 to-transparent" />
                             <div
-                                className="animate-slow-flow absolute top-0 left-2/3 h-full w-px bg-gradient-to-b from-transparent via-blue-500/30 to-transparent"
+                                className="animate-slow-flow absolute top-0 left-2/3 h-full w-px bg-linear-to-b from-transparent via-blue-500/30 to-transparent"
                                 style={{ animationDelay: '3s' }}
                             />
                         </>

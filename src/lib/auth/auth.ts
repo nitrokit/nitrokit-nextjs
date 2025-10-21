@@ -1,4 +1,4 @@
-import NextAuth, { Account, Profile, Session, User } from 'next-auth';
+import NextAuth, { Account, CredentialsSignin, Profile, Session, User } from 'next-auth';
 import { PrismaAdapter } from '@auth/prisma-adapter';
 import { prisma } from '../prisma';
 import { AUTH_ROUTES } from './constants';
@@ -34,6 +34,10 @@ type JwtParams = {
     trigger?: 'signIn' | 'signUp' | 'update' | undefined;
     isNewUser?: boolean;
 };
+
+class InvalidLoginError extends CredentialsSignin {
+    code = 'Invalid identifier or password';
+}
 
 export const { handlers, auth, signIn, signOut } = NextAuth({
     adapter: PrismaAdapter(prisma),
@@ -240,7 +244,7 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
             },
             async authorize(credentials: any) {
                 if (!credentials?.email || !credentials?.password) {
-                    return null;
+                    throw new InvalidLoginError();
                 }
 
                 try {
@@ -295,9 +299,8 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
                         updatedAt: user.updatedAt,
                         lastLoginAt: user.lastLoginAt || undefined
                     };
-                } catch (error) {
-                    console.error(error);
-                    return null;
+                } catch {
+                    throw new InvalidLoginError();
                 }
             }
         })
@@ -361,6 +364,13 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
                 session.user.locale = token.locale || 'tr';
                 session.user.theme = token.theme || 'light';
                 session.user.twoFactorEnabled = token.twoFactorEnabled ?? false;
+
+                // const scope = Sentry.getCurrentScope();
+
+                // scope.setUser({
+                //     id: user.id,
+                //     email: user.email
+                // });
 
                 const dbUser = await prisma.user.findUnique({
                     where: { id: token.sub },
@@ -426,14 +436,14 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
     },
     session: {
         strategy: 'jwt',
-        maxAge: 30 * 24 * 60 * 60, // 30 days
-        updateAge: 24 * 60 * 60 // 24 hours
+        maxAge: 30 * 24 * 60 * 60,
+        updateAge: 24 * 60 * 60
     },
     jwt: {
-        maxAge: 30 * 24 * 60 * 60 // 30 days
+        maxAge: 30 * 24 * 60 * 60
     },
     secret: process.env.AUTH_SECRET,
-    debug: process.env.NODE_ENV === 'development',
+    // debug: process.env.NODE_ENV === 'development',
     useSecureCookies: process.env.NODE_ENV === 'production',
     cookies: {
         sessionToken: {

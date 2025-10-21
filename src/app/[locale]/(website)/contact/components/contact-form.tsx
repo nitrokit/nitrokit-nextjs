@@ -27,20 +27,30 @@ import {
     ContactFormData,
     ContactFormSchema
 } from '@/lib';
+import { useUser } from '@/contexts/user-context';
 
 type FormStatus = 'idle' | 'success' | 'error';
 
 export const ContactForm = () => {
     const t = useTranslations();
+    const { user } = useUser();
     const [isPending, startTransition] = useTransition();
     const [formStatus, setFormStatus] = useState<FormStatus>('idle');
     const [actionError, setActionError] = useState<string | null>(null);
 
+    let name: string = '';
+    let email: string = '';
+
+    if (user) {
+        name = user.name!;
+        email = user.email;
+    }
+
     const form = useForm<ContactFormData>({
         resolver: zodResolver(ContactFormSchema(t as SimpleTFunction)),
         defaultValues: {
-            name: '',
-            email: '',
+            name: name,
+            email: email,
             message: ''
         },
         mode: 'onBlur'
