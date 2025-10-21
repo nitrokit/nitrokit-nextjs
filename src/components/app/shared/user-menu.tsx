@@ -12,10 +12,10 @@ import {
     Monitor,
     ChevronRight,
     LucideIcon,
-    Loader2
+    Loader
 } from 'lucide-react';
 import { useTranslations } from 'next-intl';
-import React from 'react';
+import React, { Suspense } from 'react';
 
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui';
 import { useHotkeys } from '@/hooks/useHotkeys';
@@ -25,7 +25,6 @@ import { SignOutButton, SignInButton, SignUpButton } from '@/components/auth';
 import { cn } from '@/lib';
 import { useRouter } from '@/lib/i18n/navigation';
 import { APP_ROUTES } from '@/lib/auth/constants';
-import { Spinner } from '@radix-ui/themes';
 import { UserAvatar } from './user-avatar';
 
 interface UserMenuProps {
@@ -38,6 +37,10 @@ interface MenuItemProps {
     onClick?: () => void;
     shortcut?: string;
     className?: string;
+}
+
+function LoadingSpinner({ size = 'size-10' }: UserMenuProps) {
+    return <Loader className={`ml-4 h-6 w-6 animate-spin ${size}`} />;
 }
 
 export function UserMenu({ size = 'size-10' }: UserMenuProps) {
@@ -94,7 +97,7 @@ export function UserMenu({ size = 'size-10' }: UserMenuProps) {
     useHotkeys(shortcuts, [shortcuts]);
 
     if (isLoading) {
-        return <Loader2 className={`ml-4 h-6 w-6 animate-spin ${size}`} />;
+        return <LoadingSpinner size={size} />;
     }
 
     if (!user) {
@@ -174,91 +177,95 @@ export function UserMenu({ size = 'size-10' }: UserMenuProps) {
     );
 
     return (
-        <Popover open={open} onOpenChange={setOpen}>
-            <PopoverTrigger asChild>
-                <UserAvatar useSessionData={true} size={size} className="ml-4" />
-            </PopoverTrigger>
-            <PopoverContent className="w-58 p-0 shadow-lg" side="bottom" align="end">
-                <div className="flex w-full flex-row items-center justify-start gap-3 border-b border-gray-200 p-3 dark:border-gray-700">
-                    <div className="relative">
-                        <UserAvatar
-                            useSessionData={true}
-                            size={size}
-                            className="border-2 border-green-500"
-                        />
-                    </div>
-                    <div className="min-w-0 flex-1">
-                        <h4 className="truncate text-xs font-semibold text-gray-900 dark:text-white">
-                            {getDisplayName()}
-                        </h4>
-                        <p className="truncate text-xs text-gray-600 dark:text-gray-400">
-                            {user.email}
-                        </p>
-                    </div>
-                </div>
-
-                <div className="p-0.5">
-                    <div className="mb-3">
-                        <div className="mb-1.5 px-2 py-1">
-                            <h3 className="text-xs font-semibold tracking-wider text-gray-500 uppercase dark:text-gray-400">
-                                {t('user.menu.account.title')}
-                            </h3>
+        <Suspense fallback={<LoadingSpinner size={size} />}>
+            <Popover open={open} onOpenChange={setOpen}>
+                <PopoverTrigger asChild>
+                    <UserAvatar useSessionData={true} size={size} className="ml-4" />
+                </PopoverTrigger>
+                <PopoverContent className="w-58 p-0 shadow-lg" side="bottom" align="end">
+                    <div className="flex w-full flex-row items-center justify-start gap-3 border-b border-gray-200 p-3 dark:border-gray-700">
+                        <div className="relative">
+                            <UserAvatar
+                                useSessionData={true}
+                                size={size}
+                                className="border-2 border-green-500"
+                            />
                         </div>
-                        <div className="space-y-0.5">
-                            <MenuItem
-                                icon={CircleUserRound}
-                                onClick={() => handleNavigation(APP_ROUTES.ACCOUNT)}
-                                shortcut="⌘J"
-                            >
-                                {t('user.menu.account.overview')}
-                            </MenuItem>
-                            <MenuItem
-                                icon={User}
-                                onClick={() => handleNavigation(APP_ROUTES.ACCOUNT_PROFILE)}
-                                shortcut="⌘P"
-                            >
-                                {t('user.menu.account.profile')}
-                            </MenuItem>
-                            <SecurityMenuItem />
-                            <MenuItem
-                                icon={Bell}
-                                onClick={() => handleNavigation(APP_ROUTES.ACCOUNT_NOTIFICATIONS)}
-                            >
-                                {t('user.menu.account.notifications')}
-                            </MenuItem>
+                        <div className="min-w-0 flex-1">
+                            <h4 className="truncate text-xs font-semibold text-gray-900 dark:text-white">
+                                {getDisplayName()}
+                            </h4>
+                            <p className="truncate text-xs text-gray-600 dark:text-gray-400">
+                                {user.email}
+                            </p>
                         </div>
                     </div>
 
-                    <div className="my-2 h-px bg-gray-200 dark:bg-gray-700" />
-
-                    <div className="mb-3">
-                        <div className="mb-1.5 px-2 py-1">
-                            <h3 className="text-xs font-semibold tracking-wider text-gray-500 uppercase dark:text-gray-400">
-                                {t('user.menu.other')}
-                            </h3>
+                    <div className="p-0.5">
+                        <div className="mb-3">
+                            <div className="mb-1.5 px-2 py-1">
+                                <h3 className="text-xs font-semibold tracking-wider text-gray-500 uppercase dark:text-gray-400">
+                                    {t('user.menu.account.title')}
+                                </h3>
+                            </div>
+                            <div className="space-y-0.5">
+                                <MenuItem
+                                    icon={CircleUserRound}
+                                    onClick={() => handleNavigation(APP_ROUTES.ACCOUNT)}
+                                    shortcut="⌘J"
+                                >
+                                    {t('user.menu.account.overview')}
+                                </MenuItem>
+                                <MenuItem
+                                    icon={User}
+                                    onClick={() => handleNavigation(APP_ROUTES.ACCOUNT_PROFILE)}
+                                    shortcut="⌘P"
+                                >
+                                    {t('user.menu.account.profile')}
+                                </MenuItem>
+                                <SecurityMenuItem />
+                                <MenuItem
+                                    icon={Bell}
+                                    onClick={() =>
+                                        handleNavigation(APP_ROUTES.ACCOUNT_NOTIFICATIONS)
+                                    }
+                                >
+                                    {t('user.menu.account.notifications')}
+                                </MenuItem>
+                            </div>
                         </div>
-                        <div className="space-y-0.5">
-                            <MenuItem
-                                icon={HeartHandshake}
-                                onClick={() => handleNavigation(APP_ROUTES.SUPPORT)}
-                            >
-                                {t('navigation.support')}
-                            </MenuItem>
-                            <MenuItem
-                                icon={ReceiptText}
-                                onClick={() => handleNavigation(APP_ROUTES.INVOICES)}
-                            >
-                                {t('navigation.invoices')}
-                            </MenuItem>
+
+                        <div className="my-2 h-px bg-gray-200 dark:bg-gray-700" />
+
+                        <div className="mb-3">
+                            <div className="mb-1.5 px-2 py-1">
+                                <h3 className="text-xs font-semibold tracking-wider text-gray-500 uppercase dark:text-gray-400">
+                                    {t('user.menu.other')}
+                                </h3>
+                            </div>
+                            <div className="space-y-0.5">
+                                <MenuItem
+                                    icon={HeartHandshake}
+                                    onClick={() => handleNavigation(APP_ROUTES.SUPPORT)}
+                                >
+                                    {t('navigation.support')}
+                                </MenuItem>
+                                <MenuItem
+                                    icon={ReceiptText}
+                                    onClick={() => handleNavigation(APP_ROUTES.INVOICES)}
+                                >
+                                    {t('navigation.invoices')}
+                                </MenuItem>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <div className="border-t border-gray-200 p-2 dark:border-gray-700">
-                    <SignOutButton />
-                </div>
-            </PopoverContent>
-        </Popover>
+                    <div className="border-t border-gray-200 p-2 dark:border-gray-700">
+                        <SignOutButton />
+                    </div>
+                </PopoverContent>
+            </Popover>
+        </Suspense>
     );
 }
 

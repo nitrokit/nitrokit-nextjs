@@ -13,7 +13,6 @@ import { LOCALES_WITH_FLAG } from '@/lib/utils';
 type PopoverDirection = 'top' | 'right' | 'bottom' | 'left';
 
 interface LocaleSwitcherProps {
-    /** Popover'ın hangi yönde açılacağını belirler (varsayılan: bottom) */
     side?: PopoverDirection;
 }
 
