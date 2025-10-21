@@ -161,6 +161,7 @@ export function UserMenu({ size = 'size-10' }: UserMenuProps) {
                     >
                         {t('navigation.2fa')}
                     </MenuItem>
+                    <div className="my-1.5 h-px bg-gray-200 dark:bg-gray-700" />
                     <MenuItem
                         icon={Monitor}
                         onClick={() => handleNavigation(APP_ROUTES.SECURITY_SESSIONS)}
