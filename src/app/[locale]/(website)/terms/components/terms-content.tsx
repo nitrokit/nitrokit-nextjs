@@ -39,7 +39,7 @@ const sectionKeys = [
 ];
 
 export async function TermsComponent() {
-    const t = await getTranslations('app.terms');
+    const t = await getTranslations('common.terms');
     return (
         <>
             {sectionKeys.map((key, index) => {

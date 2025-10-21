@@ -1,99 +1,31 @@
 {
-    "about": {
-        "title": "About Us",
-        "description": "We are passionate about creating innovative solutions that make a difference in the world.",
-        "pageHero": {
-            "h1": "About Our Company",
-            "h2": "About",
-            "p": "We're passionate about creating innovative solutions that make a difference in the world."
+    "app": {
+        "navigation": {
+            "dashboard": "Dashboard",
+            "invoices": "Invoices",
+            "support": "Support"
         },
-        "stats": {
-            "experience": {
-                "value": "10+",
-                "label": "Years Experience"
-            },
-            "clients": {
-                "value": "500+",
-                "label": "Happy Clients"
-            },
-            "projects": {
-                "value": "1000+",
-                "label": "Projects Completed"
-            }
-        },
-        "mission": {
-            "title": "Our Mission",
-            "p": "To empower businesses and individuals with cutting-edge technology solutions that drive innovation, efficiency, and growth in an ever-evolving digital landscape.",
-            "list": {
-                "item1": "Deliver high-performance solutions that exceed expectations",
-                "item2": "Ensure security and reliability in every product we build",
-                "item3": "Create sustainable impact on a global scale"
-            }
-        },
-        "vision": {
-            "title": "Our Vision",
-            "p": "To become the leading technology partner for organizations worldwide, known for our innovation, excellence, and commitment to creating a better digital future.",
-            "goals": {
-                "title": "2025 Goals",
-                "goal1": {
-                    "label": "Global Expansion",
-                    "percentage": "75%"
-                }
-            }
-        },
-        "coreValues": {
-            "title": "Our Core Values",
-            "p": "The principles that guide our decisions and shape our culture every day.",
-            "items": {
-                "customerFirst": {
-                    "title": "Customer First",
-                    "description": "We put our customers at the center of everything we do, ensuring their success is our success."
+        "user": {
+            "defaultUserName": "Default Username",
+            "menu": {
+                "security": {
+                    "title": "Security",
+                    "overview": "Overview",
+                    "password": "Password",
+                    "twoFactor": "Two Factor",
+                    "sessions": "Sessions"
                 },
-                "integrity": {
-                    "title": "Integrity",
-                    "description": "We maintain the highest ethical standards and transparency in all our business practices."
+                "account": {
+                    "title": "Account",
+                    "overview": "Overview",
+                    "profile": "Profile",
+                    "notifications": "Notifications"
                 },
-                "innovation": {
-                    "title": "Innovation",
-                    "description": "We constantly push boundaries and embrace new technologies to stay ahead of the curve."
-                },
-                "excellence": {
-                    "title": "Excellence",
-                    "description": "We strive for perfection in every project and continuously improve our processes."
-                }
-            }
-        },
-        "team": {
-            "title": "Meet Our Team",
-            "p": "The talented individuals who make our vision a reality.",
-            "members": {
-                "johnSmith": {
-                    "name": "John Smith",
-                    "role": "CEO & Founder",
-                    "bio": "Visionary leader with 15+ years of experience in technology and business strategy."
-                },
-                "sarahJohnson": {
-                    "name": "Sarah Johnson",
-                    "role": "CTO",
-                    "bio": "Technical expert leading our engineering team with expertise in cloud architecture and AI."
-                },
-                "mikeChen": {
-                    "name": "Mike Chen",
-                    "role": "Design Lead",
-                    "bio": "Creative director ensuring exceptional user experiences across all our products."
-                }
-            }
-        },
-        "cta": {
-            "title": "Ready to Work Together?",
-            "description": "Let's discuss how we can help bring your vision to life.",
-            "buttons": {
-                "contact": "Contact Us",
-                "viewWork": "View Our Work"
+                "other": "Other"
             }
         }
     },
-    "app": {
+    "common": {
         "title": "Nitrokit Next.js Starter",
         "description": "A starter template for Next.js with i18n, Tailwind CSS, and more.",
         "name": "Nitrokit Next.js",
@@ -108,7 +40,7 @@
             "description": "Build modern web applications with Nitrokit's comprehensive Next.js starter kit. Features TypeScript, Tailwind CSS, authentication, and more.",
             "author": "Nitrokit Team"
         },
-        "common": {
+        "buttons": {
             "email": "E-mail",
             "firstname": "First Name",
             "lastname": "Last Name",
@@ -281,6 +213,242 @@
             "returnHome": "Return to Homepage"
         }
     },
+    "faq": {
+        "title": "Frequently Asked Questions",
+        "description": "Frequently asked questions we provide to help you succeed."
+    },
+    "pricing": {
+        "title": "Pricing",
+        "subtitle": "Pricing that grows with you",
+        "description": "Choose an affordable plan that’s packed with the best features for engaging your audience, creating customer loyalty, and driving sales.",
+        "monthly": "Monthly",
+        "yearly": "Yearly",
+        "annual-payment": "<span>Save 20%</span> with annual billing.",
+        "pricePerMonth": "Month",
+        "pricePerYear": "Year",
+        "purchasePlan": "Purchase Plan",
+        "freelancer": {
+            "title": "Freelancer",
+            "description": "The essentials to provide your best work for clients."
+        },
+        "startup": {
+            "title": "Startup",
+            "description": "A plan that scales with your rapidly growing business."
+        },
+        "pro": {
+            "title": "Professional",
+            "description": "Dedicated support and infrastructure built for your growing company."
+        },
+        "enterprise": {
+            "title": "Enterprise",
+            "description": "Get in touch for a custom quote for your enterprise needs."
+        },
+        "features": {
+            "5products": "5 products",
+            "25products": "10 products",
+            "unlimitedproducts": "Unlimited products",
+            "upto1000subscribers": "Up to 1000 subscribers",
+            "upto10000subscribers": "Up to 10,000 subscribers",
+            "unlimitedsubscribers": "Unlimited subscribers",
+            "48hoursupport": "48-hour support",
+            "24hoursupport": "24-hour support",
+            "1hoursupport": "1-hour support",
+            "basicanalytics": "Basic analytics",
+            "advancedanalytics": "Advanced analytics",
+            "xhoursupport": "{count}-hour support",
+            "marketingautomations": "Marketing automations"
+        }
+    },
+    "contact": {
+        "title": "Contact",
+        "description": "You can use the information below to get in touch with us.",
+        "pageHero": {
+            "title": "Get in touch",
+            "subtitle": "Contact Us",
+            "description": "You can use the information below to get in touch with us."
+        },
+        "name": "Your Name",
+        "email": "Your Email Address",
+        "message": "Your Message",
+        "send": "Send",
+        "message_sent": "Message sent successfully!",
+        "message_sent_description": "We'll get back to you as soon as possible.",
+        "form_heading": "Send us a message",
+        "form_description": "Fill out the form below and we'll get back to you...",
+        "privacy_policy_agreement": "By submitting this form, you agree to our <a>Privacy Policy</a>",
+        "phone": "Phone",
+        "business_hours": "Business Hours",
+        "address": "Address",
+        "get_directions": "Get Directions",
+        "call_now": "Call Now",
+        "send_email": "Send Email"
+    },
+    "about": {
+        "title": "About Us",
+        "description": "We are passionate about creating innovative solutions that make a difference in the world.",
+        "pageHero": {
+            "h1": "About Our Company",
+            "h2": "About",
+            "p": "We're passionate about creating innovative solutions that make a difference in the world."
+        },
+        "stats": {
+            "experience": {
+                "value": "10+",
+                "label": "Years Experience"
+            },
+            "clients": {
+                "value": "500+",
+                "label": "Happy Clients"
+            },
+            "projects": {
+                "value": "1000+",
+                "label": "Projects Completed"
+            }
+        },
+        "mission": {
+            "title": "Our Mission",
+            "p": "To empower businesses and individuals with cutting-edge technology solutions that drive innovation, efficiency, and growth in an ever-evolving digital landscape.",
+            "list": {
+                "item1": "Deliver high-performance solutions that exceed expectations",
+                "item2": "Ensure security and reliability in every product we build",
+                "item3": "Create sustainable impact on a global scale"
+            }
+        },
+        "vision": {
+            "title": "Our Vision",
+            "p": "To become the leading technology partner for organizations worldwide, known for our innovation, excellence, and commitment to creating a better digital future.",
+            "goals": {
+                "title": "2025 Goals",
+                "goal1": {
+                    "label": "Global Expansion",
+                    "percentage": "75%"
+                }
+            }
+        },
+        "coreValues": {
+            "title": "Our Core Values",
+            "p": "The principles that guide our decisions and shape our culture every day.",
+            "items": {
+                "customerFirst": {
+                    "title": "Customer First",
+                    "description": "We put our customers at the center of everything we do, ensuring their success is our success."
+                },
+                "integrity": {
+                    "title": "Integrity",
+                    "description": "We maintain the highest ethical standards and transparency in all our business practices."
+                },
+                "innovation": {
+                    "title": "Innovation",
+                    "description": "We constantly push boundaries and embrace new technologies to stay ahead of the curve."
+                },
+                "excellence": {
+                    "title": "Excellence",
+                    "description": "We strive for perfection in every project and continuously improve our processes."
+                }
+            }
+        },
+        "team": {
+            "title": "Meet Our Team",
+            "p": "The talented individuals who make our vision a reality.",
+            "members": {
+                "johnSmith": {
+                    "name": "John Smith",
+                    "role": "CEO & Founder",
+                    "bio": "Visionary leader with 15+ years of experience in technology and business strategy."
+                },
+                "sarahJohnson": {
+                    "name": "Sarah Johnson",
+                    "role": "CTO",
+                    "bio": "Technical expert leading our engineering team with expertise in cloud architecture and AI."
+                },
+                "mikeChen": {
+                    "name": "Mike Chen",
+                    "role": "Design Lead",
+                    "bio": "Creative director ensuring exceptional user experiences across all our products."
+                }
+            }
+        },
+        "cta": {
+            "title": "Ready to Work Together?",
+            "description": "Let's discuss how we can help bring your vision to life.",
+            "buttons": {
+                "contact": "Contact Us",
+                "viewWork": "View Our Work"
+            }
+        }
+    },
+    "home": {
+        "title": "",
+        "description": "Welcome to our website!",
+        "banner": {
+            "badge": "New",
+            "text": "v1.0.0 is out! See what's new"
+        },
+        "hero": {
+            "titles": {
+                "title1": "Build Modern Apps<br></br>Faster with Nitrokit",
+                "title2": "Create Amazing Apps<br></br>with Nitrokit"
+            },
+            "description": {
+                "description1": "Easily build amazing apps with Nitrokit. Turn your ideas into reality in no time.",
+                "description2": "With Nitrokit, design, test, and launch your projects in minutes — effortlessly.",
+                "description3": "A powerful platform that saves time and boosts your impact: Nitrokit. Unleash your creativity.",
+                "description4": "Accelerate the journey from idea to live product with Nitrokit."
+            }
+        },
+        "stats": {
+            "components": {
+                "number": "50+",
+                "label": "UI Components"
+            },
+            "typescript": {
+                "number": "TypeScript",
+                "label": "Full Support"
+            },
+            "modern": {
+                "number": "Modern",
+                "label": "Tech Stack"
+            }
+        },
+        "testimonials": {
+            "slogan": "Powering the next generation of startups",
+            "title": "Testimonials",
+            "subtitle": "What our Client Say",
+            "description": "Discover why Nitrokit is so loved and experience its transformative power for your business by joining today."
+        },
+        "technologies": {
+            "title": "Powered by Modern Technologies"
+        },
+        "cta": {
+            "title": "Ready to get started?",
+            "description": "Check out our project on GitHub and speed up your development process.",
+            "github": "GitHub Repository",
+            "docs": "Documentation"
+        }
+    },
+    "validations": {
+        "required": {
+            "email": "Email is required",
+            "name": "Name is required",
+            "message": "Message is required",
+            "captcha": "Captcha is required",
+            "password": "Password is required",
+            "firstname": "First name is required",
+            "lastname": "Last name is required",
+            "confirmPassword": "Confirm password is required",
+            "terms": "You must accept the terms and conditions to proceed."
+        },
+        "min": {
+            "password": "Your password must be at least {min} characters long.",
+            "confirmPassword": "Confirm password must contain at least {min} characters."
+        },
+        "mismatch": {
+            "passwords": "Passwords do not match."
+        },
+        "invalid": {
+            "email": "Email is not valid"
+        }
+    },
     "auth": {
         "layout": {
             "title": "Authentication for Easy & Secure Access",
@@ -378,30 +546,6 @@
         "signinWithMicrosoft": "Sign In with Microsoft",
         "signinWithInstagram": "Sign In with Instagram"
     },
-    "contact": {
-        "title": "Contact",
-        "description": "You can use the information below to get in touch with us.",
-        "pageHero": {
-            "title": "Get in touch",
-            "subtitle": "Contact Us",
-            "description": "You can use the information below to get in touch with us."
-        },
-        "name": "Your Name",
-        "email": "Your Email Address",
-        "message": "Your Message",
-        "send": "Send",
-        "message_sent": "Message sent successfully!",
-        "message_sent_description": "We'll get back to you as soon as possible.",
-        "form_heading": "Send us a message",
-        "form_description": "Fill out the form below and we'll get back to you...",
-        "privacy_policy_agreement": "By submitting this form, you agree to our <a>Privacy Policy</a>",
-        "phone": "Phone",
-        "business_hours": "Business Hours",
-        "address": "Address",
-        "get_directions": "Get Directions",
-        "call_now": "Call Now",
-        "send_email": "Send Email"
-    },
     "email": {
         "contactMessage": {
             "preview": "New contact form submission: {name}",
@@ -447,124 +591,6 @@
             "paragraph3": "Need help getting started? Check out our documentation or reach out to our support team.",
             "footerNote": "Thanks for joining Nitrokit! If you have any questions, feel free to reply to this email. We're here to help you succeed! 💪",
             "textVersion": "Your email has been verified and your account is now active! You're all set to start exploring Nitrokit's powerful features."
-        }
-    },
-    "faq": {
-        "title": "Frequently Asked Questions",
-        "description": "Frequently asked questions we provide to help you succeed."
-    },
-    "home": {
-        "title": "",
-        "description": "Welcome to our website!",
-        "banner": {
-            "badge": "New",
-            "text": "v1.0.0 is out! See what's new"
-        },
-        "hero": {
-            "titles": {
-                "title1": "Build Modern Apps<br></br>Faster with Nitrokit",
-                "title2": "Create Amazing Apps<br></br>with Nitrokit"
-            },
-            "description": {
-                "description1": "Easily build amazing apps with Nitrokit. Turn your ideas into reality in no time.",
-                "description2": "With Nitrokit, design, test, and launch your projects in minutes — effortlessly.",
-                "description3": "A powerful platform that saves time and boosts your impact: Nitrokit. Unleash your creativity.",
-                "description4": "Accelerate the journey from idea to live product with Nitrokit."
-            }
-        },
-        "stats": {
-            "components": {
-                "number": "50+",
-                "label": "UI Components"
-            },
-            "typescript": {
-                "number": "TypeScript",
-                "label": "Full Support"
-            },
-            "modern": {
-                "number": "Modern",
-                "label": "Tech Stack"
-            }
-        },
-        "testimonials": {
-            "slogan": "Powering the next generation of startups",
-            "title": "Testimonials",
-            "subtitle": "What our Client Say",
-            "description": "Discover why Nitrokit is so loved and experience its transformative power for your business by joining today."
-        },
-        "technologies": {
-            "title": "Powered by Modern Technologies"
-        },
-        "cta": {
-            "title": "Ready to get started?",
-            "description": "Check out our project on GitHub and speed up your development process.",
-            "github": "GitHub Repository",
-            "docs": "Documentation"
-        }
-    },
-    "pricing": {
-        "title": "Pricing",
-        "subtitle": "Pricing that grows with you",
-        "description": "Choose an affordable plan that’s packed with the best features for engaging your audience, creating customer loyalty, and driving sales.",
-        "monthly": "Monthly",
-        "yearly": "Yearly",
-        "annual-payment": "<span>Save 20%</span> with annual billing.",
-        "pricePerMonth": "Month",
-        "pricePerYear": "Year",
-        "purchasePlan": "Purchase Plan",
-        "freelancer": {
-            "title": "Freelancer",
-            "description": "The essentials to provide your best work for clients."
-        },
-        "startup": {
-            "title": "Startup",
-            "description": "A plan that scales with your rapidly growing business."
-        },
-        "pro": {
-            "title": "Professional",
-            "description": "Dedicated support and infrastructure built for your growing company."
-        },
-        "enterprise": {
-            "title": "Enterprise",
-            "description": "Get in touch for a custom quote for your enterprise needs."
-        },
-        "features": {
-            "5products": "5 products",
-            "25products": "10 products",
-            "unlimitedproducts": "Unlimited products",
-            "upto1000subscribers": "Up to 1000 subscribers",
-            "upto10000subscribers": "Up to 10,000 subscribers",
-            "unlimitedsubscribers": "Unlimited subscribers",
-            "48hoursupport": "48-hour support",
-            "24hoursupport": "24-hour support",
-            "1hoursupport": "1-hour support",
-            "basicanalytics": "Basic analytics",
-            "advancedanalytics": "Advanced analytics",
-            "xhoursupport": "{count}-hour support",
-            "marketingautomations": "Marketing automations"
-        }
-    },
-    "validations": {
-        "required": {
-            "email": "Email is required",
-            "name": "Name is required",
-            "message": "Message is required",
-            "captcha": "Captcha is required",
-            "password": "Password is required",
-            "firstname": "First name is required",
-            "lastname": "Last name is required",
-            "confirmPassword": "Confirm password is required",
-            "terms": "You must accept the terms and conditions to proceed."
-        },
-        "min": {
-            "password": "Your password must be at least {min} characters long.",
-            "confirmPassword": "Confirm password must contain at least {min} characters."
-        },
-        "mismatch": {
-            "passwords": "Passwords do not match."
-        },
-        "invalid": {
-            "email": "Email is not valid"
         }
     }
 }

@@ -27,7 +27,7 @@ import {
 } from '@/lib';
 import { SimpleTFunction } from '@/types/i18n';
 import { Link, useRouter } from '@/lib/i18n/navigation';
-import { SubmitButton } from '@/comp/shared';
+import { SubmitButton } from '@/components/shared';
 import { AUTH_ROUTES } from '@/lib/auth/constants';
 
 export function RegisterForm() {
@@ -51,7 +51,7 @@ export function RegisterForm() {
                 if (state.errors?.[errorKey]) {
                     form.setError(errorKey, {
                         type: 'server',
-                        message: state.errors[errorKey]?.[0] || t('app.errors.general')
+                        message: state.errors[errorKey]?.[0] || t('common.errors.general')
                     });
                 }
             });
@@ -73,7 +73,7 @@ export function RegisterForm() {
                             name="firstname"
                             render={({ field }) => (
                                 <FormItem>
-                                    <FormLabel>{t('app.common.firstname')}</FormLabel>
+                                    <FormLabel>{t('common.buttons.firstname')}</FormLabel>
                                     <FormControl>
                                         <Input {...field} />
                                     </FormControl>
@@ -86,7 +86,7 @@ export function RegisterForm() {
                             name="lastname"
                             render={({ field }) => (
                                 <FormItem>
-                                    <FormLabel>{t('app.common.lastname')}</FormLabel>
+                                    <FormLabel>{t('common.buttons.lastname')}</FormLabel>
                                     <FormControl>
                                         <Input {...field} />
                                     </FormControl>
@@ -113,7 +113,7 @@ export function RegisterForm() {
                         name="password"
                         render={({ field }) => (
                             <FormItem>
-                                <FormLabel>{t('app.common.password')}</FormLabel>
+                                <FormLabel>{t('common.buttons.password')}</FormLabel>
                                 <FormControl>
                                     <PasswordInput {...field} />
                                 </FormControl>
@@ -126,7 +126,7 @@ export function RegisterForm() {
                         name="confirmPassword"
                         render={({ field }) => (
                             <FormItem>
-                                <FormLabel>{t('app.common.confirmPassword')}</FormLabel>
+                                <FormLabel>{t('common.buttons.confirmPassword')}</FormLabel>
                                 <FormControl>
                                     <PasswordInput {...field} />
                                 </FormControl>

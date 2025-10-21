@@ -51,7 +51,7 @@ export function useNewsletterSubscription(): UseNewsletterSubscriptionResult {
             } else {
                 setSuccess(false);
                 const errorMessage: string =
-                    result.error || result.error || t('app.errors.general');
+                    result.error || result.error || t('common.errors.general');
                 setError(errorMessage);
             }
         });

@@ -2,8 +2,8 @@ export interface UserData {
     id: string;
     email: string;
     name?: string | null;
-    firstName?: string | null;
-    lastName?: string | null;
+    firstName: string | null;
+    lastName: string | null;
     username?: string | null;
     image?: string | null;
     phone?: string | null;
@@ -36,5 +36,6 @@ export interface UserData {
 export interface UserContextType {
     user: UserData | null;
     isLoading: boolean;
-    updateUser: (newUserData: UserData) => void;
+    updateUser: (newUserData: Partial<UserData>) => void;
+    updateAvatar: (url: string | null) => void;
 }

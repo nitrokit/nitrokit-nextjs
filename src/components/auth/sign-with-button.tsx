@@ -1,7 +1,7 @@
 import { useTranslations } from 'next-intl';
 import * as React from 'react';
 
-import { Button, buttonVariants } from '@/comp/ui/button';
+import { Button, buttonVariants } from '@/components/ui/button';
 import { cn } from '@/lib';
 import { Provider } from '@/lib/auth/providers';
 import {
@@ -13,7 +13,7 @@ import {
     FacebookIcon,
     TwitterIcon,
     LinkedinIcon
-} from '@/comp/icons';
+} from '@/components/icons';
 import { signIn } from '@/lib/auth/auth';
 import { APP_ROUTES } from '@/lib/auth/constants';
 

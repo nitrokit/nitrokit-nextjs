@@ -30,7 +30,7 @@ export const useNewsletterConfirmDialog = (t: (key: string) => string) => {
 
                 if (!parsed.success) {
                     setStatus('error');
-                    setMessage(t('app.errors.general'));
+                    setMessage(t('common.errors.general'));
                     return;
                 }
 
@@ -38,18 +38,18 @@ export const useNewsletterConfirmDialog = (t: (key: string) => string) => {
 
                 if (data.success) {
                     setStatus('success');
-                    setMessage(data.message || t('app.newsletter.success'));
+                    setMessage(data.message || t('common.newsletter.success'));
                     const params = new URLSearchParams(searchParams.toString());
                     params.delete('newsletter_confirm');
                     router.replace(`?${params.toString()}`, { scroll: false });
                 } else {
                     setStatus('error');
-                    setMessage(data.error || t('app.errors.general'));
+                    setMessage(data.error || t('common.errors.general'));
                 }
             })
             .catch(() => {
                 setStatus('error');
-                setMessage(t('app.errors.general'));
+                setMessage(t('common.errors.general'));
             });
     }, [searchParams, requestSent, router, t]);
 

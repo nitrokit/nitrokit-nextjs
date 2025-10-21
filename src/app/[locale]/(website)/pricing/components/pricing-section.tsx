@@ -2,11 +2,11 @@
 
 import { useState } from 'react';
 import { useFormatter, useTranslations } from 'next-intl';
-import { Button } from '@/comp/ui/button';
-import { CheckIcon } from '@/comp/icons/check';
+import { Button } from '@/components/ui/button';
+import { CheckIcon } from '@/components/icons/check';
 import { PricingProps } from '@/types/pricing';
 import { BillingCycleToggle } from './billging-cycle-toggle';
-import { DEFAULT_CURRENCY } from '@/constants/app';
+import { DEFAULT_CURRENCY } from '@/constants/site';
 
 export default function PricingSection({ plans }: PricingProps) {
     const t = useTranslations('pricing');
@@ -90,7 +90,7 @@ export default function PricingSection({ plans }: PricingProps) {
                                 <Button
                                     variant={plan.isFeatured ? 'default' : 'outline'}
                                     size={'xl'}
-                                    className={`mt-10 w-full ${plan.isFeatured ? 'bg-gradient-to-r from-cyan-500 to-blue-500 text-white hover:bg-gradient-to-l' : 'border-neutral-300 text-neutral-700 hover:bg-neutral-50 dark:border-neutral-700 dark:text-neutral-200 dark:hover:bg-neutral-800/50'}`}
+                                    className={`mt-10 w-full ${plan.isFeatured ? 'bg-linear-to-r from-cyan-500 to-blue-500 text-white hover:bg-linear-to-l' : 'border-neutral-300 text-neutral-700 hover:bg-neutral-50 dark:border-neutral-700 dark:text-neutral-200 dark:hover:bg-neutral-800/50'}`}
                                 >
                                     {t('purchasePlan')}
                                 </Button>

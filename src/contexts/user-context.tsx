@@ -1,28 +1,32 @@
 'use client';
 
-import { createContext, useContext, useState, useEffect, ReactNode } from 'react';
+import { createContext, useContext, ReactNode, useCallback } from 'react';
 import { useSession } from 'next-auth/react';
 import { UserContextType, UserData } from '@/types/user';
 
 const UserContext = createContext<UserContextType | undefined>(undefined);
 
 export const UserProvider = ({ children }: { children: ReactNode }) => {
-    const { data: session, status } = useSession();
-    const [user, setUser] = useState<UserData | null>(session?.user || null);
+    const { data: session, status, update } = useSession();
 
-    useEffect(() => {
-        if (session) {
-            setUser(session.user as UserData);
-        }
-    }, [session]);
+    const updateUser = useCallback(
+        (newUserData: Partial<UserData>) => {
+            void update(newUserData);
+        },
+        [update]
+    );
 
-    const updateUser = (newUserData: UserData) => {
-        setUser(newUserData);
-    };
+    const updateAvatar = useCallback(
+        (url: string | null) => {
+            updateUser({ image: url });
+        },
+        [updateUser]
+    );
 
     const contextValue: UserContextType = {
-        user,
+        user: (session?.user as UserData) || null,
         updateUser,
+        updateAvatar,
         isLoading: status === 'loading'
     };
 

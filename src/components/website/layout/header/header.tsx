@@ -1,20 +1,19 @@
 'use client';
 
-import { Navbar } from '@/comp/website/navigation';
-import { Logo } from '@/comp/shared/';
+import { Navbar } from '@/components/website/navigation';
+import { Logo } from '@/components/shared/';
 import { useStickyNavbar } from '@/hooks';
-import { CompactLocaleSwitcher } from '@/comp/switchers';
-import { SignInButton, SignOutButton, SignUpButton } from '@/comp/auth';
+import { CompactLocaleSwitcher } from '@/components/switchers';
 import { useSession } from 'next-auth/react';
-import { Spinner } from '@radix-ui/themes';
+import { UserMenu } from '@/components/app';
 
 export function Header() {
     const { data: session, status } = useSession();
-    console.log(session);
+    console.log('Session-Status', session, status);
     const sticky = useStickyNavbar();
     return (
         <header
-            className={`sticky top-0 left-0 z-[49] w-full items-center px-3 ${
+            className={`sticky top-0 left-0 z-49 w-full items-center px-3 ${
                 sticky
                     ? 'border-stroke bg-white/80 shadow-md backdrop-blur-[5px] transition dark:bg-black/40'
                     : 'border-0 bg-transparent'
@@ -29,14 +28,7 @@ export function Header() {
                 </div>
                 <div className="flex grow flex-row items-center justify-end gap-2 lg:grow-0">
                     <CompactLocaleSwitcher />
-                    {status === 'loading' && <Spinner />}
-                    {status === 'unauthenticated' && (
-                        <>
-                            <SignInButton />
-                            <SignUpButton />
-                        </>
-                    )}
-                    {status === 'authenticated' && <SignOutButton />}
+                    <UserMenu />
                 </div>
             </div>
         </header>

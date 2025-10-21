@@ -6,7 +6,7 @@ import { nanoid } from 'nanoid';
 import { getEmailService } from '@/lib/services/email';
 import { getBaseUrl } from '@/lib/config';
 import { render } from '@react-email/render';
-import { VerificationEmail } from '@/comp/emails/verification-email';
+import { VerificationEmail } from '@/components/emails/verification-email';
 import { AUTH_ROUTES } from '@/lib/auth/constants';
 
 export async function resendVerificationEmailAction(
@@ -51,6 +51,6 @@ export async function resendVerificationEmailAction(
         return { success: true };
     } catch (error) {
         console.error('RESEND EMAIL HATA:', error);
-        return { success: false, message: t('app.errors.general') };
+        return { success: false, message: t('common.errors.general') };
     }
 }

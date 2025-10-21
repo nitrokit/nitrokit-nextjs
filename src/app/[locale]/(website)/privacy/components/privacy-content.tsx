@@ -28,7 +28,7 @@ const renderList = (list: string[]) => {
 const sectionKeys = ['whatData', 'howWeUse', 'dataSharing', 'contactInfo'];
 
 export async function PrivacyComponent() {
-    const t = await getTranslations('app.privacyPolicy');
+    const t = await getTranslations('common.privacyPolicy');
     return (
         <>
             {sectionKeys.map((key, index) => {

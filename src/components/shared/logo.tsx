@@ -1,6 +1,6 @@
 import { useTranslations } from 'next-intl';
 import { Link } from '@/lib/i18n/navigation';
-import { ThemedImage } from '@/comp/shared';
+import { ThemedImage } from '@/components/shared';
 import { cn } from '@/lib';
 
 export function Logo({
@@ -14,7 +14,7 @@ export function Logo({
     forceText?: boolean;
     className?: string;
 }) {
-    const t = useTranslations('app');
+    const t = useTranslations('common');
     return (
         <Link href={'/'} className={cn('flex items-center justify-start gap-4', className)}>
             <ThemedImage

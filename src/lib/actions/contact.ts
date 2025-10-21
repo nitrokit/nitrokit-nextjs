@@ -7,7 +7,7 @@ import { SimpleTFunction } from '@/types/i18n';
 import { getEmailService } from '@/lib/services/email';
 
 import { render } from '@react-email/render';
-import { ContactEmail } from '@/comp/emails';
+import { ContactEmail } from '@/components/emails';
 import { ContactActionResponse, ContactFormSchema } from '@/lib/validations';
 import { PUBLIC_EMAIL } from '@/constants';
 
@@ -60,6 +60,6 @@ export async function contactAction(
 
         return { success: true, message: t('contact.message_sent') };
     } catch {
-        return { success: false, error: t('app.errors.general') };
+        return { success: false, error: t('common.errors.general') };
     }
 }

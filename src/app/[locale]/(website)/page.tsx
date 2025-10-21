@@ -1,17 +1,8 @@
 'use client';
 
-// import { useUser } from '@/contexts/user-context';
-
-// export default function Home() {
-//     const { user, isLoading } = useUser();
-//     console.info('User', user, isLoading);
-// }
-
-import { BackgroundPatterns } from '@/comp/website/layout';
-import { NewsletterConfirmDialog } from '@/comp/website/newsletter';
-import { Testimonials } from '@/comp/website/testimonial';
+import { BackgroundPatterns, NewsletterConfirmDialog, Testimonials } from '@/components/website';
 import { Hero, GitHubSection } from './home/components';
-import { LibraryLogos } from '@/comp/shared';
+import { LibraryLogos } from '@/components/shared';
 
 export default function Page() {
     return (

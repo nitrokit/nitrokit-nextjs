@@ -1,13 +1,13 @@
-import { Logo } from '@/comp/shared';
-import { UserTrustSection } from '@/comp/website/testimonial';
+import { Logo } from '@/components/shared';
+import { UserTrustSection } from '@/components/website/testimonial';
 import { useTranslations } from 'next-intl';
 import { TESTIMONIALS as staticTestimonials } from '@/constants';
 import { TerminalVisual } from './components/terminal-visual';
 import Image from 'next/image';
 import Link from 'next/link';
-import { BackButton } from '@/comp/shared/back-button';
-import { LocaleSwitcher, ThemeToggle } from '@/comp/switchers';
-import { BackgroundPatterns } from '@/comp/website/layout';
+import { BackButton } from '@/components/shared/back-button';
+import { LocaleSwitcher, ThemeToggle } from '@/components/switchers';
+import { BackgroundPatterns } from '@/components/website/layout';
 
 export default function AuthLayout({
     children

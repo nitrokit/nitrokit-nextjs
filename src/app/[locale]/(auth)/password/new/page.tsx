@@ -1,4 +1,4 @@
-import { Button, Field, FieldGroup, FieldLabel, Input } from '@/comp/ui';
+import { Button, Field, FieldGroup, FieldLabel, Input } from '@/components/ui';
 import { FormCard } from '../../components/form-card';
 import { MoveRight as IconMoveRight } from 'lucide-react';
 

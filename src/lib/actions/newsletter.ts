@@ -10,7 +10,7 @@ import { NewsletterFormSchema, NewsletterSubscriptionResponse } from '@/lib/vali
 import { getEmailService } from '@/lib/services/email';
 import { getBaseUrl } from '@/lib/config';
 import { render } from '@react-email/render';
-import { NewsletterConfirmationEmail } from '@/comp/emails';
+import { NewsletterConfirmationEmail } from '@/components/emails';
 
 type NewsletterActionState = NewsletterSubscriptionResponse & {
     errors?: { [key in keyof z.infer<typeof NewsletterFormSchema>]: string[] };
@@ -60,16 +60,16 @@ export async function newsletterSubscriptionAction(
 
         await emailService.sendEmail({
             to: subscriber.email,
-            subject: t('app.newsletter.subscriptionConfirmation'),
+            subject: t('common.newsletter.subscriptionConfirmation'),
             html: emailHtml,
-            text: t('app.newsletter.confirmationLink', { confirmUrl })
+            text: t('common.newsletter.confirmationLink', { confirmUrl })
         });
 
-        return { success: true, message: t('app.newsletter.success') };
+        return { success: true, message: t('common.newsletter.success') };
     } catch (error: unknown) {
         if (error instanceof PrismaClientKnownRequestError && error.code === 'P2002') {
-            return { success: false, message: t('app.newsletter.alreadySubscribed') };
+            return { success: false, message: t('common.newsletter.alreadySubscribed') };
         }
-        return { success: false, error: t('app.errors.general') };
+        return { success: false, error: t('common.errors.general') };
     }
 }

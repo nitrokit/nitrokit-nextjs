@@ -1,4 +1,4 @@
-import { SignWithButton } from '@/comp/auth/sign-with-button';
+import { SignWithButton } from '@/components/auth/sign-with-button';
 
 export function SignWithButtons() {
     return (

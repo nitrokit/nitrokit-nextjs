@@ -1,0 +1,26 @@
+{
+    "navigation": {
+        "dashboard": "Dashboard",
+        "invoices": "Invoices",
+        "support": "Support"
+    },
+    "user": {
+        "defaultUserName": "Default Username",
+        "menu": {
+            "security": {
+                "title": "Security",
+                "overview": "Overview",
+                "password": "Password",
+                "twoFactor": "Two Factor",
+                "sessions": "Sessions"
+            },
+            "account": {
+                "title": "Account",
+                "overview": "Overview",
+                "profile": "Profile",
+                "notifications": "Notifications"
+            },
+            "other": "Other"
+        }
+    }
+}

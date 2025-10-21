@@ -15,7 +15,7 @@ import {
     SheetHeader,
     SheetTitle,
     SheetTrigger
-} from '@/comp/ui';
+} from '@/components/ui';
 import { Cookie, Settings, Shield, BarChart3, Target } from 'lucide-react';
 import type { GtagConsentParams } from '@/types/gtag';
 import {
@@ -34,7 +34,7 @@ const defaultPreferences: CookiePreferences = {
 };
 
 export function CookieConsent() {
-    const t = useTranslations('app');
+    const t = useTranslations('common');
     const [isVisible, setIsVisible] = useState(false);
     const [showSettings, setShowSettings] = useState(false);
     const [preferences, setPreferences] = useState<CookiePreferences>(defaultPreferences);

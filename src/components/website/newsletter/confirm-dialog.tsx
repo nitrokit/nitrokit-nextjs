@@ -1,4 +1,10 @@
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from '@/comp/ui';
+import {
+    Dialog,
+    DialogContent,
+    DialogHeader,
+    DialogTitle,
+    DialogDescription
+} from '@/components/ui';
 import { CheckCircle2, XCircle } from 'lucide-react';
 import React from 'react';
 import { useTranslations } from 'next-intl';
@@ -36,24 +42,26 @@ export function NewsletterConfirmDialog() {
                                 </svg>
                             </div>
                             <DialogTitle>
-                                {t('app.newsletter.confirmDialogTitleLoading')}
+                                {t('common.newsletter.confirmDialogTitleLoading')}
                             </DialogTitle>
                             <DialogDescription>
-                                {t('app.newsletter.confirmDialogDescLoading')}
+                                {t('common.newsletter.confirmDialogDescLoading')}
                             </DialogDescription>
                         </div>
                     ) : status === 'success' ? (
                         <div className="flex flex-col items-center gap-2 py-6">
                             <CheckCircle2 className="mb-2 h-12 w-12 text-green-500" />
                             <DialogTitle>
-                                {t('app.newsletter.confirmDialogTitleSuccess')}
+                                {t('common.newsletter.confirmDialogTitleSuccess')}
                             </DialogTitle>
                             <DialogDescription>{message}</DialogDescription>
                         </div>
                     ) : status === 'error' ? (
                         <div className="flex flex-col items-center gap-2 py-6">
                             <XCircle className="mb-2 h-12 w-12 text-red-500" />
-                            <DialogTitle>{t('app.newsletter.confirmDialogTitleError')}</DialogTitle>
+                            <DialogTitle>
+                                {t('common.newsletter.confirmDialogTitleError')}
+                            </DialogTitle>
                             <DialogDescription>{message}</DialogDescription>
                         </div>
                     ) : null}

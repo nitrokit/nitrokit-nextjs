@@ -49,7 +49,7 @@ export function ResetPasswordForm() {
                 if (state.errors?.[errorKey]) {
                     form.setError(errorKey, {
                         type: 'server',
-                        message: state.errors[errorKey]?.[0] || t('app.errors.general')
+                        message: state.errors[errorKey]?.[0] || t('common.errors.general')
                     });
                 }
             });
@@ -68,12 +68,12 @@ export function ResetPasswordForm() {
                     name="email"
                     render={({ field }) => (
                         <FormItem>
-                            <FormLabel htmlFor="email">{t('app.common.email')}</FormLabel>
+                            <FormLabel htmlFor="email">{t('common.buttons.email')}</FormLabel>
                             <FormControl>
                                 <Input
                                     id="email"
                                     type="email"
-                                    placeholder={t('app.placeholders.email')}
+                                    placeholder={t('common.placeholders.email')}
                                     {...field}
                                 />
                             </FormControl>
@@ -82,7 +82,7 @@ export function ResetPasswordForm() {
                     )}
                 />
 
-                <SubmitButton textKey="app.common.continue" endIcon={<IconMoveRight />} />
+                <SubmitButton textKey="common.buttons.continue" endIcon={<IconMoveRight />} />
             </form>
         </Form>
     );

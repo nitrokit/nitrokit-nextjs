@@ -3,8 +3,8 @@ import createMiddleware from 'next-intl/middleware';
 import { routing } from './lib/i18n/routing';
 import { PUBLIC_ROUTES } from './constants';
 import { handleRateLimit } from './middlewares';
-import { APP_ROUTES, AUTH_ROUTES } from './lib/auth/constants';
-import { checkAuthentication, handleSessionTracking } from './middlewares/session';
+import { AUTH_ROUTES } from './lib/auth/constants';
+import { checkAuthentication } from './middlewares/session';
 
 const intlMiddleware = createMiddleware(routing);
 
@@ -14,10 +14,6 @@ export default async function middleware(request: NextRequest) {
         ...PUBLIC_ROUTES,
         ...Object.values(AUTH_ROUTES)
     ];
-
-    if (request.nextUrl.pathname.startsWith(APP_ROUTES.HOME)) {
-        await handleSessionTracking(request);
-    }
 
     if (request.nextUrl.pathname.startsWith('/api/')) {
         const isAuthRoute = request.nextUrl.pathname.startsWith('/api/auth/');

@@ -1,4 +1,11 @@
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/comp/ui';
+import {
+    Card,
+    CardContent,
+    CardDescription,
+    CardFooter,
+    CardHeader,
+    CardTitle
+} from '@/components/ui';
 import React from 'react';
 
 interface FormCardProps {

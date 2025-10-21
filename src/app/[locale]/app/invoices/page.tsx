@@ -1,5 +1,18 @@
-'use client';
+import { ScrollArea } from '@/components/ui';
 
-export default function Page() {
-    return <>Page</>;
+export default function DashboardPage({
+    searchParams: _searchParams
+}: {
+    searchParams: Promise<{
+        tab?: string;
+        view?: string;
+    }>;
+}) {
+    return (
+        <div className="flex h-full flex-col">
+            <ScrollArea className="h-full">
+                <div className="px-4 py-6 lg:px-6">Invoices</div>
+            </ScrollArea>
+        </div>
+    );
 }
