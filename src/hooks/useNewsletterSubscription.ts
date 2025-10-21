@@ -1,44 +1,68 @@
-import { NewsletterSubscriptionResponse, NewsletterSubscriptionResponseSchema } from '@/lib';
-import { useState } from 'react';
+import { useEffect, useState, useTransition } from 'react';
+import { newsletterSubscriptionAction, NewsletterSubscriptionResponse } from '@/lib';
+import { useLocale, useTranslations } from 'next-intl';
 
-export const useNewsletterSubscription = () => {
-    const [loading, setLoading] = useState(false);
+interface UseNewsletterSubscriptionResult {
+    subscribe: (email: string) => void;
+    loading: boolean;
+    isSubscribed: boolean;
+    error: string | null;
+    success: boolean;
+    isInitialLoading: boolean;
+}
+
+const getInitialIsSubscribed = (): boolean => false;
+
+export function useNewsletterSubscription(): UseNewsletterSubscriptionResult {
+    const [isPending, startTransition] = useTransition();
+    const [isSubscribed, setIsSubscribed] = useState(getInitialIsSubscribed);
+    const [isInitialLoading, setIsInitialLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
     const [success, setSuccess] = useState(false);
-    const [isSubscribed, setIsSubscribed] = useState(false);
 
-    const subscribe = async (email: string) => {
-        setLoading(true);
+    const t = useTranslations();
+    const locale = useLocale();
+
+    useEffect(() => {
+        if (localStorage.getItem('isNewsletterSubscribed') === 'true') {
+            setIsSubscribed(true);
+        }
+        setIsInitialLoading(false);
+    }, []);
+
+    const subscribe = (email: string) => {
         setError(null);
         setSuccess(false);
-        try {
-            const res = await fetch('/api/newsletter/subscribe', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ email })
-            });
 
-            const parsed = NewsletterSubscriptionResponseSchema.safeParse(await res.json());
+        const formData = new FormData();
+        formData.append('email', email);
+        formData.append('locale', locale);
 
-            if (!parsed.success) {
-                setError('app.errors.general');
-                return;
-            }
-            const data: NewsletterSubscriptionResponse = parsed.data;
+        startTransition(async () => {
+            const result: NewsletterSubscriptionResponse = await newsletterSubscriptionAction(
+                { success: false },
+                formData
+            );
 
-            if (data.success) {
-                setIsSubscribed(true);
+            if (result.success) {
                 setSuccess(true);
-                setTimeout(() => setIsSubscribed(false), 3000);
+                setIsSubscribed(true);
+                localStorage.setItem('isNewsletterSubscribed', 'true');
             } else {
-                setError(data.error || 'app.errors.general');
+                setSuccess(false);
+                const errorMessage: string =
+                    result.error || result.error || t('common.errors.general');
+                setError(errorMessage);
             }
-        } catch {
-            setError('app.errors.general');
-        } finally {
-            setLoading(false);
-        }
+        });
     };
 
-    return { subscribe, loading, error, success, isSubscribed };
-};
+    return {
+        subscribe,
+        loading: isPending,
+        isSubscribed,
+        error,
+        success,
+        isInitialLoading
+    };
+}

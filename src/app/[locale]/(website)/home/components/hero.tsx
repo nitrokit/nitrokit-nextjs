@@ -1,8 +1,8 @@
 import { GITHUB_URL, TESTIMONIALS as staticTestimonials } from '@/constants';
-import { CompactBanner } from '@/components/banners';
+import { CompactBanner } from '@/components/website/banners';
 
 import { RandomText, TextRotator } from '@/components/shared';
-import { UserTrustSection } from '@/components/testimonial';
+import { UserTrustSection } from '@/components/website/testimonial';
 import { useTranslations } from 'next-intl';
 
 function getTestimonialData() {
@@ -57,6 +57,7 @@ export function Hero() {
                     <UserTrustSection
                         testimonials={testimonials}
                         label={t('testimonials.slogan')}
+                        className="mb-10"
                     />
 
                     <div className="mb-6 flex flex-col items-center justify-center gap-4 sm:flex-row"></div>

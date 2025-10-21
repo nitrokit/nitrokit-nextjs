@@ -34,7 +34,7 @@ const defaultPreferences: CookiePreferences = {
 };
 
 export function CookieConsent() {
-    const t = useTranslations('app');
+    const t = useTranslations('common');
     const [isVisible, setIsVisible] = useState(false);
     const [showSettings, setShowSettings] = useState(false);
     const [preferences, setPreferences] = useState<CookiePreferences>(defaultPreferences);
@@ -139,13 +139,9 @@ export function CookieConsent() {
         }
     };
 
-    const enableFunctional = () => {
-        console.log('Functional cookies enabled');
-    };
+    const enableFunctional = () => {};
 
-    const disableFunctional = () => {
-        console.log('Functional cookies disabled');
-    };
+    const disableFunctional = () => {};
 
     const acceptAll = () => {
         const allAccepted: CookiePreferences = {

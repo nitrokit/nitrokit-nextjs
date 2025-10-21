@@ -34,16 +34,17 @@ enum TokenType {
 //
 
 model Account {
+  id                String  @id @default(cuid())
   userId            String
   type              String
   provider          String
   providerAccountId String
-  refresh_token     String?
-  access_token      String?
+  refresh_token     String? @db.Text
+  access_token      String? @db.Text
   expires_at        Int?
   token_type        String?
   scope             String?
-  id_token          String?
+  id_token          String? @db.Text
   session_state     String?
 
   createdAt DateTime @default(now())
@@ -51,7 +52,8 @@ model Account {
 
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 
-  @@id([provider, providerAccountId])
+  @@unique([provider, providerAccountId])
+  @@map("accounts")
 }
 
 //
@@ -81,9 +83,40 @@ model NewsletterSubscriber {
   id         String    @id @default(cuid())
   email      String    @unique
   verified   Boolean   @default(false)
+  locale     String    @default("tr")
   token      String?
   createdAt  DateTime  @default(now())
   verifiedAt DateTime?
+}
+
+//
+// PasswordResetToken.prisma
+//
+
+model PasswordResetToken {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  token     String   @unique
+  expires   DateTime
+  createdAt DateTime @default(now())
+
+  @@unique([email, token])
+}
+
+//
+// RefreshToken.prisma
+//
+
+model RefreshToken {
+  id        String   @id @default(cuid())
+  token     String   @unique
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  expires   DateTime
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([userId])
 }
 
 //
@@ -91,13 +124,24 @@ model NewsletterSubscriber {
 //
 
 model Session {
+  id           String   @id @default(cuid())
   sessionToken String   @unique
   userId       String
   expires      DateTime
-  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  ipAddress  String?  @map("ip_address")
+  userAgent  String?  @map("user_agent")
+  deviceType String?  @map("device_type")
+  browser    String?
+  os         String?
+  location   String?
+  lastActive DateTime @default(now()) @map("last_active")
+  createdAt  DateTime @default(now()) @map("created_at")
+  updatedAt  DateTime @updatedAt
+
+  @@map("sessions")
 }
 
 //
@@ -105,18 +149,34 @@ model Session {
 //
 
 model User {
-  id            String          @id @default(cuid())
+  id            String    @id @default(cuid())
   name          String?
-  email         String          @unique
+  email         String    @unique
   emailVerified DateTime?
+  password      String?
   image         String?
+
+  twoFactorEnabled     Boolean   @default(false) @map("two_factor_enabled")
+  twoFactorSecret      String?   @map("two_factor_secret")
+  twoFactorBackupCodes String[]  @map("two_factor_backup_codes")
+  twoFactorVerifiedAt  DateTime? @map("two_factor_verified_at")
+
+  firstName String?
+  lastName  String?
+  username  String?
+
+  locale         String  @default("en")
+  theme          String  @default("system")
+  receiveUpdates Boolean @default(true) @map("receive_updates")
+
+  lastLoginAt DateTime?
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  authenticator Authenticator[]
+  refreshTokens RefreshToken[]
   accounts      Account[]
   sessions      Session[]
-  // Optional for WebAuthn support
-  Authenticator Authenticator[]
-
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
 }
 
 //
@@ -124,8 +184,8 @@ model User {
 //
 
 model VerificationToken {
-  identifier String
-  token      String
+  identifier String   @unique
+  token      String   @unique
   expires    DateTime
 
   @@id([identifier, token])

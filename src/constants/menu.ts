@@ -14,32 +14,37 @@ interface NavLink {
 }
 
 const NAV_LINKS: readonly NavLink[] = [
-    { name: 'app.navigation.home', description: '', path: '/', icon: IconHome },
-    { name: 'app.navigation.about', description: '', path: '/about/', icon: IconInfo },
-    { name: 'app.navigation.pricing', description: '', path: '/pricing/', icon: IconCreditCard },
-    { name: 'app.navigation.contact', description: '', path: '/contact/', icon: IconMessageCircle }
+    { name: 'common.navigation.home', description: '', path: '/', icon: IconHome },
+    { name: 'common.navigation.about', description: '', path: '/about/', icon: IconInfo },
+    { name: 'common.navigation.pricing', description: '', path: '/pricing/', icon: IconCreditCard },
+    {
+        name: 'common.navigation.contact',
+        description: '',
+        path: '/contact/',
+        icon: IconMessageCircle
+    }
 ] as const;
 
 const FOOTER_LINKS = {
     SECTION1: [
-        { name: 'app.navigation.features', href: '#', noLocale: false },
-        { name: 'app.navigation.pricing', href: '#', noLocale: false },
+        { name: 'common.navigation.features', href: '#', noLocale: false },
+        { name: 'common.navigation.pricing', href: '#', noLocale: false },
         {
-            name: 'app.navigation.docs',
+            name: 'common.navigation.docs',
             href: '#',
             noLocale: true
         },
-        { name: 'app.navigation.storybook', href: '#', noLocale: true }
+        { name: 'common.navigation.storybook', href: '#', noLocale: true }
     ],
     SECTION2: [
-        { name: 'app.navigation.getting_started', href: '#', noLocale: false },
-        { name: 'app.navigation.faq', href: '#', noLocale: false },
+        { name: 'common.navigation.getting_started', href: '#', noLocale: false },
+        { name: 'common.navigation.faq', href: '#', noLocale: false },
         {
-            name: 'app.navigation.community',
+            name: 'common.navigation.community',
             href: 'https://github.com/mustafagenc/nitrokit/discussions',
             noLocale: true
         },
-        { name: 'app.navigation.contact', href: '/contact', noLocale: false }
+        { name: 'common.navigation.contact', href: '/contact', noLocale: false }
     ]
 };
 
@@ -47,6 +52,7 @@ const PUBLIC_ROUTES = [
     NAV_LINKS.map((link) => link.path),
     '/faq',
     '/privacy',
+    '/terms',
     '/login',
     '/error',
     '/verify-request',

@@ -1,1 +1,3 @@
-export * from './send-contact-email';
+export * from './contact';
+export * from './newsletter';
+export * from './auth';

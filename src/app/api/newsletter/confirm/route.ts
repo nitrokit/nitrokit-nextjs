@@ -11,14 +11,14 @@ export async function GET(req: Request) {
 
         if (!token) {
             return NextResponse.json(
-                { success: false, error: translate('app.newsletter.invalidToken') },
+                { success: false, error: translate('common.newsletter.invalidToken') },
                 { status: 400 }
             );
         }
 
         if (!apiRateLimit) {
             return NextResponse.json(
-                { success: false, error: translate('app.errors.rate_limit_unavailable') },
+                { success: false, error: translate('common.errors.rate_limit_unavailable') },
                 { status: 500 }
             );
         }
@@ -29,7 +29,7 @@ export async function GET(req: Request) {
         //     return new NextResponse(
         //         JSON.stringify({
         //             success: false,
-        //             error: translate('app.errors.rate_limit_exceeded'),
+        //             error: translate('common.errors.rate_limit_exceeded'),
         //         }),
         //         {
         //             status: 429,
@@ -41,7 +41,7 @@ export async function GET(req: Request) {
         const subscriber = await prisma.newsletterSubscriber.findFirst({ where: { token } });
         if (!subscriber) {
             return NextResponse.json(
-                { success: false, error: translate('app.newsletter.invalidToken') },
+                { success: false, error: translate('common.newsletter.invalidToken') },
                 { status: 404 }
             );
         }
@@ -49,7 +49,7 @@ export async function GET(req: Request) {
         if (subscriber.verified) {
             return NextResponse.json({
                 success: true,
-                message: translate('app.newsletter.alreadySubscribed')
+                message: translate('common.newsletter.alreadySubscribed')
             });
         }
 
@@ -60,11 +60,11 @@ export async function GET(req: Request) {
 
         return NextResponse.json({
             success: true,
-            message: translate('app.newsletter.confirmSuccess')
+            message: translate('common.newsletter.confirmSuccess')
         });
     } catch {
         return NextResponse.json(
-            { success: false, error: translate('app.errors.general') },
+            { success: false, error: translate('common.errors.general') },
             { status: 500 }
         );
     }

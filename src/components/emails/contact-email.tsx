@@ -1,23 +1,26 @@
+import { translateRichSafely } from '@/lib';
 import { BaseEmail } from './base-email';
 import { Button, Section, Text, Hr } from '@react-email/components';
+import { Locale } from 'next-intl';
+import { getTranslations } from 'next-intl/server';
 
 interface ContactEmailProps {
     name: string;
     email: string;
     message: string;
+    locale: Locale;
 }
 
-export function ContactEmail({ name, email, message }: ContactEmailProps) {
+export async function ContactEmail({ name, email, message, locale }: ContactEmailProps) {
+    const t = await getTranslations({ locale, namespace: 'email.contactMessage' });
     return (
         <BaseEmail
-            preview={`New contact form submission from ${name}`}
-            headerTitle="📬 New Contact Message"
+            preview={t('preview', { name: name })}
+            headerTitle={t('headerTitle')}
             headerGradient="linear-gradient(135deg, #06b6d4 0%, #0891b2 100%)"
         >
             <Section style={section}>
-                <Text style={heading}>
-                    You have received a new message from your website contact form:
-                </Text>
+                <Text style={heading}>{t('introText')}</Text>
             </Section>
 
             <Hr style={divider} />
@@ -25,12 +28,12 @@ export function ContactEmail({ name, email, message }: ContactEmailProps) {
             <Section style={section}>
                 <div style={infoContainer}>
                     <div style={infoRow}>
-                        <Text style={infoLabel}>👤 From:</Text>
+                        <Text style={infoLabel}>{t('fromLabel')}</Text>
                         <Text style={infoValue}>{name}</Text>
                     </div>
 
                     <div style={infoRow}>
-                        <Text style={infoLabel}>📧 Email:</Text>
+                        <Text style={infoLabel}>{t('emailLabel')}</Text>
                         <Text style={infoValue}>{email}</Text>
                     </div>
                 </div>
@@ -39,7 +42,7 @@ export function ContactEmail({ name, email, message }: ContactEmailProps) {
             <Hr style={divider} />
 
             <Section style={section}>
-                <Text style={infoLabel}>💬 Message:</Text>
+                <Text style={infoLabel}>{t('messageLabel')}</Text>
                 <div style={messageContainer}>
                     <Text style={messageText}>{message}</Text>
                 </div>
@@ -50,7 +53,7 @@ export function ContactEmail({ name, email, message }: ContactEmailProps) {
                     href={`mailto:${email}?subject=Re: Your message to Nitrokit`}
                     style={replyButton}
                 >
-                    📩 Reply to {name}
+                    {t('replyButton', { name: name })}
                 </Button>
             </Section>
 
@@ -58,8 +61,9 @@ export function ContactEmail({ name, email, message }: ContactEmailProps) {
 
             <Section style={section}>
                 <Text style={footerText}>
-                    This email was sent from your website contact form. Click the button above or
-                    reply directly to <strong>{email}</strong> to respond to the sender.
+                    {translateRichSafely(t, `footerText`, {
+                        email: (chunks) => <strong>{chunks}</strong>
+                    })}
                 </Text>
             </Section>
         </BaseEmail>

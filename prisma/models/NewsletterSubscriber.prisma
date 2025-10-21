@@ -2,6 +2,7 @@ model NewsletterSubscriber {
   id         String   @id @default(cuid())
   email      String   @unique
   verified   Boolean  @default(false)
+  locale    String   @default("tr")
   token      String?
   createdAt  DateTime @default(now())
   verifiedAt DateTime?

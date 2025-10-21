@@ -1,19 +1,28 @@
 import { BaseEmail, emailStyles } from './base-email';
 import { Button, Section, Text, Hr } from '@react-email/components';
+import { Locale } from 'next-intl';
+import { getTranslations } from 'next-intl/server';
 
-export function NewsletterConfirmationEmail({ confirmUrl }: { confirmUrl: string }) {
+interface NewsletterConfirmationEmailProps {
+    confirmUrl: string;
+    locale: Locale;
+}
+
+export async function NewsletterConfirmationEmail({
+    confirmUrl,
+    locale
+}: NewsletterConfirmationEmailProps) {
+    const t = await getTranslations({ locale, namespace: 'email.newsletterConfirmation' });
+
     return (
         <BaseEmail
-            preview="Haber Bülteni Aboneliği Onayı"
-            headerTitle="📰 Haber Bülteni Onayı"
+            preview={t('preview')}
+            headerTitle={t('headerTitle')}
             headerGradient="linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%)"
         >
             <Section>
-                <Text style={emailStyles.greeting}>Aboneliğinizi tamamlayın!</Text>
-                <Text style={emailStyles.paragraph}>
-                    Haber bültenimize abone olduğunuz için teşekkürler. En güncel gelişmelerden ve
-                    özel içeriklerden haberdar olmak için aboneliğinizi onaylamanız gerekiyor.
-                </Text>
+                <Text style={emailStyles.greeting}>{t('greeting')}</Text>
+                <Text style={emailStyles.paragraph}>{t('paragraph1')}</Text>
             </Section>
 
             <Section style={emailStyles.buttonContainer}>
@@ -25,18 +34,14 @@ export function NewsletterConfirmationEmail({ confirmUrl }: { confirmUrl: string
                         boxShadow: '0 2px 8px rgba(99,102,241,0.15)'
                     }}
                 >
-                    Aboneliği Onayla
+                    {t('button')}
                 </Button>
             </Section>
 
             <Hr style={emailStyles.hr} />
 
             <Section>
-                <Text style={emailStyles.linkText}>
-                    Eğer bu isteği siz yapmadıysanız, bu e-postayı dikkate almayabilirsiniz.
-                    <br />
-                    Her zaman abonelikten çıkabilirsiniz.
-                </Text>
+                <Text style={emailStyles.linkText}>{t('footerNote')}</Text>
             </Section>
         </BaseEmail>
     );

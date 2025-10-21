@@ -1,4 +1,4 @@
-import { contactFormSchema, ContactFormData } from '../contact-form-schema';
+import { ContactFormSchema, ContactFormData } from '../contact-form-schema';
 import { describe, it, expect, vi } from 'vitest';
 import { ZodError } from 'zod';
 
@@ -7,7 +7,7 @@ const mockT = vi.fn((key: string) => `MOCK_MESSAGE_${key.toUpperCase()}`);
 
 describe('Contact Form Zod Schema Validation', () => {
     // Schema instance using the mock translation function
-    const schema = contactFormSchema(mockT);
+    const schema = ContactFormSchema(mockT);
 
     // --- Success Case ---
 

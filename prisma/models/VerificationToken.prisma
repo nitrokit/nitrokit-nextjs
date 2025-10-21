@@ -1,6 +1,6 @@
 model VerificationToken {
-  identifier String
-  token      String
+  identifier String @unique
+  token      String @unique
   expires    DateTime
 
   @@id([identifier, token])

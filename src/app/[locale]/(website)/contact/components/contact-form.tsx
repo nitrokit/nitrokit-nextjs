@@ -1,14 +1,12 @@
 'use client';
 
-import { useState, useTransition } from 'react';
+import React, { useState } from 'react';
 import { useTranslations } from 'next-intl';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { toast } from 'sonner';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { Send, CheckCircle, AlertCircle } from 'lucide-react';
-
+import { Send, CheckCircle, AlertCircle, Badge } from 'lucide-react';
 import {
-    Badge,
     Button,
     Form,
     FormControl,
@@ -19,64 +17,102 @@ import {
     Input,
     Textarea
 } from '@/components/ui';
-import {
-    sendContactEmail,
-    EmailServiceResult,
-    contactFormSchema,
-    type ContactFormData,
-    cn
-} from '@/lib';
 import { Link } from '@/lib/i18n/navigation';
+import { SimpleTFunction } from '@/types/i18n';
+import { useTransition } from 'react';
+import {
+    cn,
+    contactAction,
+    ContactActionResponse,
+    ContactFormData,
+    ContactFormSchema
+} from '@/lib';
+import { useUser } from '@/contexts/user-context';
 
 type FormStatus = 'idle' | 'success' | 'error';
 
 export const ContactForm = () => {
     const t = useTranslations();
-    const simpleT = (key: string) => t(key as any);
+    const { user } = useUser();
     const [isPending, startTransition] = useTransition();
     const [formStatus, setFormStatus] = useState<FormStatus>('idle');
+    const [actionError, setActionError] = useState<string | null>(null);
+
+    let name: string = '';
+    let email: string = '';
+
+    if (user) {
+        name = user.name!;
+        email = user.email;
+    }
 
     const form = useForm<ContactFormData>({
-        resolver: zodResolver(contactFormSchema(simpleT)),
+        resolver: zodResolver(ContactFormSchema(t as SimpleTFunction)),
         defaultValues: {
-            name: '',
-            email: '',
+            name: name,
+            email: email,
             message: ''
         },
         mode: 'onBlur'
     });
 
     const {
-        formState: { isSubmitting, errors, isValid, touchedFields }
+        formState: { isSubmitting, isValid, touchedFields, errors }
     } = form;
 
     const handleFormSubmit: SubmitHandler<ContactFormData> = (data) => {
+        setFormStatus('idle');
+        setActionError(null);
+
+        const formData = new FormData();
+        formData.append('name', data.name);
+        formData.append('email', data.email);
+        formData.append('message', data.message);
+
         startTransition(async () => {
-            setFormStatus('idle');
             try {
-                const result: EmailServiceResult = await sendContactEmail(data);
-                console.log(result);
+                const result: ContactActionResponse = await contactAction(
+                    { success: false },
+                    formData
+                );
+
                 if (!result.success) {
                     setFormStatus('error');
-                    toast.error(t('app.errors.general'), {
+
+                    const generalError: string =
+                        result.error || result.message || t('common.errors.general');
+                    setActionError(generalError);
+
+                    if (result.error) {
+                        Object.keys(result.error).forEach((key) => {
+                            const field = key as keyof ContactFormData;
+                            form.setError(field, {
+                                type: 'server',
+                                message: result.error || t('common.errors.general')
+                            });
+                        });
+                    }
+
+                    toast.error(generalError, {
                         icon: <AlertCircle className="h-4 w-4" />
                     });
+                    return;
                 }
 
                 setFormStatus('success');
-                toast.success(t('contact.message_sent'), {
+                toast.success(result.message || t('contact.message_sent'), {
                     icon: <CheckCircle className="h-4 w-4" />,
                     description: t('contact.message_sent_description')
                 });
                 form.reset();
-                setFormStatus('idle');
+                // setFormStatus('idle');
             } catch (error) {
                 console.error(error);
                 setFormStatus('error');
-                toast.error(t('app.errors.general'), {
+                setActionError(t('common.errors.general'));
+                toast.error(t('common.errors.general'), {
                     icon: <AlertCircle className="h-4 w-4" />
                 });
-            } finally {
             }
         });
     };
@@ -89,10 +125,7 @@ export const ContactForm = () => {
                 <div className="flex items-center justify-between">
                     <h2 className="text-2xl font-bold">{t('contact.form_heading')}</h2>
                     {formStatus === 'success' && (
-                        <Badge
-                            variant="secondary"
-                            className="border-green-200 bg-green-50 text-green-700"
-                        >
+                        <Badge className="border-green-200 text-green-700">
                             <CheckCircle className="mr-1 h-3 w-3" />
                             {t('contact.message_sent')}
                         </Badge>
@@ -225,6 +258,10 @@ export const ContactForm = () => {
                                 </>
                             )}
                         </Button>
+
+                        {actionError && formStatus === 'error' && (
+                            <p className="text-destructive mt-2 text-sm">{actionError}</p>
+                        )}
 
                         <p className="text-muted-foreground mt-4 text-center text-xs">
                             {t.rich('contact.privacy_policy_agreement', {

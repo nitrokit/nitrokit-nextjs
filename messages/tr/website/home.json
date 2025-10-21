@@ -1,0 +1,49 @@
+{
+    "title": "",
+    "description": "",
+    "banner": {
+        "badge": "Yeni",
+        "text": "v1.0.0 çıktı! Yeniliklere göz atın"
+    },
+    "hero": {
+        "titles": {
+            "title1": "Nitrokit ile Modern Uygulamaları Daha Hızlı Üret",
+            "title2": "Nitrokit ile Harika Uygulamalar Geliştir"
+        },
+        "description": {
+            "description1": "Nitrokit ile kolayca harika uygulamalar geliştir. Fikirlerini kısa sürede gerçeğe dönüştür.",
+            "description2": "Nitrokit sayesinde projelerini dakikalar içinde tasarla, test et ve yayına al — zahmetsizce.",
+            "description3": "Zaman kazandıran ve etkini artıran güçlü bir platform: Nitrokit. Yaratıcılığını özgür bırak.",
+            "description4": "Fikirden canlı ürüne giden yolu Nitrokit ile hızlandır."
+        }
+    },
+    "stats": {
+        "components": {
+            "number": "50+",
+            "label": "UI Bileşenleri"
+        },
+        "typescript": {
+            "number": "TypeScript",
+            "label": "Tam Destek"
+        },
+        "modern": {
+            "number": "Modern",
+            "label": "Teknoloji Yığını"
+        }
+    },
+    "testimonials": {
+        "slogan": "Yeni nesil startuplara güç veriyor",
+        "title": "Müşteri Görüşleri",
+        "subtitle": "Binlerce Kullanıcı Tarafından Seviliyor",
+        "description": "Nitrokit'in neden bu kadar sevildiğini keşfedin ve bugün katılarak işiniz için dönüştürücü gücünü deneyimleyin."
+    },
+    "technologies": {
+        "title": "Modern Teknolojilerle Güçlendirilmiştir"
+    },
+    "cta": {
+        "title": "Başlamaya hazır mısınız?",
+        "description": "GitHub'daki projemize göz atın ve geliştirme sürecinizi hızlandırın.",
+        "github": "GitHub Deposu",
+        "docs": "Belgeler"
+    }
+}

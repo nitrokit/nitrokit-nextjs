@@ -10,7 +10,13 @@ import { Locale } from '@/constants';
 import { usePathname, useRouter } from '@/lib/i18n/navigation';
 import { LOCALES_WITH_FLAG } from '@/lib/utils';
 
-export const LocaleSwitcher = () => {
+type PopoverDirection = 'top' | 'right' | 'bottom' | 'left';
+
+interface LocaleSwitcherProps {
+    side?: PopoverDirection;
+}
+
+export const LocaleSwitcher = ({ side = 'bottom' }: LocaleSwitcherProps) => {
     const router = useRouter();
     const pathname = usePathname();
 
@@ -34,15 +40,11 @@ export const LocaleSwitcher = () => {
         <Suspense fallback={<SmallLoading />}>
             <Popover open={open} onOpenChange={setOpen}>
                 <PopoverTrigger asChild>
-                    <Button
-                        size="icon"
-                        variant="outline"
-                        className="cursor-pointer rounded-full text-gray-500 hover:text-gray-700"
-                    >
+                    <Button size="icon" variant="ghost" className="h-10 w-10 rounded-full">
                         <Globe className="h-4 w-4" />
                     </Button>
                 </PopoverTrigger>
-                <PopoverContent className="w-35 p-1 shadow-xs" side="bottom">
+                <PopoverContent className="w-35 p-1 shadow-xs" side={side}>
                     {LOCALES_WITH_FLAG.map((LOCALE) => (
                         <div
                             key={LOCALE.id}

@@ -1,0 +1,81 @@
+@keyframes flow-down {
+    from {
+        background-position: 0 -100px;
+    }
+    to {
+        background-position: 0 0;
+    }
+}
+
+.animate-flow-down {
+    animation: flow-down 10s linear infinite;
+}
+
+.bg-grid-lines {
+    --grid-color: rgba(221, 221, 221, 0.2); /* Light theme grid lines */
+    background-image: linear-gradient(
+        to bottom,
+        transparent 95%,
+        var(--grid-color) 95%,
+        var(--grid-color) 100%
+    );
+    background-size: 100% 20px;
+    background-repeat: repeat-y;
+}
+
+/* Dark mode için grid rengini değiştirme */
+.dark .bg-grid-lines {
+    --grid-color: rgba(51, 51, 51, 0.4); /* Dark theme grid lines */
+}
+
+/* Diğer animasyonlar için (fade-in-up, type-out, blink) */
+@keyframes fade-in-up {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.animate-fade-in-up {
+    animation: fade-in-up 0.5s ease-out;
+}
+
+@keyframes type-out {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+.animate-type-out {
+    animation-name: type-out;
+    animation-duration: 20ms;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
+}
+
+@keyframes blink {
+    50% {
+        opacity: 0;
+    }
+}
+.animate-blink {
+    animation: blink 1s step-end infinite;
+}
+
+@keyframes slow-flow {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(100vh);
+    }
+}
+
+.animate-slow-flow {
+    animation: slow-flow 25s linear infinite;
+}

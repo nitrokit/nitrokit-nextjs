@@ -1,10 +1,10 @@
 import { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
-import { useTranslations } from 'next-intl';
 import { generatePageMetadata } from '@/lib';
+import { PrivacyComponent } from './components/privacy-content';
 
 export async function generateMetadata(): Promise<Metadata> {
-    const t = await getTranslations('app.privacyPolicy');
+    const t = await getTranslations('common.privacyPolicy');
     return await generatePageMetadata({
         params: Promise.resolve({
             title: t('title'),
@@ -13,32 +13,18 @@ export async function generateMetadata(): Promise<Metadata> {
     });
 }
 
-export default function PrivacyPolicyPage() {
-    const t = useTranslations('app.privacyPolicy');
+export default async function Page() {
+    const t = await getTranslations('common.privacyPolicy');
     return (
-        <div className="w-full py-10 lg:mx-auto lg:w-7xl">
-            <h1 className="py-6 text-3xl font-bold">{t('title')}</h1>
+        <div className="mx-auto max-w-4xl px-4 py-12 sm:px-6 lg:px-8">
+            <h1 className="mb-8 text-4xl font-bold text-gray-900 dark:text-gray-100">
+                {t('title')}
+            </h1>
 
-            <p className="py-4">{t('description')}</p>
+            <p className="mb-10 text-gray-700 dark:text-gray-300">{t('description')}</p>
 
-            <div className="space-y-4">
-                <h2 className="text-2xl font-bold">{t('whatData.title')}</h2>
-                <p>{t('whatData.text')}</p>
-            </div>
-
-            <div className="space-y-4">
-                <h2 className="text-2xl font-bold">{t('howWeUse.title')}</h2>
-                <div className="whitespace-pre-line">{t('howWeUse.text')}</div>
-            </div>
-
-            <div className="space-y-4">
-                <h2 className="text-2xl font-bold">{t('dataSharing.title')}</h2>
-                <p>{t('dataSharing.text')}</p>
-            </div>
-
-            <div className="space-y-4">
-                <h2 className="text-2xl font-bold">{t('contactInfo.title')}</h2>
-                <p>{t('contactInfo.text')}</p>
+            <div className="space-y-10">
+                <PrivacyComponent />
             </div>
         </div>
     );

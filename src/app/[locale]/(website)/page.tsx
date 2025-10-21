@@ -1,18 +1,10 @@
 'use client';
 
-// import { useUser } from '@/contexts/user-context';
-
-// export default function Home() {
-//     const { user, isLoading } = useUser();
-//     console.log('User', user, isLoading);
-// }
-
-import { BackgroundPatterns, LibraryLogos } from '@/components/layout';
-import { NewsletterConfirmDialog } from '@/components/newsletter';
-import { Testimonials } from '@/components/testimonial';
+import { BackgroundPatterns, NewsletterConfirmDialog, Testimonials } from '@/components/website';
 import { Hero, GitHubSection } from './home/components';
+import { LibraryLogos } from '@/components/shared';
 
-export default function Home() {
+export default function Page() {
     return (
         <div className="relative -top-20 min-h-screen overflow-hidden bg-white transition-colors duration-300 dark:bg-[#111113]">
             <NewsletterConfirmDialog />

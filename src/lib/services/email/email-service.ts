@@ -35,10 +35,8 @@ export class EmailService {
                 };
             }
 
-            // Process templates
             const processedData = this.processTemplate(data);
 
-            // Send email
             const result = await this.provider.sendEmail(processedData);
 
             if (result.success) {
