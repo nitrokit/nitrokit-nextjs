@@ -48,7 +48,7 @@ export function AppBreadcrumb() {
 
     return (
         <Breadcrumb className="hidden lg:flex">
-            <BreadcrumbList>
+            <BreadcrumbList className="text-xs">
                 {breadcrumbs.map((breadcrumb, index) => {
                     const isLast = index === breadcrumbs.length - 1;
                     return (

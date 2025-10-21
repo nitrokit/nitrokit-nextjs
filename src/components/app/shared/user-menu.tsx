@@ -143,33 +143,29 @@ export function UserMenu({ size = 'size-10' }: UserMenuProps) {
             <PopoverTrigger asChild>
                 <button className="flex w-full items-center gap-2.5 px-2.5 py-1.5 text-xs transition-colors hover:bg-gray-100 dark:hover:bg-gray-800">
                     <Shield className="h-4 w-4 shrink-0" />
-                    <span className="flex-1 text-left">{t('user.menu.security.title')}</span>
+                    <span className="flex-1 text-left">{t('navigation.security')}</span>
                     <ChevronRight className="h-4 w-4 shrink-0" />
                 </button>
             </PopoverTrigger>
             <PopoverContent side="right" align="start" className="w-52 p-1.5" sideOffset={8}>
                 <div className="space-y-0.5">
-                    <MenuItem icon={Shield} onClick={() => handleNavigation(APP_ROUTES.SECURITY)}>
-                        {t('user.menu.security.overview')}
-                    </MenuItem>
-                    <div className="my-1.5 h-px bg-gray-200 dark:bg-gray-700" />
                     <MenuItem
                         icon={Key}
                         onClick={() => handleNavigation(APP_ROUTES.SECURITY_PASSWORD)}
                     >
-                        {t('user.menu.security.password')}
+                        {t('navigation.password')}
                     </MenuItem>
                     <MenuItem
                         icon={Smartphone}
                         onClick={() => handleNavigation(APP_ROUTES.SECURITY_2FA)}
                     >
-                        {t('user.menu.security.twoFactor')}
+                        {t('navigation.2fa')}
                     </MenuItem>
                     <MenuItem
                         icon={Monitor}
                         onClick={() => handleNavigation(APP_ROUTES.SECURITY_SESSIONS)}
                     >
-                        {t('user.menu.security.sessions')}
+                        {t('navigation.sessions')}
                     </MenuItem>
                 </div>
             </PopoverContent>
@@ -205,32 +201,30 @@ export function UserMenu({ size = 'size-10' }: UserMenuProps) {
                         <div className="mb-3">
                             <div className="mb-1.5 px-2 py-1">
                                 <h3 className="text-xs font-semibold tracking-wider text-gray-500 uppercase dark:text-gray-400">
-                                    {t('user.menu.account.title')}
+                                    {t('navigation.account')}
                                 </h3>
                             </div>
                             <div className="space-y-0.5">
                                 <MenuItem
                                     icon={CircleUserRound}
-                                    onClick={() => handleNavigation(APP_ROUTES.ACCOUNT)}
+                                    onClick={() => handleNavigation(APP_ROUTES.HOME)}
                                     shortcut="⌘J"
                                 >
-                                    {t('user.menu.account.overview')}
+                                    {t('navigation.overview')}
                                 </MenuItem>
                                 <MenuItem
                                     icon={User}
-                                    onClick={() => handleNavigation(APP_ROUTES.ACCOUNT_PROFILE)}
+                                    onClick={() => handleNavigation(APP_ROUTES.PROFILE)}
                                     shortcut="⌘P"
                                 >
-                                    {t('user.menu.account.profile')}
+                                    {t('navigation.profile')}
                                 </MenuItem>
                                 <SecurityMenuItem />
                                 <MenuItem
                                     icon={Bell}
-                                    onClick={() =>
-                                        handleNavigation(APP_ROUTES.ACCOUNT_NOTIFICATIONS)
-                                    }
+                                    onClick={() => handleNavigation(APP_ROUTES.NOTIFICATIONS)}
                                 >
-                                    {t('user.menu.account.notifications')}
+                                    {t('navigation.notifications')}
                                 </MenuItem>
                             </div>
                         </div>
@@ -240,7 +234,7 @@ export function UserMenu({ size = 'size-10' }: UserMenuProps) {
                         <div className="mb-3">
                             <div className="mb-1.5 px-2 py-1">
                                 <h3 className="text-xs font-semibold tracking-wider text-gray-500 uppercase dark:text-gray-400">
-                                    {t('user.menu.other')}
+                                    {t('navigation.other')}
                                 </h3>
                             </div>
                             <div className="space-y-0.5">

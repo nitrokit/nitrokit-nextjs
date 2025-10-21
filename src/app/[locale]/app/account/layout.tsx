@@ -1,27 +1,11 @@
-import { Metadata } from 'next';
+'use client';
 
-import { generatePageMetadata } from '@/lib';
-import { ScrollArea, Skeleton } from '@/components/ui';
-import { AccountNavigation } from './components/account-navigation';
 import { Suspense } from 'react';
+import { Skeleton } from '@/components/ui/skeleton';
+import { ScrollArea } from '@/components/ui/scroll-area';
+import { AccountNavigation } from '../components/account-navigation';
 
-export async function generateMetadata(): Promise<Metadata> {
-    return await generatePageMetadata({
-        params: Promise.resolve({
-            title: 'Dashboard',
-            description: 'This is the dashboard page'
-        })
-    });
-}
-
-export default function DashboardPage({
-    searchParams: _searchParams
-}: {
-    searchParams: Promise<{
-        tab?: string;
-        view?: string;
-    }>;
-}) {
+export default function AccountLayout({ children }: { children: React.ReactNode }) {
     return (
         <div className="flex h-full flex-col">
             <AccountNavigation />
@@ -37,7 +21,7 @@ export default function DashboardPage({
                                 </div>
                             }
                         >
-                            Test
+                            {children}
                         </Suspense>
                     </div>
                 </ScrollArea>

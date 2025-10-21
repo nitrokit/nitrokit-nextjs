@@ -1,9 +1,21 @@
 {
     "app": {
+        "mobile": {
+            "title": "Account Settings",
+            "openMenu": "Open menu"
+        },
         "navigation": {
             "dashboard": "Dashboard",
             "invoices": "Invoices",
-            "support": "Support"
+            "support": "Support",
+            "overview": "Overview",
+            "account": "Account",
+            "profile": "Profile",
+            "security": "Security",
+            "password": "Password",
+            "2fa": "Two Factor",
+            "sessions": "Sessions",
+            "notifications": "Notifications"
         },
         "user": {
             "defaultUserName": "Default Username",

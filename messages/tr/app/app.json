@@ -1,26 +1,23 @@
 {
+    "mobile": {
+        "title": "Hesap Ayarları",
+        "openMenu": "Menüyü aç"
+    },
     "navigation": {
         "dashboard": "Kontrol Paneli",
         "invoices": "Faturalar",
-        "support": "Destek"
+        "support": "Destek",
+        "overview": "Genel Bakış",
+        "account": "Hesap",
+        "profile": "Profil",
+        "security": "Güvenlik",
+        "password": "Parola",
+        "2fa": "İki Faktörlü Doğrulama",
+        "sessions": "Oturumlar",
+        "notifications": "Bildirimler",
+        "other": "Diğer"
     },
     "user": {
-        "defaultUserName": "Varsayılan Kullanıcı Adı",
-        "menu": {
-            "security": {
-                "title": "Güvenlik",
-                "overview": "Genel Bakış",
-                "password": "Şifre",
-                "twoFactor": "İki Faktörlü Doğrulama",
-                "sessions": "Oturumlar"
-            },
-            "account": {
-                "title": "Hesap",
-                "overview": "Genel Bakış",
-                "profile": "Profil",
-                "notifications": "Bildirimler"
-            },
-            "other": "Diğer"
-        }
+        "defaultUserName": "Varsayılan Kullanıcı Adı"
     }
 }
