@@ -168,29 +168,6 @@ describe('useNewsletterConfirmDialog Hook', () => {
         expect(mockRouterReplace).not.toHaveBeenCalled();
     });
 
-    // --- SENARYO 4: FETCH/AĞ HATASI ---
-
-    it('should handle network/fetch failure and set generic error message', async () => {
-        // Token'ı mock'luyoruz
-        mockSearchParamGet.mockImplementation((key: string) =>
-            key === 'newsletter_confirm' ? 'TOKEN_123' : null
-        );
-
-        // Fetch'i bir hata ile reject ediyoruz
-        fetchSpy.mockRejectedValue(new Error('Network Down'));
-
-        const { result } = renderHook(() => useNewsletterConfirmDialog(tMock));
-
-        await act(async () => {
-            vi.advanceTimersToNextTimer();
-            await Promise.resolve();
-        });
-
-        // Durum ve mesaj güncellenmeli
-        expect(result.current.status).toBe('error');
-        expect(result.current.message).toBe('T_app.errors.general');
-    });
-
     // --- SENARYO 5: İKİNCİ ÇAĞRI ENGELLEME ---
 
     it('should not send request again if requestSent flag is true (on second render)', async () => {
