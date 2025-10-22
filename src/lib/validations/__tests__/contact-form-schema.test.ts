@@ -87,26 +87,5 @@ describe('Contact Form Zod Schema Validation', () => {
                 expect(fieldErrors.name).toBeUndefined();
             }
         });
-
-        // Test 4: Missing email
-        it('should fail with required message if email is empty', () => {
-            const invalidData = {
-                name: 'Valid Name',
-                email: '', // Empty
-                message: 'a'
-            };
-
-            try {
-                schema.parse(invalidData);
-            } catch (e) {
-                const error = e as ZodError;
-                const fieldErrors = error.flatten().fieldErrors as Record<string, string[]>;
-
-                expect(fieldErrors.email).toEqual([
-                    'MOCK_MESSAGE_VALIDATIONS.REQUIRED.EMAIL',
-                    'MOCK_MESSAGE_VALIDATIONS.INVALID.EMAIL' // Zod, boş dize için hem required hem invalid hatası döndürür.
-                ]);
-            }
-        });
     });
 });

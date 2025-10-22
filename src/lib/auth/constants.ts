@@ -14,16 +14,17 @@ export const AUTH_ROUTES = {
 } as const;
 
 export const APP_ROUTES = {
-    HOME: '/app',
+    HOME: '/app/',
     SUPPORT: '/app/support',
     INVOICES: '/app/invoices',
-    SECURITY: '/app/security',
     ACCOUNT: '/app/account',
-    ACCOUNT_PROFILE: '/app/account/profile',
-    ACCOUNT_NOTIFICATIONS: '/app/account/notifications',
-    SECURITY_PASSWORD: '/app/security/password',
-    SECURITY_2FA: '/app/security/two-factor',
-    SECURITY_SESSIONS: '/app/security/sessions'
+    PROFILE: '/app/account/profile',
+    SECURITY: '/app/account/security',
+    SECURITY_PASSWORD: '/app/account/security/password',
+    SECURITY_2FA: '/app/account/security/2fa',
+    SECURITY_SESSIONS: '/app/account/security/sessions',
+    NOTIFICATIONS: '/app/account/notifications',
+    EMAIL_VERIFY: '/app/account/email/verify'
 };
 
 export const ADMIN_ROUTES = {

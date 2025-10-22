@@ -104,6 +104,25 @@ model PasswordResetToken {
 }
 
 //
+// PhoneVerification.prisma
+//
+
+model PhoneVerification {
+  id          String   @id @default(cuid())
+  userId      String
+  phoneNumber String
+  code        String
+  expiresAt   DateTime
+  verified    Boolean  @default(false)
+  attempts    Int      @default(0)
+  createdAt   DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("phone_verifications")
+}
+
+//
 // RefreshToken.prisma
 //
 
@@ -156,11 +175,6 @@ model User {
   password      String?
   image         String?
 
-  twoFactorEnabled     Boolean   @default(false) @map("two_factor_enabled")
-  twoFactorSecret      String?   @map("two_factor_secret")
-  twoFactorBackupCodes String[]  @map("two_factor_backup_codes")
-  twoFactorVerifiedAt  DateTime? @map("two_factor_verified_at")
-
   firstName String?
   lastName  String?
   username  String?
@@ -168,6 +182,16 @@ model User {
   locale         String  @default("en")
   theme          String  @default("system")
   receiveUpdates Boolean @default(true) @map("receive_updates")
+
+  twoFactorEnabled     Boolean   @default(false) @map("two_factor_enabled")
+  twoFactorSecret      String?   @map("two_factor_secret")
+  twoFactorBackupCodes String[]  @map("two_factor_backup_codes")
+  twoFactorVerifiedAt  DateTime? @map("two_factor_verified_at")
+
+  phone              String?
+  phoneVerified      Boolean             @default(false)
+  phoneVerifiedAt    DateTime?
+  phoneVerifications PhoneVerification[]
 
   lastLoginAt DateTime?
   createdAt   DateTime  @default(now())

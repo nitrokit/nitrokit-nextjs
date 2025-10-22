@@ -1,0 +1,29 @@
+{
+    "recommendations": {
+        "verifyEmail": {
+            "title": "E-posta Doğrulaması Eksik",
+            "description": "Hesabınız, e-posta doğrulaması olmadan tam olarak korunmaz. Bu, kurtarma ve kritik uyarılar için kullanılır.",
+            "action": "E-postayı Doğrula"
+        },
+        "setPassword": {
+            "title": "Ana Parola Ayarlanmamış",
+            "description": "Şu anda üçüncü taraf bir hizmet (OAuth) üzerinden giriş yaptınız. Doğrudan erişim için güçlü bir parola belirleyin.",
+            "action": "Parola Belirle"
+        },
+        "weakPassword": {
+            "title": "Zayıf Parola Tespit Edildi",
+            "description": "Mevcut parolanız zayıf ve yaygın saldırılara karşı savunmasızdır. Hemen güncellemenizi şiddetle tavsiye ederiz.",
+            "action": "Parolayı Değiştir"
+        },
+        "enableTwoFactor": {
+            "title": "İki Faktörlü Doğrulama Devre Dışı",
+            "description": "2FA ek bir güvenlik katmanı sağlar ve kritik verilerinizi korumak için hayati önem taşır.",
+            "action": "Şimdi 2FA'yı Etkinleştir"
+        },
+        "addPhone": {
+            "title": "Bir Kurtarma Telefon Numarası Ekleyin",
+            "description": "Doğrulanmış bir telefon numarası eklemek, erişiminizi kaybetmeniz durumunda hesabınızı kurtarmayı kolaylaştıracaktır.",
+            "action": "Telefon Ekle"
+        }
+    }
+}
