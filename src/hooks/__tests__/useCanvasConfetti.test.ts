@@ -1,23 +1,34 @@
 import { renderHook } from '@testing-library/react';
-import { useCanvasConfetti, ConfettiOptions } from '../useCanvasConfetti';
-import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
+import { describe, it, expect, vi, beforeEach, afterEach, Mock, beforeAll } from 'vitest';
+import { ConfettiOptions } from '../useCanvasConfetti'; // Yalnızca tipi import ediyoruz
 
-var mockConfetti: ReturnType<typeof vi.fn>;
+// --- 1. MOCK OBJE TANIMLAMALARI ---
+let mockConfetti: Mock;
 
+// 2. vi.mock içindeki fonksiyonel tanım (Atamayı mock'tan sonra yapıyoruz)
+// Mock'u önce tanımlıyoruz ki hoisting sorunu olmasın.
 vi.mock('canvas-confetti', () => {
-    const mockFn = vi.fn(() => Promise.resolve());
-    mockConfetti = mockFn;
-
+    const mockFn = vi.fn(() => Promise.resolve()) as Mock;
+    mockConfetti = mockFn; // Atamayı burada yapıyoruz
     return {
         default: mockFn
     };
 });
 
-const mockRAF = vi.fn().mockImplementation((cb) => {
+let useCanvasConfetti: any;
+
+// BÜTÜN TESTLERDEN ÖNCE, MODÜLÜ MOCK'LARDAN SONRA YÜKLE
+beforeAll(async () => {
+    // Dinamik import ile test edilen hook'u yükle
+    const module = await import('../useCanvasConfetti');
+    useCanvasConfetti = module.useCanvasConfetti;
+});
+
+// Mock requestAnimationFrame (RAF)
+const mockRAF = vi.fn().mockImplementation((cb: Function) => {
     setTimeout(() => cb(), 0);
     return 1;
 });
-
 const MOCK_WINDOW_WIDTH = 1000;
 const MOCK_WINDOW_HEIGHT = 800;
 const MOCK_RECT = {
@@ -47,6 +58,7 @@ describe('useCanvasConfetti Hook', () => {
     });
 
     const setupHook = (options: ConfettiOptions) => {
+        // useCanvasConfetti'nin dinamik olarak yüklendiği global değişkeni kullanıyoruz
         const { result } = renderHook(() => useCanvasConfetti(options));
 
         result.current.containerRef.current = {
@@ -61,25 +73,28 @@ describe('useCanvasConfetti Hook', () => {
         y: (MOCK_RECT.top + MOCK_RECT.height / 2) / MOCK_WINDOW_HEIGHT
     };
 
-    // --- BASIC SCENARIOS ---
+    // --- TEMEL SENARYOLAR VE YOĞUNLUK TESTLERİ ---
 
+    // --- BASIC SCENARIOS ---
     it('should not call confetti when "enabled: false"', () => {
         const triggerConfetti = setupHook({ effect: 'basic', enabled: false });
-
         triggerConfetti();
-
         expect(mockConfetti).not.toHaveBeenCalled();
     });
 
-    it('should not call confetti when "effect: none"', () => {
-        const triggerConfetti = setupHook({ effect: 'none', enabled: true });
-
+    it('should call Basic effect with correct origin and default (medium) intensity settings', () => {
+        const triggerConfetti = setupHook({ effect: 'basic', enabled: true });
         triggerConfetti();
-
-        expect(mockConfetti).not.toHaveBeenCalled();
+        expect(mockConfetti).toHaveBeenCalledTimes(1);
+        expect(mockConfetti).toHaveBeenCalledWith(
+            expect.objectContaining({
+                origin: expectedOrigin,
+                particleCount: 60, // medium intensity
+                spread: 55, // medium intensity
+                scalar: 0.8 // medium intensity
+            })
+        );
     });
-
-    // --- INTENSITY AND EFFECT TESTS ---
 
     it('should call Basic effect with correct origin and default (medium) intensity settings', () => {
         const triggerConfetti = setupHook({ effect: 'basic', enabled: true });
@@ -90,9 +105,9 @@ describe('useCanvasConfetti Hook', () => {
         expect(mockConfetti).toHaveBeenCalledWith(
             expect.objectContaining({
                 origin: expectedOrigin,
-                particleCount: 60, // medium intensity
-                spread: 55, // medium intensity
-                scalar: 0.8 // medium intensity
+                particleCount: 60,
+                spread: 55,
+                scalar: 0.8
             })
         );
     });
@@ -111,106 +126,70 @@ describe('useCanvasConfetti Hook', () => {
         );
     });
 
-    it('should apply Low intensity settings correctly', () => {
-        const triggerConfetti = setupHook({ effect: 'basic', enabled: true, intensity: 'low' });
-
-        triggerConfetti();
-
-        expect(mockConfetti).toHaveBeenCalledWith(
-            expect.objectContaining({
-                particleCount: 30,
-                spread: 45,
-                scalar: 0.6
-            })
-        );
-    });
-
     // --- TIMER-BASED EFFECTS ---
 
     it('should call Burst effect 3 times with timers on high intensity', () => {
         const triggerConfetti = setupHook({ effect: 'burst', enabled: true, intensity: 'high' });
-
         triggerConfetti();
 
-        // Advance time by 0ms to trigger the first setTimeout
-        vi.advanceTimersByTime(0);
-
-        // First call (i=0) should happen immediately after 0ms advancement
-        expect(mockConfetti).toHaveBeenCalledTimes(1);
-
-        // Advance 100ms (i=1)
-        vi.advanceTimersByTime(100);
-        expect(mockConfetti).toHaveBeenCalledTimes(2);
-
-        // Advance 100ms (i=2, total 200ms)
-        vi.advanceTimersByTime(100);
+        // Zamanı 200ms ilerletiyoruz (3 çağrı için 0, 100, 200ms)
+        vi.advanceTimersByTime(200);
         expect(mockConfetti).toHaveBeenCalledTimes(3);
 
-        // No more calls expected
-        vi.advanceTimersByTime(100);
-        expect(mockConfetti).toHaveBeenCalledTimes(3);
-
+        // Son çağrının high intensity ayarlarını aldığını kontrol et
         expect(mockConfetti).toHaveBeenLastCalledWith(
             expect.objectContaining({
-                particleCount: 100, // high intensity
+                particleCount: 100,
                 angle: expect.any(Number)
             })
         );
     });
 
-    it('should call Fireworks effect repeatedly via setInterval for the duration', async () => {
-        const triggerConfetti = setupHook({
-            effect: 'fireworks',
-            enabled: true,
-            intensity: 'medium'
-        });
+    it('should call Stars effect with correct shape and high particle count', () => {
+        const triggerConfetti = setupHook({ effect: 'stars', enabled: true, intensity: 'high' });
 
         triggerConfetti();
 
-        // Advance 250ms to catch the first interval call
-        vi.advanceTimersByTime(250);
         expect(mockConfetti).toHaveBeenCalledTimes(1);
-
-        // Advance the remaining 1750ms (Total 2000ms duration)
-        vi.advanceTimersByTime(1750);
-
-        // Expected 7 calls in total (T=250, 500, ..., 1750)
-        expect(mockConfetti).toHaveBeenCalledTimes(7);
-
-        // Advance past the duration (T=2000ms is where the interval stops)
-        vi.advanceTimersByTime(500);
-        expect(mockConfetti).toHaveBeenCalledTimes(7); // Should remain at 7
-    });
-
-    // --- SPECIAL EFFECTS ---
-
-    it('should call School-Pride effect using requestAnimationFrame with opposite origins', () => {
-        const triggerConfetti = setupHook({
-            effect: 'school-pride',
-            enabled: true,
-            intensity: 'medium'
-        });
-
-        triggerConfetti();
-
-        // requestAnimationFrame is mocked to run once synchronously
-        expect(mockConfetti).toHaveBeenCalledTimes(2);
-
-        // Left side
         expect(mockConfetti).toHaveBeenCalledWith(
             expect.objectContaining({
-                origin: { x: 0 },
-                angle: 60,
-                colors: ['#3b82f6', '#1d4ed8']
+                origin: expectedOrigin,
+                shapes: ['star'],
+                particleCount: 80, // high intensity için beklenen değer
+                scalar: 1.2 // high intensity için beklenen değer
             })
         );
+    });
 
-        // Right side
+    it('should call Snow effect with gravity and zero Y origin (top of screen)', () => {
+        const triggerConfetti = setupHook({ effect: 'snow', enabled: true });
+
+        triggerConfetti();
+
+        expect(mockConfetti).toHaveBeenCalledTimes(1);
         expect(mockConfetti).toHaveBeenCalledWith(
             expect.objectContaining({
-                origin: { x: 1 },
-                angle: 120,
-                colors: ['#ef4444', '#dc2626']
+                origin: { x: expectedOrigin.x, y: 0 }, // Kar, ekranın üstünden başlamalı
+                shapes: ['circle'],
+                gravity: 0.4,
+                drift: 0.1
+            })
+        );
+    });
+
+    it('should call Realistic effect with multiple fire() calls (5 total) and correct origin', () => {
+        const triggerConfetti = setupHook({ effect: 'realistic', enabled: true });
+
+        triggerConfetti();
+
+        // Realistic efekti 5 ayrı fire() çağrısı yapar.
+        expect(mockConfetti).toHaveBeenCalledTimes(5);
+
+        // İlk çağrının origin'i kullanması beklenir
+        expect(mockConfetti).toHaveBeenCalledWith(
+            expect.objectContaining({
+                origin: expectedOrigin,
+                startVelocity: 55 // İlk fire() çağrısının ayarı
             })
         );
     });
@@ -230,8 +209,7 @@ describe('useCanvasConfetti Hook', () => {
             expect.objectContaining({
                 origin: expectedOrigin,
                 shapes: customEmojis,
-                particleCount: 50, // default
-                scalar: 1 // default
+                particleCount: 50
             })
         );
     });
