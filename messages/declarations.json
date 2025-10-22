@@ -15,25 +15,39 @@
             "password": "Password",
             "2fa": "Two Factor",
             "sessions": "Sessions",
-            "notifications": "Notifications"
+            "notifications": "Notifications",
+            "other": "Other"
         },
         "user": {
-            "defaultUserName": "Default Username",
-            "menu": {
-                "security": {
-                    "title": "Security",
-                    "overview": "Overview",
-                    "password": "Password",
-                    "twoFactor": "Two Factor",
-                    "sessions": "Sessions"
-                },
-                "account": {
-                    "title": "Account",
-                    "overview": "Overview",
-                    "profile": "Profile",
-                    "notifications": "Notifications"
-                },
-                "other": "Other"
+            "defaultUserName": "Default Username"
+        }
+    },
+    "security": {
+        "recommendations": {
+            "verifyEmail": {
+                "title": "Email Verification Missing",
+                "description": "Your account is not fully protected without email verification. This is used for recovery and critical alerts.",
+                "action": "Verify Email"
+            },
+            "setPassword": {
+                "title": "No Primary Password Set",
+                "description": "You are currently signed in via a third-party service (OAuth). Set a strong password for direct sign-in access.",
+                "action": "Set Password"
+            },
+            "weakPassword": {
+                "title": "Weak Password Detected",
+                "description": "Your current password is weak and vulnerable to common attacks. We strongly recommend updating it immediately.",
+                "action": "Change Password"
+            },
+            "enableTwoFactor": {
+                "title": "Two-Factor Authentication is Disabled",
+                "description": "2FA adds an extra layer of security and is essential for protecting your critical data.",
+                "action": "Enable 2FA Now"
+            },
+            "addPhone": {
+                "title": "Add a Recovery Phone Number",
+                "description": "Adding a verified phone number will make it easier to recover your account if you lose access.",
+                "action": "Add Phone"
             }
         }
     },

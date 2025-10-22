@@ -23,7 +23,8 @@ export const APP_ROUTES = {
     SECURITY_PASSWORD: '/app/account/security/password',
     SECURITY_2FA: '/app/account/security/2fa',
     SECURITY_SESSIONS: '/app/account/security/sessions',
-    NOTIFICATIONS: '/app/account/notifications'
+    NOTIFICATIONS: '/app/account/notifications',
+    EMAIL_VERIFY: '/app/account/email/verify'
 };
 
 export const ADMIN_ROUTES = {
