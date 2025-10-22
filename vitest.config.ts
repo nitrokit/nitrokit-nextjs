@@ -2,9 +2,18 @@ import { defineConfig } from 'vitest/config';
 import react from '@vitejs/plugin-react';
 import tsconfigPaths from 'vite-tsconfig-paths';
 import path from 'path';
+import { codecovVitePlugin } from '@codecov/vite-plugin';
 
 export default defineConfig({
-    plugins: [react(), tsconfigPaths()],
+    plugins: [
+        react(),
+        tsconfigPaths(),
+        codecovVitePlugin({
+            enableBundleAnalysis: process.env.CODECOV_TOKEN !== undefined,
+            bundleName: 'nitrokit-nextjs',
+            uploadToken: process.env.CODECOV_TOKEN
+        })
+    ],
     test: {
         environment: 'jsdom',
         globals: true,

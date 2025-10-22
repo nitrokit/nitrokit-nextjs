@@ -3,6 +3,7 @@ import type { Gtag, DataLayerItem } from './gtag';
 export interface Messages {
     validations: typeof import('../../messages/en/validations.json');
     app: typeof import('../../messages/en/app/app.json');
+    security: typeof import('../../messages/en/app/security.json');
     auth: typeof import('../../messages/en/auth.json');
     home: typeof import('../../messages/en/website/home.json');
     about: typeof import('../../messages/en/website/about.json');

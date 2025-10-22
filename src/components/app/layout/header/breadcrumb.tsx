@@ -13,6 +13,7 @@ import {
 } from '@/components/ui';
 import { Link, usePathname } from '@/lib/i18n/navigation';
 import { translateSafely } from '@/lib/utils';
+import { APP_ROUTES } from '@/lib/auth/constants';
 
 function filterLocaleSegments(segments: string[]) {
     const localePatterns = [/^[a-z]{2}$/, /^[a-z]{2}-[A-Z]{2}$/, /^[a-z]{3}$/];
@@ -32,11 +33,11 @@ export function AppBreadcrumb() {
     const pathSegments = filterLocaleSegments(segments);
 
     const breadcrumbs: BreadcrumbItemType[] = [
-        { name: translateSafely(t, 'dashboard'), href: '/' }
+        { name: translateSafely(t, 'dashboard'), href: APP_ROUTES.HOME }
     ];
 
     pathSegments.forEach((segment, index) => {
-        const href = '/' + pathSegments.slice(0, index + 1).join('/');
+        const href = `${APP_ROUTES.HOME}${pathSegments.slice(0, index + 1).join('/')}`;
         const translationKey = segment.replace(/-/g, '_');
         let name = translateSafely(t, translationKey);
 
@@ -48,7 +49,7 @@ export function AppBreadcrumb() {
 
     return (
         <Breadcrumb className="hidden lg:flex">
-            <BreadcrumbList>
+            <BreadcrumbList className="text-xs">
                 {breadcrumbs.map((breadcrumb, index) => {
                     const isLast = index === breadcrumbs.length - 1;
                     return (
