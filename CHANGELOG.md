@@ -1,3 +1,10 @@
+# [1.3.0](https://github.com/nitrokit/nitrokit-nextjs/compare/v1.2.0...v1.3.0) (2025-10-22)
+
+
+### Features
+
+* Enhances confetti effect and adds security score ([84c9ba6](https://github.com/nitrokit/nitrokit-nextjs/commit/84c9ba644dec27114381fbb644a9d00225f09823))
+
 # [1.2.0](https://github.com/nitrokit/nitrokit-nextjs/compare/v1.1.0...v1.2.0) (2025-10-22)
 
 
