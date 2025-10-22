@@ -1,5 +1,5 @@
-import { prisma } from '@/lib/prisma';
 import { PasswordStrength } from './types';
+import { prisma } from '@/lib/prisma';
 
 export function analyzePasswordStrength(password: string | null): PasswordStrength {
     if (!password) {

@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { unsupportedServiceError } from '../errors';
+import { unsupportedServiceError } from '../error-utils';
 
 describe('errors', () => {
     describe('unsupportedServiceError', () => {
