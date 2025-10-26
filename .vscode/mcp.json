@@ -3,6 +3,14 @@
         "shadcn": {
             "command": "npx",
             "args": ["shadcn@latest", "mcp"]
+        },
+        "next-devtools": {
+            "command": "npx",
+            "args": ["-y", "next-devtools-mcp@latest"]
+        },
+        "tailwindcss-server": {
+            "command": "npx",
+            "args": ["-y", "tailwindcss-mcp-server"]
         }
     }
 }
