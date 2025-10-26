@@ -1,9 +1,8 @@
 # [1.4.0](https://github.com/nitrokit/nitrokit-nextjs/compare/v1.3.0...v1.4.0) (2025-10-26)
 
-
 ### Features
 
-* Enhances UI and tooling ([9abd5f1](https://github.com/nitrokit/nitrokit-nextjs/commit/9abd5f15f14e383b9345a93feed1fe61df3b66de))
+- Enhances UI and tooling ([9abd5f1](https://github.com/nitrokit/nitrokit-nextjs/commit/9abd5f15f14e383b9345a93feed1fe61df3b66de))
 
 # [1.3.0](https://github.com/nitrokit/nitrokit-nextjs/compare/v1.1.0...v1.3.0) (2025-10-22)
 

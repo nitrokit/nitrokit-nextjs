@@ -9,7 +9,11 @@ export const env = createEnv({
         YANDEX_VERIFICATION: z.string().optional(),
         RESEND_API_KEY: z.string().optional(),
         RESEND_FROM_EMAIL: z.string().optional(),
-        RESEND_AUDIENCE_ID: z.string().optional()
+        RESEND_AUDIENCE_ID: z.string().optional(),
+        GH_ACCESS_TOKEN: z.string().optional(),
+        GITHUB_USERNAME: z.string().optional(),
+        GITHUB_REPONAME: z.string().optional(),
+        BLOB_READ_WRITE_TOKEN: z.string().optional()
     },
     client: {},
     runtimeEnv: {
@@ -18,6 +22,10 @@ export const env = createEnv({
         YANDEX_VERIFICATION: process.env.YANDEX_VERIFICATION,
         RESEND_API_KEY: process.env.RESEND_API_KEY,
         RESEND_FROM_EMAIL: process.env.RESEND_FROM_EMAIL,
-        RESEND_AUDIENCE_ID: process.env.RESEND_AUDIENCE_ID
+        RESEND_AUDIENCE_ID: process.env.RESEND_AUDIENCE_ID,
+        GH_ACCESS_TOKEN: process.env.GH_ACCESS_TOKEN,
+        GITHUB_USERNAME: process.env.GITHUB_USERNAME,
+        GITHUB_REPONAME: process.env.GITHUB_REPONAME,
+        BLOB_READ_WRITE_TOKEN: process.env.BLOB_READ_WRITE_TOKEN
     }
 });

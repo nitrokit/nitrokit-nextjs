@@ -3,7 +3,7 @@
     "description": "Welcome to our website!",
     "banner": {
         "badge": "New",
-        "text": "v1.0.0 is out! See what's new"
+        "text": "{version} is out! See what's new"
     },
     "hero": {
         "titles": {

@@ -3,7 +3,7 @@
     "description": "",
     "banner": {
         "badge": "Yeni",
-        "text": "v1.0.0 çıktı! Yeniliklere göz atın"
+        "text": "{version} çıktı! Yeniliklere göz atın"
     },
     "hero": {
         "titles": {

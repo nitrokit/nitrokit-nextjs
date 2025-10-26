@@ -8,7 +8,7 @@ export function GitHubSection() {
     const t = useTranslations('home');
 
     return (
-        <div className="my-10 rounded-2xl border-t border-gray-200/50 bg-gradient-to-r from-white/40 via-white/60 to-white/40 pt-12 text-center backdrop-blur-sm dark:border-gray-800/50 dark:from-gray-900/40 dark:via-gray-900/60 dark:to-gray-900/40">
+        <div className="my-10 rounded-2xl border-t border-gray-200/50 bg-linear-to-r from-white/40 via-white/60 to-white/40 pt-12 text-center backdrop-blur-sm dark:border-gray-800/50 dark:from-gray-900/40 dark:via-gray-900/60 dark:to-gray-900/40">
             <h3 className="mb-4 text-xl font-semibold text-gray-900 dark:text-white">
                 {t('cta.title')}
             </h3>

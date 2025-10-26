@@ -18,6 +18,8 @@ interface CompactBannerProps {
     effectEnabled?: boolean;
     effectIntensity?: 'low' | 'medium' | 'high';
     effectColor?: string;
+    target?: '_blank' | '_self' | '_parent' | '_top';
+    rel?: string;
 }
 
 export const CompactBanner = ({
@@ -31,7 +33,9 @@ export const CompactBanner = ({
     hoverEffect = 'none',
     effectEnabled = true,
     effectIntensity = 'medium',
-    effectColor
+    effectColor,
+    target = '_self',
+    rel = ''
 }: CompactBannerProps) => {
     const [isHovered, setIsHovered] = useState(false);
 
@@ -71,6 +75,8 @@ export const CompactBanner = ({
         <Link
             ref={containerRef as React.RefObject<HTMLAnchorElement>}
             href={href}
+            target={target}
+            rel={rel}
             className={cn(
                 'group relative flex flex-row items-center justify-center gap-3 overflow-hidden rounded-full px-3 py-2 text-sm font-medium shadow-sm transition-all duration-300 ease-out',
                 currentVariant.container,
@@ -86,10 +92,7 @@ export const CompactBanner = ({
             }}
             onMouseLeave={() => setIsHovered(false)}
         >
-            {/* Background glow effect */}
-            <div className="absolute inset-0 rounded-full bg-gradient-to-r from-transparent via-white/5 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-
-            {/* Badge */}
+            <div className="absolute inset-0 rounded-full bg-linear-to-r from-transparent via-white/5 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
             <span
                 className={cn(
                     'relative z-10 flex items-center gap-1.5 rounded-xl px-3 py-1 text-xs font-bold transition-all duration-300',
@@ -100,11 +103,7 @@ export const CompactBanner = ({
                 {icon && <span className="text-current">{icon}</span>}
                 {badge}
             </span>
-
-            {/* Text */}
             <span className="relative z-10 font-semibold transition-all duration-300">{text}</span>
-
-            {/* Arrow with animation */}
             <ChevronRight
                 size={16}
                 className={cn(
@@ -112,16 +111,13 @@ export const CompactBanner = ({
                     animated && isHovered && 'translate-x-0.5'
                 )}
             />
-
-            {/* Shine effect */}
             {animated && (
-                <div className="absolute inset-0 rounded-full bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-0 transition-all duration-500 group-hover:animate-pulse group-hover:opacity-100" />
+                <div className="absolute inset-0 rounded-full bg-linear-to-r from-transparent via-white/20 to-transparent opacity-0 transition-all duration-500 group-hover:animate-pulse group-hover:opacity-100" />
             )}
         </Link>
     );
 };
 
-// Enhanced preset variants with effects
 export const NewFeatureBanner = ({
     href,
     text,
