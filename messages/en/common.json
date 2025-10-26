@@ -24,7 +24,55 @@
         "save": "Save",
         "close": "Close",
         "continue": "Continue",
-        "reset": "Reset"
+        "reset": "Reset",
+        "github": {
+            "button": {
+                "title": "Github",
+                "loading": "...",
+                "ready": "Ready"
+            },
+            "dropdown": {
+                "star": {
+                    "title": "Star Repository",
+                    "description": "Show your support",
+                    "badge": "Star"
+                },
+                "fork": {
+                    "title": "Fork Repository",
+                    "description": "Create your own copy",
+                    "badge": "Fork"
+                },
+                "view": {
+                    "title": "View Repository",
+                    "description": "Browse source code",
+                    "badge": "View"
+                }
+            }
+        },
+        "vercel": {
+            "button": {
+                "title": "Deploy to Vercel",
+                "ready": "Ready"
+            },
+            "dropdown": {
+                "deploy": {
+                    "title": "Quick Deploy",
+                    "description": "Deploy with one click",
+                    "badge": "Deploy",
+                    "vercel-description": "🚀 A modern and production-ready Next.js boilerplate. It provides a quick start with TypeScript, i18n support, and automated tooling."
+                },
+                "preview": {
+                    "title": "Preview Demo",
+                    "description": "See live example",
+                    "badge": "Live"
+                },
+                "docs": {
+                    "title": "Documentation",
+                    "description": "Learn deployment",
+                    "badge": "Docs"
+                }
+            }
+        }
     },
     "placeholders": {
         "email": "hello@nitrokit.tr",

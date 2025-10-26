@@ -1,17 +1,17 @@
-import { GITHUB_URL, TESTIMONIALS as staticTestimonials } from '@/constants';
+import { TESTIMONIALS as staticTestimonials } from '@/constants';
 import { CompactBanner } from '@/components/website/banners';
 
 import { RandomText, TextRotator } from '@/components/shared';
 import { UserTrustSection } from '@/components/website/testimonial';
 import { useTranslations } from 'next-intl';
-
+import { useGithubRelease } from '@/hooks/useGithubRelease';
+import { Loader2 } from 'lucide-react';
 function getTestimonialData() {
     return staticTestimonials;
 }
 
 export function Hero() {
     const t = useTranslations('home');
-
     const testimonials = getTestimonialData();
 
     const titles = {
@@ -29,16 +29,24 @@ export function Hero() {
     const titleArray = Object.values(titles);
     const descriptionArray = Object.values(descriptions);
 
+    const { version, release_url, isVersionLoading } = useGithubRelease();
+
     return (
         <div className="relative">
             <div className="container mx-auto px-4 py-14 lg:py-8">
                 <div className="mb-10 text-center">
-                    <CompactBanner
-                        href={`${GITHUB_URL}/releases`}
-                        badge={t('banner.badge')}
-                        text={t('banner.text')}
-                        className="inline-flex border border-gray-200 bg-gray-50/80 backdrop-blur-sm transition-colors hover:bg-gray-100/80 dark:border-gray-800 dark:bg-gray-900/80 dark:hover:bg-gray-800/80"
-                    />
+                    {isVersionLoading ? (
+                        <Loader2 />
+                    ) : (
+                        <CompactBanner
+                            href={release_url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            badge={t('banner.badge')}
+                            text={t('banner.text', { version: version })}
+                            className="inline-flex border border-gray-200 bg-gray-50/80 backdrop-blur-sm transition-colors hover:bg-gray-100/80 dark:border-gray-800 dark:bg-gray-900/80 dark:hover:bg-gray-800/80"
+                        />
+                    )}
                 </div>
 
                 <div className="mx-auto mt-20 max-w-5xl text-center">
@@ -46,7 +54,7 @@ export function Hero() {
                         <TextRotator
                             texts={titleArray}
                             interval={10000}
-                            className="mb-6 inline-block bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90% bg-clip-text text-center text-6xl leading-19 font-bold text-transparent text-shadow-xs"
+                            className="mb-6 inline-block bg-linear-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90% bg-clip-text text-center text-6xl leading-19 font-bold text-transparent text-shadow-xs"
                         />
                     </div>
 

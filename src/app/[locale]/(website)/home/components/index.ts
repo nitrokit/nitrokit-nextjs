@@ -1,2 +1,2 @@
 export * from './hero';
-export * from './github-section';
+export * from './deploy-section';
