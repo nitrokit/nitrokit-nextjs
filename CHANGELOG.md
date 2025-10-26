@@ -1,3 +1,10 @@
+# [1.6.0](https://github.com/nitrokit/nitrokit-nextjs/compare/v1.5.0...v1.6.0) (2025-10-26)
+
+
+### Features
+
+* Adds click outside hook ([6a62228](https://github.com/nitrokit/nitrokit-nextjs/commit/6a622288ba6935b0063d7c571169fdde7e058d0b))
+
 # [1.5.0](https://github.com/nitrokit/nitrokit-nextjs/compare/v1.4.0...v1.5.0) (2025-10-26)
 
 
