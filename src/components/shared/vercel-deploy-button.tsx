@@ -4,6 +4,7 @@ import { useState, useRef, useEffect } from 'react';
 import { useTranslations } from 'next-intl';
 import { useCanvasConfetti } from '@/hooks/useCanvasConfetti';
 import { Rocket, Globe, Code, ExternalLink } from 'lucide-react';
+import { VercelDeployUrlBuilder } from '@/lib/builders';
 
 const VercelIcon = ({ size = 18, className = '' }: { size?: number; className?: string }) => (
     <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" className={className}>
@@ -12,9 +13,32 @@ const VercelIcon = ({ size = 18, className = '' }: { size?: number; className?: 
 );
 
 export const VercelDeployButton = () => {
-    const VERCEL_DEPLOY_URL = '';
-    const VERCEL_PREVIEW_URL = '';
     const t = useTranslations('common');
+    const VERCEL_PREVIEW_URL = 'https://preview.nitrokit.tr';
+    const VERCEL_DEPLOY_URL = new VercelDeployUrlBuilder()
+        .withRepositoryUrl('https://github.com/nitrokit/nitrokit-nextjs')
+        .withEnv(
+            'AUTH_SECRET',
+            'DATABASE_URL',
+            'GOOGLE_SITE_VERIFICATION',
+            'GOOGLE_ANALYTICS',
+            'YANDEX_VERIFICATION',
+            'EMAIL_PROVIDER',
+            'RESEND_API_KEY',
+            'RESEND_AUDIENCE_ID',
+            'RESEND_FROM_EMAIL',
+            'UPSTASH_REDIS_REST_URL'
+        )
+        .withProjectName('nitrokit')
+        .withRepositoryName('nitrokit-nextjs')
+        .withDemoTitle('Nitrokit')
+        .withDemoDescription(t('buttons.vercel.dropdown.deploy.vercel-description'))
+        .withDemoUrl(VERCEL_PREVIEW_URL)
+        .withDemoImage(
+            'https://raw.githubusercontent.com/nitrokit/nitrokit-nextjs/main/public/screenshots/screenshot-1.png'
+        )
+        .build();
+
     const [isOpen, setIsOpen] = useState(false);
     const dropdownRef = useRef<HTMLDivElement>(null);
 

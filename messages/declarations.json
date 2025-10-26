@@ -111,7 +111,8 @@
                     "deploy": {
                         "title": "Quick Deploy",
                         "description": "Deploy with one click",
-                        "badge": "Deploy"
+                        "badge": "Deploy",
+                        "vercel-description": "🚀 A modern and production-ready Next.js boilerplate. It provides a quick start with TypeScript, i18n support, and automated tooling."
                     },
                     "preview": {
                         "title": "Preview Demo",

@@ -58,7 +58,8 @@
                 "deploy": {
                     "title": "Hızlı Dağıtım",
                     "description": "Tek tıkla dağıtın",
-                    "badge": "Dağıt"
+                    "badge": "Dağıt",
+                    "vercel-description": "🚀 Modern ve üretime hazır bir Next.js başlangıç projesi. TypeScript, i18n desteği ve otomatik araçlarla hızlı bir başlangıç sağlar."
                 },
                 "preview": {
                     "title": "Demoyu Önizle",
