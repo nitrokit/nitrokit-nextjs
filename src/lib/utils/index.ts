@@ -5,3 +5,4 @@ export * from './locale-utils';
 export * from './delay';
 export * from './i18n-helpers';
 export * from './phone-utils';
+export * from './formatters';

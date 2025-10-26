@@ -1,7 +1,7 @@
 'use client';
 
 import { BackgroundPatterns, NewsletterConfirmDialog, Testimonials } from '@/components/website';
-import { Hero, GitHubSection } from './home/components';
+import { Hero, DeploySection } from './home/components';
 import { LibraryLogos } from '@/components/shared';
 
 export default function Page() {
@@ -13,7 +13,7 @@ export default function Page() {
                 <Hero />
                 <LibraryLogos variant="compact" />
                 <Testimonials variant="default" />
-                <GitHubSection />
+                <DeploySection />
             </div>
         </div>
     );

@@ -12,3 +12,6 @@ export * from './version';
 export * from './library-logos';
 export * from './page-loading';
 export * from './submit-button';
+
+export * from './github-button-with-stats';
+export * from './vercel-deploy-button';

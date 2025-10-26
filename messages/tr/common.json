@@ -24,7 +24,54 @@
         "save": "Kaydet",
         "close": "Kapat",
         "continue": "Devam Et",
-        "reset": "Sıfırla"
+        "reset": "Sıfırla",
+        "github": {
+            "button": {
+                "title": "Github",
+                "loading": "...",
+                "ready": "Hazır"
+            },
+            "dropdown": {
+                "star": {
+                    "title": "Depoyu Yıldızla",
+                    "description": "Desteğinizi gösterin",
+                    "badge": "Yıldızla"
+                },
+                "fork": {
+                    "title": "Depoyu Forkla",
+                    "description": "Kendi kopyanızı oluşturun",
+                    "badge": "Forkla"
+                },
+                "view": {
+                    "title": "Depoyu Görüntüle",
+                    "description": "Kaynak koduna göz atın",
+                    "badge": "Görüntüle"
+                }
+            }
+        },
+        "vercel": {
+            "button": {
+                "title": "Vercel'e Dağıt",
+                "ready": "Hazır"
+            },
+            "dropdown": {
+                "deploy": {
+                    "title": "Hızlı Dağıtım",
+                    "description": "Tek tıkla dağıtın",
+                    "badge": "Dağıt"
+                },
+                "preview": {
+                    "title": "Demoyu Önizle",
+                    "description": "Canlı örneği görün",
+                    "badge": "Canlı"
+                },
+                "docs": {
+                    "title": "Belgeler",
+                    "description": "Dağıtımı öğrenin",
+                    "badge": "Belgeler"
+                }
+            }
+        }
     },
     "placeholders": {
         "email": "merhaba@nitrokit.tr",

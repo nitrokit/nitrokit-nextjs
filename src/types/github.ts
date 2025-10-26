@@ -38,3 +38,11 @@ export interface GitHubRelease {
     name: string | null;
     html_url: string;
 }
+
+export interface RepoStats {
+    stargazers_count: number;
+    forks_count: number;
+    license: string | null;
+    release_url: string;
+    version: string;
+}
