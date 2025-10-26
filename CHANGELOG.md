@@ -1,3 +1,12 @@
+# [1.5.0](https://github.com/nitrokit/nitrokit-nextjs/compare/v1.4.0...v1.5.0) (2025-10-26)
+
+
+### Features
+
+* Enables dynamic version in banner text ([8f507f2](https://github.com/nitrokit/nitrokit-nextjs/commit/8f507f2f93a1c9d4a3b073f6632710f6fbbd2ac1))
+* Enhances deploy button functionality ([654f486](https://github.com/nitrokit/nitrokit-nextjs/commit/654f48694d6a2b0ef59b71d7c24c837cdff8f6f2))
+* Enhances website with deploy section ([39a4c6f](https://github.com/nitrokit/nitrokit-nextjs/commit/39a4c6fb5b5ec31a738e3910710cb15df3f58be5))
+
 # [1.4.0](https://github.com/nitrokit/nitrokit-nextjs/compare/v1.3.0...v1.4.0) (2025-10-26)
 
 ### Features
