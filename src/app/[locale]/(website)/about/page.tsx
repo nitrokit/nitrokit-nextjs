@@ -79,19 +79,19 @@ export default async function Page() {
                                 </p>
                                 <ul className="space-y-3">
                                     <li className="flex items-start space-x-3">
-                                        <Zap className="mt-1 h-5 w-5 flex-shrink-0 text-yellow-500" />
+                                        <Zap className="mt-1 h-5 w-5 shrink-0 text-yellow-500" />
                                         <span className="text-gray-600 dark:text-gray-300">
                                             {t('mission.list.item1')}
                                         </span>
                                     </li>
                                     <li className="flex items-start space-x-3">
-                                        <Shield className="mt-1 h-5 w-5 flex-shrink-0 text-green-500" />
+                                        <Shield className="mt-1 h-5 w-5 shrink-0 text-green-500" />
                                         <span className="text-gray-600 dark:text-gray-300">
                                             {t('mission.list.item2')}
                                         </span>
                                     </li>
                                     <li className="flex items-start space-x-3">
-                                        <Globe className="mt-1 h-5 w-5 flex-shrink-0 text-blue-500" />
+                                        <Globe className="mt-1 h-5 w-5 shrink-0 text-blue-500" />
                                         <span className="text-gray-600 dark:text-gray-300">
                                             {t('mission.list.item3')}
                                         </span>
@@ -214,7 +214,7 @@ export default async function Page() {
                         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
                             {/* Team Member 1 */}
                             <div className="group text-center">
-                                <div className="relative mx-auto mb-6 h-32 w-32 overflow-hidden rounded-full bg-gradient-to-br from-blue-400 to-purple-600">
+                                <div className="relative mx-auto mb-6 h-32 w-32 overflow-hidden rounded-full bg-linear-to-br from-blue-400 to-purple-600">
                                     <div className="absolute inset-0 flex items-center justify-center">
                                         <Users className="h-16 w-16 text-white" />
                                     </div>
@@ -232,7 +232,7 @@ export default async function Page() {
 
                             {/* Team Member 2 */}
                             <div className="group text-center">
-                                <div className="relative mx-auto mb-6 h-32 w-32 overflow-hidden rounded-full bg-gradient-to-br from-green-400 to-blue-600">
+                                <div className="relative mx-auto mb-6 h-32 w-32 overflow-hidden rounded-full bg-linear-to-br from-green-400 to-blue-600">
                                     <div className="absolute inset-0 flex items-center justify-center">
                                         <Users className="h-16 w-16 text-white" />
                                     </div>
@@ -250,7 +250,7 @@ export default async function Page() {
 
                             {/* Team Member 3 */}
                             <div className="group text-center">
-                                <div className="relative mx-auto mb-6 h-32 w-32 overflow-hidden rounded-full bg-gradient-to-br from-purple-400 to-pink-600">
+                                <div className="relative mx-auto mb-6 h-32 w-32 overflow-hidden rounded-full bg-linear-to-br from-purple-400 to-pink-600">
                                     <div className="absolute inset-0 flex items-center justify-center">
                                         <Users className="h-16 w-16 text-white" />
                                     </div>

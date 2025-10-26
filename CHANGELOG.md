@@ -1,20 +1,13 @@
-# [1.3.0](https://github.com/nitrokit/nitrokit-nextjs/compare/v1.2.0...v1.3.0) (2025-10-22)
-
-
-### Features
-
-* Enhances confetti effect and adds security score ([84c9ba6](https://github.com/nitrokit/nitrokit-nextjs/commit/84c9ba644dec27114381fbb644a9d00225f09823))
-
-# [1.2.0](https://github.com/nitrokit/nitrokit-nextjs/compare/v1.1.0...v1.2.0) (2025-10-22)
-
+# [1.3.0](https://github.com/nitrokit/nitrokit-nextjs/compare/v1.1.0...v1.3.0) (2025-10-22)
 
 ### Features
 
-* adds code coverage reporting ([1346664](https://github.com/nitrokit/nitrokit-nextjs/commit/13466645d5739c3288bf00b15929ff0a95c58301))
-* Enhances user account management ([7dccede](https://github.com/nitrokit/nitrokit-nextjs/commit/7dccede615e88b1d0042a622dbdae05139f6ac46))
-* Enhances user menu with visual separator ([569e654](https://github.com/nitrokit/nitrokit-nextjs/commit/569e6547b72f7f339ed9b35ad229229a308a2e38))
-* enhances user security features ([911231c](https://github.com/nitrokit/nitrokit-nextjs/commit/911231c8502e93fff25aa5230600c92500a1311b))
-* enhances user security settings ([cbba1f4](https://github.com/nitrokit/nitrokit-nextjs/commit/cbba1f4695967ea2f46eb692b237fd1e36283273))
+- Enhances confetti effect and adds security score ([84c9ba6](https://github.com/nitrokit/nitrokit-nextjs/commit/84c9ba644dec27114381fbb644a9d00225f09823))
+- adds code coverage reporting ([1346664](https://github.com/nitrokit/nitrokit-nextjs/commit/13466645d5739c3288bf00b15929ff0a95c58301))
+- Enhances user account management ([7dccede](https://github.com/nitrokit/nitrokit-nextjs/commit/7dccede615e88b1d0042a622dbdae05139f6ac46))
+- Enhances user menu with visual separator ([569e654](https://github.com/nitrokit/nitrokit-nextjs/commit/569e6547b72f7f339ed9b35ad229229a308a2e38))
+- enhances user security features ([911231c](https://github.com/nitrokit/nitrokit-nextjs/commit/911231c8502e93fff25aa5230600c92500a1311b))
+- enhances user security settings ([cbba1f4](https://github.com/nitrokit/nitrokit-nextjs/commit/cbba1f4695967ea2f46eb692b237fd1e36283273))
 
 # [1.1.0](https://github.com/nitrokit/nitrokit-nextjs/compare/v1.0.0...v1.1.0) (2025-10-21)
 
