@@ -16,7 +16,7 @@ export class GitHubService {
      *              Required to fetch private repositories and for a higher API rate limit.
      */
     constructor(username?: string, token?: string) {
-        const finalUsername = username ?? process.env.GITHUB_USERNAME;
+        const finalUsername = username ?? process.env.GH_USERNAME;
         if (!finalUsername) {
             throw new Error(
                 'GitHub username is not provided and could not be found in environment variables.'
