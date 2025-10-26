@@ -6,9 +6,9 @@ import { env } from 'process';
 import { cache } from 'react';
 
 export async function getLatestVersion(): Promise<GitHubRelease> {
-    const repoName = process.env.GITHUB_REPONAME;
+    const repoName = process.env.GH_REPONAME;
     if (!repoName) {
-        console.warn('GITHUB_REPONAME is not set.');
+        console.warn('GH_REPONAME is not set.');
         return { tag_name: 'v1.0.0', name: null, html_url: '' };
     }
 
@@ -23,10 +23,10 @@ export async function getLatestVersion(): Promise<GitHubRelease> {
 }
 
 export const getRepoStats = cache(async (): Promise<RepoStats> => {
-    const repoName = env.GITHUB_REPONAME;
+    const repoName = env.GH_REPONAME;
     if (!repoName) {
         console.warn(
-            'GITHUB_REPONAME is not set in environment variables. Falling back to default version.'
+            'GH_REPONAME is not set in environment variables. Falling back to default version.'
         );
         return {
             stargazers_count: 0,
