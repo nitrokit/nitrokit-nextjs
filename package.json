@@ -1,7 +1,7 @@
 {
     "name": "nitrokit-nextjs",
     "description": "Boilerplate and Starter for Next.js 15 with App Router and Page Router support, Tailwind CSS 4 and TypeScript.",
-    "version": "1.0.0",
+    "version": "1.6.0",
     "type": "module",
     "repository": "github:nitrokit/nitrokit-nextjs",
     "keywords": [
@@ -27,7 +27,7 @@
     },
     "homepage": "https://nitrokit.tr",
     "private": false,
-    "packageManager": "pnpm@9.4.0",
+    "packageManager": "pnpm@10.20.0",
     "scripts": {
         "predev": "./scripts/generate-i18n-declaration.sh",
         "dev": "prisma-import --schemas \"prisma/models/*.prisma\" --output \"prisma/schema.prisma\" --force && prisma generate --no-engine --data-proxy --no-hints && next dev --turbopack",
@@ -131,7 +131,11 @@
         "@eslint/eslintrc": "^3.3.1",
         "@playwright/test": "^1.56.1",
         "@semantic-release/changelog": "^6.0.3",
+        "@semantic-release/commit-analyzer": "^13.0.1",
         "@semantic-release/git": "^10.0.1",
+        "@semantic-release/github": "^12.0.0",
+        "@semantic-release/npm": "^13.1.1",
+        "@semantic-release/release-notes-generator": "^14.1.0",
         "@tailwindcss/postcss": "^4.1.15",
         "@tailwindcss/typography": "^0.5.19",
         "@testing-library/dom": "^10.4.1",
