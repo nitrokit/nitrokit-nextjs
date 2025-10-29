@@ -16,5 +16,11 @@
         "label": "Profil Resmi",
         "removeSuccess": "Profil resmi başarıyla kaldırıldı!",
         "removeError": "Profil resmi kaldırılamadı."
+    },
+    "messages": {
+        "updateSuccess": "Profil başarıyla güncellendi!",
+        "updateFailed": "Profil güncellenemedi",
+        "updateError": "Bir şeyler ters gitti. Lütfen tekrar deneyin.",
+        "phoneUpdated": "Telefon numarası güncellendi. Lütfen yeni numaranızı doğrulayın."
     }
 }

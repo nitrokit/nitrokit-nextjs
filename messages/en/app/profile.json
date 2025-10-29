@@ -16,5 +16,11 @@
         "label": "Profile Picture",
         "removeSuccess": "Profile picture removed successfully!",
         "removeError": "Failed to remove profile picture."
+    },
+    "messages": {
+        "updateSuccess": "Profile updated successfully!",
+        "updateFailed": "Failed to update profile",
+        "updateError": "Something went wrong. Please try again.",
+        "phoneUpdated": "Phone number updated. Please verify your new number."
     }
 }

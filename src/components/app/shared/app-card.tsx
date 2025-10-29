@@ -37,13 +37,24 @@ const AppCardContext = React.createContext<AppCardContextProps>({
 
 export interface AppCardProps
     extends React.HTMLAttributes<HTMLDivElement>,
-        VariantProps<typeof appCardVariants> {}
+        VariantProps<typeof appCardVariants> {
+    loading?: boolean;
+}
 
 const AppCard = React.forwardRef<HTMLDivElement, AppCardProps>(
-    ({ className, variant, children, ...props }, ref) => (
+    ({ className, variant, children, loading = false, ...props }, ref) => (
         <AppCardContext.Provider value={{ variant }}>
-            <Card ref={ref} className={cn(appCardVariants({ variant, className }))} {...props}>
-                {children}
+            <Card
+                ref={ref}
+                className={cn('relative', 'min-h-80', appCardVariants({ variant, className }))}
+                {...props}
+            >
+                {loading && (
+                    <div className="bg-background/50 absolute inset-0 z-10 flex items-center justify-center">
+                        <Loader2 className="h-8 w-8 animate-spin" />
+                    </div>
+                )}
+                <div className={cn({ 'pointer-events-none blur-xs': loading })}>{children}</div>
             </Card>
         </AppCardContext.Provider>
     )
@@ -105,15 +116,9 @@ interface AppCardContentProps extends React.HTMLAttributes<HTMLDivElement> {
 }
 
 const AppCardContent = React.forwardRef<HTMLDivElement, AppCardContentProps>(
-    ({ className, children, loading = false, ...props }, ref) => (
+    ({ className, children, ...props }, ref) => (
         <CardContent ref={ref} className={cn('px-4', className)} {...props}>
-            {loading ? (
-                <div className="flex items-center justify-center py-8">
-                    <Loader2 className="h-8 w-8 animate-spin" />
-                </div>
-            ) : (
-                children
-            )}
+            {children}
         </CardContent>
     )
 );

@@ -37,6 +37,6 @@ export interface UserData extends DefaultUser {
 export interface UserContextType {
     user: UserData | null;
     isLoading: boolean;
-    updateUser: (newUserData: Partial<UserData>) => void;
+    updateUser: (updatedUserData: Partial<UserData>) => void;
     updateAvatar: (url: string | null) => void;
 }

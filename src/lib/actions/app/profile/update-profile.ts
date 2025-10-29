@@ -9,26 +9,26 @@ import { getTranslations } from 'next-intl/server';
 export type UpdateProfileActionState = {
     success?: boolean;
     errors?: {
-        firstname?: string[];
-        lastname?: string[];
+        firstName?: string[];
+        lastName?: string[];
         email?: string[];
         phone?: string[];
     };
     form?: {
-        firstname?: string;
-        lastname?: string;
+        firstName?: string;
+        lastName?: string;
         email?: string;
         phone?: string;
     };
 };
 
 export async function updateProfileAction(
-    prevState: UpdateProfileActionState,
+    _prevState: UpdateProfileActionState,
     formData: FormData
 ): Promise<UpdateProfileActionState> {
     const session = await auth();
     if (!session?.user?.id) {
-        return { errors: { firstname: ['Error'] } };
+        return { errors: { firstName: ['Error'] } };
     }
 
     const data = Object.fromEntries(formData);
@@ -43,8 +43,8 @@ export async function updateProfileAction(
     await prisma.user.update({
         where: { id: session.user.id },
         data: {
-            firstName: result.data.firstname,
-            lastName: result.data.lastname,
+            firstName: result.data.firstName,
+            lastName: result.data.lastName,
             phone: result.data.phone
         }
     });

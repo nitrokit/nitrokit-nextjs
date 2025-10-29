@@ -69,6 +69,12 @@
             "label": "Profile Picture",
             "removeSuccess": "Profile picture removed successfully!",
             "removeError": "Failed to remove profile picture."
+        },
+        "messages": {
+            "updateSuccess": "Profile updated successfully!",
+            "updateFailed": "Failed to update profile",
+            "updateError": "Something went wrong. Please try again.",
+            "phoneUpdated": "Phone number updated. Please verify your new number."
         }
     },
     "common": {
@@ -99,6 +105,11 @@
             "submit": "Submit",
             "cancel": "Cancel",
             "save": "Save",
+            "saveChanges": "Save Changes",
+            "send": "Send",
+            "delete": "Delete",
+            "edit": "Edit",
+            "view": "View",
             "close": "Close",
             "continue": "Continue",
             "reset": "Reset",
