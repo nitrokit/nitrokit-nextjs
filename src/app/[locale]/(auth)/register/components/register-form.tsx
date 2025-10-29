@@ -4,7 +4,7 @@ import * as React from 'react';
 import { useTranslations } from 'next-intl';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { useActionState } from 'react';
+import { useActionState, useEffect } from 'react';
 
 import {
     Checkbox,
@@ -18,17 +18,12 @@ import {
     FormMessage
 } from '@/components/ui';
 
-import {
-    registerFormSchema,
-    TRegisterFormData,
-    DEFAULT_REGISTER_FORM_VALUES,
-    RegisterActionState,
-    registerAction
-} from '@/lib';
+import { registerFormSchema, TRegisterFormData, DEFAULT_REGISTER_FORM_VALUES } from '@/lib';
 import { SimpleTFunction } from '@/types/i18n';
 import { Link, useRouter } from '@/lib/i18n/navigation';
 import { SubmitButton } from '@/components/shared';
 import { AUTH_ROUTES } from '@/lib/auth/constants';
+import { registerAction, RegisterActionState } from '@/lib/actions/auth';
 
 export function RegisterForm() {
     const router = useRouter();
@@ -44,7 +39,7 @@ export function RegisterForm() {
         defaultValues: DEFAULT_REGISTER_FORM_VALUES
     });
 
-    React.useEffect(() => {
+    useEffect(() => {
         if (state?.errors) {
             Object.keys(state.errors).forEach((key) => {
                 const errorKey = key as keyof TRegisterFormData;
@@ -73,7 +68,7 @@ export function RegisterForm() {
                             name="firstname"
                             render={({ field }) => (
                                 <FormItem>
-                                    <FormLabel>{t('common.buttons.firstname')}</FormLabel>
+                                    <FormLabel>{t('common.inputs.firstname')}</FormLabel>
                                     <FormControl>
                                         <Input {...field} />
                                     </FormControl>
@@ -86,7 +81,7 @@ export function RegisterForm() {
                             name="lastname"
                             render={({ field }) => (
                                 <FormItem>
-                                    <FormLabel>{t('common.buttons.lastname')}</FormLabel>
+                                    <FormLabel>{t('common.inputs.lastname')}</FormLabel>
                                     <FormControl>
                                         <Input {...field} />
                                     </FormControl>
@@ -100,9 +95,13 @@ export function RegisterForm() {
                         name="email"
                         render={({ field }) => (
                             <FormItem>
-                                <FormLabel>Email</FormLabel>
+                                <FormLabel>{t('common.inputs.email')}</FormLabel>
                                 <FormControl>
-                                    <Input type="email" placeholder="m@example.com" {...field} />
+                                    <Input
+                                        type="email"
+                                        placeholder={t('common.placeholders.email')}
+                                        {...field}
+                                    />
                                 </FormControl>
                                 <FormMessage />
                             </FormItem>
@@ -113,7 +112,7 @@ export function RegisterForm() {
                         name="password"
                         render={({ field }) => (
                             <FormItem>
-                                <FormLabel>{t('common.buttons.password')}</FormLabel>
+                                <FormLabel>{t('common.inputs.password')}</FormLabel>
                                 <FormControl>
                                     <PasswordInput {...field} />
                                 </FormControl>
@@ -126,7 +125,7 @@ export function RegisterForm() {
                         name="confirmPassword"
                         render={({ field }) => (
                             <FormItem>
-                                <FormLabel>{t('common.buttons.confirmPassword')}</FormLabel>
+                                <FormLabel>{t('common.inputs.confirmPassword')}</FormLabel>
                                 <FormControl>
                                     <PasswordInput {...field} />
                                 </FormControl>

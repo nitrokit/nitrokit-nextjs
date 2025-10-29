@@ -1,4 +1,5 @@
-export interface UserData {
+import { DefaultUser } from 'next-auth';
+export interface UserData extends DefaultUser {
     id: string;
     email: string;
     name?: string | null;
@@ -36,6 +37,6 @@ export interface UserData {
 export interface UserContextType {
     user: UserData | null;
     isLoading: boolean;
-    updateUser: (newUserData: Partial<UserData>) => void;
+    updateUser: (updatedUserData: Partial<UserData>) => void;
     updateAvatar: (url: string | null) => void;
 }

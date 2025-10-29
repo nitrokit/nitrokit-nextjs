@@ -17,13 +17,7 @@ import {
 import { Link, useRouter } from '@/lib/i18n/navigation';
 import { APP_ROUTES, AUTH_ROUTES } from '@/lib/auth/constants';
 import { useTranslations } from 'next-intl';
-import {
-    DEFAULT_LOGIN_FORM_VALUES,
-    LoginActionState,
-    loginFormSchema,
-    TLoginFormData,
-    loginAction
-} from '@/lib';
+import { LoginActionState, loginAction } from '@/lib/actions/auth';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import { useEffect, useActionState } from 'react';
@@ -34,6 +28,7 @@ import { REGEXP_ONLY_DIGITS_AND_CHARS } from 'input-otp';
 import { MoveRight as IconMoveRight } from 'lucide-react';
 import { useSearchParams } from 'next/navigation';
 import { useSession } from 'next-auth/react';
+import { DEFAULT_LOGIN_FORM_VALUES, loginFormSchema, TLoginFormData } from '@/lib';
 
 interface LoginFormProps {
     onFlowChange?: (is2FA: boolean) => void;
@@ -96,7 +91,7 @@ export function LoginForm({ onFlowChange }: LoginFormProps) {
                             name="email"
                             render={({ field }) => (
                                 <FormItem>
-                                    <FormLabel>{t('common.buttons.email')}</FormLabel>
+                                    <FormLabel>{t('common.inputs.email')}</FormLabel>
                                     <FormControl>
                                         <Input
                                             placeholder={t('common.placeholders.email')}
@@ -114,7 +109,7 @@ export function LoginForm({ onFlowChange }: LoginFormProps) {
                             render={({ field }) => (
                                 <FormItem>
                                     <div className="flex items-center">
-                                        <FormLabel>{t('common.buttons.password')}</FormLabel>
+                                        <FormLabel>{t('common.inputs.password')}</FormLabel>
                                         <Link
                                             href={AUTH_ROUTES.PASSWORD_RESET}
                                             className="ml-auto inline-block text-xs underline-offset-2 hover:text-blue-600 hover:underline"

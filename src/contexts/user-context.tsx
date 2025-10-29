@@ -10,8 +10,8 @@ export const UserProvider = ({ children }: { children: ReactNode }) => {
     const { data: session, status, update } = useSession();
 
     const updateUser = useCallback(
-        (newUserData: Partial<UserData>) => {
-            void update(newUserData);
+        (updatedUserData: Partial<UserData>) => {
+            void update(updatedUserData);
         },
         [update]
     );

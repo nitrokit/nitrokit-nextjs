@@ -6,9 +6,9 @@ import { Button } from '@/components/ui';
 import { Link } from '@/lib/i18n/navigation';
 import { redirect, useSearchParams } from 'next/navigation';
 import { AUTH_ROUTES } from '@/lib/auth/constants';
-import { resendVerificationEmailAction } from '@/lib';
 import { FormCard } from '../../components/form-card';
 import { MoveLeft as IconMoveLeft } from 'lucide-react';
+import { resendVerificationEmailAction } from '@/lib/actions/auth';
 
 export default function Page() {
     const t = useTranslations('auth');

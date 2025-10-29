@@ -51,6 +51,32 @@
             }
         }
     },
+    "profile": {
+        "title": "Profile Information",
+        "description": "Update your personal information and profile picture",
+        "firstName": {
+            "label": "First Name",
+            "placeholder": "Enter your first name"
+        },
+        "lastName": {
+            "label": "Last Name",
+            "placeholder": "Enter your last name"
+        },
+        "email": {
+            "label": "Email Address"
+        },
+        "image": {
+            "label": "Profile Picture",
+            "removeSuccess": "Profile picture removed successfully!",
+            "removeError": "Failed to remove profile picture."
+        },
+        "messages": {
+            "updateSuccess": "Profile updated successfully!",
+            "updateFailed": "Failed to update profile",
+            "updateError": "Something went wrong. Please try again.",
+            "phoneUpdated": "Phone number updated. Please verify your new number."
+        }
+    },
     "common": {
         "title": "Nitrokit Next.js Starter",
         "description": "A starter template for Next.js with i18n, Tailwind CSS, and more.",
@@ -67,15 +93,23 @@
             "description": "Build modern web applications with Nitrokit's comprehensive Next.js starter kit. Features TypeScript, Tailwind CSS, authentication, and more.",
             "author": "Nitrokit Team"
         },
-        "buttons": {
+        "inputs": {
             "email": "E-mail",
             "firstname": "First Name",
             "lastname": "Last Name",
             "password": "Password",
             "confirmPassword": "Confirm Password",
+            "phone": "Phone Number"
+        },
+        "buttons": {
             "submit": "Submit",
             "cancel": "Cancel",
             "save": "Save",
+            "saveChanges": "Save Changes",
+            "send": "Send",
+            "delete": "Delete",
+            "edit": "Edit",
+            "view": "View",
             "close": "Close",
             "continue": "Continue",
             "reset": "Reset",
@@ -130,7 +164,8 @@
         },
         "placeholders": {
             "email": "hello@nitrokit.tr",
-            "password": "********"
+            "password": "********",
+            "phone": "+90 (532) 123-4567"
         },
         "navigation": {
             "home": "Home",

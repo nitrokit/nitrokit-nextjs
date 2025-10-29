@@ -1,18 +1,15 @@
 'use client';
 
 import { useTranslations } from 'next-intl';
-import { useSession } from 'next-auth/react';
 
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui';
 import { cn, translateSafely } from '@/lib/utils';
 import { Link, usePathname } from '@/lib/i18n/navigation';
 import { APP_ROUTES } from '@/lib/auth/constants';
 import { AppNavigationItems } from '@/constants/app';
+import { useUser } from '@/contexts/user-context';
 
 function isActiveRoute(pathname: string, href: string) {
-    console.log('Pathname', pathname);
-    console.log('Href', href);
-
     if (pathname === href) return true;
     if (href === APP_ROUTES.HOME && pathname === `${APP_ROUTES.HOME}/`) return true;
     if (href === APP_ROUTES.HOME && pathname.startsWith(APP_ROUTES.ACCOUNT)) return true;
@@ -30,10 +27,12 @@ function getNavigationItems(userRole?: string) {
 function DesktopSidebar() {
     const pathname = usePathname();
     const t = useTranslations();
-    const { data: session } = useSession();
-    console.log(session);
 
-    const navigationItems = getNavigationItems('Moderator'); // TODO: Replace with session.user.role
+    const { user } = useUser();
+    if (!user) {
+        return null;
+    }
+    const navigationItems = getNavigationItems(user.firstName!); // TODO: Replace with session.user.role
 
     return (
         <aside className="hidden w-16 flex-col bg-gray-100 md:flex dark:bg-zinc-900">

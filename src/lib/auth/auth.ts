@@ -354,6 +354,7 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
         },
         async session(params: { session: Session; token: JWT; user?: AdapterUser | undefined }) {
             const { session, token } = params;
+
             if (token && token.sub) {
                 session.user.id = token.sub;
 
@@ -361,23 +362,24 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
                 session.user.name = token.name || session.user.name;
                 session.user.image = token.picture || session.user.image;
 
-                session.user.locale = token.locale || 'tr';
-                session.user.theme = token.theme || 'light';
-                session.user.twoFactorEnabled = token.twoFactorEnabled ?? false;
-
-                // const scope = Sentry.getCurrentScope();
-
-                // scope.setUser({
-                //     id: user.id,
-                //     email: user.email
-                // });
-
                 const dbUser = await prisma.user.findUnique({
                     where: { id: token.sub },
                     include: { accounts: true }
                 });
 
                 if (dbUser) {
+                    session.user.firstName = dbUser.firstName;
+                    session.user.lastName = dbUser.lastName;
+                    session.user.username = dbUser.username;
+                    session.user.createdAt = dbUser.createdAt;
+                    session.user.updatedAt = dbUser.updatedAt;
+                    session.user.lastLoginAt = dbUser.lastLoginAt || undefined;
+                    session.user.receiveUpdates = dbUser.receiveUpdates;
+                    session.user.phone = dbUser.phone;
+                    session.user.locale = dbUser.locale || 'tr';
+                    session.user.theme = dbUser.theme || 'light';
+                    session.user.twoFactorEnabled = dbUser.twoFactorEnabled ?? false;
+
                     session.user.linkedAccounts = dbUser.accounts.map((account) => ({
                         provider: account.provider,
                         type: account.type,

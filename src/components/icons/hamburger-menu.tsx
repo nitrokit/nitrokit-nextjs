@@ -7,7 +7,8 @@ import { JSX, SVGProps } from 'react';
 
 const icons = {
     lines: HamburgerLinesSvg,
-    dots: DotsVerticalSvg,
+    'dots-vertical': DotsVerticalSvg,
+    'dots-horizontal': DotsHorizontalSvg,
     grid: GridSvg
 };
 
@@ -72,6 +73,18 @@ export function HamburgerLinesSvg(props: JSX.IntrinsicAttributes & SVGProps<SVGS
                 strokeLinejoin="round"
                 strokeWidth={1.8}
                 d="M4 6h16M4 12h16m-7 6h7"
+            />
+        </svg>
+    );
+}
+
+export function DotsHorizontalSvg(props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>) {
+    return (
+        <svg fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" {...props}>
+            <path
+                fillRule="evenodd"
+                d="M4 12a2 2 0 1 1 4 0 2 2 0 0 1-4 0Zm7 0a2 2 0 1 1 4 0 2 2 0 0 1-4 0Zm7 0a2 2 0 1 1 4 0 2 2 0 0 1-4 0Z"
+                clipRule="evenodd"
             />
         </svg>
     );

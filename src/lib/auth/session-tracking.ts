@@ -75,7 +75,6 @@ export async function updateSessionInfo(
         });
 
         if (!existingSession) {
-            console.log('Session not found in database, skipping update');
             return;
         }
 

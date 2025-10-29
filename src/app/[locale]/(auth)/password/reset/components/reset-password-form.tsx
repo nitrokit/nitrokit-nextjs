@@ -18,15 +18,10 @@ import {
     Input
 } from '@/components/ui';
 import { SubmitButton } from '@/components/shared';
-import {
-    resetPasswordSchema,
-    TResetPasswordData,
-    DEFAULT_RESET_PASSWORD_VALUES,
-    ResetPasswordActionState,
-    resetPasswordAction
-} from '@/lib';
+import { resetPasswordAction, ResetPasswordActionState } from '@/lib/actions/auth';
 import { AUTH_ROUTES } from '@/lib/auth/constants';
 import { SimpleTFunction } from '@/types/i18n';
+import { DEFAULT_RESET_PASSWORD_VALUES, resetPasswordSchema, TResetPasswordData } from '@/lib';
 
 export function ResetPasswordForm() {
     const t = useTranslations();
@@ -68,7 +63,7 @@ export function ResetPasswordForm() {
                     name="email"
                     render={({ field }) => (
                         <FormItem>
-                            <FormLabel htmlFor="email">{t('common.buttons.email')}</FormLabel>
+                            <FormLabel htmlFor="email">{t('common.inputs.email')}</FormLabel>
                             <FormControl>
                                 <Input
                                     id="email"

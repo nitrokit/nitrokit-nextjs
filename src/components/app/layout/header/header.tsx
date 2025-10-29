@@ -2,7 +2,7 @@
 
 import { ReactNode } from 'react';
 import { Logo, MobileSidebar, UserMenu } from '@/components/app';
-import { CompactLocaleSwitcher, LocaleSwitcher } from '@/components/switchers';
+import { CompactLocaleSwitcher } from '@/components/switchers';
 
 interface DashboardHeaderProps {
     children?: ReactNode;

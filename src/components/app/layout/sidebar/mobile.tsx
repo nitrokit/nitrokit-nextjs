@@ -2,10 +2,8 @@
 
 import { useState, useEffect } from 'react';
 import { useTranslations } from 'next-intl';
-import { useSession } from 'next-auth/react';
 
 import {
-    Button,
     ScrollArea,
     Sheet,
     SheetContent,
@@ -19,6 +17,7 @@ import { AppNavigationItems } from '@/constants/app';
 import { APP_ROUTES } from '@/lib/auth/constants';
 import { Logo } from '../header';
 import HamburgerMenu from '@/components/icons/hamburger-menu';
+import { useUser } from '@/contexts/user-context';
 
 function isActiveRoute(pathname: string, href: string) {
     if (pathname === href) return true;
@@ -38,13 +37,16 @@ export function MobileSidebar() {
     const [isOpen, setIsOpen] = useState(false);
     const pathname = usePathname();
     const t = useTranslations();
-    const { data: session } = useSession();
-    console.log('Session', session);
-    const navigationItems = getNavigationItems('Moderator'); // TODO: Replace with session.user.role
 
     useEffect(() => {
         setIsOpen(false);
     }, [pathname]);
+
+    const { user } = useUser();
+    if (!user) {
+        return null;
+    }
+    const navigationItems = getNavigationItems(user.firstName!); // TODO: Replace with session.user.role
 
     return (
         <Sheet open={isOpen} onOpenChange={setIsOpen}>

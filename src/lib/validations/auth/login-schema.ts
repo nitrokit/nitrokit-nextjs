@@ -18,18 +18,3 @@ export const DEFAULT_LOGIN_FORM_VALUES: TLoginFormData = {
     password: '',
     twoFactorCode: undefined
 };
-
-export type LoginActionState = {
-    twoFactorRequired?: boolean;
-    success?: boolean;
-    form?: {
-        email?: string;
-        password?: string;
-        twoFactorCode?: string;
-    };
-    errors?: {
-        email?: string[];
-        password?: string[];
-        twoFactorCode?: string[];
-    };
-};

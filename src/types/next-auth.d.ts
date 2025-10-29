@@ -17,7 +17,7 @@ export interface LinkedAccount {
 
 declare module 'next-auth' {
     interface Session {
-        user: UserData & DefaultSession['user'];
+        user: DefaultSession['user'] & UserData;
         expires: Date;
     }
 }
@@ -28,7 +28,6 @@ declare module 'next-auth/jwt' {
         email?: string;
         name?: string;
         picture?: string;
-        // role: UserRole;
         locale?: Locale;
         theme?: Theme;
         receiveUpdates?: boolean;

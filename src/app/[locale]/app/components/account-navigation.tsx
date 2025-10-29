@@ -19,7 +19,6 @@ import {
     MenubarMenu,
     MenubarSeparator,
     MenubarTrigger,
-    Button,
     Sheet,
     SheetContent,
     SheetTrigger,
@@ -181,7 +180,12 @@ export function AccountNavigation() {
                     </div>
                     <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
                         <SheetTrigger asChild>
-                            <HamburgerMenu variant="ghost" size="sm" icon="dots" className="px-1" />
+                            <HamburgerMenu
+                                variant="ghost"
+                                size="sm"
+                                icon="dots-horizontal"
+                                className="px-1"
+                            />
                         </SheetTrigger>
                         <SheetContent side="right" className="w-70">
                             <SheetHeader className="text-left">
