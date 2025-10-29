@@ -14,12 +14,15 @@
         "description": "Nitrokit'in kapsamlı Next.js başlangıç kiti ile modern web uygulamaları geliştirin. TypeScript, Tailwind CSS, kimlik doğrulama ve daha fazlasını içerir.",
         "author": "Nitrokit Ekibi"
     },
-    "buttons": {
+    "inputs": {
         "email": "E-posta",
         "firstname": "İsim",
         "lastname": "Soyisim",
         "password": "Şifre",
         "confirmPassword": "Şifreyi Doğrula",
+        "phone": "Telefon Numarası"
+    },
+    "buttons": {
         "submit": "Gönder",
         "cancel": "İptal",
         "save": "Kaydet",
@@ -77,7 +80,8 @@
     },
     "placeholders": {
         "email": "merhaba@nitrokit.tr",
-        "password": "********"
+        "password": "********",
+        "phone": "+90 (532) 123-4567"
     },
     "navigation": {
         "home": "Ana Sayfa",

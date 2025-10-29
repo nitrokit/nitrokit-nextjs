@@ -1,0 +1,20 @@
+{
+    "title": "Profile Information",
+    "description": "Update your personal information and profile picture",
+    "firstName": {
+        "label": "First Name",
+        "placeholder": "Enter your first name"
+    },
+    "lastName": {
+        "label": "Last Name",
+        "placeholder": "Enter your last name"
+    },
+    "email": {
+        "label": "Email Address"
+    },
+    "image": {
+        "label": "Profile Picture",
+        "removeSuccess": "Profile picture removed successfully!",
+        "removeError": "Failed to remove profile picture."
+    }
+}

@@ -68,7 +68,7 @@ export function ResetPasswordForm() {
                     name="email"
                     render={({ field }) => (
                         <FormItem>
-                            <FormLabel htmlFor="email">{t('common.buttons.email')}</FormLabel>
+                            <FormLabel htmlFor="email">{t('common.inputs.email')}</FormLabel>
                             <FormControl>
                                 <Input
                                     id="email"

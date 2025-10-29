@@ -94,9 +94,7 @@ export async function registerAction(
         return { success: true, email: email.toLowerCase() };
     } catch (error: unknown) {
         function isPrismaClientKnownRequestErrorWithCode(err: unknown, code: string): boolean {
-            return (
-                err instanceof Error && 'code' in err && (err as any).code === code // any kullanarak kısıtlamayı geçici olarak gevşetiriz
-            );
+            return err instanceof Error && 'code' in err && (err as any).code === code;
         }
 
         if (user && !isPrismaClientKnownRequestErrorWithCode(error, 'P2002')) {

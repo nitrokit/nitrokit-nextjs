@@ -15,16 +15,16 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function Page() {
-    const t = await getTranslations('auth.password-reset-sent');
-    const userEmail = 'm@example.com';
+    const t = await getTranslations();
+    const userEmail = t('common.placeholders.email');
     return (
         <PasswordResetSentCard
             userEmail={userEmail}
             messages={{
-                title: t('title'),
-                instruction: t('description', { email: userEmail }),
-                skipButton: t('button'),
-                noEmail: t.rich('noEmail', {
+                title: t('auth.password-reset-sent.title'),
+                instruction: t('auth.password-reset-sent.description', { email: userEmail }),
+                skipButton: t('auth.password-reset-sent.button'),
+                noEmail: t.rich('auth.password-reset-sent.noEmail', {
                     link: (chunks: any) => {
                         return (
                             <Link
@@ -36,7 +36,7 @@ export default async function Page() {
                         );
                     }
                 }),
-                resend: t('resend')
+                resend: t('auth.password-reset-sent.resend')
             }}
         />
     );

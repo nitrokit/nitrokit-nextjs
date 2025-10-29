@@ -129,6 +129,7 @@
     "devDependencies": {
         "@codecov/vite-plugin": "^1.9.1",
         "@eslint/eslintrc": "^3.3.1",
+        "@next/eslint-plugin-next": "^16.0.1",
         "@playwright/test": "^1.56.1",
         "@semantic-release/changelog": "^6.0.3",
         "@semantic-release/commit-analyzer": "^13.0.1",

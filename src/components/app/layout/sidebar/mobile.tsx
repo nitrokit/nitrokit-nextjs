@@ -5,7 +5,6 @@ import { useTranslations } from 'next-intl';
 import { useSession } from 'next-auth/react';
 
 import {
-    Button,
     ScrollArea,
     Sheet,
     SheetContent,

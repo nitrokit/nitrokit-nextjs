@@ -73,7 +73,7 @@ export function RegisterForm() {
                             name="firstname"
                             render={({ field }) => (
                                 <FormItem>
-                                    <FormLabel>{t('common.buttons.firstname')}</FormLabel>
+                                    <FormLabel>{t('common.inputs.firstname')}</FormLabel>
                                     <FormControl>
                                         <Input {...field} />
                                     </FormControl>
@@ -86,7 +86,7 @@ export function RegisterForm() {
                             name="lastname"
                             render={({ field }) => (
                                 <FormItem>
-                                    <FormLabel>{t('common.buttons.lastname')}</FormLabel>
+                                    <FormLabel>{t('common.inputs.lastname')}</FormLabel>
                                     <FormControl>
                                         <Input {...field} />
                                     </FormControl>
@@ -100,9 +100,13 @@ export function RegisterForm() {
                         name="email"
                         render={({ field }) => (
                             <FormItem>
-                                <FormLabel>Email</FormLabel>
+                                <FormLabel>{t('common.inputs.email')}</FormLabel>
                                 <FormControl>
-                                    <Input type="email" placeholder="m@example.com" {...field} />
+                                    <Input
+                                        type="email"
+                                        placeholder={t('common.placeholders.email')}
+                                        {...field}
+                                    />
                                 </FormControl>
                                 <FormMessage />
                             </FormItem>
@@ -113,7 +117,7 @@ export function RegisterForm() {
                         name="password"
                         render={({ field }) => (
                             <FormItem>
-                                <FormLabel>{t('common.buttons.password')}</FormLabel>
+                                <FormLabel>{t('common.inputs.password')}</FormLabel>
                                 <FormControl>
                                     <PasswordInput {...field} />
                                 </FormControl>
@@ -126,7 +130,7 @@ export function RegisterForm() {
                         name="confirmPassword"
                         render={({ field }) => (
                             <FormItem>
-                                <FormLabel>{t('common.buttons.confirmPassword')}</FormLabel>
+                                <FormLabel>{t('common.inputs.confirmPassword')}</FormLabel>
                                 <FormControl>
                                     <PasswordInput {...field} />
                                 </FormControl>

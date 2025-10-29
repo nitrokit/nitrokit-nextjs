@@ -96,7 +96,7 @@ export function LoginForm({ onFlowChange }: LoginFormProps) {
                             name="email"
                             render={({ field }) => (
                                 <FormItem>
-                                    <FormLabel>{t('common.buttons.email')}</FormLabel>
+                                    <FormLabel>{t('common.inputs.email')}</FormLabel>
                                     <FormControl>
                                         <Input
                                             placeholder={t('common.placeholders.email')}
@@ -114,7 +114,7 @@ export function LoginForm({ onFlowChange }: LoginFormProps) {
                             render={({ field }) => (
                                 <FormItem>
                                     <div className="flex items-center">
-                                        <FormLabel>{t('common.buttons.password')}</FormLabel>
+                                        <FormLabel>{t('common.inputs.password')}</FormLabel>
                                         <Link
                                             href={AUTH_ROUTES.PASSWORD_RESET}
                                             className="ml-auto inline-block text-xs underline-offset-2 hover:text-blue-600 hover:underline"

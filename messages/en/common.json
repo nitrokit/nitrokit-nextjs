@@ -14,12 +14,15 @@
         "description": "Build modern web applications with Nitrokit's comprehensive Next.js starter kit. Features TypeScript, Tailwind CSS, authentication, and more.",
         "author": "Nitrokit Team"
     },
-    "buttons": {
+    "inputs": {
         "email": "E-mail",
         "firstname": "First Name",
         "lastname": "Last Name",
         "password": "Password",
         "confirmPassword": "Confirm Password",
+        "phone": "Phone Number"
+    },
+    "buttons": {
         "submit": "Submit",
         "cancel": "Cancel",
         "save": "Save",
@@ -77,7 +80,8 @@
     },
     "placeholders": {
         "email": "hello@nitrokit.tr",
-        "password": "********"
+        "password": "********",
+        "phone": "+90 (532) 123-4567"
     },
     "navigation": {
         "home": "Home",
