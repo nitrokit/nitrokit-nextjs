@@ -32,15 +32,15 @@ export default function PricingSection({ plans }: PricingProps) {
                 </div>
             </div>
 
-            <div className={'mt-6 grid grid-cols-1 items-end gap-0 md:grid-cols-2 lg:grid-cols-3'}>
+            <div className={'mt-6 grid grid-cols-1 items-end gap-3 md:grid-cols-2 lg:grid-cols-3'}>
                 {plans.map((plan) => {
                     const price = billingCycle === 'monthly' ? plan.monthlyPrice : plan.yearlyPrice;
                     const priceSuffixKey =
                         billingCycle === 'monthly' ? 'pricePerMonth' : 'pricePerYear';
 
                     const heightClass = plan.isFeatured
-                        ? 'min-h-[34rem] lg:scale-[1.05]'
-                        : 'min-h-[28rem]';
+                        ? 'min-h-[34rem] lg:scale-[1.1]'
+                        : 'min-h-[28rem] h-[34rem]';
                     const titleColor = plan.isFeatured
                         ? 'text-blue-500 dark:text-cyan-500'
                         : 'text-neutral-800 dark:text-neutral-200';

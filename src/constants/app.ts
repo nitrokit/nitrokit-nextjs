@@ -6,7 +6,7 @@ import {
 } from 'lucide-react';
 
 export const AppNavigationItems = [
-    { key: 'navigation.dashboard', href: APP_ROUTES.HOME, icon: IconHome },
-    { key: 'navigation.invoices', href: APP_ROUTES.INVOICES, icon: IconReceiptText },
-    { key: 'navigation.support', href: APP_ROUTES.SUPPORT, icon: IconHeartHandshake }
+    { key: 'app.navigation.dashboard', href: APP_ROUTES.HOME, icon: IconHome },
+    { key: 'app.navigation.invoices', href: APP_ROUTES.INVOICES, icon: IconReceiptText },
+    { key: 'app.navigation.support', href: APP_ROUTES.SUPPORT, icon: IconHeartHandshake }
 ];

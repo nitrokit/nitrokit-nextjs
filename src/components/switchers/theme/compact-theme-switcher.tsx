@@ -11,8 +11,14 @@ import {
     TooltipTrigger
 } from '@/components/ui';
 import { useNextTheme } from '@/hooks';
+import { cn } from '@/lib';
 
-export const CompactThemeSwitcher = () => {
+interface CompactThemeSwitcherProps {
+    className?: string;
+}
+
+export function CompactThemeSwitcher(props: CompactThemeSwitcherProps) {
+    const { className } = props;
     const [theme, mounted, setTheme] = useNextTheme();
 
     if (!mounted) {
@@ -33,7 +39,10 @@ export const CompactThemeSwitcher = () => {
                 onValueChange={(value) => {
                     if (value) setTheme(value);
                 }}
-                className="border-border/30 bg-background/60 rounded-lg border p-1 backdrop-blur-sm"
+                className={cn(
+                    'border-border/30 bg-background/60 rounded-lg border p-1 backdrop-blur-sm',
+                    className
+                )}
                 size="sm"
             >
                 {themes.map(({ value, icon: Icon, label }) => (
@@ -65,4 +74,4 @@ export const CompactThemeSwitcher = () => {
             </ToggleGroup>
         </Suspense>
     );
-};
+}

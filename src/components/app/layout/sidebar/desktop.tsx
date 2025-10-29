@@ -10,8 +10,12 @@ import { APP_ROUTES } from '@/lib/auth/constants';
 import { AppNavigationItems } from '@/constants/app';
 
 function isActiveRoute(pathname: string, href: string) {
+    console.log('Pathname', pathname);
+    console.log('Href', href);
+
     if (pathname === href) return true;
     if (href === APP_ROUTES.HOME && pathname === `${APP_ROUTES.HOME}/`) return true;
+    if (href === APP_ROUTES.HOME && pathname.startsWith(APP_ROUTES.ACCOUNT)) return true;
     if (href !== APP_ROUTES.HOME && pathname.startsWith(href)) return true;
     return false;
 }
@@ -25,7 +29,7 @@ function getNavigationItems(userRole?: string) {
 
 function DesktopSidebar() {
     const pathname = usePathname();
-    const t = useTranslations('app');
+    const t = useTranslations();
     const { data: session } = useSession();
     console.log(session);
 

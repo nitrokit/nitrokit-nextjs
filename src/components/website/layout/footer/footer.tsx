@@ -4,7 +4,7 @@ import React from 'react';
 import { Button } from '@/components/ui';
 import { Heart, Palette } from 'lucide-react';
 import { CompactThemeSwitcher } from '@/components/switchers';
-import { DevelopedBy, Logo, Version } from '@/components/shared';
+import { CopyRight, DevelopedBy, Logo, Version } from '@/components/shared';
 import { SOCIAL_LINKS, FOOTER_LINKS } from '@/constants';
 import { Separator } from '@radix-ui/themes';
 import { CompactNewsletter } from '@/components/website/newsletter';
@@ -68,10 +68,7 @@ export function Footer() {
                 <Separator />
                 <section className="flex flex-col items-center justify-between gap-4 py-3 md:flex-row">
                     <div className="text-muted-foreground flex items-center gap-1 text-xs">
-                        <span>
-                            © {new Date().getFullYear()} {t('common.shortName')} •{' '}
-                            {t('common.allRightsReserved')}
-                        </span>
+                        <CopyRight />
                     </div>
 
                     <div className="flex items-center gap-4">

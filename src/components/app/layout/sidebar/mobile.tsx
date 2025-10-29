@@ -2,14 +2,23 @@
 
 import { useState, useEffect } from 'react';
 import { useTranslations } from 'next-intl';
-import { Menu } from 'lucide-react';
 import { useSession } from 'next-auth/react';
 
-import { Button, Sheet, SheetContent, SheetTrigger } from '@/components/ui';
+import {
+    Button,
+    ScrollArea,
+    Sheet,
+    SheetContent,
+    SheetHeader,
+    SheetTitle,
+    SheetTrigger
+} from '@/components/ui';
 import { Link, usePathname } from '@/lib/i18n/navigation';
 import { cn, translateSafely } from '@/lib/utils';
 import { AppNavigationItems } from '@/constants/app';
 import { APP_ROUTES } from '@/lib/auth/constants';
+import { Logo } from '../header';
+import HamburgerMenu from '@/components/icons/hamburger-menu';
 
 function isActiveRoute(pathname: string, href: string) {
     if (pathname === href) return true;
@@ -28,7 +37,7 @@ function getNavigationItems(userRole?: string) {
 export function MobileSidebar() {
     const [isOpen, setIsOpen] = useState(false);
     const pathname = usePathname();
-    const t = useTranslations('app');
+    const t = useTranslations();
     const { data: session } = useSession();
     console.log('Session', session);
     const navigationItems = getNavigationItems('Moderator'); // TODO: Replace with session.user.role
@@ -40,31 +49,20 @@ export function MobileSidebar() {
     return (
         <Sheet open={isOpen} onOpenChange={setIsOpen}>
             <SheetTrigger asChild>
-                <Button
+                <HamburgerMenu
                     variant="ghost"
-                    size="sm"
-                    className="h-8 w-8 rounded-full hover:bg-white hover:shadow-sm md:hidden dark:hover:bg-zinc-800"
-                >
-                    <Menu className="h-4 w-4" />
-                </Button>
+                    size="icon"
+                    className="mr-10 rounded-full hover:bg-white hover:shadow-sm md:hidden dark:hover:bg-zinc-800 [&_svg]:size-7"
+                />
             </SheetTrigger>
-            <SheetContent side="left" className="w-64 p-0">
-                <div className="flex h-full flex-col bg-white dark:bg-zinc-950">
-                    <div className="flex h-12 items-center border-b border-gray-200 px-6 dark:border-zinc-800">
-                        <Link href="/" className="group flex items-center space-x-4">
-                            <div className="relative flex h-9 w-9 items-center justify-center">
-                                <div
-                                    className="absolute inset-0 bg-slate-900 transition-all duration-500 group-hover:bg-linear-to-br group-hover:from-blue-600 group-hover:to-purple-600 dark:bg-slate-100"
-                                    style={{ borderRadius: '60% 40% 30% 70% / 60% 30% 70% 40%' }}
-                                ></div>
-                                <span className="relative z-10 text-lg font-bold text-white transition-all duration-300 group-hover:text-blue-100 dark:text-slate-900 dark:group-hover:text-white">
-                                    N
-                                </span>
-                            </div>
-                        </Link>
-                    </div>
-
-                    <nav className="flex-1 space-y-2 px-4 pt-4">
+            <SheetContent side="left" className="w-70">
+                <SheetHeader className="text-left">
+                    <SheetTitle className="flex items-center gap-2">
+                        <Logo className="ml-2" />
+                    </SheetTitle>
+                </SheetHeader>
+                <ScrollArea className="mt-6 h-[calc(100vh-120px)]">
+                    <div className="space-y-1">
                         {navigationItems.map((item) => {
                             const isActive = isActiveRoute(pathname, item.href);
                             const Icon = item.icon;
@@ -74,10 +72,10 @@ export function MobileSidebar() {
                                     key={item.key}
                                     href={item.href}
                                     className={cn(
-                                        'flex items-center space-x-3 rounded-xl px-3 py-2.5 transition-all duration-200',
+                                        'hover:border-primary/10 flex items-center gap-3 rounded-lg border border-transparent px-3 py-3 text-sm transition-all',
                                         isActive
-                                            ? 'border border-blue-100 bg-blue-50 text-blue-600 shadow-sm dark:border-blue-800/30 dark:bg-blue-900/20 dark:text-blue-400'
-                                            : 'text-gray-700 hover:bg-gray-100 hover:text-gray-900 dark:text-zinc-300 dark:hover:bg-zinc-800 dark:hover:text-zinc-100'
+                                            ? 'bg-primary/10 text-primary border-primary/10'
+                                            : 'text-muted-foreground hover:bg-muted hover:text-foreground'
                                     )}
                                 >
                                     <Icon className="h-5 w-5" />
@@ -87,8 +85,8 @@ export function MobileSidebar() {
                                 </Link>
                             );
                         })}
-                    </nav>
-                </div>
+                    </div>
+                </ScrollArea>
             </SheetContent>
         </Sheet>
     );
