@@ -1,4 +1,4 @@
-import { NewsletterConfirmResponseSchema } from '@/lib';
+import { newsletterConfirmResponseSchema } from '@/lib';
 import { useRouter } from '@/lib/i18n/navigation';
 import { useSearchParams } from 'next/navigation';
 import { useCallback, useEffect, useState } from 'react';
@@ -26,7 +26,7 @@ export const useNewsletterConfirmDialog = (t: (key: string) => string) => {
 
         fetch(`/api/newsletter/confirm?token=${token}`)
             .then(async (res) => {
-                const parsed = NewsletterConfirmResponseSchema.safeParse(await res.json());
+                const parsed = newsletterConfirmResponseSchema.safeParse(await res.json());
 
                 if (!parsed.success) {
                     setStatus('error');

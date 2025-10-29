@@ -4,6 +4,7 @@ export interface Messages {
     validations: typeof import('../../messages/en/validations.json');
     app: typeof import('../../messages/en/app/app.json');
     security: typeof import('../../messages/en/app/security.json');
+    profile: typeof import('../../messages/en/app/profile.json');
     auth: typeof import('../../messages/en/auth.json');
     home: typeof import('../../messages/en/website/home.json');
     about: typeof import('../../messages/en/website/about.json');

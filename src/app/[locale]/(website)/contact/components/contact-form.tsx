@@ -25,7 +25,7 @@ import {
     contactAction,
     ContactActionResponse,
     ContactFormData,
-    ContactFormSchema
+    contactFormSchema
 } from '@/lib';
 import { useUser } from '@/contexts/user-context';
 
@@ -47,7 +47,7 @@ export const ContactForm = () => {
     }
 
     const form = useForm<ContactFormData>({
-        resolver: zodResolver(ContactFormSchema(t as SimpleTFunction)),
+        resolver: zodResolver(contactFormSchema(t as SimpleTFunction)),
         defaultValues: {
             name: name,
             email: email,

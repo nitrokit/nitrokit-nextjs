@@ -1,29 +1,29 @@
 import { TESTIMONIALS as staticTestimonials } from '@/constants';
-import { CompactBanner } from '@/components/website/banners';
-
+import { ConfettiBanner } from '@/components/website/banners';
 import { RandomText, TextRotator } from '@/components/shared';
 import { UserTrustSection } from '@/components/website/testimonial';
 import { useTranslations } from 'next-intl';
 import { useGithubRelease } from '@/hooks/useGithubRelease';
 import { Loader2 } from 'lucide-react';
+
 function getTestimonialData() {
     return staticTestimonials;
 }
 
 export function Hero() {
-    const t = useTranslations('home');
+    const t = useTranslations();
     const testimonials = getTestimonialData();
 
     const titles = {
-        title1: t.rich('hero.titles.title1', { br: () => <br /> }),
-        title2: t.rich('hero.titles.title2', { br: () => <br /> })
+        title1: t.rich('home.hero.titles.title1', { br: () => <br /> }),
+        title2: t.rich('home.hero.titles.title2', { br: () => <br /> })
     };
 
     const descriptions = {
-        description1: t.rich('hero.description.description1', { br: () => <br /> }),
-        description2: t.rich('hero.description.description2', { br: () => <br /> }),
-        description3: t.rich('hero.description.description3', { br: () => <br /> }),
-        description4: t.rich('hero.description.description4', { br: () => <br /> })
+        description1: t.rich('home.hero.description.description1', { br: () => <br /> }),
+        description2: t.rich('home.hero.description.description2', { br: () => <br /> }),
+        description3: t.rich('home.hero.description.description3', { br: () => <br /> }),
+        description4: t.rich('home.hero.description.description4', { br: () => <br /> })
     };
 
     const titleArray = Object.values(titles);
@@ -34,17 +34,19 @@ export function Hero() {
     return (
         <div className="relative">
             <div className="container mx-auto px-4 py-14 lg:py-8">
-                <div className="mb-10 text-center">
+                <div className="mx-auto mb-10 max-w-fit text-center">
                     {isVersionLoading ? (
                         <Loader2 />
                     ) : (
-                        <CompactBanner
+                        <ConfettiBanner
                             href={release_url}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            badge={t('banner.badge')}
-                            text={t('banner.text', { version: version })}
-                            className="inline-flex border border-gray-200 bg-gray-50/80 backdrop-blur-sm transition-colors hover:bg-gray-100/80 dark:border-gray-800 dark:bg-gray-900/80 dark:hover:bg-gray-800/80"
+                            badge={t('common.new')}
+                            icon={'🎉'}
+                            text={t('home.banner.text', { version: version })}
+                            confettiEffect="school-pride"
+                            confettiEnabled={true}
+                            confettiIntensity="high"
+                            animated={false}
                         />
                     )}
                 </div>
@@ -64,7 +66,7 @@ export function Hero() {
 
                     <UserTrustSection
                         testimonials={testimonials}
-                        label={t('testimonials.slogan')}
+                        label={t('home.testimonials.slogan')}
                         className="mb-10"
                     />
 
@@ -74,28 +76,28 @@ export function Hero() {
                 <div className="mx-auto mb-20 grid max-w-3xl grid-cols-1 gap-8 md:grid-cols-3">
                     <div className="rounded-xl bg-white/50 p-6 text-center backdrop-blur-sm transition-all hover:bg-white/70 dark:bg-gray-900/50 dark:hover:bg-gray-900/70">
                         <div className="mb-2 text-3xl font-bold text-blue-600 md:text-4xl dark:text-blue-400">
-                            {t('stats.components.number')}
+                            {t('home.stats.components.number')}
                         </div>
                         <div className="font-medium text-gray-600 dark:text-gray-400">
-                            {t('stats.components.label')}
+                            {t('home.stats.components.label')}
                         </div>
                     </div>
 
                     <div className="rounded-xl bg-white/50 p-6 text-center backdrop-blur-sm transition-all hover:bg-white/70 dark:bg-gray-900/50 dark:hover:bg-gray-900/70">
                         <div className="mb-2 text-3xl font-bold text-emerald-600 md:text-4xl dark:text-emerald-400">
-                            {t('stats.typescript.number')}
+                            {t('home.stats.typescript.number')}
                         </div>
                         <div className="font-medium text-gray-600 dark:text-gray-400">
-                            {t('stats.typescript.label')}
+                            {t('home.stats.typescript.label')}
                         </div>
                     </div>
 
                     <div className="rounded-xl bg-white/50 p-6 text-center backdrop-blur-sm transition-all hover:bg-white/70 dark:bg-gray-900/50 dark:hover:bg-gray-900/70">
                         <div className="mb-2 text-3xl font-bold text-purple-600 md:text-4xl dark:text-purple-400">
-                            {t('stats.modern.number')}
+                            {t('home.stats.modern.number')}
                         </div>
                         <div className="font-medium text-gray-600 dark:text-gray-400">
-                            {t('stats.modern.label')}
+                            {t('home.stats.modern.label')}
                         </div>
                     </div>
                 </div>

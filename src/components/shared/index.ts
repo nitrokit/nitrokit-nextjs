@@ -12,6 +12,7 @@ export * from './version';
 export * from './library-logos';
 export * from './page-loading';
 export * from './submit-button';
+export * from './copy-right';
 
 export * from './github-button-with-stats';
 export * from './vercel-deploy-button';

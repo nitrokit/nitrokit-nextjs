@@ -7,21 +7,30 @@
     "loading": "Loading...",
     "allRightsReserved": "All rights reserved.",
     "contactUs": "Contact Us",
+    "new": "New",
     "metadata": {
         "applicationName": "Nitrokit Next.js",
         "title": "Nitrokit - Lightning Fast Next.js Starter",
         "description": "Build modern web applications with Nitrokit's comprehensive Next.js starter kit. Features TypeScript, Tailwind CSS, authentication, and more.",
         "author": "Nitrokit Team"
     },
-    "buttons": {
+    "inputs": {
         "email": "E-mail",
         "firstname": "First Name",
         "lastname": "Last Name",
         "password": "Password",
         "confirmPassword": "Confirm Password",
+        "phone": "Phone Number"
+    },
+    "buttons": {
         "submit": "Submit",
         "cancel": "Cancel",
         "save": "Save",
+        "saveChanges": "Save Changes",
+        "send": "Send",
+        "delete": "Delete",
+        "edit": "Edit",
+        "view": "View",
         "close": "Close",
         "continue": "Continue",
         "reset": "Reset",
@@ -76,7 +85,8 @@
     },
     "placeholders": {
         "email": "hello@nitrokit.tr",
-        "password": "********"
+        "password": "********",
+        "phone": "+90 (532) 123-4567"
     },
     "navigation": {
         "home": "Home",

@@ -8,11 +8,11 @@ import { getEmailService } from '@/lib/services/email';
 
 import { render } from '@react-email/render';
 import { ContactEmail } from '@/components/emails';
-import { ContactActionResponse, ContactFormSchema } from '@/lib/validations';
+import { ContactActionResponse, contactFormSchema } from '@/lib/validations';
 import { PUBLIC_EMAIL } from '@/constants';
 
 type ContactActionState = ContactActionResponse & {
-    errors?: { [key in keyof z.infer<typeof ContactFormSchema>]: string[] };
+    errors?: { [key in keyof z.infer<typeof contactFormSchema>]: string[] };
     message?: string;
 };
 
@@ -24,7 +24,7 @@ export async function contactAction(
     const locale = await getLocale();
     const t = await getTranslations();
 
-    const schema = ContactFormSchema(t as SimpleTFunction);
+    const schema = contactFormSchema(t as SimpleTFunction);
     const validatedFields = schema.safeParse(data);
 
     if (!validatedFields.success) {

@@ -7,21 +7,30 @@
     "loading": "Yükleniyor...",
     "allRightsReserved": "Tüm hakları saklıdır.",
     "contactUs": "Bize Ulaşın",
+    "new": "Yeni",
     "metadata": {
         "applicationName": "Nitrokit Next.js",
         "title": "Nitrokit - Yıldırım Hızında Next.js Başlangıç Kiti",
         "description": "Nitrokit'in kapsamlı Next.js başlangıç kiti ile modern web uygulamaları geliştirin. TypeScript, Tailwind CSS, kimlik doğrulama ve daha fazlasını içerir.",
         "author": "Nitrokit Ekibi"
     },
-    "buttons": {
+    "inputs": {
         "email": "E-posta",
         "firstname": "İsim",
         "lastname": "Soyisim",
         "password": "Şifre",
         "confirmPassword": "Şifreyi Doğrula",
+        "phone": "Telefon Numarası"
+    },
+    "buttons": {
         "submit": "Gönder",
         "cancel": "İptal",
         "save": "Kaydet",
+        "saveChanges": "Değişiklikleri Kaydet",
+        "send": "Gönder",
+        "delete": "Sil",
+        "edit": "Düzenle",
+        "view": "Görüntüle",
         "close": "Kapat",
         "continue": "Devam Et",
         "reset": "Sıfırla",
@@ -76,7 +85,8 @@
     },
     "placeholders": {
         "email": "merhaba@nitrokit.tr",
-        "password": "********"
+        "password": "********",
+        "phone": "+90 (532) 123-4567"
     },
     "navigation": {
         "home": "Ana Sayfa",

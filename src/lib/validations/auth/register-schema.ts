@@ -41,24 +41,3 @@ export const DEFAULT_REGISTER_FORM_VALUES: TRegisterFormData = {
     confirmPassword: '',
     terms: false
 };
-
-export type RegisterActionState = {
-    success?: boolean;
-    email?: string;
-    form?: {
-        firstname?: string;
-        lastname?: string;
-        email?: string;
-        password?: string;
-        confirmPassword?: string;
-        terms?: boolean;
-    };
-    errors?: {
-        firstname?: string[];
-        lastname?: string[];
-        email?: string[];
-        password?: string[];
-        confirmPassword?: string[];
-        terms?: string[];
-    };
-};

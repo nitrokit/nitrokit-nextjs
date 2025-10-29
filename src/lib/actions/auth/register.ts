@@ -1,6 +1,6 @@
 'use server';
 
-import { registerFormSchema, RegisterActionState } from '@/lib/validations';
+import { registerFormSchema } from '@/lib/validations';
 import { prisma } from '@/lib/prisma';
 import { hash } from 'bcryptjs';
 import { AuthError } from 'next-auth';
@@ -13,6 +13,27 @@ import { render } from '@react-email/render';
 import { VerificationEmail } from '@/components/emails/verification-email';
 import { AUTH_ROUTES } from '@/lib/auth/constants';
 import { generateVerificationToken } from '@/lib/auth/token-service';
+
+export type RegisterActionState = {
+    success?: boolean;
+    email?: string;
+    form?: {
+        firstname?: string;
+        lastname?: string;
+        email?: string;
+        password?: string;
+        confirmPassword?: string;
+        terms?: boolean;
+    };
+    errors?: {
+        firstname?: string[];
+        lastname?: string[];
+        email?: string[];
+        password?: string[];
+        confirmPassword?: string[];
+        terms?: string[];
+    };
+};
 
 export async function registerAction(
     prevState: RegisterActionState,
@@ -94,9 +115,7 @@ export async function registerAction(
         return { success: true, email: email.toLowerCase() };
     } catch (error: unknown) {
         function isPrismaClientKnownRequestErrorWithCode(err: unknown, code: string): boolean {
-            return (
-                err instanceof Error && 'code' in err && (err as any).code === code // any kullanarak kısıtlamayı geçici olarak gevşetiriz
-            );
+            return err instanceof Error && 'code' in err && (err as any).code === code;
         }
 
         if (user && !isPrismaClientKnownRequestErrorWithCode(error, 'P2002')) {

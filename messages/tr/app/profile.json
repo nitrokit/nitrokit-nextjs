@@ -1,0 +1,26 @@
+{
+    "title": "Profil Bilgileri",
+    "description": "Kişisel bilgilerinizi ve profil resminizi güncelleyin",
+    "firstName": {
+        "label": "Ad",
+        "placeholder": "Adınızı girin"
+    },
+    "lastName": {
+        "label": "Soyad",
+        "placeholder": "Soyadınızı girin"
+    },
+    "email": {
+        "label": "E-posta Adresi"
+    },
+    "image": {
+        "label": "Profil Resmi",
+        "removeSuccess": "Profil resmi başarıyla kaldırıldı!",
+        "removeError": "Profil resmi kaldırılamadı."
+    },
+    "messages": {
+        "updateSuccess": "Profil başarıyla güncellendi!",
+        "updateFailed": "Profil güncellenemedi",
+        "updateError": "Bir şeyler ters gitti. Lütfen tekrar deneyin.",
+        "phoneUpdated": "Telefon numarası güncellendi. Lütfen yeni numaranızı doğrulayın."
+    }
+}

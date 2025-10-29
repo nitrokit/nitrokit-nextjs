@@ -17,7 +17,8 @@ export default getRequestConfig(async ({ requestLocale }) => {
         import(`../../../messages/${locale}/website/faq.json`),
         import(`../../../messages/${locale}/email.json`),
         import(`../../../messages/${locale}/common.json`),
-        import(`../../../messages/${locale}/app/security.json`)
+        import(`../../../messages/${locale}/app/security.json`),
+        import(`../../../messages/${locale}/app/profile.json`)
     ]);
 
     return {
@@ -33,7 +34,8 @@ export default getRequestConfig(async ({ requestLocale }) => {
             faq: messageModules[7].default,
             email: messageModules[8].default,
             common: messageModules[9].default,
-            security: messageModules[10].default
+            security: messageModules[10].default,
+            profile: messageModules[11].default
         }
     };
 });

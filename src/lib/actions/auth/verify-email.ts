@@ -9,13 +9,13 @@ import { WelcomeEmail } from '@/components/emails';
 import { render } from '@react-email/render';
 import { getBaseUrl } from '@/lib/config';
 
-export interface VerificationActionResult {
+export interface VerificationActionState {
     success: boolean;
     redirectUrl?: string;
     error?: string;
 }
 
-export async function verifyEmailAction(token: string): Promise<VerificationActionResult> {
+export async function verifyEmailAction(token: string): Promise<VerificationActionState> {
     const locale = await getLocale();
     const t = await getTranslations();
 

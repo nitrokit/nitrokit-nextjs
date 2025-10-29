@@ -14,13 +14,3 @@ export type TResetPasswordData = z.infer<ReturnType<typeof resetPasswordSchema>>
 export const DEFAULT_RESET_PASSWORD_VALUES: TResetPasswordData = {
     email: ''
 };
-
-export type ResetPasswordActionState = {
-    success?: boolean;
-    errors?: {
-        email?: string[];
-    };
-    form?: {
-        email?: string;
-    };
-};

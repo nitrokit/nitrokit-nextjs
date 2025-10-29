@@ -20,7 +20,7 @@ import { Cookie, Settings, Shield, BarChart3, Target } from 'lucide-react';
 import type { GtagConsentParams } from '@/types/gtag';
 import {
     CookiePreferences,
-    CookiePreferencesSchema
+    cookiePreferencesSchema
 } from '@/lib/validations/cookie-preferences-schema';
 
 const COOKIE_CONSENT_KEY = 'nitrokit-cookie-consent';
@@ -50,18 +50,14 @@ export function CookieConsent() {
 
         if (savedPreferences) {
             try {
-                const result = CookiePreferencesSchema.safeParse(JSON.parse(savedPreferences));
+                const result = cookiePreferencesSchema.safeParse(JSON.parse(savedPreferences));
 
                 if (result.success) {
                     setPreferences(result.data);
                 } else {
-                    console.error(
-                        'Bozuk çerez verisi tespit edildi, varsayılan ayarlar kullanılıyor.'
-                    );
                     setPreferences(defaultPreferences);
                 }
-            } catch (error) {
-                console.error('Çerez verisi ayrıştırılamadı:', error);
+            } catch {
                 setPreferences(defaultPreferences);
             }
         }
@@ -175,7 +171,7 @@ export function CookieConsent() {
                 <div className="mx-auto max-w-7xl">
                     <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
                         <div className="flex flex-1 items-start gap-3">
-                            <Cookie className="mt-0.5 h-6 w-6 flex-shrink-0 text-blue-600 dark:text-blue-400" />
+                            <Cookie className="mt-0.5 h-6 w-6 shrink-0 text-blue-600 dark:text-blue-400" />
                             <div className="space-y-1">
                                 <p className="text-sm font-medium text-gray-900 dark:text-gray-100">
                                     {t('cookies.banner.title')}
