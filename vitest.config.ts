@@ -46,7 +46,8 @@ export default defineConfig({
                 '**/*.stories.{ts,tsx}',
                 'src/generated/**',
                 '**/prisma/**',
-                'tests/**'
+                'tests/**',
+                '**/.vercel/**'
             ]
         },
         onConsoleLog(log) {

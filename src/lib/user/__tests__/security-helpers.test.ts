@@ -86,9 +86,12 @@ describe('Security Helpers (Server Logic)', () => {
         });
 
         it('should return 0 on database error', async () => {
+            const consoleErrorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
             prismaMock.session.count.mockRejectedValue(new Error('DB connection failed'));
             const result = await getActiveSessionCount(mockUserId);
             expect(result).toBe(0);
+            expect(consoleErrorSpy).toHaveBeenCalled();
+            consoleErrorSpy.mockRestore();
         });
     });
 
@@ -122,9 +125,12 @@ describe('Security Helpers (Server Logic)', () => {
         });
 
         it('should return 0 on database error', async () => {
+            const consoleErrorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
             prismaMock.account.findMany.mockRejectedValue(new Error('DB error'));
             const result = await getRecentLoginAttempts(mockUserId);
             expect(result).toBe(0);
+            expect(consoleErrorSpy).toHaveBeenCalled();
+            consoleErrorSpy.mockRestore();
         });
     });
 });
