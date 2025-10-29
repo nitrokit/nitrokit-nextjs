@@ -2,7 +2,7 @@
 
 import { ReactNode } from 'react';
 import { Logo, MobileSidebar, UserMenu } from '@/components/app';
-import { LocaleSwitcher } from '@/components/switchers';
+import { CompactLocaleSwitcher, LocaleSwitcher } from '@/components/switchers';
 
 interface DashboardHeaderProps {
     children?: ReactNode;
@@ -17,7 +17,8 @@ export function DashboardHeader({ children }: DashboardHeaderProps) {
                 <div className="hidden md:block">{children}</div>
             </div>
             <div className="mr-1 flex items-center space-x-2">
-                <LocaleSwitcher />
+                {/* <LocaleSwitcher /> */}
+                <CompactLocaleSwitcher />
                 <UserMenu />
             </div>
         </header>

@@ -56,7 +56,7 @@ export function AccountNavigation() {
         const isCurrentlyActive = isActive(path);
 
         return `
-            group flex cursor-pointer items-center gap-1 rounded-none 
+            group flex items-center gap-1 rounded-none 
             bg-transparent px-2 py-3 text-sm text-nowrap
             outline-none select-none transition-all duration-200
             relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-full after:transition-all after:duration-200 ${
@@ -75,7 +75,7 @@ export function AccountNavigation() {
         const isCurrentlyActive = isActive(path);
 
         return cn(
-            'flex items-center gap-3 rounded-lg px-3 py-3 text-sm font-medium transition-all',
+            'flex items-center gap-3 rounded-lg px-3 py-3 text-sm transition-all',
             isCurrentlyActive
                 ? 'bg-primary/10 text-primary border-l-4 border-primary'
                 : 'text-muted-foreground hover:bg-muted hover:text-foreground'
@@ -132,7 +132,7 @@ export function AccountNavigation() {
                                     <MenubarItem asChild>
                                         <Link
                                             href={APP_ROUTES.SECURITY_PASSWORD}
-                                            className="flex cursor-pointer items-center gap-2 rounded-sm px-2 py-1.5 hover:bg-gray-100 dark:hover:bg-gray-800"
+                                            className="flex items-center gap-2 rounded-sm px-2 py-1.5 hover:bg-gray-100 dark:hover:bg-gray-800"
                                         >
                                             <Shield className="h-4 w-4" />
                                             {t('navigation.password')}
@@ -141,7 +141,7 @@ export function AccountNavigation() {
                                     <MenubarItem asChild>
                                         <Link
                                             href={APP_ROUTES.SECURITY_2FA}
-                                            className="flex cursor-pointer items-center gap-2 rounded-sm px-2 py-1.5 hover:bg-gray-100 dark:hover:bg-gray-800"
+                                            className="flex items-center gap-2 rounded-sm px-2 py-1.5 hover:bg-gray-100 dark:hover:bg-gray-800"
                                         >
                                             <Smartphone className="h-4 w-4" />
                                             {t('navigation.2fa')}
@@ -151,7 +151,7 @@ export function AccountNavigation() {
                                     <MenubarItem asChild>
                                         <Link
                                             href={APP_ROUTES.SECURITY_SESSIONS}
-                                            className="flex cursor-pointer items-center gap-2 rounded-sm px-2 py-1.5 hover:bg-gray-100 dark:hover:bg-gray-800"
+                                            className="flex items-center gap-2 rounded-sm px-2 py-1.5 hover:bg-gray-100 dark:hover:bg-gray-800"
                                         >
                                             <Settings className="h-4 w-4" />
                                             {t('navigation.sessions')}
@@ -210,7 +210,7 @@ export function AccountNavigation() {
                                     </Link>
                                     <div className="pt-2">
                                         <div className="px-3 py-2">
-                                            <h3 className="text-muted-foreground text-xs font-semibold tracking-wider uppercase">
+                                            <h3 className="text-muted-foreground text-xs tracking-wider uppercase">
                                                 {t('navigation.security')}
                                             </h3>
                                         </div>

@@ -72,7 +72,7 @@ export const CompactLocaleSwitcher = () => {
                                     size="sm"
                                     onClick={() => handleLocaleChange(LOCALE.id)}
                                     className={cn(
-                                        'h-auto w-full justify-start gap-2 p-1 transition-colors',
+                                        'h-auto w-full justify-start gap-2 px-2 py-1 transition-colors',
                                         currentLocale === LOCALE.id
                                             ? 'bg-accent text-accent-foreground'
                                             : 'hover:bg-accent hover:text-accent-foreground'
