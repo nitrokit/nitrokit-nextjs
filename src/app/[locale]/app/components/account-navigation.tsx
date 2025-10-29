@@ -57,11 +57,11 @@ export function AccountNavigation() {
 
         return `
             group flex cursor-pointer items-center gap-1 rounded-none 
-            bg-transparent px-3 py-3.5 text-sm font-medium text-nowrap 
+            bg-transparent p-3 text-sm text-nowrap 
             outline-none select-none transition-all duration-200
             relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-full after:transition-all after:duration-200 ${
                 isCurrentlyActive
-                    ? 'text-primary after:bg-primary font-semibold'
+                    ? 'text-primary after:bg-primary'
                     : 'text-muted-foreground after:bg-transparent hover:text-foreground'
             }
             hover:bg-transparent focus:bg-transparent 
@@ -97,11 +97,9 @@ export function AccountNavigation() {
     return (
         <div className="sticky top-0 z-10 rounded-t-2xl border-b border-gray-200 bg-white dark:border-gray-800 dark:bg-zinc-950">
             <div className="mx-auto flex w-full items-stretch justify-between gap-5 px-4 lg:px-6">
-                {/* Desktop Navigation */}
                 <div className="hidden md:grid">
-                    <div className="kt-scrollable-x-auto flex items-stretch">
+                    <div className="flex items-stretch">
                         <Menubar className="flex h-auto items-stretch gap-5 space-x-0 rounded-none border-none bg-transparent p-0">
-                            {/* Account Overview */}
                             <MenubarMenu>
                                 <MenubarTrigger asChild>
                                     <Link
@@ -113,8 +111,6 @@ export function AccountNavigation() {
                                     </Link>
                                 </MenubarTrigger>
                             </MenubarMenu>
-
-                            {/* Profile */}
                             <MenubarMenu>
                                 <MenubarTrigger asChild>
                                     <Link
@@ -126,8 +122,6 @@ export function AccountNavigation() {
                                     </Link>
                                 </MenubarTrigger>
                             </MenubarMenu>
-
-                            {/* Security */}
                             <MenubarMenu>
                                 <MenubarTrigger className={getNavItemClasses(APP_ROUTES.SECURITY)}>
                                     <Shield className="h-4 w-4" />
@@ -165,7 +159,6 @@ export function AccountNavigation() {
                                     </MenubarItem>
                                 </MenubarContent>
                             </MenubarMenu>
-
                             <MenubarMenu>
                                 <MenubarTrigger asChild>
                                     <Link
@@ -180,15 +173,12 @@ export function AccountNavigation() {
                         </Menubar>
                     </div>
                 </div>
-
-                {/* Mobile Navigation */}
                 <div className="flex w-full items-center justify-between md:hidden">
                     <div className="flex items-center gap-3">
                         <h1 className="text-foreground text-lg font-semibold">
                             {getCurrentPageTitle()}
                         </h1>
                     </div>
-
                     <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
                         <SheetTrigger asChild>
                             <Button variant="ghost" size="sm" className="h-9 w-9 p-0">
@@ -203,10 +193,8 @@ export function AccountNavigation() {
                                     {t('mobile.title')}
                                 </SheetTitle>
                             </SheetHeader>
-
                             <ScrollArea className="mt-6 h-[calc(100vh-120px)]">
                                 <div className="space-y-1">
-                                    {/* Overview */}
                                     <Link
                                         href={APP_ROUTES.HOME}
                                         className={getMobileMenuItemClasses(APP_ROUTES.HOME)}
@@ -215,8 +203,6 @@ export function AccountNavigation() {
                                         <LayoutDashboard className="h-5 w-5" />
                                         <span>{t('navigation.overview')}</span>
                                     </Link>
-
-                                    {/* Profile */}
                                     <Link
                                         href={APP_ROUTES.PROFILE}
                                         className={getMobileMenuItemClasses(APP_ROUTES.PROFILE)}
@@ -225,8 +211,6 @@ export function AccountNavigation() {
                                         <User className="h-5 w-5" />
                                         <span>{t('navigation.profile')}</span>
                                     </Link>
-
-                                    {/* Security Section */}
                                     <div className="pt-2">
                                         <div className="px-3 py-2">
                                             <h3 className="text-muted-foreground text-xs font-semibold tracking-wider uppercase">
@@ -260,8 +244,6 @@ export function AccountNavigation() {
                                             </Link>
                                         </div>
                                     </div>
-
-                                    {/* Notifications */}
                                     <Link
                                         href={APP_ROUTES.NOTIFICATIONS}
                                         className={getMobileMenuItemClasses(
