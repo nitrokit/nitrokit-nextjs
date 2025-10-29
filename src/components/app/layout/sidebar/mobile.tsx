@@ -55,7 +55,7 @@ export function MobileSidebar() {
                     className="mr-10 rounded-full hover:bg-white hover:shadow-sm md:hidden dark:hover:bg-zinc-800 [&_svg]:size-7"
                 />
             </SheetTrigger>
-            <SheetContent side="left" className="w-80 sm:w-80">
+            <SheetContent side="left" className="w-70">
                 <SheetHeader className="text-left">
                     <SheetTitle className="flex items-center gap-2">
                         <Logo className="ml-2" />
@@ -72,9 +72,9 @@ export function MobileSidebar() {
                                     key={item.key}
                                     href={item.href}
                                     className={cn(
-                                        'flex items-center gap-3 rounded-lg px-3 py-3 text-sm font-medium transition-all',
+                                        'hover:border-primary/10 flex items-center gap-3 rounded-lg border border-transparent px-3 py-3 text-sm transition-all',
                                         isActive
-                                            ? 'bg-primary/10 text-primary border-primary border-l-4'
+                                            ? 'bg-primary/10 text-primary border-primary/10'
                                             : 'text-muted-foreground hover:bg-muted hover:text-foreground'
                                     )}
                                 >

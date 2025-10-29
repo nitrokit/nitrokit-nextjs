@@ -3,7 +3,7 @@ import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui';
 
 export function DevelopedBy() {
     return (
-        <div className="rounded-sm px-2 py-1.5 text-xs font-semibold text-gray-500 dark:text-gray-400">
+        <div className="rounded-sm py-1.5 text-xs font-semibold text-gray-500 dark:text-gray-400">
             <Tooltip>
                 <TooltipTrigger>
                     <a

@@ -29,7 +29,7 @@ import {
 } from '@/components/ui';
 import { cn } from '@/lib';
 import { APP_ROUTES } from '@/lib/auth/constants';
-import HamburgerMenu, { DotsVerticalSvg, GridSvg } from '@/components/icons/hamburger-menu';
+import HamburgerMenu from '@/components/icons/hamburger-menu';
 
 export function AccountNavigation() {
     const pathname = usePathname();
@@ -75,9 +75,9 @@ export function AccountNavigation() {
         const isCurrentlyActive = isActive(path);
 
         return cn(
-            'flex items-center gap-3 rounded-lg px-3 py-3 text-sm transition-all',
+            'flex items-center gap-3 rounded-lg px-3 py-3 text-sm transition-all hover:border-primary/10 border border-transparent',
             isCurrentlyActive
-                ? 'bg-primary/10 text-primary border-l-4 border-primary'
+                ? 'bg-primary/10 text-primary border-primary/10'
                 : 'text-muted-foreground hover:bg-muted hover:text-foreground'
         );
     };
@@ -183,7 +183,7 @@ export function AccountNavigation() {
                         <SheetTrigger asChild>
                             <HamburgerMenu variant="ghost" size="sm" icon="dots" className="px-1" />
                         </SheetTrigger>
-                        <SheetContent side="right" className="w-80 sm:w-80">
+                        <SheetContent side="right" className="w-70">
                             <SheetHeader className="text-left">
                                 <SheetTitle className="flex items-center gap-2">
                                     <User className="h-5 w-5" />
@@ -217,7 +217,9 @@ export function AccountNavigation() {
                                         <div className="space-y-1 pl-3">
                                             <Link
                                                 href={APP_ROUTES.SECURITY_PASSWORD}
-                                                className="hover:bg-muted hover:text-foreground text-muted-foreground flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm transition-all"
+                                                className={getMobileMenuItemClasses(
+                                                    APP_ROUTES.SECURITY_PASSWORD
+                                                )}
                                                 onClick={handleMobileMenuClose}
                                             >
                                                 <Shield className="h-4 w-4" />
@@ -225,7 +227,9 @@ export function AccountNavigation() {
                                             </Link>
                                             <Link
                                                 href={APP_ROUTES.SECURITY_2FA}
-                                                className="hover:bg-muted hover:text-foreground text-muted-foreground flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm transition-all"
+                                                className={getMobileMenuItemClasses(
+                                                    APP_ROUTES.SECURITY_2FA
+                                                )}
                                                 onClick={handleMobileMenuClose}
                                             >
                                                 <Smartphone className="h-4 w-4" />
@@ -233,7 +237,9 @@ export function AccountNavigation() {
                                             </Link>
                                             <Link
                                                 href={APP_ROUTES.SECURITY_SESSIONS}
-                                                className="hover:bg-muted hover:text-foreground text-muted-foreground flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm transition-all"
+                                                className={getMobileMenuItemClasses(
+                                                    APP_ROUTES.SECURITY_PASSWORD
+                                                )}
                                                 onClick={handleMobileMenuClose}
                                             >
                                                 <Settings className="h-4 w-4" />
