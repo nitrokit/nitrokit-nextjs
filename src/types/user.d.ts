@@ -1,4 +1,5 @@
-export interface UserData {
+import { DefaultUser } from 'next-auth';
+export interface UserData extends DefaultUser {
     id: string;
     email: string;
     name?: string | null;

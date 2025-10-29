@@ -1,9 +1,9 @@
 'use client';
+
 import {
     AppCard,
     AppCardContent,
     AppCardDescription,
-    AppCardFooter,
     AppCardHeader,
     AppCardTitle
 } from '@/components/app';
@@ -23,13 +23,10 @@ import {
     TUpdateProfileFormData,
     updateProfileFormSchema
 } from '@/lib';
-import {
-    UpdateProfileActionState,
-    updateProfileAction
-} from '@/lib/actions/app/profile/update-profile';
+import { UpdateProfileActionState, updateProfileAction } from '@/lib/actions/app';
 import { SimpleTFunction } from '@/types/i18n';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { UserIcon, Save as IconSave, Phone } from 'lucide-react';
+import { UserIcon, Phone, Save } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import { useActionState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
@@ -37,7 +34,7 @@ import { toast } from 'sonner';
 
 export function ProfileInformation() {
     const t = useTranslations();
-    const { user, updateUser: updateUser } = useUser();
+    const { user, updateUser } = useUser();
 
     const initialFormState: UpdateProfileActionState = {};
     const [state, formAction] = useActionState(updateProfileAction, initialFormState);
@@ -45,23 +42,40 @@ export function ProfileInformation() {
 
     const form = useForm<TUpdateProfileFormData>({
         resolver: zodResolver(schema),
-        defaultValues: user
-            ? {
-                  firstname: user.firstName || '',
-                  lastname: user.lastName || '',
-                  email: user.email || ''
-              }
-            : DEFAULT_UPDATE_PROFILE_FORM_VALUES
+        defaultValues: DEFAULT_UPDATE_PROFILE_FORM_VALUES
     });
 
     useEffect(() => {
+        if (user) {
+            form.reset({
+                firstname: user.firstName || '',
+                lastname: user.lastName || '',
+                email: user.email || '',
+                phone: user.phone || ''
+            });
+        }
+    }, [user, form]);
+
+    useEffect(() => {
+        if (state?.errors) {
+            Object.keys(state.errors).forEach((key) => {
+                const errorKey = key as keyof TUpdateProfileFormData;
+                if (state.errors?.[errorKey]) {
+                    form.setError(errorKey, {
+                        type: 'server',
+                        message: state.errors[errorKey]?.[0] || t('common.errors.general')
+                    });
+                }
+            });
+        }
         if (state?.success) {
             toast.success('Test profile updated successfully!');
+            // void updateUser();
         }
-    }, [state, t, updateUser]);
+    }, [state, t, updateUser, form]);
 
     return (
-        <AppCard variant={'danger'}>
+        <AppCard>
             <AppCardHeader>
                 <AppCardTitle icon={UserIcon}>{t('profile.title')}</AppCardTitle>
                 <AppCardDescription>{t('profile.description')}</AppCardDescription>
@@ -69,7 +83,7 @@ export function ProfileInformation() {
             <AppCardContent>
                 <div className="grid gap-6">
                     <Form {...form}>
-                        <form action={formAction} className="space-y-5">
+                        <form action={formAction} className="space-y-6">
                             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                                 <FormField
                                     control={form.control}
@@ -108,6 +122,7 @@ export function ProfileInformation() {
                                             <Input
                                                 type="email"
                                                 placeholder={t('common.placeholders.email')}
+                                                readOnly
                                                 {...field}
                                             />
                                         </FormControl>
@@ -117,7 +132,7 @@ export function ProfileInformation() {
                             />
                             <FormField
                                 control={form.control}
-                                name="email"
+                                name="phone"
                                 render={({ field }) => (
                                     <FormItem>
                                         <FormLabel>{t('common.inputs.phone')}</FormLabel>
@@ -136,17 +151,15 @@ export function ProfileInformation() {
                                     </FormItem>
                                 )}
                             />
+                            <SubmitButton
+                                textKey="common.buttons.save"
+                                startIcon={<Save />}
+                                className="w-fit"
+                            />
                         </form>
                     </Form>
                 </div>
             </AppCardContent>
-            <AppCardFooter>
-                <SubmitButton
-                    textKey="common.buttons.save"
-                    startIcon={<IconSave />}
-                    className="w-fit"
-                />
-            </AppCardFooter>
         </AppCard>
     );
 }

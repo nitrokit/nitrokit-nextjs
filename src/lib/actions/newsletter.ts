@@ -6,14 +6,14 @@ import { getLocale, getTranslations } from 'next-intl/server';
 import { nanoid } from 'nanoid';
 import { prisma } from '@/lib/prisma';
 import { SimpleTFunction } from '@/types/i18n';
-import { NewsletterFormSchema, NewsletterSubscriptionResponse } from '@/lib/validations';
+import { newsletterFormSchema, NewsletterSubscriptionResponse } from '@/lib/validations';
 import { getEmailService } from '@/lib/services/email';
 import { getBaseUrl } from '@/lib/config';
 import { render } from '@react-email/render';
 import { NewsletterConfirmationEmail } from '@/components/emails';
 
 type NewsletterActionState = NewsletterSubscriptionResponse & {
-    errors?: { [key in keyof z.infer<typeof NewsletterFormSchema>]: string[] };
+    errors?: { [key in keyof z.infer<typeof newsletterFormSchema>]: string[] };
     message?: string;
 };
 
@@ -25,7 +25,7 @@ export async function newsletterSubscriptionAction(
     const locale = await getLocale();
     const t = await getTranslations();
 
-    const schema = NewsletterFormSchema(t as SimpleTFunction);
+    const schema = newsletterFormSchema(t as SimpleTFunction);
 
     const validatedFields = schema.safeParse({ ...data, locale: locale });
 

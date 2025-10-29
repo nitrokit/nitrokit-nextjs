@@ -4,7 +4,7 @@ import * as React from 'react';
 import { useTranslations } from 'next-intl';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { useActionState } from 'react';
+import { useActionState, useEffect } from 'react';
 
 import {
     Checkbox,
@@ -18,17 +18,12 @@ import {
     FormMessage
 } from '@/components/ui';
 
-import {
-    registerFormSchema,
-    TRegisterFormData,
-    DEFAULT_REGISTER_FORM_VALUES,
-    RegisterActionState,
-    registerAction
-} from '@/lib';
+import { registerFormSchema, TRegisterFormData, DEFAULT_REGISTER_FORM_VALUES } from '@/lib';
 import { SimpleTFunction } from '@/types/i18n';
 import { Link, useRouter } from '@/lib/i18n/navigation';
 import { SubmitButton } from '@/components/shared';
 import { AUTH_ROUTES } from '@/lib/auth/constants';
+import { registerAction, RegisterActionState } from '@/lib/actions/auth';
 
 export function RegisterForm() {
     const router = useRouter();
@@ -44,7 +39,7 @@ export function RegisterForm() {
         defaultValues: DEFAULT_REGISTER_FORM_VALUES
     });
 
-    React.useEffect(() => {
+    useEffect(() => {
         if (state?.errors) {
             Object.keys(state.errors).forEach((key) => {
                 const errorKey = key as keyof TRegisterFormData;

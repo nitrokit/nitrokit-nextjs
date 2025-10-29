@@ -2,10 +2,25 @@
 
 import { AuthError } from 'next-auth';
 import { signIn } from '@/lib/auth/auth';
-import { loginFormSchema, LoginActionState } from '@/lib';
+import { loginFormSchema } from '@/lib';
 import { SimpleTFunction } from '@/types/i18n';
 import { getTranslations } from 'next-intl/server';
 import { prisma } from '@/lib/prisma';
+
+export type LoginActionState = {
+    twoFactorRequired?: boolean;
+    success?: boolean;
+    form?: {
+        email?: string;
+        password?: string;
+        twoFactorCode?: string;
+    };
+    errors?: {
+        email?: string[];
+        password?: string[];
+        twoFactorCode?: string[];
+    };
+};
 
 interface UpdatedLoginActionState extends LoginActionState {
     twoFactorRequired?: boolean;

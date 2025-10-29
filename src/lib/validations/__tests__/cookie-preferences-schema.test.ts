@@ -1,9 +1,9 @@
 import { z, ZodError } from 'zod';
 import { describe, it, expect } from 'vitest';
-import { CookiePreferencesSchema } from '../cookie-preferences-schema';
+import { cookiePreferencesSchema } from '../cookie-preferences-schema';
 
-describe('CookiePreferencesSchema Validation', () => {
-    const schema = CookiePreferencesSchema;
+describe('cookiePreferencesSchema Validation', () => {
+    const schema = cookiePreferencesSchema;
 
     it('should successfully parse data when all fields are valid booleans (True)', () => {
         const validData = {

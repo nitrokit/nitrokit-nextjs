@@ -1,12 +1,22 @@
 'use server';
 
 import { SimpleTFunction } from '@/types/i18n';
-import { ResetPasswordActionState, resetPasswordSchema } from '@/lib';
+import { resetPasswordSchema } from '@/lib';
 import { prisma } from '@/lib/prisma';
 import { getTranslations } from 'next-intl/server';
 import { nanoid } from 'nanoid';
 import { PrismaClientKnownRequestError } from '@prisma/client/runtime/library';
 import { AUTH_ROUTES } from '@/lib/auth/constants';
+
+export type ResetPasswordActionState = {
+    success?: boolean;
+    errors?: {
+        email?: string[];
+    };
+    form?: {
+        email?: string;
+    };
+};
 
 export async function resetPasswordAction(
     prevState: ResetPasswordActionState,

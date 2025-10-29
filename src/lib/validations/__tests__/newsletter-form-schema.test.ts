@@ -1,9 +1,9 @@
 import { z, ZodError } from 'zod';
 import { describe, it, expect, vi } from 'vitest';
 import {
-    NewsletterConfirmResponseSchema,
-    NewsletterFormSchema,
-    NewsletterSubscriptionResponseSchema
+    newsletterConfirmResponseSchema,
+    newsletterFormSchema,
+    newsletterSubscriptionResponseSchema
 } from '../newsletter-form-schema';
 
 // Define the Mock translation function
@@ -11,10 +11,10 @@ const mockT = vi.fn((key: string) => `MOCK_MESSAGE_${key.toUpperCase()}`);
 
 describe('Newsletter Zod Schemas Validation', () => {
     // -----------------------------------------------------------
-    // NewsletterFormSchema Tests (Email Input Validation)
+    // newsletterFormSchema Tests (Email Input Validation)
     // -----------------------------------------------------------
-    describe('NewsletterFormSchema Validation', () => {
-        const formSchema = NewsletterFormSchema(mockT);
+    describe('newsletterFormSchema Validation', () => {
+        const formSchema = newsletterFormSchema(mockT);
 
         it('should successfully parse a valid email address', () => {
             const validData = { email: 'test@example.com' };
@@ -24,10 +24,10 @@ describe('Newsletter Zod Schemas Validation', () => {
     });
 
     // -----------------------------------------------------------
-    // NewsletterConfirmResponseSchema Tests (API Response Structure)
+    // newsletterConfirmResponseSchema Tests (API Response Structure)
     // -----------------------------------------------------------
-    describe('NewsletterConfirmResponseSchema Validation', () => {
-        const schema = NewsletterConfirmResponseSchema;
+    describe('newsletterConfirmResponseSchema Validation', () => {
+        const schema = newsletterConfirmResponseSchema;
 
         it('should successfully parse a minimal success response', () => {
             const data = { success: true };
@@ -57,10 +57,10 @@ describe('Newsletter Zod Schemas Validation', () => {
     });
 
     // -----------------------------------------------------------
-    // NewsletterSubscriptionResponseSchema Tests (API Response Structure)
+    // newsletterSubscriptionResponseSchema Tests (API Response Structure)
     // -----------------------------------------------------------
-    describe('NewsletterSubscriptionResponseSchema Validation', () => {
-        const schema = NewsletterSubscriptionResponseSchema;
+    describe('newsletterSubscriptionResponseSchema Validation', () => {
+        const schema = newsletterSubscriptionResponseSchema;
 
         it('should successfully parse a minimal success response', () => {
             const data = { success: true };

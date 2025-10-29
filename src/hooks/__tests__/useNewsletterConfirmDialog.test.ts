@@ -1,7 +1,7 @@
 import { renderHook, act } from '@testing-library/react';
 import { useNewsletterConfirmDialog } from '../useNewsletterConfirmDialog';
 import { vi, describe, it, expect, MockInstance, beforeEach, afterEach } from 'vitest';
-import { NewsletterConfirmResponseSchema } from '@/lib';
+import { newsletterConfirmResponseSchema } from '@/lib';
 
 // 1. Next.js/i18n Navigation Hooklarını Mock'lama
 
@@ -21,10 +21,10 @@ vi.mock('next/navigation', () => ({
     })
 }));
 
-// 2. NewsletterConfirmResponseSchema Mock'u (Zod)
+// 2. newsletterConfirmResponseSchema Mock'u (Zod)
 vi.mock('@/lib', () => ({
     // Mock'un doğru tipte olduğundan emin olmak için orijinal tipini kullanıyoruz
-    NewsletterConfirmResponseSchema: {
+    newsletterConfirmResponseSchema: {
         safeParse: vi.fn()
     }
 }));
@@ -59,7 +59,7 @@ describe('useNewsletterConfirmDialog Hook', () => {
         );
 
         // Zod şemasını varsayılan başarılı yanıt için mock'luyoruz.
-        (NewsletterConfirmResponseSchema.safeParse as any).mockReturnValue({
+        (newsletterConfirmResponseSchema.safeParse as any).mockReturnValue({
             success: true,
             data: MOCK_SUCCESS_API_RESPONSE
         });
@@ -143,7 +143,7 @@ describe('useNewsletterConfirmDialog Hook', () => {
         );
 
         // Zod mock'unu iş mantığı hatasına ayarlıyoruz
-        (NewsletterConfirmResponseSchema.safeParse as any).mockReturnValue({
+        (newsletterConfirmResponseSchema.safeParse as any).mockReturnValue({
             success: true,
             data: MOCK_ERROR_API_RESPONSE
         });
