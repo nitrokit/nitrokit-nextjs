@@ -10,8 +10,7 @@ import {
     Smartphone,
     Bell,
     Settings,
-    ChevronDown,
-    Menu
+    ChevronDown
 } from 'lucide-react';
 import {
     Menubar,
@@ -30,6 +29,7 @@ import {
 } from '@/components/ui';
 import { cn } from '@/lib';
 import { APP_ROUTES } from '@/lib/auth/constants';
+import HamburgerMenu, { DotsVerticalSvg, GridSvg } from '@/components/icons/hamburger-menu';
 
 export function AccountNavigation() {
     const pathname = usePathname();
@@ -57,7 +57,7 @@ export function AccountNavigation() {
 
         return `
             group flex cursor-pointer items-center gap-1 rounded-none 
-            bg-transparent p-3 text-sm text-nowrap 
+            bg-transparent px-2 py-3 text-sm text-nowrap
             outline-none select-none transition-all duration-200
             relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-full after:transition-all after:duration-200 ${
                 isCurrentlyActive
@@ -96,10 +96,10 @@ export function AccountNavigation() {
 
     return (
         <div className="sticky top-0 z-10 rounded-t-2xl border-b border-gray-200 bg-white dark:border-gray-800 dark:bg-zinc-950">
-            <div className="mx-auto flex w-full items-stretch justify-between gap-5 px-4 lg:px-6">
+            <div className="mx-auto flex w-full items-stretch justify-between gap-3 px-4 lg:px-5">
                 <div className="hidden md:grid">
                     <div className="flex items-stretch">
-                        <Menubar className="flex h-auto items-stretch gap-5 space-x-0 rounded-none border-none bg-transparent p-0">
+                        <Menubar className="flex h-auto items-stretch gap-3 space-x-0 rounded-none border-none bg-transparent p-0">
                             <MenubarMenu>
                                 <MenubarTrigger asChild>
                                     <Link
@@ -173,7 +173,7 @@ export function AccountNavigation() {
                         </Menubar>
                     </div>
                 </div>
-                <div className="flex w-full items-center justify-between md:hidden">
+                <div className="flex w-full items-center justify-between px-1 py-2 md:hidden">
                     <div className="flex items-center gap-3">
                         <h1 className="text-foreground text-lg font-semibold">
                             {getCurrentPageTitle()}
@@ -181,10 +181,7 @@ export function AccountNavigation() {
                     </div>
                     <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
                         <SheetTrigger asChild>
-                            <Button variant="ghost" size="sm" className="h-9 w-9 p-0">
-                                <Menu className="h-5 w-5" />
-                                <span className="sr-only">{t('mobile.openMenu')}</span>
-                            </Button>
+                            <HamburgerMenu variant="ghost" size="sm" icon="dots" className="px-1" />
                         </SheetTrigger>
                         <SheetContent side="right" className="w-80 sm:w-80">
                             <SheetHeader className="text-left">

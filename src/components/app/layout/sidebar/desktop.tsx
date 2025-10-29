@@ -29,7 +29,7 @@ function getNavigationItems(userRole?: string) {
 
 function DesktopSidebar() {
     const pathname = usePathname();
-    const t = useTranslations('app');
+    const t = useTranslations();
     const { data: session } = useSession();
     console.log(session);
 

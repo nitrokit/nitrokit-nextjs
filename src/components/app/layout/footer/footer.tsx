@@ -5,8 +5,8 @@ import { DevelopedBy, Version } from '@/components/shared';
 
 export function DashboardFooter() {
     return (
-        <footer className="mt-2 mr-3 ml-16 flex h-8">
-            <div className="flex w-1/2 items-center justify-start">
+        <footer className="mx-4 mt-2 flex h-8 lg:ml-16">
+            <div className="flex w-1/2 items-start justify-start">
                 <CompactThemeSwitcher />
             </div>
             <div className="flex w-1/2 items-center justify-end gap-4">
