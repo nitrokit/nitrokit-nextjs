@@ -6,12 +6,17 @@ import { signOut } from 'next-auth/react';
 
 export function SignOutButton() {
     const t = useTranslations('auth');
+
+    const handleSignOut = async () => {
+        await signOut();
+    };
+
     return (
         <AuthLink
             size={'sm'}
             className="text-primary w-full cursor-pointer border bg-white p-2 text-xs shadow-2xs outline-hidden hover:bg-gray-100 dark:bg-black dark:hover:bg-black/60"
             onClick={() => {
-                void signOut();
+                void handleSignOut();
             }}
         >
             <span>{t('signout')}</span>

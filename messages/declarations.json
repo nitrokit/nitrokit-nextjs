@@ -52,29 +52,17 @@
         }
     },
     "profile": {
-        "title": "Profile Information",
-        "description": "Update your personal information and profile picture",
-        "firstName": {
-            "label": "First Name",
-            "placeholder": "Enter your first name"
-        },
-        "lastName": {
-            "label": "Last Name",
-            "placeholder": "Enter your last name"
-        },
-        "email": {
-            "label": "Email Address"
-        },
-        "image": {
-            "label": "Profile Picture",
-            "removeSuccess": "Profile picture removed successfully!",
-            "removeError": "Failed to remove profile picture."
-        },
-        "messages": {
-            "updateSuccess": "Profile updated successfully!",
-            "updateFailed": "Failed to update profile",
-            "updateError": "Something went wrong. Please try again.",
-            "phoneUpdated": "Phone number updated. Please verify your new number."
+        "title": "Profile Settings",
+        "description": "Manage your personal information and profile preferences.",
+        "profileInformation": {
+            "title": "Profile Information",
+            "description": "Update your personal information and profile picture",
+            "messages": {
+                "updateSuccess": "Profile updated successfully!",
+                "updateFailed": "Failed to update profile",
+                "updateError": "Something went wrong. Please try again.",
+                "phoneUpdated": "Phone number updated. Please verify your new number."
+            }
         }
     },
     "common": {

@@ -1,22 +1,20 @@
 # [1.7.0](https://github.com/nitrokit/nitrokit-nextjs/compare/v1.6.0...v1.7.0) (2025-10-29)
 
-
 ### Bug Fixes
 
-* Improves error handling in security helpers ([edd4a05](https://github.com/nitrokit/nitrokit-nextjs/commit/edd4a05b0a9a11323abd6c74c6425f791dc0d960))
-
+- Improves error handling in security helpers ([edd4a05](https://github.com/nitrokit/nitrokit-nextjs/commit/edd4a05b0a9a11323abd6c74c6425f791dc0d960))
 
 ### Features
 
-* Adds new translation key ([a1b8e59](https://github.com/nitrokit/nitrokit-nextjs/commit/a1b8e5980a76bfcc537a7cb7d3b7596abfe7cebf))
-* Adds user profile page ([9b03e11](https://github.com/nitrokit/nitrokit-nextjs/commit/9b03e1185942eef897e04f9adae6b38d4aea37b3))
-* Enhances app layout and navigation ([c171192](https://github.com/nitrokit/nitrokit-nextjs/commit/c17119243317b25de081c45e9bf334f4906ee79c))
-* Enhances hero section with confetti banner ([09e03d7](https://github.com/nitrokit/nitrokit-nextjs/commit/09e03d791d3851aa01f53a2a0be62d91e06ef4db))
-* Enhances profile update functionality ([2640ddd](https://github.com/nitrokit/nitrokit-nextjs/commit/2640ddde26716e843bb43318beee853cb37f17f4))
-* Refactors account navigation and UI components ([7824691](https://github.com/nitrokit/nitrokit-nextjs/commit/7824691a630cb9c5c79010bb68dde278c6ad88d6))
-* Refactors authentication logic and validations ([c7c84ed](https://github.com/nitrokit/nitrokit-nextjs/commit/c7c84edc8775d978d7009680255daa543bf30cf4))
-* Refactors UI for improved UX and consistency ([616f0ad](https://github.com/nitrokit/nitrokit-nextjs/commit/616f0ad85eee96e123ab8939d3732d2437ee99a6))
-* Updates dependencies and enhances pricing UI ([e1d7dce](https://github.com/nitrokit/nitrokit-nextjs/commit/e1d7dce2b5ce147dcd74eea8f38aeb30be14416d))
+- Adds new translation key ([a1b8e59](https://github.com/nitrokit/nitrokit-nextjs/commit/a1b8e5980a76bfcc537a7cb7d3b7596abfe7cebf))
+- Adds user profile page ([9b03e11](https://github.com/nitrokit/nitrokit-nextjs/commit/9b03e1185942eef897e04f9adae6b38d4aea37b3))
+- Enhances app layout and navigation ([c171192](https://github.com/nitrokit/nitrokit-nextjs/commit/c17119243317b25de081c45e9bf334f4906ee79c))
+- Enhances hero section with confetti banner ([09e03d7](https://github.com/nitrokit/nitrokit-nextjs/commit/09e03d791d3851aa01f53a2a0be62d91e06ef4db))
+- Enhances profile update functionality ([2640ddd](https://github.com/nitrokit/nitrokit-nextjs/commit/2640ddde26716e843bb43318beee853cb37f17f4))
+- Refactors account navigation and UI components ([7824691](https://github.com/nitrokit/nitrokit-nextjs/commit/7824691a630cb9c5c79010bb68dde278c6ad88d6))
+- Refactors authentication logic and validations ([c7c84ed](https://github.com/nitrokit/nitrokit-nextjs/commit/c7c84edc8775d978d7009680255daa543bf30cf4))
+- Refactors UI for improved UX and consistency ([616f0ad](https://github.com/nitrokit/nitrokit-nextjs/commit/616f0ad85eee96e123ab8939d3732d2437ee99a6))
+- Updates dependencies and enhances pricing UI ([e1d7dce](https://github.com/nitrokit/nitrokit-nextjs/commit/e1d7dce2b5ce147dcd74eea8f38aeb30be14416d))
 
 # [1.6.0](https://github.com/nitrokit/nitrokit-nextjs/compare/v1.5.0...v1.6.0) (2025-10-26)
 

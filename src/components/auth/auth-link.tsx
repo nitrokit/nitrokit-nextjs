@@ -11,13 +11,28 @@ interface AuthLinkProps {
     size?: NonNullable<Parameters<typeof buttonVariants>[0]>['size'];
     children: ReactNode;
     className?: string;
+    buttonType?: 'button' | 'submit';
     onClick?: () => void;
 }
 
-export function AuthLink({ href, variant, size, children, className, onClick }: AuthLinkProps) {
+export function AuthLink({
+    href,
+    variant,
+    size,
+    children,
+    className,
+    buttonType = 'button',
+    onClick
+}: AuthLinkProps) {
     if (onClick && !href) {
         return (
-            <Button size={size} variant={variant} className={cn(className)} onClick={onClick}>
+            <Button
+                type={buttonType}
+                size={size}
+                variant={variant}
+                className={cn(className)}
+                onClick={onClick}
+            >
                 {children}
             </Button>
         );
@@ -27,6 +42,7 @@ export function AuthLink({ href, variant, size, children, className, onClick }: 
         return (
             <Button
                 asChild
+                type={buttonType}
                 size={size}
                 variant={variant}
                 className={cn(className)}
@@ -38,7 +54,7 @@ export function AuthLink({ href, variant, size, children, className, onClick }: 
     }
 
     return (
-        <Button size={size} variant={variant} className={cn(className)}>
+        <Button type={buttonType} size={size} variant={variant} className={cn(className)}>
             {children}
         </Button>
     );

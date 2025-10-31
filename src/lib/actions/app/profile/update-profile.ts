@@ -1,5 +1,6 @@
 'use server';
 
+import 'server-only';
 import { updateProfileFormSchema } from '@/lib';
 import { auth } from '@/lib/auth/auth';
 import { prisma } from '@/lib/prisma';
@@ -23,7 +24,7 @@ export type UpdateProfileActionState = {
 };
 
 export async function updateProfileAction(
-    _prevState: UpdateProfileActionState,
+    prevState: UpdateProfileActionState,
     formData: FormData
 ): Promise<UpdateProfileActionState> {
     const session = await auth();

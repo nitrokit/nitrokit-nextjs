@@ -427,6 +427,9 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
             }
 
             return token;
+        },
+        authorized: ({ auth }) => {
+            return !!auth;
         }
     },
     pages: {
@@ -446,6 +449,7 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
     },
     secret: process.env.AUTH_SECRET,
     // debug: process.env.NODE_ENV === 'development',
+    debug: true,
     useSecureCookies: process.env.NODE_ENV === 'production',
     cookies: {
         sessionToken: {
