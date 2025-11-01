@@ -25,7 +25,7 @@ export function ProfilePhoneField({ control }: ProfilePhoneFieldProps) {
                             <Phone className="text-muted-foreground absolute top-3 left-3 h-4 w-4" />
                             <Input
                                 type="tel"
-                                className="pl-10"
+                                className="w-full pl-10 lg:w-fit"
                                 placeholder={t('common.placeholders.phone')}
                                 {...field}
                             />

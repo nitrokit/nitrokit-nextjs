@@ -10,5 +10,17 @@
             "updateError": "Bir şeyler ters gitti. Lütfen tekrar deneyin.",
             "phoneUpdated": "Telefon numarası güncellendi. Lütfen yeni numaranızı doğrulayın."
         }
+    },
+    "preferences": {
+        "title": "Tercihler",
+        "description": "Dil ve tema tercihlerinizi özelleştirin",
+        "theme": {
+            "title": "Tema",
+            "light": "Açık",
+            "dark": "Karanlık",
+            "system": "Sistem",
+            "zinc": "Zinc",
+            "rose": "Rose"
+        }
     }
 }

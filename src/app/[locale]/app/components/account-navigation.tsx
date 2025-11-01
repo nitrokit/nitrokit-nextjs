@@ -94,7 +94,7 @@ export function AccountNavigation() {
     };
 
     return (
-        <div className="sticky top-0 z-10 rounded-t-2xl border-b border-gray-200 bg-white dark:border-gray-800 dark:bg-zinc-950">
+        <div className="border-border bg-background sticky top-0 z-10 rounded-t-2xl border-b">
             <div className="mx-auto flex w-full items-stretch justify-between gap-3 px-4 lg:px-5">
                 <div className="hidden md:grid">
                     <div className="flex items-stretch">

@@ -1,5 +1,5 @@
 import { useTranslations } from 'next-intl';
-import { ProfileFormWrapper } from './components';
+import { PreferencesWrapper, ProfileFormWrapper } from './components';
 
 export default function Page() {
     const t = useTranslations();
@@ -10,6 +10,7 @@ export default function Page() {
                 <p className="text-muted-foreground">{t('profile.description')}</p>
             </div>
             <ProfileFormWrapper />
+            <PreferencesWrapper />
         </div>
     );
 }

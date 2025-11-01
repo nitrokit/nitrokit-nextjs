@@ -1,6 +1,7 @@
 'use client';
 
-import { Label } from '@/components/ui';
+import { Input, Label } from '@/components/ui';
+import { Mail } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 
 type ProfileEmailFieldProps = {
@@ -13,8 +14,15 @@ export function ProfileEmailField({ email }: ProfileEmailFieldProps) {
     return (
         <div className="space-y-2">
             <Label>{t('common.inputs.email')}</Label>
-            <div className="border-input file:text-foreground placeholder:text-muted-foreground focus-visible:ring-ring flex h-9 w-full cursor-default items-center rounded-md border bg-transparent px-2 py-1 text-base shadow-xs transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium focus-visible:ring-1 focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50 md:text-sm">
-                {email || ''}
+            <div className="relative">
+                <Mail className="text-muted-foreground absolute top-3 left-3 h-4 w-4" />
+                <Input
+                    type="email"
+                    className="bg-muted w-full pl-10"
+                    value={email ?? ''}
+                    disabled
+                    placeholder={t('common.placeholders.email')}
+                />
             </div>
         </div>
     );

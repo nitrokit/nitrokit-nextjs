@@ -63,6 +63,18 @@
                 "updateError": "Something went wrong. Please try again.",
                 "phoneUpdated": "Phone number updated. Please verify your new number."
             }
+        },
+        "preferences": {
+            "title": "Preferences",
+            "description": "Customize your language and theme preferences",
+            "theme": {
+                "title": "Theme",
+                "light": "Light",
+                "dark": "Dark",
+                "system": "System",
+                "zinc": "Zinc",
+                "rose": "Rose"
+            }
         }
     },
     "common": {

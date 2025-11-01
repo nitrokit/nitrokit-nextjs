@@ -427,9 +427,6 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
             }
 
             return token;
-        },
-        authorized: ({ auth }) => {
-            return !!auth;
         }
     },
     pages: {
