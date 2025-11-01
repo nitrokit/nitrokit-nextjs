@@ -21,6 +21,13 @@
             "system": "System",
             "zinc": "Zinc",
             "rose": "Rose"
+        },
+        "language": {
+            "title": "Language",
+            "flag": "Flag {language}"
+        },
+        "notifications": {
+            "title": "Notifications"
         }
     }
 }

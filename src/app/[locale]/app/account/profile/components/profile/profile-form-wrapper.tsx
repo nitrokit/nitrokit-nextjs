@@ -13,6 +13,7 @@ import { useTranslations } from 'next-intl';
 
 import { ProfileEmailField } from './fields';
 import { ProfileForm } from './profile-form';
+import { ProfileUserField } from './fields/profile-username-field';
 
 export function ProfileFormWrapper() {
     const t = useTranslations('profile.profileInformation');
@@ -26,6 +27,7 @@ export function ProfileFormWrapper() {
             </AppCardHeader>
             <AppCardContent>
                 <div className="grid gap-6">
+                    <ProfileUserField />
                     <ProfileEmailField email={user?.email} />
                     <ProfileForm />
                 </div>

@@ -21,6 +21,13 @@
             "system": "Sistem",
             "zinc": "Zinc",
             "rose": "Rose"
+        },
+        "language": {
+            "title": "Dil",
+            "flag": "Flag {language}"
+        },
+        "notifications": {
+            "title": "Bildirimler"
         }
     }
 }

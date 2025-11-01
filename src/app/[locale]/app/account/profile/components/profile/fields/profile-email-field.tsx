@@ -1,7 +1,13 @@
 'use client';
 
-import { Input, Label } from '@/components/ui';
-import { Mail } from 'lucide-react';
+import {
+    InputGroup,
+    InputGroupAddon,
+    InputGroupButton,
+    InputGroupInput,
+    Label
+} from '@/components/ui';
+import { Mail as MailIcon, Pencil as PencilIcon } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 
 type ProfileEmailFieldProps = {
@@ -14,16 +20,23 @@ export function ProfileEmailField({ email }: ProfileEmailFieldProps) {
     return (
         <div className="space-y-2">
             <Label>{t('common.inputs.email')}</Label>
-            <div className="relative">
-                <Mail className="text-muted-foreground absolute top-3 left-3 h-4 w-4" />
-                <Input
-                    type="email"
-                    className="bg-muted w-full pl-10"
-                    value={email ?? ''}
+            <InputGroup>
+                <InputGroupInput
                     disabled
+                    value={email ?? ''}
+                    type="email"
                     placeholder={t('common.placeholders.email')}
                 />
-            </div>
+                <InputGroupAddon>
+                    <MailIcon />
+                </InputGroupAddon>
+                <InputGroupAddon align="inline-end">
+                    <InputGroupButton variant="default" className="hidden text-xs">
+                        <PencilIcon />
+                        {t('common.buttons.edit')}
+                    </InputGroupButton>
+                </InputGroupAddon>
+            </InputGroup>
         </div>
     );
 }

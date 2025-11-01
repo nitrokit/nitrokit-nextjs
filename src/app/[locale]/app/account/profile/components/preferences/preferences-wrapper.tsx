@@ -8,9 +8,9 @@ import {
     AppCardTitle
 } from '@/components/app';
 import { useUser } from '@/contexts/user-context';
-import { Palette as PaletteIcon } from 'lucide-react';
+import { Cog as CogIcon } from 'lucide-react';
 import { useTranslations } from 'next-intl';
-import { ThemeOptions } from './theme-options';
+import { Languages, ThemeOptions, Notifications } from './fields';
 
 export function PreferencesWrapper() {
     const t = useTranslations('profile.preferences');
@@ -19,13 +19,13 @@ export function PreferencesWrapper() {
     return (
         <AppCard className="min-h-96" loading={isLoading}>
             <AppCardHeader>
-                <AppCardTitle icon={PaletteIcon}>{t('title')}</AppCardTitle>
+                <AppCardTitle icon={CogIcon}>{t('title')}</AppCardTitle>
                 <AppCardDescription>{t('description')}</AppCardDescription>
             </AppCardHeader>
-            <AppCardContent>
-                <div className="grid gap-6">
-                    <ThemeOptions />
-                </div>
+            <AppCardContent className="grid gap-6">
+                <ThemeOptions />
+                <Languages />
+                <Notifications />
             </AppCardContent>
         </AppCard>
     );

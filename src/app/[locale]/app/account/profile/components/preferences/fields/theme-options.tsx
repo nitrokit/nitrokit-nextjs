@@ -5,7 +5,7 @@ import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { cn } from '@/lib/utils';
 import { useTheme } from 'next-themes';
 import { useTranslations } from 'next-intl';
-import { CheckCircle } from 'lucide-react';
+import { CheckCircle, PaletteIcon } from 'lucide-react';
 
 export function ThemeOptions() {
     const t = useTranslations('profile.preferences.theme');
@@ -65,12 +65,15 @@ export function ThemeOptions() {
     ];
 
     return (
-        <div className="space-y-4">
-            <p className="text-base font-medium">{t('title')}</p>
+        <div className="space-y-2">
+            <Label className="flex items-center gap-2">
+                <PaletteIcon className="h-4 w-4" />
+                {t('title')}
+            </Label>
             <RadioGroup
                 onValueChange={setTheme}
                 defaultValue={theme}
-                className="grid max-w-2xl grid-cols-5 gap-4 pt-2"
+                className="grid w-full grid-cols-5 gap-4"
             >
                 {themes.map((item) => {
                     const isSelected = theme === item.name;
