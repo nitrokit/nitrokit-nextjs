@@ -275,9 +275,7 @@ const Sidebar = React.forwardRef<
                         side === 'left'
                             ? 'left-3 group-data-[collapsible=offcanvas]:left-[calc(var(--sidebar-width)*-1)]'
                             : 'right-3 group-data-[collapsible=offcanvas]:right-[calc(var(--sidebar-width)*-1)]',
-                        state === 'collapsed'
-                            ? 'items-center justify-center pt-3'
-                            : 'rounded-2xl border border-gray-200 bg-white p-3 shadow-xs/10 dark:border-gray-800 dark:bg-zinc-950',
+                        // Adjust the padding for floating and inset variants.
                         variant === 'floating' || variant === 'inset'
                             ? 'group-data-[collapsible=icon]:w-[calc(var(--sidebar-width-icon))]'
                             : 'group-data-[collapsible=icon]:w-[--sidebar-width-icon]',
@@ -367,8 +365,7 @@ const SidebarInset = React.forwardRef<HTMLDivElement, React.ComponentProps<'main
         return (
             <main
                 ref={ref}
-                style={isStateSynced ? marginStyle : defaultMarginStyle}
-                className={cn('relative mr-5 flex w-full flex-1 flex-col', className)}
+                className={cn('relative flex w-full flex-1 flex-col p-0', className)}
                 {...props}
             />
         );

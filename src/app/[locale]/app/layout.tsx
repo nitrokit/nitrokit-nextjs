@@ -23,11 +23,11 @@ export default async function DashboardLayout({
                     <SidebarTrigger />
                     <AppBreadcrumb />
                 </DashboardHeader>
-                <div className="flex h-[calc(100vh-7rem)]">
+                <div className="flex h-[calc(100vh-7rem)] overflow-hidden">
                     <AppSidebar variant="floating" collapsible="icon" />
                     <SidebarInset>
-                        <div className="flex-1 overflow-hidden">
-                            <div className="h-full rounded-2xl border border-gray-200 bg-white shadow-xs/10 dark:border-gray-800 dark:bg-zinc-950">
+                        <div className="flex-1 overflow-hidden px-5">
+                            <div className="h-full rounded-2xl border border-gray-200 bg-white shadow-sm dark:border-gray-800 dark:bg-zinc-950">
                                 {children}
                             </div>
                         </div>
