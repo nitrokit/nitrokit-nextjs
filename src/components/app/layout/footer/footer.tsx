@@ -5,7 +5,7 @@ import { CopyRight, DevelopedBy, Version } from '@/components/shared';
 
 export function DashboardFooter() {
     return (
-        <footer className="mt-2 mr-5 flex h-8 lg:ml-16">
+        <footer className="mt-2 flex h-(--footer-height) px-5">
             <div className="flex w-1/2 items-center justify-start gap-4">
                 <CompactThemeSwitcher
                     className={
