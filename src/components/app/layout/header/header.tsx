@@ -10,14 +10,13 @@ interface DashboardHeaderProps {
 
 export function DashboardHeader({ children }: DashboardHeaderProps) {
     return (
-        <header className="flex h-15 w-full items-center justify-between bg-gray-100 px-4 dark:bg-zinc-900">
-            <div className="flex items-center space-x-4">
+        <header className="flex h-(--header-height) w-full items-center justify-between px-4">
+            <div className="ml-3 flex items-center space-x-4">
                 <MobileSidebar />
                 <Logo />
-                <div className="hidden md:block">{children}</div>
+                {children}
             </div>
             <div className="mr-1 flex items-center space-x-2">
-                {/* <LocaleSwitcher /> */}
                 <CompactLocaleSwitcher />
                 <UserMenu />
             </div>
