@@ -260,7 +260,7 @@ const Sidebar = React.forwardRef<
             >
                 <div
                     className={cn(
-                        'w-[--sidebar-width] transition-[width] duration-200 ease-linear',
+                        'relative w-[--sidebar-width] transition-[width] duration-200 ease-linear',
                         'group-data-[collapsible=offcanvas]:w-0',
                         'group-data-[side=right]:rotate-180',
                         variant === 'floating' || variant === 'inset'
@@ -275,9 +275,9 @@ const Sidebar = React.forwardRef<
                         side === 'left'
                             ? 'left-3 group-data-[collapsible=offcanvas]:left-[calc(var(--sidebar-width)*-1)]'
                             : 'right-3 group-data-[collapsible=offcanvas]:right-[calc(var(--sidebar-width)*-1)]',
-                        // Adjust the padding for floating and inset variants.
+                        state === 'collapsed' ? '' : 'bg-background',
                         variant === 'floating' || variant === 'inset'
-                            ? 'rounded-xl p-3 shadow-xs/10 group-data-[collapsible=icon]:w-[calc(var(--sidebar-width-icon)+(--spacing(3)))]'
+                            ? 'rounded-xl border p-3 shadow-xs/10 group-data-[collapsible=icon]:w-[calc(var(--sidebar-width-icon)+(--spacing(3)))] group-data-[collapsible=icon]:border-transparent group-data-[collapsible=icon]:shadow-none'
                             : 'group-data-[collapsible=icon]:w-[--sidebar-width-icon] group-data-[side=left]:border-r group-data-[side=right]:border-l',
                         className
                     )}
@@ -349,23 +349,15 @@ SidebarRail.displayName = 'SidebarRail';
 
 const SidebarInset = React.forwardRef<HTMLDivElement, React.ComponentProps<'main'>>(
     ({ className, ...props }, ref) => {
-        const { state, isStateSynced } = useSidebar();
-        const dynamicWidth = useMeasureSidebarWidth();
-
-        const currentMargin = state === 'expanded' ? dynamicWidth - 65 : 8;
-
-        const marginStyle = {
-            marginLeft: `${currentMargin}px`
-        } as React.CSSProperties;
-
-        const defaultMarginStyle = {
-            marginLeft: `21px`
-        } as React.CSSProperties;
-
+        const { state } = useSidebar();
         return (
             <main
                 ref={ref}
-                className={cn('relative flex w-full flex-1 flex-col p-0', className)}
+                className={cn(
+                    'relative mr-5 flex w-full flex-1 flex-col',
+                    state === 'collapsed' ? 'ml-5' : 'ml-35',
+                    className
+                )}
                 {...props}
             />
         );
