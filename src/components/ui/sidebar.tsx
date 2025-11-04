@@ -48,6 +48,31 @@ function useSidebar() {
     return context;
 }
 
+function useMeasureSidebarWidth() {
+    const [expandedWidth, setExpandedWidth] = React.useState(0);
+    const [iconWidth, setIconWidth] = React.useState(0);
+
+    React.useLayoutEffect(() => {
+        window.getComputedStyle(document.documentElement).getPropertyValue('--sidebar-width');
+        window.getComputedStyle(document.documentElement).getPropertyValue('--sidebar-width-icon');
+
+        const remToPx = (remValue: string): number => {
+            if (!remValue.includes('rem')) return 0;
+            const rem = parseFloat(remValue.replace('rem', ''));
+            const rootFontSize = parseFloat(
+                window.getComputedStyle(document.documentElement).fontSize
+            );
+            return Math.floor(rem * rootFontSize);
+        };
+
+        setExpandedWidth(remToPx(SIDEBAR_WIDTH));
+        setIconWidth(remToPx(SIDEBAR_WIDTH_ICON));
+    }, []);
+
+    const { state } = useSidebar();
+    return state === 'expanded' ? expandedWidth : iconWidth;
+}
+
 const SidebarProvider = React.forwardRef<
     HTMLDivElement,
     React.ComponentProps<'div'> & {
@@ -308,14 +333,19 @@ SidebarRail.displayName = 'SidebarRail';
 const SidebarInset = React.forwardRef<HTMLDivElement, React.ComponentProps<'main'>>(
     ({ className, ...props }, ref) => {
         const { state } = useSidebar();
+        const dynamicWidth = useMeasureSidebarWidth();
+
+        const currentMargin = state === 'expanded' ? dynamicWidth - 65 : 8;
+
+        const marginStyle = {
+            marginLeft: `${currentMargin}px`
+        } as React.CSSProperties;
+
         return (
             <main
                 ref={ref}
-                className={cn(
-                    'relative mr-5 flex w-full flex-1 flex-col',
-                    state === 'collapsed' ? 'ml-5' : 'ml-35',
-                    className
-                )}
+                style={marginStyle}
+                className={cn('relative mr-5 flex w-full flex-1 flex-col', className)}
                 {...props}
             />
         );
