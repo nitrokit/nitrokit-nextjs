@@ -64,7 +64,7 @@ const data = {
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
     return (
         <Sidebar
-            className="top-[calc(var(--header-height))] z-99 h-[calc(100svh-var(--header-height)-var(--footer-height)-21px)]! bg-white"
+            className="top-[calc(var(--header-height))] z-99 h-[calc(100svh-var(--header-height)-var(--footer-height)-21px)]!"
             {...props}
         >
             <SidebarHeader className="md:hidden">
