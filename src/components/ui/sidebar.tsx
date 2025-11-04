@@ -350,14 +350,19 @@ SidebarRail.displayName = 'SidebarRail';
 const SidebarInset = React.forwardRef<HTMLDivElement, React.ComponentProps<'main'>>(
     ({ className, ...props }, ref) => {
         const { state } = useSidebar();
+        const dynamicWidth = useMeasureSidebarWidth();
+
+        const currentMargin = state === 'expanded' ? dynamicWidth - 65 : 8;
+
+        const marginStyle = {
+            marginLeft: `${currentMargin}px`
+        } as React.CSSProperties;
+
         return (
             <main
                 ref={ref}
-                className={cn(
-                    'relative mr-5 flex w-full flex-1 flex-col',
-                    state === 'collapsed' ? 'ml-5' : 'ml-35',
-                    className
-                )}
+                style={marginStyle}
+                className={cn('relative mr-5 flex w-full flex-1 flex-col', className)}
                 {...props}
             />
         );
