@@ -1,8 +1,8 @@
 'use client';
 
 import * as React from 'react';
-import { Home, Inbox, Search, Sparkles } from 'lucide-react';
-import { AudioWaveform, Command, GalleryVerticalEnd } from 'lucide-react';
+import { translateSafely } from '@/lib/utils';
+import { Command } from 'lucide-react';
 import {
     Sidebar,
     SidebarContent,
@@ -11,57 +11,11 @@ import {
     SidebarMenuButton,
     SidebarMenuItem
 } from '@/components/ui/sidebar';
-
-const data = {
-    user: {
-        name: 'shadcn',
-        email: 'm@example.com',
-        avatar: '/avatars/shadcn.jpg'
-    },
-    teams: [
-        {
-            name: 'Acme Inc',
-            logo: GalleryVerticalEnd,
-            plan: 'Enterprise'
-        },
-        {
-            name: 'Acme Corp.',
-            logo: AudioWaveform,
-            plan: 'Startup'
-        },
-        {
-            name: 'Evil Corp.',
-            logo: Command,
-            plan: 'Free'
-        }
-    ],
-    navMain: [
-        {
-            title: 'Search',
-            url: '#',
-            icon: Search
-        },
-        {
-            title: 'Ask AI',
-            url: '#',
-            icon: Sparkles
-        },
-        {
-            title: 'Home',
-            url: '#',
-            icon: Home,
-            isActive: true
-        },
-        {
-            title: 'Inbox',
-            url: '#',
-            icon: Inbox,
-            badge: '10'
-        }
-    ]
-};
+import { AppNavigationItems } from '@/constants';
+import { useTranslations } from 'next-intl';
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
+    const t = useTranslations();
     return (
         <Sidebar
             className="top-[calc(var(--header-height))] z-99 h-[calc(100svh-var(--header-height)-var(--footer-height)-21px)]!"
@@ -86,12 +40,12 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
             </SidebarHeader>
             <SidebarContent>
                 <SidebarMenu>
-                    {data.navMain.map((item) => (
-                        <SidebarMenuItem key={item.title}>
-                            <SidebarMenuButton asChild isActive={item.isActive}>
-                                <a href={item.url}>
+                    {AppNavigationItems.map((item) => (
+                        <SidebarMenuItem key={item.key}>
+                            <SidebarMenuButton asChild>
+                                <a href={item.href}>
                                     <item.icon />
-                                    <span>{item.title}</span>
+                                    <span>{translateSafely(t, item.key)}</span>
                                 </a>
                             </SidebarMenuButton>
                         </SidebarMenuItem>
