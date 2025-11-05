@@ -42,7 +42,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                 <SidebarMenu>
                     {AppNavigationItems.map((item) => (
                         <SidebarMenuItem key={item.key}>
-                            <SidebarMenuButton asChild>
+                            <SidebarMenuButton asChild variant={'rounded'}>
                                 <a href={item.href}>
                                     <item.icon />
                                     <span>{translateSafely(t, item.key)}</span>

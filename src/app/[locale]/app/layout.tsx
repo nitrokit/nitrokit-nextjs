@@ -27,7 +27,7 @@ export default async function DashboardLayout({
                     <AppSidebar variant="floating" collapsible="icon" />
                     <SidebarInset>
                         <div className="flex-1 overflow-hidden">
-                            <div className="h-full rounded-2xl border border-gray-200 bg-white shadow-sm dark:border-gray-800 dark:bg-zinc-950">
+                            <div className="h-full rounded-2xl border border-gray-200 bg-white shadow-xs/10 dark:border-gray-800 dark:bg-zinc-950">
                                 {children}
                             </div>
                         </div>
