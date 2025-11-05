@@ -1,6 +1,6 @@
 {
     "name": "nitrokit-nextjs",
-    "description": "Boilerplate and Starter for Next.js 15 with App Router and Page Router support, Tailwind CSS 4 and TypeScript.",
+    "description": "Boilerplate and Starter for Next.js 16 with App Router and Page Router support, Tailwind CSS 4 and TypeScript.",
     "version": "1.6.0",
     "type": "module",
     "repository": "github:nitrokit/nitrokit-nextjs",
