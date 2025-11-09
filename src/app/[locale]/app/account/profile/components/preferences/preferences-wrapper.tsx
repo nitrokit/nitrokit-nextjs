@@ -8,9 +8,10 @@ import {
     AppCardTitle
 } from '@/components/app';
 import { useUser } from '@/contexts/user-context';
-import { Cog as CogIcon } from 'lucide-react';
+import { Cog as CogIcon, Save } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import { Languages, ThemeOptions, Notifications } from './fields';
+import { SubmitButton } from '@/components/shared';
 
 export function PreferencesWrapper() {
     const t = useTranslations('profile.preferences');
@@ -26,6 +27,12 @@ export function PreferencesWrapper() {
                 <ThemeOptions />
                 <Languages />
                 <Notifications />
+                <SubmitButton
+                    textKey="common.buttons.saveChanges"
+                    startIcon={<Save />}
+                    className="w-fit"
+                    disabled={isLoading}
+                />
             </AppCardContent>
         </AppCard>
     );

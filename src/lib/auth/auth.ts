@@ -57,7 +57,8 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
                     role: defaultRole,
                     locale: profile.locale || defaultLocale,
                     theme: defaultTheme,
-                    receiveUpdates: defaultReceiveUpdates,
+                    receiveEmailUpdates: defaultReceiveUpdates,
+                    receiveSmsUpdates: defaultReceiveUpdates,
                     twoFactorEnabled: false,
                     emailVerified: true,
                     createdAt: new Date(),
@@ -78,7 +79,8 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
                     role: defaultRole,
                     locale: defaultLocale,
                     theme: defaultTheme,
-                    receiveUpdates: defaultReceiveUpdates,
+                    receiveEmailUpdates: defaultReceiveUpdates,
+                    receiveSmsUpdates: defaultReceiveUpdates,
                     twoFactorEnabled: false,
                     emailVerified: true,
                     createdAt: new Date(),
@@ -99,7 +101,8 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
                     role: defaultRole,
                     locale: defaultLocale,
                     theme: defaultTheme,
-                    receiveUpdates: defaultReceiveUpdates,
+                    receiveEmailUpdates: defaultReceiveUpdates,
+                    receiveSmsUpdates: defaultReceiveUpdates,
                     twoFactorEnabled: false,
                     emailVerified: true,
                     createdAt: new Date(),
@@ -120,7 +123,8 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
                     role: defaultRole,
                     locale: profile.locale || defaultLocale,
                     theme: defaultTheme,
-                    receiveUpdates: defaultReceiveUpdates,
+                    receiveEmailUpdates: defaultReceiveUpdates,
+                    receiveSmsUpdates: defaultReceiveUpdates,
                     twoFactorEnabled: false,
                     emailVerified: true,
                     createdAt: new Date(),
@@ -144,7 +148,8 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
                     role: defaultRole,
                     locale: defaultLocale,
                     theme: defaultTheme,
-                    receiveUpdates: defaultReceiveUpdates,
+                    receiveEmailUpdates: defaultReceiveUpdates,
+                    receiveSmsUpdates: defaultReceiveUpdates,
                     twoFactorEnabled: false,
                     emailVerified: true,
                     createdAt: new Date(),
@@ -165,7 +170,8 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
                     role: defaultRole,
                     locale: defaultLocale,
                     theme: defaultTheme,
-                    receiveUpdates: defaultReceiveUpdates,
+                    receiveEmailUpdates: defaultReceiveUpdates,
+                    receiveSmsUpdates: defaultReceiveUpdates,
                     twoFactorEnabled: false,
                     emailVerified: !!profile.email,
                     createdAt: new Date(),
@@ -190,7 +196,8 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
                     role: defaultRole,
                     locale: defaultLocale,
                     theme: defaultTheme,
-                    receiveUpdates: defaultReceiveUpdates,
+                    receiveEmailUpdates: defaultReceiveUpdates,
+                    receiveSmsUpdates: defaultReceiveUpdates,
                     twoFactorEnabled: false,
                     emailVerified: !!data.email,
                     createdAt: new Date(),
@@ -226,7 +233,8 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
                     role: defaultRole,
                     locale: profile.locale || defaultLocale,
                     theme: defaultTheme,
-                    receiveUpdates: defaultReceiveUpdates,
+                    receiveEmailUpdates: defaultReceiveUpdates,
+                    receiveSmsUpdates: defaultReceiveUpdates,
                     twoFactorEnabled: false,
                     emailVerified: !!email,
                     createdAt: new Date(),
@@ -374,7 +382,8 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
                     session.user.createdAt = dbUser.createdAt;
                     session.user.updatedAt = dbUser.updatedAt;
                     session.user.lastLoginAt = dbUser.lastLoginAt || undefined;
-                    session.user.receiveUpdates = dbUser.receiveUpdates;
+                    session.user.receiveEmailUpdates = dbUser.receiveEmailUpdates;
+                    session.user.receiveSmsUpdates = dbUser.receiveSmsUpdates;
                     session.user.phone = dbUser.phone;
                     session.user.locale = dbUser.locale || 'tr';
                     session.user.theme = dbUser.theme || 'light';

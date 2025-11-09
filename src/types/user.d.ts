@@ -17,7 +17,8 @@ export interface UserData extends DefaultUser {
     emailVerified?: boolean;
     locale: Locale;
     theme: string;
-    receiveUpdates: boolean;
+    receiveEmailUpdates: boolean;
+    receiveSmsUpdates: boolean;
     refreshToken?: string;
     linkedAccounts?: LinkedAccount[];
     createdAt: Date;

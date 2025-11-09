@@ -25,12 +25,10 @@ export function ProfileFormWrapper() {
                 <AppCardTitle icon={UserIcon}>{t('title')}</AppCardTitle>
                 <AppCardDescription>{t('description')}</AppCardDescription>
             </AppCardHeader>
-            <AppCardContent>
-                <div className="grid gap-6">
-                    <ProfileUserField />
-                    <ProfileEmailField email={user?.email} />
-                    <ProfileForm />
-                </div>
+            <AppCardContent className="grid gap-6">
+                <ProfileUserField />
+                <ProfileEmailField email={user?.email} />
+                <ProfileForm />
             </AppCardContent>
         </AppCard>
     );

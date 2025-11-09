@@ -27,7 +27,10 @@
             "flag": "Flag {language}"
         },
         "notifications": {
-            "title": "Notifications"
+            "title": "Notifications",
+            "description": "Choose how you want to receive important product news and status changes.",
+            "emailUpdates": "Receive marketing and feature updates (Email)",
+            "smsAlerts": "Critical security alerts and status updates (SMS)"
         }
     }
 }

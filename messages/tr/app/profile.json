@@ -27,7 +27,10 @@
             "flag": "Flag {language}"
         },
         "notifications": {
-            "title": "Bildirimler"
+            "title": "Bildirimler",
+            "description": "Önemli ürün haberlerini ve durum değişikliklerini nasıl almak istediğinizi seçin.",
+            "emailUpdates": "Pazarlama ve özellik güncellemeleri al (E-posta)",
+            "smsAlerts": "Kritik güvenlik uyarıları ve durum güncellemeleri (SMS)"
         }
     }
 }
