@@ -1,7 +1,7 @@
 'use client';
 
 import { ReactNode } from 'react';
-import { Logo, MobileSidebar, UserMenu } from '@/components/app';
+import { Logo, UserMenu } from '@/components/app';
 import { CompactLocaleSwitcher } from '@/components/switchers';
 
 interface DashboardHeaderProps {
@@ -12,7 +12,6 @@ export function DashboardHeader({ children }: DashboardHeaderProps) {
     return (
         <header className="flex h-(--header-height) w-full items-center justify-between px-4">
             <div className="flex items-center space-x-4">
-                <MobileSidebar />
                 <Logo />
                 {children}
             </div>

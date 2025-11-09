@@ -10,21 +10,17 @@ import { cn } from '@/lib/utils/index';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Separator } from '@/components/ui/separator';
-import {
-    Sheet,
-    SheetContent,
-    SheetDescription,
-    SheetHeader,
-    SheetTitle
-} from '@/components/ui/sheet';
+import { Sheet, SheetContent, SheetHeader, SheetTitle } from '@/components/ui/sheet';
 import { Skeleton } from '@/components/ui/skeleton';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
+import { Logo } from '../app';
+import { ScrollArea } from './scroll-area';
 
 const SIDEBAR_COOKIE_NAME = 'sidebar_state';
 const SIDEBAR_COOKIE_MAX_AGE = 60 * 60 * 24 * 7;
-const SIDEBAR_WIDTH = '16rem';
+const SIDEBAR_WIDTH = '86px';
 const SIDEBAR_WIDTH_MOBILE = '18rem';
-const SIDEBAR_WIDTH_ICON = '2rem';
+const SIDEBAR_WIDTH_ICON = '12px';
 const SIDEBAR_KEYBOARD_SHORTCUT = 'b';
 
 type SidebarContextProps = {
@@ -47,31 +43,6 @@ function useSidebar() {
     }
 
     return context;
-}
-
-function useMeasureSidebarWidth() {
-    const [expandedWidth, setExpandedWidth] = React.useState(0);
-    const [iconWidth, setIconWidth] = React.useState(0);
-
-    React.useLayoutEffect(() => {
-        window.getComputedStyle(document.documentElement).getPropertyValue('--sidebar-width');
-        window.getComputedStyle(document.documentElement).getPropertyValue('--sidebar-width-icon');
-
-        const remToPx = (remValue: string): number => {
-            if (!remValue.includes('rem')) return 0;
-            const rem = parseFloat(remValue.replace('rem', ''));
-            const rootFontSize = parseFloat(
-                window.getComputedStyle(document.documentElement).fontSize
-            );
-            return Math.floor(rem * rootFontSize);
-        };
-
-        setExpandedWidth(remToPx(SIDEBAR_WIDTH));
-        setIconWidth(remToPx(SIDEBAR_WIDTH_ICON));
-    }, []);
-
-    const { state } = useSidebar();
-    return state === 'expanded' ? expandedWidth : iconWidth;
 }
 
 const SidebarProvider = React.forwardRef<
@@ -231,7 +202,7 @@ const Sidebar = React.forwardRef<
                     <SheetContent
                         data-sidebar="sidebar"
                         data-mobile="true"
-                        className="bg-sidebar text-sidebar-foreground w-[--sidebar-width] p-0 [&>button]:hidden"
+                        className="bg-sidebar text-sidebar-foreground w-[--sidebar-width] p-5 [&>button]:hidden"
                         style={
                             {
                                 '--sidebar-width': SIDEBAR_WIDTH_MOBILE
@@ -239,11 +210,14 @@ const Sidebar = React.forwardRef<
                         }
                         side={side}
                     >
-                        <SheetHeader className="sr-only">
-                            <SheetTitle>Sidebar</SheetTitle>
-                            <SheetDescription>Displays the mobile sidebar.</SheetDescription>
+                        <SheetHeader className="text-left">
+                            <SheetTitle className="flex items-center gap-2">
+                                <Logo />
+                            </SheetTitle>
                         </SheetHeader>
-                        <div className="flex h-full w-full flex-col">{children}</div>
+                        <ScrollArea className="mt-3 h-[calc(100vh-120px)]">
+                            <div className="flex h-full w-full flex-col space-y-1">{children}</div>
+                        </ScrollArea>
                     </SheetContent>
                 </Sheet>
             );
@@ -251,7 +225,7 @@ const Sidebar = React.forwardRef<
         return (
             <div
                 ref={ref}
-                className="group peer text-sidebar-foreground hidden md:block"
+                className="group peer text-sidebar-foreground hidden w-[--sidebar-width] border-amber-300 md:block"
                 data-state={state}
                 data-collapsible={state === 'collapsed' ? collapsible : ''}
                 data-variant={variant}
@@ -271,13 +245,13 @@ const Sidebar = React.forwardRef<
                 <div
                     className={cn(
                         'fixed inset-y-0 z-10 hidden h-svh w-[--sidebar-width] transition-[left,right,width] duration-200 ease-linear md:flex',
-                        'fixed inset-y-0 z-10 hidden h-svh w-[--sidebar-width] transition-[left,right,width] duration-200 ease-linear md:flex',
+                        'border-amber-300',
                         side === 'left'
-                            ? 'left-3 group-data-[collapsible=offcanvas]:left-[calc(var(--sidebar-width)*-1)]'
-                            : 'right-3 group-data-[collapsible=offcanvas]:right-[calc(var(--sidebar-width)*-1)]',
+                            ? 'left-5 group-data-[collapsible=offcanvas]:left-[calc(var(--sidebar-width)*-1)]'
+                            : 'right-5 group-data-[collapsible=offcanvas]:right-[calc(var(--sidebar-width)*-1)]',
                         state === 'collapsed'
                             ? 'items-center justify-center pt-3'
-                            : 'rounded-2xl border border-gray-200 bg-white p-3 shadow-xs/10 dark:border-gray-800 dark:bg-zinc-950',
+                            : 'rounded-2xl border bg-white p-3 shadow-xs/10 dark:border-gray-800 dark:bg-zinc-950',
                         variant === 'floating' || variant === 'inset'
                             ? 'group-data-[collapsible=icon]:w-[calc(var(--sidebar-width-icon))]'
                             : 'group-data-[collapsible=icon]:w-[--sidebar-width-icon]',
@@ -351,24 +325,19 @@ SidebarRail.displayName = 'SidebarRail';
 
 const SidebarInset = React.forwardRef<HTMLDivElement, React.ComponentProps<'main'>>(
     ({ className, ...props }, ref) => {
-        const { state, isStateSynced } = useSidebar();
-        const dynamicWidth = useMeasureSidebarWidth();
+        const { state } = useSidebar();
 
-        const currentMargin = state === 'expanded' ? dynamicWidth - 65 : 8;
+        const currentMargin = state === 'expanded' ? SIDEBAR_WIDTH : SIDEBAR_WIDTH_ICON;
 
         const marginStyle = {
-            marginLeft: `${currentMargin}px`
-        } as React.CSSProperties;
-
-        const defaultMarginStyle = {
-            marginLeft: `21px`
+            marginLeft: `${currentMargin}`
         } as React.CSSProperties;
 
         return (
             <main
                 ref={ref}
-                style={isStateSynced ? marginStyle : defaultMarginStyle}
-                className={cn('relative mr-5 flex w-full flex-1 flex-col', className)}
+                style={marginStyle}
+                className={cn('relative mx-5 flex w-full flex-1 flex-col', className)}
                 {...props}
             />
         );
@@ -400,7 +369,7 @@ const SidebarHeader = React.forwardRef<HTMLDivElement, React.ComponentProps<'div
             <div
                 ref={ref}
                 data-sidebar="header"
-                className={cn('flex flex-col gap-2 p-2', className)}
+                className={cn('flex flex-col', className)}
                 {...props}
             />
         );
@@ -414,7 +383,7 @@ const SidebarFooter = React.forwardRef<HTMLDivElement, React.ComponentProps<'div
             <div
                 ref={ref}
                 data-sidebar="footer"
-                className={cn('flex flex-col gap-2 p-2', className)}
+                className={cn('lg:flex lg:flex-col lg:gap-2 lg:p-2', className)}
                 {...props}
             />
         );
@@ -444,7 +413,7 @@ const SidebarContent = React.forwardRef<HTMLDivElement, React.ComponentProps<'di
                 ref={ref}
                 data-sidebar="content"
                 className={cn(
-                    'flex min-h-0 flex-1 flex-col gap-2 overflow-auto group-data-[collapsible=icon]:overflow-hidden',
+                    'flex min-h-0 flex-1 flex-col gap-2 overflow-auto px-3 group-data-[collapsible=icon]:overflow-hidden',
                     className
                 )}
                 {...props}
