@@ -1,38 +1,64 @@
 import { PushNotificationProvider, PushNotificationData, PushNotificationResult } from '../types';
+import * as admin from 'firebase-admin';
 
 export interface FCMProviderConfig {
     serviceAccount: string;
 }
 
 class FCMProvider implements PushNotificationProvider {
+    private app: admin.app.App;
+
     constructor(config: FCMProviderConfig) {
-        // Firebase Admin SDK'yı burada başlatırsın
-        /*
-        if (admin.apps.length === 0) {
-            admin.initializeApp({
-                credential: admin.credential.cert(JSON.parse(config.serviceAccount))
-            });
+        const appName = 'nitrokit-fcm';
+        const alreadyInitializedApp = admin.apps.find((app) => app?.name === appName);
+
+        if (alreadyInitializedApp) {
+            this.app = alreadyInitializedApp;
+        } else {
+            this.app = admin.initializeApp(
+                {
+                    credential: admin.credential.cert(JSON.parse(config.serviceAccount))
+                },
+                appName
+            );
         }
-        */
-        console.log(config);
     }
 
     async sendNotification(data: PushNotificationData): Promise<PushNotificationResult> {
-        // Bu kısım, firebase-admin SDK'sı ile gerçek gönderim mantığını içerir.
         try {
-            // const response = await admin.messaging().send({ ... });
-            // 'await' uyarısını önlemek için asenkron bir işlemi simüle ediyoruz.
-            console.log(data);
-            await new Promise((resolve) => setTimeout(resolve, 50));
-            const messageId = `fcm-mock-${Date.now()}`;
-            return { success: true, messageId };
+            const payload: any = {
+                notification: {
+                    title: data.title,
+                    body: data.body
+                },
+                data: data.data
+            };
+
+            if (Array.isArray(data.to)) {
+                const multicastMessage: admin.messaging.MulticastMessage = {
+                    ...payload,
+                    tokens: data.to
+                };
+                const response = await this.app.messaging().sendEachForMulticast(multicastMessage);
+                if (response.successCount > 0) {
+                    return { success: true, messageId: 'multicast-batch' };
+                }
+                throw new Error(`FCM multicast failed: ${response.failureCount} failures.`);
+            } else if (data.to.startsWith('/topics/')) {
+                payload.topic = data.to;
+                const response = await this.app.messaging().send(payload);
+                return { success: true, messageId: response };
+            } else {
+                payload.token = data.to;
+                const response = await this.app.messaging().send(payload);
+                return { success: true, messageId: response };
+            }
         } catch (error) {
             const errorMessage = error instanceof Error ? error.message : 'Unknown FCM error';
             return { success: false, error: errorMessage };
         }
     }
 }
-
 export function createFCMProvider(config: FCMProviderConfig): PushNotificationProvider {
     return new FCMProvider(config);
 }
