@@ -9,7 +9,7 @@ import {
     CardHeader,
     CardTitle
 } from '@/components/ui/card';
-import { Loader2 } from 'lucide-react';
+import { Loader } from 'lucide-react';
 import { cn } from '@/lib';
 import { cva, type VariantProps } from 'class-variance-authority';
 
@@ -51,7 +51,7 @@ const AppCard = React.forwardRef<HTMLDivElement, AppCardProps>(
             >
                 {loading && (
                     <div className="bg-background/50 absolute inset-0 z-10 flex items-center justify-center">
-                        <Loader2 className="h-8 w-8 animate-spin" />
+                        <Loader className="ml-4 size-10 h-6 w-6 animate-spin" />
                     </div>
                 )}
                 <div className={cn({ 'pointer-events-none blur-xs': loading })}>{children}</div>

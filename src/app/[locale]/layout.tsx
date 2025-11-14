@@ -55,7 +55,7 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
                                 defaultTheme="system"
                                 enableSystem
                                 disableTransitionOnChange
-                                themes={['light', 'dark', 'theme-zinc', 'theme-rose']}
+                                themes={['light', 'dark', 'system', 'theme-zinc', 'theme-rose']}
                                 storageKey="nitrokit-theme"
                             >
                                 <TooltipProvider delayDuration={100}>{children}</TooltipProvider>

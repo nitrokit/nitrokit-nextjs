@@ -1,26 +1,36 @@
 {
-    "title": "Profil Bilgileri",
-    "description": "Kişisel bilgilerinizi ve profil resminizi güncelleyin",
-    "firstName": {
-        "label": "Ad",
-        "placeholder": "Adınızı girin"
+    "title": "Profil Ayarları",
+    "description": "Kişisel bilgilerinizi ve profil tercihlerinizi yönetin.",
+    "profileInformation": {
+        "title": "Profil Bilgileri",
+        "description": "Kişisel bilgilerinizi ve profil resminizi güncelleyin",
+        "messages": {
+            "updateSuccess": "Profil başarıyla güncellendi!",
+            "updateFailed": "Profil güncellenemedi",
+            "updateError": "Bir şeyler ters gitti. Lütfen tekrar deneyin.",
+            "phoneUpdated": "Telefon numarası güncellendi. Lütfen yeni numaranızı doğrulayın."
+        }
     },
-    "lastName": {
-        "label": "Soyad",
-        "placeholder": "Soyadınızı girin"
-    },
-    "email": {
-        "label": "E-posta Adresi"
-    },
-    "image": {
-        "label": "Profil Resmi",
-        "removeSuccess": "Profil resmi başarıyla kaldırıldı!",
-        "removeError": "Profil resmi kaldırılamadı."
-    },
-    "messages": {
-        "updateSuccess": "Profil başarıyla güncellendi!",
-        "updateFailed": "Profil güncellenemedi",
-        "updateError": "Bir şeyler ters gitti. Lütfen tekrar deneyin.",
-        "phoneUpdated": "Telefon numarası güncellendi. Lütfen yeni numaranızı doğrulayın."
+    "preferences": {
+        "title": "Tercihler",
+        "description": "Dil ve tema tercihlerinizi özelleştirin",
+        "theme": {
+            "title": "Tema",
+            "light": "Açık",
+            "dark": "Karanlık",
+            "system": "Sistem",
+            "zinc": "Zinc",
+            "rose": "Rose"
+        },
+        "language": {
+            "title": "Dil",
+            "flag": "Flag {language}"
+        },
+        "notifications": {
+            "title": "Bildirimler",
+            "description": "Önemli ürün haberlerini ve durum değişikliklerini nasıl almak istediğinizi seçin.",
+            "emailUpdates": "Pazarlama ve özellik güncellemeleri al (E-posta)",
+            "smsAlerts": "Kritik güvenlik uyarıları ve durum güncellemeleri (SMS)"
+        }
     }
 }

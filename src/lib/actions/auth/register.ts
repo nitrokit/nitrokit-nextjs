@@ -69,7 +69,8 @@ export async function registerAction(
                 lastName: lastname,
                 twoFactorEnabled: false,
                 locale: locale,
-                receiveUpdates: false,
+                receiveEmailUpdates: false,
+                receiveSmsUpdates: false,
                 createdAt: new Date(),
                 updatedAt: new Date()
             }
