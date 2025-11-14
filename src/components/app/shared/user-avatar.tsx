@@ -46,7 +46,6 @@ export const UserAvatar = React.forwardRef<HTMLButtonElement, UserAvatarProps>(
 
         const getAvatarSrc = () => {
             if (useSessionData) {
-                // Prefer user from context, fallback to session, then props
                 return user?.image || session?.user?.image || src || null;
             }
             return src || null;

@@ -179,9 +179,11 @@ model User {
   lastName  String?
   username  String?
 
-  locale         String  @default("en")
-  theme          String  @default("system")
-  receiveUpdates Boolean @default(true) @map("receive_updates")
+  locale String @default("en")
+  theme  String @default("system")
+
+  receiveEmailUpdates Boolean @default(false) @map("receive_email_updates")
+  receiveSmsUpdates   Boolean @default(false) @map("receive_sms_updates")
 
   twoFactorEnabled     Boolean   @default(false) @map("two_factor_enabled")
   twoFactorSecret      String?   @map("two_factor_secret")

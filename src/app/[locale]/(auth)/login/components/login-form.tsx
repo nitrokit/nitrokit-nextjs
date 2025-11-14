@@ -60,7 +60,18 @@ export function LoginForm({ onFlowChange }: LoginFormProps) {
     });
 
     useEffect(() => {
-        if (state?.errors) {
+        if (onFlowChange) {
+            onFlowChange(!!isTwoFactorRequired);
+        }
+    }, [isTwoFactorRequired, onFlowChange]);
+
+    useEffect(() => {
+        if (state?.success) {
+            void updateSession();
+            form.reset(DEFAULT_LOGIN_FORM_VALUES);
+            router.push(callbackUrl);
+            return;
+        } else if (state?.errors) {
             Object.keys(state.errors).forEach((key) => {
                 const errorKey = key as keyof TLoginFormData;
                 if (state.errors?.[errorKey]) {
@@ -71,15 +82,7 @@ export function LoginForm({ onFlowChange }: LoginFormProps) {
                 }
             });
         }
-        if (onFlowChange) {
-            onFlowChange(!!isTwoFactorRequired);
-        }
-        if (state?.success) {
-            void updateSession();
-            form.reset(DEFAULT_LOGIN_FORM_VALUES);
-            router.push(callbackUrl);
-        }
-    }, [state, form, t, onFlowChange, isTwoFactorRequired, router, callbackUrl, updateSession]);
+    }, [state, form, t, router, callbackUrl, updateSession]);
 
     return (
         <Form {...form}>

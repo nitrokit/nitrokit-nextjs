@@ -1,26 +1,36 @@
 {
-    "title": "Profile Information",
-    "description": "Update your personal information and profile picture",
-    "firstName": {
-        "label": "First Name",
-        "placeholder": "Enter your first name"
+    "title": "Profile Settings",
+    "description": "Manage your personal information and profile preferences.",
+    "profileInformation": {
+        "title": "Profile Information",
+        "description": "Update your personal information and profile picture",
+        "messages": {
+            "updateSuccess": "Profile updated successfully!",
+            "updateFailed": "Failed to update profile",
+            "updateError": "Something went wrong. Please try again.",
+            "phoneUpdated": "Phone number updated. Please verify your new number."
+        }
     },
-    "lastName": {
-        "label": "Last Name",
-        "placeholder": "Enter your last name"
-    },
-    "email": {
-        "label": "Email Address"
-    },
-    "image": {
-        "label": "Profile Picture",
-        "removeSuccess": "Profile picture removed successfully!",
-        "removeError": "Failed to remove profile picture."
-    },
-    "messages": {
-        "updateSuccess": "Profile updated successfully!",
-        "updateFailed": "Failed to update profile",
-        "updateError": "Something went wrong. Please try again.",
-        "phoneUpdated": "Phone number updated. Please verify your new number."
+    "preferences": {
+        "title": "Preferences",
+        "description": "Customize your language and theme preferences",
+        "theme": {
+            "title": "Theme",
+            "light": "Light",
+            "dark": "Dark",
+            "system": "System",
+            "zinc": "Zinc",
+            "rose": "Rose"
+        },
+        "language": {
+            "title": "Language",
+            "flag": "Flag {language}"
+        },
+        "notifications": {
+            "title": "Notifications",
+            "description": "Choose how you want to receive important product news and status changes.",
+            "emailUpdates": "Receive marketing and feature updates (Email)",
+            "smsAlerts": "Critical security alerts and status updates (SMS)"
+        }
     }
 }

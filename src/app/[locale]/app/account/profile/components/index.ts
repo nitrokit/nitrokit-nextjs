@@ -1,1 +1,2 @@
-export * from './profile-information';
+export * from './profile';
+export * from './preferences';

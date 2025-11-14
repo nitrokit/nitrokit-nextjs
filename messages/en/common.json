@@ -20,7 +20,10 @@
         "lastname": "Last Name",
         "password": "Password",
         "confirmPassword": "Confirm Password",
-        "phone": "Phone Number"
+        "phone": "Phone Number",
+        "username": "Username",
+        "select": "Select",
+        "search": "Search"
     },
     "buttons": {
         "submit": "Submit",

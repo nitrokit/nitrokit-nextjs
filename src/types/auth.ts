@@ -15,7 +15,8 @@ export interface UserDbProfile {
     role: string;
     locale: string;
     theme: string;
-    receiveUpdates: boolean;
+    receiveEmailUpdates: boolean;
+    receiveSmsUpdates: boolean;
     twoFactorEnabled: boolean;
     emailVerified: boolean;
     createdAt: Date;

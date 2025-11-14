@@ -20,7 +20,10 @@
         "lastname": "Soyisim",
         "password": "Şifre",
         "confirmPassword": "Şifreyi Doğrula",
-        "phone": "Telefon Numarası"
+        "phone": "Telefon Numarası",
+        "username": "Kullanıcı Adı",
+        "select": "Seçin",
+        "search": "Ara"
     },
     "buttons": {
         "submit": "Gönder",

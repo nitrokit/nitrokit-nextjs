@@ -30,7 +30,8 @@ declare module 'next-auth/jwt' {
         picture?: string;
         locale?: Locale;
         theme?: Theme;
-        receiveUpdates?: boolean;
+        receiveEmailUpdates?: boolean;
+        receiveSmsUpdates?: boolean;
         phoneVerified?: boolean | null;
         twoFactorEnabled?: boolean;
         refreshToken?: string;

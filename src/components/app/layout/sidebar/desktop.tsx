@@ -49,7 +49,7 @@ function DesktopSidebar() {
                                     className={cn(
                                         'flex h-12 w-12 items-center justify-center rounded-full transition-all duration-200',
                                         isActive
-                                            ? 'bg-white text-blue-600 shadow-xs ring-1 ring-blue-100 dark:bg-zinc-800 dark:text-blue-400 dark:ring-blue-900/20'
+                                            ? 'text-primary bg-white shadow-xs ring-1 ring-blue-100 dark:bg-zinc-800 dark:text-blue-400 dark:ring-blue-900/20'
                                             : 'text-gray-600 hover:bg-white hover:text-gray-900 hover:shadow-md dark:text-zinc-400 dark:hover:bg-zinc-800 dark:hover:text-zinc-100'
                                     )}
                                 >

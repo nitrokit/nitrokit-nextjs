@@ -47,7 +47,7 @@ export default async function middleware(request: NextRequest) {
     if (!sessionToken?.value) {
         const signInUrl = new URL(AUTH_ROUTES.SIGN_IN, request.url);
         if (request.nextUrl.pathname !== AUTH_ROUTES.SIGN_IN) {
-            signInUrl.searchParams.set('callbackUrl', request.nextUrl.pathname);
+            signInUrl.searchParams.set('callbackUrl', request.url);
         }
         return NextResponse.redirect(signInUrl);
     }
