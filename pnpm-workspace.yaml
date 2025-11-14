@@ -1,6 +1,8 @@
 packages:
   - .
+
 onlyBuiltDependencies:
+  - '@firebase/util'
   - '@prisma/client'
   - '@prisma/engines'
   - '@tailwindcss/oxide'
@@ -8,5 +10,6 @@ onlyBuiltDependencies:
   - esbuild
   - msw
   - prisma
+  - protobufjs
   - sharp
   - unrs-resolver
