@@ -5,6 +5,7 @@ onlyBuiltDependencies:
   - '@firebase/util'
   - '@prisma/client'
   - '@prisma/engines'
+  - '@swc/core'
   - '@tailwindcss/oxide'
   - '@vercel/speed-insights'
   - esbuild

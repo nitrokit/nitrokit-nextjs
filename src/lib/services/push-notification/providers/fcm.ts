@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unsafe-argument */
 import { PushNotificationProvider, PushNotificationData, PushNotificationResult } from '../types';
 import * as admin from 'firebase-admin';
 
