@@ -1,3 +1,37 @@
+# [3.0.0](https://github.com/nitrokit/nitrokit-nextjs/compare/v2.0.0...v3.0.0) (2025-11-16)
+
+
+### chore
+
+* Extract core utilities into a new package ([f852a1d](https://github.com/nitrokit/nitrokit-nextjs/commit/f852a1dfe3659b84f1034c527f551f2f80ffeb56))
+
+
+### Features
+
+* Adds app sidebar ([3810be5](https://github.com/nitrokit/nitrokit-nextjs/commit/3810be550225f7fc9b6e5f8279abaca054974977))
+* Adds app sidebar ([9f7f6a1](https://github.com/nitrokit/nitrokit-nextjs/commit/9f7f6a1ff944421037331c2343fd63b6cb65bbee))
+* Adds app sidebar ([e6aa97d](https://github.com/nitrokit/nitrokit-nextjs/commit/e6aa97d72750dc63a39d087b2271509d19c5d3b4))
+* Adds app sidebar ([80c44c1](https://github.com/nitrokit/nitrokit-nextjs/commit/80c44c19317e462e1d75c291e726eff8b553f4e6))
+* adds app sidebar component ([0153fec](https://github.com/nitrokit/nitrokit-nextjs/commit/0153fec4fd0db8b6b471c28af9a75f8294011c49))
+* adds app sidebar component ([2a65376](https://github.com/nitrokit/nitrokit-nextjs/commit/2a653768fc5825b8957008db712dfefeb6abadde))
+* adds app sidebar component ([040938f](https://github.com/nitrokit/nitrokit-nextjs/commit/040938f0e35cadbc551a8d841a6033c9ac7a42b2))
+* adds app sidebar component ([3778aa1](https://github.com/nitrokit/nitrokit-nextjs/commit/3778aa1841fa3570c8354cad0d47329047f50c3e))
+* Adds app sidebar layout ([1b354c3](https://github.com/nitrokit/nitrokit-nextjs/commit/1b354c333767559a1f055d7be0ee470e0401c193))
+* Adds app sidebar layout ([090260b](https://github.com/nitrokit/nitrokit-nextjs/commit/090260b53a04644ce93c60417f5be95ccc40d046))
+* Adds app sidebar layout ([de5a4ca](https://github.com/nitrokit/nitrokit-nextjs/commit/de5a4ca69d90cf3e78fd2c46e74fc5d3505933bc))
+* Adds app sidebar layout ([7fac827](https://github.com/nitrokit/nitrokit-nextjs/commit/7fac827b5ac21d528117b018a32d3590c32cd189))
+* Enhances sidebar collapse/expand experience ([13261c1](https://github.com/nitrokit/nitrokit-nextjs/commit/13261c1fccf1ee85b6132be4136f2a62ed303d15))
+* Enhances sidebar collapse/expand experience ([e4d5dda](https://github.com/nitrokit/nitrokit-nextjs/commit/e4d5ddaba851c3f0e40033a31266fe18edddb949))
+* Enhances sidebar collapse/expand experience ([10bb852](https://github.com/nitrokit/nitrokit-nextjs/commit/10bb852c07be6b5688c9ca5f206425209314e0fd))
+* Enhances sidebar collapse/expand experience ([6a87c07](https://github.com/nitrokit/nitrokit-nextjs/commit/6a87c073aae4a510192ff8fe73f04c1f21d69836))
+* Re-enables newsletter rate limit check ([e4202d8](https://github.com/nitrokit/nitrokit-nextjs/commit/e4202d8037c02c275aaa6426b92c86d7bc3e611b))
+* Revamps app layout and navigation ([01e5aa6](https://github.com/nitrokit/nitrokit-nextjs/commit/01e5aa6875958cbf44ccd5248bfb6a0364b3cc57))
+
+
+### BREAKING CHANGES
+
+* Updates `@react-email/components` to `^1.0.1` and `@react-email/render` to `^2.0.0`. These are major version bumps that may introduce breaking changes and require adjustments to email templating and rendering logic.
+
 # [2.0.0](https://github.com/nitrokit/nitrokit-nextjs/compare/v1.6.0...v2.0.0) (2025-11-14)
 
 ### Bug Fixes
