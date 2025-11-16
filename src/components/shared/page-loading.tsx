@@ -1,5 +1,5 @@
 import { Skeleton } from '@/components/ui';
-import { cn } from '@/lib';
+import { cn } from '@nitrokit/core/lib';
 
 interface Props {
     height?: string;

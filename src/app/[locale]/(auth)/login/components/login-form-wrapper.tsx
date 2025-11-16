@@ -5,7 +5,7 @@ import { useState } from 'react';
 import { LoginForm } from './login-form';
 import { FormCard } from '../../components/form-card';
 import { useTranslations } from 'next-intl';
-import { translateSafely } from '@/lib';
+import { translateSafely } from '@nitrokit/core/lib';
 
 interface LoginCardWrapperProps {
     serverFooter: React.ReactNode;

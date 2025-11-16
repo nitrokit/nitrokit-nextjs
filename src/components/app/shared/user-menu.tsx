@@ -18,11 +18,10 @@ import { useTranslations } from 'next-intl';
 import React, { Suspense } from 'react';
 
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui';
-import { useHotkeys } from '@/hooks/useHotkeys';
 import { useUser } from '@/contexts/user-context';
 import { SignOutButton, SignInButton, SignUpButton } from '@/components/auth';
 
-import { cn } from '@/lib';
+import { cn, useHotkeys } from '@nitrokit/core';
 import { useRouter } from '@/lib/i18n/navigation';
 import { APP_ROUTES } from '@/lib/auth/constants';
 import { UserAvatar } from './user-avatar';

@@ -3,7 +3,7 @@
 import { useMemo } from 'react';
 import { cva, type VariantProps } from 'class-variance-authority';
 
-import { cn } from '@/lib/utils/index';
+import { cn } from '@nitrokit/core/lib';
 import { Label } from '@/components/ui/label';
 import { Separator } from '@/components/ui/separator';
 

@@ -10,8 +10,7 @@ import {
     TooltipContent,
     TooltipTrigger
 } from '@/components/ui';
-import { useNextTheme } from '@/hooks';
-import { cn } from '@/lib';
+import { cn, useNextTheme } from '@nitrokit/core';
 
 interface CompactThemeSwitcherProps {
     className?: string;

@@ -1,4 +1,4 @@
-import { cn } from '@/lib';
+import { cn } from '@nitrokit/core/lib';
 import { AvatarGroup } from './avatar-group';
 import { StarRating } from './star-rating';
 import { Testimonial } from '@/types/testimonial';

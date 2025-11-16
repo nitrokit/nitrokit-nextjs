@@ -3,7 +3,7 @@ import { ConfettiBanner } from '@/components/website/banners';
 import { RandomText, TextRotator } from '@/components/shared';
 import { UserTrustSection } from '@/components/website/testimonial';
 import { useTranslations } from 'next-intl';
-import { useGithubRelease } from '@/hooks/useGithubRelease';
+import { useGithubRelease } from '@nitrokit/core/hooks/useGithubRelease';
 import { Loader2 } from 'lucide-react';
 
 function getTestimonialData() {

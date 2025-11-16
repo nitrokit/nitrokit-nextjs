@@ -4,7 +4,7 @@ import { SignWithButtons } from '../components/sign-with-buttons';
 import { FormCard } from '../components/form-card';
 import { Link } from '@/lib/i18n/navigation';
 import { useTranslations } from 'next-intl';
-import { generatePageMetadata } from '@/lib';
+import { generatePageMetadata } from '@nitrokit/core/lib';
 import { getTranslations } from 'next-intl/server';
 import { Metadata } from 'next';
 
@@ -34,7 +34,7 @@ export default function Page() {
                     link: (chunks) => (
                         <Link
                             href={AUTH_ROUTES.SIGN_IN}
-                            className="inline-block bg-gradient-to-r from-orange-500 via-red-500 to-pink-500 bg-clip-text font-bold text-transparent underline-offset-2 transition-all duration-300 hover:bg-gradient-to-l hover:underline"
+                            className="inline-block bg-linear-to-r from-orange-500 via-red-500 to-pink-500 bg-clip-text font-bold text-transparent underline-offset-2 transition-all duration-300 hover:bg-gradient-to-l hover:underline"
                         >
                             {chunks}
                         </Link>

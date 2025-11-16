@@ -1,5 +1,5 @@
 import { ROUTES } from '@/constants';
-import { getBaseUrl } from '@/lib';
+import { getBaseUrl } from '@nitrokit/core/urls';
 
 import type { MetadataRoute } from 'next';
 

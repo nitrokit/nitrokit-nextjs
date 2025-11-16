@@ -7,8 +7,8 @@ import { nanoid } from 'nanoid';
 import { prisma } from '@/lib/prisma';
 import { SimpleTFunction } from '@/types/i18n';
 import { newsletterFormSchema, NewsletterSubscriptionResponse } from '@/lib/validations';
-import { getEmailService } from '@/lib/services/email';
-import { getBaseUrl } from '@/lib/config';
+import { getEmailService } from '@nitrokit/core/services/email';
+import { getBaseUrl } from '@nitrokit/core/urls';
 import { render } from '@react-email/render';
 import { NewsletterConfirmationEmail } from '@/components/emails';
 
