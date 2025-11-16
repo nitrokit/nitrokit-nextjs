@@ -12,6 +12,7 @@ jobs:
   test:
     permissions:
       contents: read
+      packages: read
     name: Run tests and collect coverage
     runs-on: ubuntu-latest
     steps:
@@ -29,6 +30,18 @@ jobs:
         with:
           node-version: "22"
           cache: "pnpm"
+
+      - name: Configure npm for GitHub Packages
+        # create .npmrc so pnpm can authenticate to GitHub Packages if needed
+        run: |
+          if [ -n "${{ secrets.GH_PACKAGES_TOKEN }}" ]; then
+            echo "@nitrokit:registry=https://npm.pkg.github.com" > .npmrc
+            echo "//npm.pkg.github.com/:_authToken=${{ secrets.GH_PACKAGES_TOKEN }}" >> .npmrc
+          else
+            echo "@nitrokit:registry=https://npm.pkg.github.com" > .npmrc
+            echo "//npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN }}" >> .npmrc
+          fi
+          echo "always-auth=true" >> .npmrc
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile

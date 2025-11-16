@@ -2,18 +2,9 @@ import { defineConfig } from 'vitest/config';
 import react from '@vitejs/plugin-react';
 import tsconfigPaths from 'vite-tsconfig-paths';
 import path from 'path';
-import { codecovVitePlugin } from '@codecov/vite-plugin';
 
 export default defineConfig({
-    plugins: [
-        react(),
-        tsconfigPaths(),
-        codecovVitePlugin({
-            enableBundleAnalysis: process.env.CODECOV_TOKEN !== undefined,
-            bundleName: 'nitrokit-nextjs',
-            uploadToken: process.env.CODECOV_TOKEN
-        })
-    ],
+    plugins: [react(), tsconfigPaths()],
     test: {
         environment: 'jsdom',
         globals: true,
@@ -61,11 +52,24 @@ export default defineConfig({
         'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'test')
     },
     build: {
-        sourcemap: false // Test için source map kapalı
+        sourcemap: false
     },
     resolve: {
-        alias: {
-            '@': path.resolve(__dirname, './src')
-        }
+        alias: [
+            { find: '@', replacement: path.resolve(__dirname, './src') },
+            {
+                find: /^@nitrokit\/core\/lib\/builders$/,
+                replacement: path.resolve(
+                    __dirname,
+                    'node_modules/@nitrokit/core/lib/builders/index.js'
+                )
+            }
+        ]
+    },
+    optimizeDeps: {
+        include: ['@nitrokit/core']
+    },
+    ssr: {
+        noExternal: ['@nitrokit/core']
     }
 });
