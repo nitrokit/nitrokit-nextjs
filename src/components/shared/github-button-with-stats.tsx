@@ -4,7 +4,7 @@ import { GITHUB_URL } from '@/constants/site';
 import { useState, useRef, useEffect } from 'react';
 import { useTranslations } from 'next-intl';
 import { Github, Star, GitFork, ExternalLink } from 'lucide-react';
-import { useGithubStats } from '@/hooks/useGithubStats';
+import { useGithubStats } from '@nitrokit/core/hooks/useGithubStats';
 import { formatCompactNumber, useCanvasConfetti } from '@nitrokit/core';
 
 export function GithubButtonWithStats() {
