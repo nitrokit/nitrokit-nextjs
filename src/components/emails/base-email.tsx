@@ -1,5 +1,5 @@
 import { Html, Head, Preview, Body, Container, Section, Text, Img } from '@react-email/components';
-import { getBaseUrl } from '@/lib';
+import { getBaseUrl } from '@nitrokit/core/urls';
 
 interface BaseEmailProps {
     preview: string;

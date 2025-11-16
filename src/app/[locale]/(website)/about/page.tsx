@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
 import { Users, Target, Award, Heart, Globe, Zap, Shield, TrendingUp } from 'lucide-react';
-import { generatePageMetadata } from '@/lib';
+import { generatePageMetadata } from '@nitrokit/core/lib';
 import { CallToActionSection, PageHero } from '@/components/website/layout';
 
 export async function generateMetadata(): Promise<Metadata> {

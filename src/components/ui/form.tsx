@@ -12,7 +12,7 @@ import {
     type FieldValues
 } from 'react-hook-form';
 
-import { cn } from '@/lib/utils';
+import { cn } from '@nitrokit/core/lib';
 import { Label } from '@/components/ui';
 
 const Form = FormProvider;

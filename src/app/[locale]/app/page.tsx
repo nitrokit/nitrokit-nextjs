@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 
-import { generatePageMetadata } from '@/lib';
+import { generatePageMetadata } from '@nitrokit/core/lib';
 import { ScrollArea, Skeleton } from '@/components/ui';
 import { AccountNavigation } from './components/account-navigation';
 import { Suspense } from 'react';

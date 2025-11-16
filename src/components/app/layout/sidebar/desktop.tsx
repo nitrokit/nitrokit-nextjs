@@ -3,11 +3,11 @@
 import { useTranslations } from 'next-intl';
 
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui';
-import { cn, translateSafely } from '@/lib/utils';
 import { Link, usePathname } from '@/lib/i18n/navigation';
 import { APP_ROUTES } from '@/lib/auth/constants';
 import { AppNavigationItems } from '@/constants/app';
 import { useUser } from '@/contexts/user-context';
+import { translateSafely, cn } from '@nitrokit/core/lib';
 
 function isActiveRoute(pathname: string, href: string) {
     if (pathname === href) return true;

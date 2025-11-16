@@ -1,6 +1,6 @@
 'use client';
 
-import { getRepoStats } from '@/lib/actions/github';
+import { getRepoStats } from '@nitrokit/core/actions/github';
 import { useState, useEffect } from 'react';
 
 interface GithubStats {

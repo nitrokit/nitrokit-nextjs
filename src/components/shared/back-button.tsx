@@ -3,7 +3,7 @@
 import { ArrowLeft } from 'lucide-react';
 import { Button, ButtonProps } from '@/components/ui';
 import { useRouter } from '@/lib/i18n/navigation';
-import { cn } from '@/lib/utils/cn';
+import { cn } from '@nitrokit/core/lib';
 
 interface BackButtonProps extends ButtonProps {
     text?: string;

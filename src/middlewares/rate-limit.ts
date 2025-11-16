@@ -1,5 +1,6 @@
+/* eslint-disable @typescript-eslint/no-unsafe-argument */
+import { rateLimitManager } from '@nitrokit/core';
 import { NextRequest, NextResponse } from 'next/server';
-import { apiRateLimit, fallbackRateLimit } from '@/lib/security/rate-limit';
 
 export async function handleRateLimit(request: NextRequest) {
     if (process.env.NODE_ENV === 'development') {
@@ -7,40 +8,45 @@ export async function handleRateLimit(request: NextRequest) {
     }
 
     const ip =
-        request.headers.get('x-forwarded-for') || request.headers.get('x-real-ip') || 'anonymous';
+        (request.headers.get('x-forwarded-for') ?? request.headers.get('x-real-ip')) ||
+        // NextRequest may expose ip in some environments; fallback olarak 'anonymous'
+        // (request.ip is not standard on NextRequest but included for robustness if available)
+        // @ts-ignore
+        (request.ip as string) ||
+        'anonymous';
 
     try {
-        const rateLimit = apiRateLimit || fallbackRateLimit;
-        const { success, limit, remaining, reset } = await rateLimit.limit(ip);
+        // rateLimitManager, rate limiter yoksa fallback sonucu döndürür
+        const rate = await rateLimitManager.checkApiRateLimit(ip);
 
-        if (!success) {
+        // Eğer bloke ise 429 dön ve header'ları ekle
+        if (rate.blocked) {
             return NextResponse.json(
                 {
                     error: 'Too many requests',
                     rateLimit: {
-                        limit,
+                        limit: rate.limit,
                         remaining: 0,
-                        reset: new Date(reset).toISOString()
+                        reset: new Date(rate.reset).toISOString()
                     }
                 },
                 {
                     status: 429,
-                    headers: {
-                        'X-RateLimit-Limit': limit.toString(),
-                        'X-RateLimit-Remaining': '0',
-                        'X-RateLimit-Reset': new Date(reset).toISOString()
-                    }
+                    headers: rateLimitManager.getRateLimitHeaders(rate)
                 }
             );
         }
 
+        // Başarılıysa response oluşturup header'ları ekleyin
         const response = NextResponse.next();
-        response.headers.set('X-RateLimit-Limit', limit.toString());
-        response.headers.set('X-RateLimit-Remaining', remaining.toString());
-        response.headers.set('X-RateLimit-Reset', new Date(reset).toISOString());
+        const headers = rateLimitManager.getRateLimitHeaders(rate);
+        response.headers.set('X-RateLimit-Limit', headers['X-RateLimit-Limit']);
+        response.headers.set('X-RateLimit-Remaining', headers['X-RateLimit-Remaining']);
+        response.headers.set('X-RateLimit-Reset', headers['X-RateLimit-Reset']);
 
         return response;
     } catch (error) {
+        // Hata olursa (Upstash hatası vb.) isteği engellemek yerine geçiş yaptırıyoruz
         console.error('Rate limit error (bypassing):', error);
         return NextResponse.next();
     }

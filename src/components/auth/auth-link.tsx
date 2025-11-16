@@ -2,7 +2,7 @@
 
 import { ReactNode } from 'react';
 import { Button, buttonVariants } from '@/components/ui';
-import { cn } from '@/lib';
+import { cn } from '@nitrokit/core/lib';
 import { Link } from '@/lib/i18n/navigation';
 
 interface AuthLinkProps {

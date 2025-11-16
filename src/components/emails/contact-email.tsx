@@ -1,4 +1,4 @@
-import { translateRichSafely } from '@/lib';
+import { translateRichSafely } from '@nitrokit/core/lib';
 import { BaseEmail } from './base-email';
 import { Button, Section, Text, Hr } from '@react-email/components';
 import { Locale } from 'next-intl';

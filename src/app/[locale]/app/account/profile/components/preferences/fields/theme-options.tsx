@@ -2,7 +2,7 @@
 
 import { Label } from '@/components/ui/label';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
-import { cn } from '@/lib/utils';
+import { cn } from '@nitrokit/core/lib';
 import { useTheme } from 'next-themes';
 import { useTranslations } from 'next-intl';
 import { CheckCircle, PaletteIcon } from 'lucide-react';

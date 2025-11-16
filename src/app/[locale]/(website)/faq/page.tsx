@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
-import { generatePageMetadata } from '@/lib';
+import { generatePageMetadata } from '@nitrokit/core/lib';
 
 export async function generateMetadata(): Promise<Metadata> {
     const t = await getTranslations('faq');

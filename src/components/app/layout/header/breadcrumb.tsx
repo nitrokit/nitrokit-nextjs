@@ -12,8 +12,8 @@ import {
     BreadcrumbSeparator
 } from '@/components/ui';
 import { Link, usePathname } from '@/lib/i18n/navigation';
-import { cn, translateSafely } from '@/lib/utils';
 import { APP_ROUTES } from '@/lib/auth/constants';
+import { translateSafely, cn } from '@nitrokit/core/lib';
 
 function filterLocaleSegments(segments: string[]) {
     const localePatterns = [/^[a-z]{2}$/, /^[a-z]{2}-[A-Z]{2}$/, /^[a-z]{3}$/];

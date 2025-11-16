@@ -1,6 +1,6 @@
 import { AuthErrorComponent } from './components/auth-error-component';
 import { getTranslations } from 'next-intl/server';
-import { generatePageMetadata } from '@/lib';
+import { generatePageMetadata } from '@nitrokit/core/lib';
 import { Metadata } from 'next';
 
 export async function generateMetadata(): Promise<Metadata> {

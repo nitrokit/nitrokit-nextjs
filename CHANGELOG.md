@@ -1,40 +1,36 @@
 # [2.0.0](https://github.com/nitrokit/nitrokit-nextjs/compare/v1.6.0...v2.0.0) (2025-11-14)
 
-
 ### Bug Fixes
 
-* Improves error handling in security helpers ([edd4a05](https://github.com/nitrokit/nitrokit-nextjs/commit/edd4a05b0a9a11323abd6c74c6425f791dc0d960))
-* improves login flow and state management ([d13ac0c](https://github.com/nitrokit/nitrokit-nextjs/commit/d13ac0c67c118e03233e085232ccd2c4c6c8e8a3))
-
+- Improves error handling in security helpers ([edd4a05](https://github.com/nitrokit/nitrokit-nextjs/commit/edd4a05b0a9a11323abd6c74c6425f791dc0d960))
+- improves login flow and state management ([d13ac0c](https://github.com/nitrokit/nitrokit-nextjs/commit/d13ac0c67c118e03233e085232ccd2c4c6c8e8a3))
 
 ### chore
 
-* Refresh project dependencies ([cd03c94](https://github.com/nitrokit/nitrokit-nextjs/commit/cd03c941df2553b60fbfc65766e01f0f82096cbb))
-
+- Refresh project dependencies ([cd03c94](https://github.com/nitrokit/nitrokit-nextjs/commit/cd03c941df2553b60fbfc65766e01f0f82096cbb))
 
 ### Features
 
-* Adds FCM push notification provider ([ea835b6](https://github.com/nitrokit/nitrokit-nextjs/commit/ea835b6fd07d812b380c26a60c90c9784da5e03c))
-* Adds new translation key ([a1b8e59](https://github.com/nitrokit/nitrokit-nextjs/commit/a1b8e5980a76bfcc537a7cb7d3b7596abfe7cebf))
-* Adds notification preferences ([4300186](https://github.com/nitrokit/nitrokit-nextjs/commit/4300186f48e8112c2759f1487a7c3ac856e3d16e))
-* Adds push notification service ([aeffd48](https://github.com/nitrokit/nitrokit-nextjs/commit/aeffd48fb6e5b718f8343ccc5f23667c5144ebf9))
-* Adds sidebar component ([4d1979e](https://github.com/nitrokit/nitrokit-nextjs/commit/4d1979effe21a663b82d1d6267c2426c3411ce2b))
-* Adds user profile page ([9b03e11](https://github.com/nitrokit/nitrokit-nextjs/commit/9b03e1185942eef897e04f9adae6b38d4aea37b3))
-* Enhances app layout and navigation ([c171192](https://github.com/nitrokit/nitrokit-nextjs/commit/c17119243317b25de081c45e9bf334f4906ee79c))
-* Enhances hero section with confetti banner ([09e03d7](https://github.com/nitrokit/nitrokit-nextjs/commit/09e03d791d3851aa01f53a2a0be62d91e06ef4db))
-* Enhances profile update functionality ([2640ddd](https://github.com/nitrokit/nitrokit-nextjs/commit/2640ddde26716e843bb43318beee853cb37f17f4))
-* Enhances user profile functionality ([e6ba6f0](https://github.com/nitrokit/nitrokit-nextjs/commit/e6ba6f07f778619c0ef496c1779ff93d46a5715c))
-* Enhances user profile preferences ([2f14ac3](https://github.com/nitrokit/nitrokit-nextjs/commit/2f14ac36c8fb0d71ea1f538d43e796177cae0785))
-* Introduces profile preferences ([dd29b40](https://github.com/nitrokit/nitrokit-nextjs/commit/dd29b40f6e689c18d2b532244f99eda224ef3226))
-* Refactors account navigation and UI components ([7824691](https://github.com/nitrokit/nitrokit-nextjs/commit/7824691a630cb9c5c79010bb68dde278c6ad88d6))
-* Refactors authentication logic and validations ([c7c84ed](https://github.com/nitrokit/nitrokit-nextjs/commit/c7c84edc8775d978d7009680255daa543bf30cf4))
-* Refactors UI for improved UX and consistency ([616f0ad](https://github.com/nitrokit/nitrokit-nextjs/commit/616f0ad85eee96e123ab8939d3732d2437ee99a6))
-* Updates dependencies and enhances pricing UI ([e1d7dce](https://github.com/nitrokit/nitrokit-nextjs/commit/e1d7dce2b5ce147dcd74eea8f38aeb30be14416d))
-
+- Adds FCM push notification provider ([ea835b6](https://github.com/nitrokit/nitrokit-nextjs/commit/ea835b6fd07d812b380c26a60c90c9784da5e03c))
+- Adds new translation key ([a1b8e59](https://github.com/nitrokit/nitrokit-nextjs/commit/a1b8e5980a76bfcc537a7cb7d3b7596abfe7cebf))
+- Adds notification preferences ([4300186](https://github.com/nitrokit/nitrokit-nextjs/commit/4300186f48e8112c2759f1487a7c3ac856e3d16e))
+- Adds push notification service ([aeffd48](https://github.com/nitrokit/nitrokit-nextjs/commit/aeffd48fb6e5b718f8343ccc5f23667c5144ebf9))
+- Adds sidebar component ([4d1979e](https://github.com/nitrokit/nitrokit-nextjs/commit/4d1979effe21a663b82d1d6267c2426c3411ce2b))
+- Adds user profile page ([9b03e11](https://github.com/nitrokit/nitrokit-nextjs/commit/9b03e1185942eef897e04f9adae6b38d4aea37b3))
+- Enhances app layout and navigation ([c171192](https://github.com/nitrokit/nitrokit-nextjs/commit/c17119243317b25de081c45e9bf334f4906ee79c))
+- Enhances hero section with confetti banner ([09e03d7](https://github.com/nitrokit/nitrokit-nextjs/commit/09e03d791d3851aa01f53a2a0be62d91e06ef4db))
+- Enhances profile update functionality ([2640ddd](https://github.com/nitrokit/nitrokit-nextjs/commit/2640ddde26716e843bb43318beee853cb37f17f4))
+- Enhances user profile functionality ([e6ba6f0](https://github.com/nitrokit/nitrokit-nextjs/commit/e6ba6f07f778619c0ef496c1779ff93d46a5715c))
+- Enhances user profile preferences ([2f14ac3](https://github.com/nitrokit/nitrokit-nextjs/commit/2f14ac36c8fb0d71ea1f538d43e796177cae0785))
+- Introduces profile preferences ([dd29b40](https://github.com/nitrokit/nitrokit-nextjs/commit/dd29b40f6e689c18d2b532244f99eda224ef3226))
+- Refactors account navigation and UI components ([7824691](https://github.com/nitrokit/nitrokit-nextjs/commit/7824691a630cb9c5c79010bb68dde278c6ad88d6))
+- Refactors authentication logic and validations ([c7c84ed](https://github.com/nitrokit/nitrokit-nextjs/commit/c7c84edc8775d978d7009680255daa543bf30cf4))
+- Refactors UI for improved UX and consistency ([616f0ad](https://github.com/nitrokit/nitrokit-nextjs/commit/616f0ad85eee96e123ab8939d3732d2437ee99a6))
+- Updates dependencies and enhances pricing UI ([e1d7dce](https://github.com/nitrokit/nitrokit-nextjs/commit/e1d7dce2b5ce147dcd74eea8f38aeb30be14416d))
 
 ### BREAKING CHANGES
 
-* Updates `@react-email/components` to `^1.0.1` and `@react-email/render` to `^2.0.0`. These are major version bumps that may introduce breaking changes and require adjustments to email templating and rendering logic.
+- Updates `@react-email/components` to `^1.0.1` and `@react-email/render` to `^2.0.0`. These are major version bumps that may introduce breaking changes and require adjustments to email templating and rendering logic.
 
 # [1.6.0](https://github.com/nitrokit/nitrokit-nextjs/compare/v1.5.0...v1.6.0) (2025-10-26)
 

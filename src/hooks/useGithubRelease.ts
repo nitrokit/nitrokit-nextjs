@@ -1,6 +1,6 @@
 'use client';
 
-import { getLatestVersion } from '@/lib/actions/github';
+import { getLatestVersion } from '@nitrokit/core/actions/github';
 import { useEffect, useState } from 'react';
 
 interface GithubReleaseState {

@@ -1,7 +1,7 @@
 'use client';
 
 import * as React from 'react';
-import { translateSafely } from '@/lib/utils';
+import { translateSafely } from '@nitrokit/core/lib';
 import {
     Sidebar,
     SidebarContent,

@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import { prisma } from '@/lib/prisma';
-import { apiRateLimit } from '@/lib/security/rate-limit';
+import { rateLimitManager } from '@nitrokit/core';
 import { getTranslations } from 'next-intl/server';
 
 export async function GET(req: Request) {
@@ -16,12 +16,12 @@ export async function GET(req: Request) {
             );
         }
 
-        if (!apiRateLimit) {
-            return NextResponse.json(
-                { success: false, error: translate('common.errors.rate_limit_unavailable') },
-                { status: 500 }
-            );
-        }
+        // if (!rateLimitManager.isAvailable()) {
+        //     return NextResponse.json(
+        //         { success: false, error: translate('common.errors.rate_limit_unavailable') },
+        //         { status: 500 }
+        //     );
+        // }
 
         //ToDo: Enable rate limiting after testing
         // const rate = await apiRateLimit.limit(`newsletter-confirm-${token}`);

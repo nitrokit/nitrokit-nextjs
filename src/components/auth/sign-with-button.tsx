@@ -2,7 +2,7 @@ import { useTranslations } from 'next-intl';
 import * as React from 'react';
 
 import { Button, buttonVariants } from '@/components/ui/button';
-import { cn } from '@/lib';
+import { cn } from '@nitrokit/core/lib';
 import { Provider } from '@/lib/auth/providers';
 import {
     GoogleIcon,

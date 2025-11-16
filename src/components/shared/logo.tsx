@@ -1,7 +1,7 @@
 import { useTranslations } from 'next-intl';
 import { Link } from '@/lib/i18n/navigation';
 import { ThemedImage } from '@/components/shared';
-import { cn } from '@/lib';
+import { cn } from '@nitrokit/core/lib';
 
 export function Logo({
     size = 40,

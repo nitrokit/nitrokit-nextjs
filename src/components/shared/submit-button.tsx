@@ -5,7 +5,7 @@ import { useTranslations } from 'next-intl';
 import { useFormStatus } from 'react-dom';
 import { Button, ButtonProps } from '@/components/ui/button';
 import { Spinner } from '../ui';
-import { translateSafely } from '@/lib';
+import { translateSafely } from '@nitrokit/core/lib';
 
 type IconType = React.ReactNode;
 

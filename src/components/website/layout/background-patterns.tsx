@@ -1,6 +1,6 @@
 'use client';
 
-import { cn } from '@/lib/utils';
+import { cn } from '@nitrokit/core/lib';
 
 interface BackgroundPatternsProps {
     variant?: 'default' | 'geometric' | 'dots' | 'waves' | 'grid' | 'stars' | 'circles' | 'network';

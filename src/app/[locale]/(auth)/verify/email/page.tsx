@@ -1,5 +1,5 @@
 import { getTranslations } from 'next-intl/server';
-import { generatePageMetadata } from '@/lib';
+import { generatePageMetadata } from '@nitrokit/core/lib';
 import { Metadata } from 'next';
 import { VerifyStatusCard } from './components/verify-status-card';
 import { verifyEmailAction } from '@/lib/actions/auth';

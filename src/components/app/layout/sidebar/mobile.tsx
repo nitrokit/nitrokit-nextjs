@@ -12,12 +12,12 @@ import {
     SheetTrigger
 } from '@/components/ui';
 import { Link, usePathname } from '@/lib/i18n/navigation';
-import { cn, translateSafely } from '@/lib/utils';
 import { AppNavigationItems } from '@/constants/app';
 import { APP_ROUTES } from '@/lib/auth/constants';
 import { Logo } from '../header';
 import HamburgerMenu from '@/components/icons/hamburger-menu';
 import { useUser } from '@/contexts/user-context';
+import { translateSafely, cn } from '@nitrokit/core/lib';
 
 function isActiveRoute(pathname: string, href: string) {
     if (pathname === href) return true;
