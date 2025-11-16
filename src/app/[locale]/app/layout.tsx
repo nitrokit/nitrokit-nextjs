@@ -1,9 +1,12 @@
-import { DashboardHeader, DashboardFooter, AppBreadcrumb } from '@/components/app';
-import { SidebarInset, SidebarProvider, SidebarTrigger } from '@/components/ui/sidebar';
+import {
+    DashboardHeader,
+    DashboardFooter,
+    DashboardSidebar,
+    AppBreadcrumb
+} from '@/components/app';
 import { APP_ROUTES, AUTH_ROUTES } from '@/lib/auth/constants';
 import { requireAuth } from '@/lib/auth/server';
 import { redirect } from 'next/navigation';
-import { AppSidebar } from './components/app-sidebar';
 
 export default async function DashboardLayout({
     children
@@ -17,24 +20,19 @@ export default async function DashboardLayout({
     }
 
     return (
-        <div className="[--footer-height:calc(--spacing(8))] [--header-height:calc(--spacing(15))]">
-            <SidebarProvider className="bg-background flex flex-col">
-                <DashboardHeader>
-                    <SidebarTrigger />
-                    <AppBreadcrumb />
-                </DashboardHeader>
-                <div className="flex h-[calc(100vh-7rem)]">
-                    <AppSidebar variant="floating" collapsible="icon" />
-                    <SidebarInset>
-                        <div className="flex-1 overflow-hidden">
-                            <div className="h-full rounded-2xl border border-gray-200 bg-white shadow-xs/10 dark:border-gray-800 dark:bg-zinc-950">
-                                {children}
-                            </div>
-                        </div>
-                    </SidebarInset>
+        <div className="h-screen bg-gray-100 dark:bg-neutral-900">
+            <DashboardHeader>
+                <AppBreadcrumb />
+            </DashboardHeader>
+            <div className="flex h-[calc(100vh-7rem)] overflow-hidden">
+                <DashboardSidebar />
+                <div className="flex-1 overflow-hidden px-5 md:pl-0">
+                    <main className="h-full rounded-2xl border border-gray-200 bg-white shadow-sm dark:border-gray-800 dark:bg-zinc-950">
+                        {children}
+                    </main>
                 </div>
-                <DashboardFooter />
-            </SidebarProvider>
+            </div>
+            <DashboardFooter />
         </div>
     );
 }

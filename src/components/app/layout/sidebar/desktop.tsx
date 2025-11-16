@@ -3,11 +3,10 @@
 import { useTranslations } from 'next-intl';
 
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui';
+import { cn, translateSafely } from '@nitrokit/core';
 import { Link, usePathname } from '@/lib/i18n/navigation';
 import { APP_ROUTES } from '@/lib/auth/constants';
 import { AppNavigationItems } from '@/constants/app';
-import { useUser } from '@/contexts/user-context';
-import { translateSafely, cn } from '@nitrokit/core/lib';
 
 function isActiveRoute(pathname: string, href: string) {
     if (pathname === href) return true;
@@ -27,15 +26,10 @@ function getNavigationItems(userRole?: string) {
 function DesktopSidebar() {
     const pathname = usePathname();
     const t = useTranslations();
-
-    const { user } = useUser();
-    if (!user) {
-        return null;
-    }
-    const navigationItems = getNavigationItems(user.firstName!); // TODO: Replace with session.user.role
+    const navigationItems = getNavigationItems(''); // TODO: Replace with session.user.role
 
     return (
-        <aside className="hidden w-16 flex-col bg-gray-100 md:flex dark:bg-zinc-900">
+        <aside className="hidden w-17 flex-col bg-gray-100 md:flex dark:bg-zinc-900">
             <nav className="flex flex-1 flex-col items-center justify-start space-y-3 p-2">
                 {navigationItems.map((item) => {
                     const isActive = isActiveRoute(pathname, item.href);
