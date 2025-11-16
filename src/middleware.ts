@@ -2,7 +2,6 @@ import { NextRequest, NextResponse } from 'next/server';
 import createMiddleware from 'next-intl/middleware';
 import { routing } from './lib/i18n/routing';
 import { PUBLIC_ROUTES } from './constants';
-import { handleRateLimit } from './middlewares';
 import { AUTH_ROUTES } from './lib/auth/constants';
 import { checkAuthentication } from './middlewares/session';
 
@@ -16,12 +15,12 @@ export default async function middleware(request: NextRequest) {
     ];
 
     if (request.nextUrl.pathname.startsWith('/api/')) {
-        const isAuthRoute = request.nextUrl.pathname.startsWith('/api/auth/');
-        const isInternalRoute = request.nextUrl.pathname.startsWith('/api/internal/');
+        // const isAuthRoute = request.nextUrl.pathname.startsWith('/api/auth/');
+        // const isInternalRoute = request.nextUrl.pathname.startsWith('/api/internal/');
 
-        if (!isAuthRoute && !isInternalRoute) {
-            return handleRateLimit(request);
-        }
+        // if (!isAuthRoute && !isInternalRoute) {
+        //     return handleRateLimit(request);
+        // }
         return NextResponse.next();
     }
 
@@ -61,6 +60,6 @@ export default async function middleware(request: NextRequest) {
 export const config = {
     matcher: [
         '/api/(.*)',
-        '/((?!api|trpc|_next|sitemap|robots|storybook|issues|_vercel|.*\\..*).*)'
+        '/((?!api|trpc|_next|sitemap|robots|storybook|issues|_vercel|_next/static|_next/image|.*\\..*).*)'
     ]
 };

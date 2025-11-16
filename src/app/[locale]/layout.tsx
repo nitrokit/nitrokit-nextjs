@@ -1,9 +1,9 @@
 import { Metadata, Viewport } from 'next';
 import { notFound } from 'next/navigation';
 import { NextIntlClientProvider, hasLocale } from 'next-intl';
-import { getMessages } from 'next-intl/server';
+import { getMessages, getTranslations } from 'next-intl/server';
 import { routing } from '@/lib/i18n/routing';
-import { generateSiteMetadata } from '@/lib';
+import { generatePageMetadata } from '@nitrokit/core/lib';
 import { lexend, montserrat } from '@/constants/fonts';
 import { getLangDir } from 'rtl-detect';
 import { ThemeProvider } from '@/providers/theme-provider';
@@ -13,7 +13,13 @@ import { SessionProvider } from 'next-auth/react';
 import { UserProvider } from '@/contexts/user-context';
 
 export async function generateMetadata(): Promise<Metadata> {
-    return await generateSiteMetadata();
+    const t = await getTranslations('common');
+    return await generatePageMetadata({
+        params: Promise.resolve({
+            title: t('title'),
+            description: t('description')
+        })
+    });
 }
 
 export const viewport: Viewport = {

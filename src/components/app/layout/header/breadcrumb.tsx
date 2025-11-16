@@ -12,8 +12,8 @@ import {
     BreadcrumbSeparator
 } from '@/components/ui';
 import { Link, usePathname } from '@/lib/i18n/navigation';
-import { translateSafely } from '@/lib/utils';
 import { APP_ROUTES } from '@/lib/auth/constants';
+import { translateSafely, cn } from '@nitrokit/core/lib';
 
 function filterLocaleSegments(segments: string[]) {
     const localePatterns = [/^[a-z]{2}$/, /^[a-z]{2}-[A-Z]{2}$/, /^[a-z]{3}$/];
@@ -25,7 +25,12 @@ type BreadcrumbItemType = {
     href: string;
 };
 
-export function AppBreadcrumb() {
+interface BreadcrumbProps {
+    className?: string;
+}
+
+export function AppBreadcrumb(props: BreadcrumbProps) {
+    const { className } = props;
     const pathname = usePathname();
     const t = useTranslations('app.navigation');
 
@@ -48,7 +53,7 @@ export function AppBreadcrumb() {
     });
 
     return (
-        <Breadcrumb className="hidden lg:flex">
+        <Breadcrumb className={cn('hidden lg:flex', className)}>
             <BreadcrumbList className="text-xs">
                 {breadcrumbs.map((breadcrumb, index) => {
                     const isLast = index === breadcrumbs.length - 1;

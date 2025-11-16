@@ -2,7 +2,7 @@
 
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
-import { useCookieConsent } from '@/hooks';
+import { useCookieConsent } from '@nitrokit/core';
 import { GoogleAnalytics } from '@/components/shared';
 
 export default function AnalyticsProvider({ children }: { children: React.ReactNode }) {

@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import { cn } from '@/lib/utils';
+import { cn } from '@nitrokit/core/lib';
 
 type HeroVariant = 'default' | 'minimal' | 'large' | 'center';
 type GradientVariant = 'blue' | 'purple' | 'green' | 'orange' | 'pink';

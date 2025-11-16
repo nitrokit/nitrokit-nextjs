@@ -20,14 +20,9 @@ import {
 import { Link } from '@/lib/i18n/navigation';
 import { SimpleTFunction } from '@/types/i18n';
 import { useTransition } from 'react';
-import {
-    cn,
-    contactAction,
-    ContactActionResponse,
-    ContactFormData,
-    contactFormSchema
-} from '@/lib';
+import { contactAction, ContactActionResponse, ContactFormData, contactFormSchema } from '@/lib';
 import { useUser } from '@/contexts/user-context';
+import { cn } from '@nitrokit/core/lib';
 
 type FormStatus = 'idle' | 'success' | 'error';
 

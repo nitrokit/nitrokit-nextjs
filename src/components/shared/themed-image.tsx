@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import { cn } from '@/lib';
+import { cn } from '@nitrokit/core/lib';
 import { ImageProps } from 'next/image';
 
 export interface ThemedImageProps extends Omit<ImageProps, 'src' | 'alt' | 'width' | 'height'> {

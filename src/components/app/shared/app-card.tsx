@@ -10,7 +10,7 @@ import {
     CardTitle
 } from '@/components/ui/card';
 import { Loader } from 'lucide-react';
-import { cn } from '@/lib';
+import { cn } from '@nitrokit/core/lib';
 import { cva, type VariantProps } from 'class-variance-authority';
 
 const appCardVariants = cva('p-0', {

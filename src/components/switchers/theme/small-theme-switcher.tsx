@@ -4,7 +4,7 @@ import { useId } from 'react';
 
 import { SmallLoading } from '@/components/shared';
 import { Switch, Label } from '@/components/ui';
-import { useNextTheme } from '@/hooks';
+import { useNextTheme } from '@nitrokit/core';
 
 export const SmallThemeSwitcher = () => {
     const [isDark, mounted, setTheme] = useNextTheme();

@@ -1,4 +1,5 @@
-import { cn, getBaseUrl } from '@/lib';
+import { getBaseUrl } from '@nitrokit/core/urls';
+import { cn } from '@nitrokit/core/lib';
 import { useTranslations } from 'next-intl';
 
 interface CopyRightProps {

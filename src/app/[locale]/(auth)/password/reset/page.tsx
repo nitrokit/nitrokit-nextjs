@@ -3,7 +3,7 @@ import { FormCard } from '../../components/form-card';
 import { ResetPasswordForm } from './components/reset-password-form';
 import { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
-import { generatePageMetadata } from '@/lib';
+import { generatePageMetadata } from '@nitrokit/core/lib';
 
 export async function generateMetadata(): Promise<Metadata> {
     const t = await getTranslations('auth.reset-password');

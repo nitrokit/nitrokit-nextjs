@@ -1,7 +1,7 @@
 import { getLocale, getTranslations } from 'next-intl/server';
 import { getLangDir } from 'rtl-detect';
-import { getBaseUrl } from '@/lib';
 import type { MetadataRoute } from 'next';
+import { getBaseUrl } from '@nitrokit/core/urls';
 
 export default async function manifest(): Promise<MetadataRoute.Manifest> {
     const baseUrl = getBaseUrl();

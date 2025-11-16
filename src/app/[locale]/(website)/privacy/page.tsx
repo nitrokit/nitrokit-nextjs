@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
-import { generatePageMetadata } from '@/lib';
+import { generatePageMetadata } from '@nitrokit/core/lib';
 import { PrivacyComponent } from './components/privacy-content';
 
 export async function generateMetadata(): Promise<Metadata> {

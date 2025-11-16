@@ -1,4 +1,4 @@
-import { cn } from '@/lib/utils/index';
+import { cn } from '@nitrokit/core/lib';
 
 function Kbd({ className, ...props }: React.ComponentProps<'kbd'>) {
     return (

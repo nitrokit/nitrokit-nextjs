@@ -1,6 +1,6 @@
 'use client';
 
-import { useNextTheme } from '@/hooks';
+import { useNextTheme } from '@nitrokit/core';
 import { Toaster as Sonner } from 'sonner';
 
 type ToasterProps = React.ComponentProps<typeof Sonner>;
