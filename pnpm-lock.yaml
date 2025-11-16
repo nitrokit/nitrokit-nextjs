@@ -18,8 +18,8 @@ importers:
         specifier: ^5.2.2
         version: 5.2.2(react-hook-form@7.66.0(react@19.2.0))
       '@nitrokit/core':
-        specifier: ^4.3.1
-        version: 4.3.1(@aws-sdk/client-sns@3.932.0)(@t3-oss/env-nextjs@0.13.8(typescript@5.9.3)(zod@4.1.12))(@upstash/ratelimit@2.0.7(@upstash/redis@1.35.6))(@upstash/redis@1.35.6)(canvas-confetti@1.9.4)(class-variance-authority@0.7.1)(clsx@2.1.1)(dompurify@3.3.0)(firebase-admin@13.6.0)(next-intl@4.5.3(next@16.0.3(@babel/core@7.28.5)(@opentelemetry/api@1.9.0)(@playwright/test@1.56.1)(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(react@19.2.0)(typescript@5.9.3))(next-themes@0.4.6(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(next@16.0.3(@babel/core@7.28.5)(@opentelemetry/api@1.9.0)(@playwright/test@1.56.1)(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(react@19.2.0)(resend@6.4.2(@react-email/render@2.0.0(react-dom@19.2.0(react@19.2.0))(react@19.2.0)))(tailwind-merge@3.4.0)(twilio@5.10.5)(typescript@5.9.3)(zod@4.1.12)
+        specifier: ^4.4.0
+        version: 4.4.0(@aws-sdk/client-sns@3.932.0)(@t3-oss/env-nextjs@0.13.8(typescript@5.9.3)(zod@4.1.12))(@upstash/ratelimit@2.0.7(@upstash/redis@1.35.6))(@upstash/redis@1.35.6)(canvas-confetti@1.9.4)(class-variance-authority@0.7.1)(clsx@2.1.1)(dompurify@3.3.0)(firebase-admin@13.6.0)(next-intl@4.5.3(next@16.0.3(@babel/core@7.28.5)(@opentelemetry/api@1.9.0)(@playwright/test@1.56.1)(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(react@19.2.0)(typescript@5.9.3))(next-themes@0.4.6(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(next@16.0.3(@babel/core@7.28.5)(@opentelemetry/api@1.9.0)(@playwright/test@1.56.1)(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(react@19.2.0)(resend@6.4.2(@react-email/render@2.0.0(react-dom@19.2.0(react@19.2.0))(react@19.2.0)))(tailwind-merge@3.4.0)(twilio@5.10.5)(typescript@5.9.3)(zod@4.1.12)
       '@prisma/client':
         specifier: ^6.19.0
         version: 6.19.0(prisma@6.19.0(typescript@5.9.3))(typescript@5.9.3)
@@ -1534,8 +1534,8 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@nitrokit/core@4.3.1':
-    resolution: {integrity: sha512-zdcFE+jse1N7gkE0i9rSbwjw+JRP+yAdmX3Kku2zrkjAquRbQb2L7qzG79jqbfjOM00/2yUmq7soYhlxTUWvtg==, tarball: https://npm.pkg.github.com/download/@nitrokit/core/4.3.1/5553579dbe191eb695d43cf8fee73f1aba11ac43}
+  '@nitrokit/core@4.4.0':
+    resolution: {integrity: sha512-zStxXxiEK+SF6CpFmmsNeJl5XccwLLdmKCYU76aRnmcwlz4KRdPLzHqfegNjqoFny9pHOr/Ice7b0kBK9YyLZA==, tarball: https://npm.pkg.github.com/download/@nitrokit/core/4.4.0/6fb7ebbeaa97ceff3785aba5ea3f2475a0254a1d}
     peerDependencies:
       '@aws-sdk/client-sns': ^3.931.0
       '@t3-oss/env-nextjs': '>=0.10.1'
@@ -9658,7 +9658,7 @@ snapshots:
   '@next/swc-win32-x64-msvc@16.0.3':
     optional: true
 
-  '@nitrokit/core@4.3.1(@aws-sdk/client-sns@3.932.0)(@t3-oss/env-nextjs@0.13.8(typescript@5.9.3)(zod@4.1.12))(@upstash/ratelimit@2.0.7(@upstash/redis@1.35.6))(@upstash/redis@1.35.6)(canvas-confetti@1.9.4)(class-variance-authority@0.7.1)(clsx@2.1.1)(dompurify@3.3.0)(firebase-admin@13.6.0)(next-intl@4.5.3(next@16.0.3(@babel/core@7.28.5)(@opentelemetry/api@1.9.0)(@playwright/test@1.56.1)(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(react@19.2.0)(typescript@5.9.3))(next-themes@0.4.6(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(next@16.0.3(@babel/core@7.28.5)(@opentelemetry/api@1.9.0)(@playwright/test@1.56.1)(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(react@19.2.0)(resend@6.4.2(@react-email/render@2.0.0(react-dom@19.2.0(react@19.2.0))(react@19.2.0)))(tailwind-merge@3.4.0)(twilio@5.10.5)(typescript@5.9.3)(zod@4.1.12)':
+  '@nitrokit/core@4.4.0(@aws-sdk/client-sns@3.932.0)(@t3-oss/env-nextjs@0.13.8(typescript@5.9.3)(zod@4.1.12))(@upstash/ratelimit@2.0.7(@upstash/redis@1.35.6))(@upstash/redis@1.35.6)(canvas-confetti@1.9.4)(class-variance-authority@0.7.1)(clsx@2.1.1)(dompurify@3.3.0)(firebase-admin@13.6.0)(next-intl@4.5.3(next@16.0.3(@babel/core@7.28.5)(@opentelemetry/api@1.9.0)(@playwright/test@1.56.1)(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(react@19.2.0)(typescript@5.9.3))(next-themes@0.4.6(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(next@16.0.3(@babel/core@7.28.5)(@opentelemetry/api@1.9.0)(@playwright/test@1.56.1)(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(react@19.2.0)(resend@6.4.2(@react-email/render@2.0.0(react-dom@19.2.0(react@19.2.0))(react@19.2.0)))(tailwind-merge@3.4.0)(twilio@5.10.5)(typescript@5.9.3)(zod@4.1.12)':
     dependencies:
       '@aws-sdk/client-sns': 3.932.0
       '@t3-oss/env-nextjs': 0.13.8(typescript@5.9.3)(zod@4.1.12)

@@ -60,7 +60,7 @@
         "@auth/prisma-adapter": "^2.11.1",
         "@aws-sdk/client-sns": "^3.932.0",
         "@hookform/resolvers": "^5.2.2",
-        "@nitrokit/core": "^4.3.1",
+        "@nitrokit/core": "^4.4.0",
         "@prisma/client": "^6.19.0",
         "@prisma/extension-accelerate": "^2.0.2",
         "@radix-ui/react-accordion": "^1.2.12",
