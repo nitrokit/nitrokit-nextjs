@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unsafe-argument */
 import { rateLimitManager } from '@nitrokit/core';
 import { NextRequest, NextResponse } from 'next/server';
 

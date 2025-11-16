@@ -16,12 +16,12 @@ export async function GET(req: Request) {
             );
         }
 
-        // if (!rateLimitManager.isAvailable()) {
-        //     return NextResponse.json(
-        //         { success: false, error: translate('common.errors.rate_limit_unavailable') },
-        //         { status: 500 }
-        //     );
-        // }
+        if (!rateLimitManager.isAvailable()) {
+            return NextResponse.json(
+                { success: false, error: translate('common.errors.rate_limit_unavailable') },
+                { status: 500 }
+            );
+        }
 
         //ToDo: Enable rate limiting after testing
         // const rate = await apiRateLimit.limit(`newsletter-confirm-${token}`);
