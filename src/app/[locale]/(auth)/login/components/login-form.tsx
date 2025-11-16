@@ -20,7 +20,7 @@ import { useTranslations } from 'next-intl';
 import { LoginActionState, loginAction } from '@/lib/actions/auth';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
-import { useEffect, useActionState } from 'react';
+import { useEffect, useActionState, useRef } from 'react';
 import { SimpleTFunction } from '@/types/i18n';
 import { SubmitButton } from '@/components/shared';
 import React from 'react';
@@ -59,6 +59,8 @@ export function LoginForm({ onFlowChange }: LoginFormProps) {
         defaultValues: DEFAULT_LOGIN_FORM_VALUES
     });
 
+    const handledSuccessRef = useRef(false);
+
     useEffect(() => {
         if (onFlowChange) {
             onFlowChange(!!isTwoFactorRequired);
@@ -66,12 +68,15 @@ export function LoginForm({ onFlowChange }: LoginFormProps) {
     }, [isTwoFactorRequired, onFlowChange]);
 
     useEffect(() => {
-        if (state?.success) {
+        if (state?.success && !handledSuccessRef.current) {
+            handledSuccessRef.current = true;
             void updateSession();
             form.reset(DEFAULT_LOGIN_FORM_VALUES);
-            router.push(callbackUrl);
+            void router.replace(callbackUrl);
             return;
         } else if (state?.errors) {
+            // reset handled flag if errors occur or success cleared so future successes can run again
+            handledSuccessRef.current = false;
             Object.keys(state.errors).forEach((key) => {
                 const errorKey = key as keyof TLoginFormData;
                 if (state.errors?.[errorKey]) {
@@ -81,6 +86,8 @@ export function LoginForm({ onFlowChange }: LoginFormProps) {
                     });
                 }
             });
+        } else if (!state) {
+            handledSuccessRef.current = false;
         }
     }, [state, form, t, router, callbackUrl, updateSession]);
 

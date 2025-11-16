@@ -2,10 +2,10 @@
 
 import { Navbar } from '@/components/website/navigation';
 import { Logo } from '@/components/shared/';
-import { useStickyNavbar } from '@/hooks';
 import { CompactLocaleSwitcher } from '@/components/switchers';
 import { useSession } from 'next-auth/react';
 import { UserMenu } from '@/components/app';
+import { useStickyNavbar } from '@nitrokit/core';
 
 export function Header() {
     const { data: session, status } = useSession();

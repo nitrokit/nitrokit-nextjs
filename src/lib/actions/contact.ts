@@ -4,12 +4,11 @@ import { z } from 'zod';
 import { getLocale, getTranslations } from 'next-intl/server';
 import { SimpleTFunction } from '@/types/i18n';
 
-import { getEmailService } from '@/lib/services/email';
-
 import { render } from '@react-email/render';
 import { ContactEmail } from '@/components/emails';
 import { ContactActionResponse, contactFormSchema } from '@/lib/validations';
 import { PUBLIC_EMAIL } from '@/constants';
+import { getEmailService } from '@nitrokit/core/services/email';
 
 type ContactActionState = ContactActionResponse & {
     errors?: { [key in keyof z.infer<typeof contactFormSchema>]: string[] };

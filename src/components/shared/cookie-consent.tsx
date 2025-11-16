@@ -17,7 +17,7 @@ import {
     SheetTrigger
 } from '@/components/ui';
 import { Cookie, Settings, Shield, BarChart3, Target } from 'lucide-react';
-import type { GtagConsentParams } from '@/types/gtag';
+import type { GtagConsentParams } from '@nitrokit/core/types/gtag';
 import {
     CookiePreferences,
     cookiePreferencesSchema

@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from 'react';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui';
 import { useUser } from '@/contexts/user-context';
-import { cn } from '@/lib';
+import { cn } from '@nitrokit/core/lib';
 import { useSession } from 'next-auth/react';
 
 const sizeClasses = {

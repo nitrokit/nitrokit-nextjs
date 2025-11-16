@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import { ImageResponse } from 'next/og';
-import { getBaseUrl } from '@/lib';
+import { getBaseUrl } from '@nitrokit/core/urls';
 
 export function GET() {
     const baseUrl = getBaseUrl();

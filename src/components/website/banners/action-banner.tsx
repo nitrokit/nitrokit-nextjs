@@ -1,7 +1,7 @@
 'use client';
 
 import { Link } from '@/lib/i18n/navigation';
-import { cn } from '@/lib';
+import { cn } from '@nitrokit/core/lib';
 import { ArrowRight, ExternalLink } from 'lucide-react';
 import { useState } from 'react';
 

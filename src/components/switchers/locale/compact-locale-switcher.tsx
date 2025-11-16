@@ -7,8 +7,9 @@ import { useLocale } from 'next-intl';
 import { SmallLoading } from '@/components/shared';
 import { Button, Popover, PopoverContent, PopoverTrigger } from '@/components/ui';
 import { usePathname, useRouter } from '@/lib/i18n/navigation';
-import { cn, LOCALES_WITH_FLAG } from '@/lib';
+import { LOCALES_WITH_FLAG } from '@/lib';
 import { Locale } from '@/constants';
+import { cn } from '@nitrokit/core/lib';
 
 export const CompactLocaleSwitcher = () => {
     const router = useRouter();

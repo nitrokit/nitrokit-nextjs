@@ -26,9 +26,9 @@ import {
     SheetTitle,
     ScrollArea
 } from '@/components/ui';
-import { cn } from '@/lib';
 import { APP_ROUTES } from '@/lib/auth/constants';
 import HamburgerMenu from '@/components/icons/hamburger-menu';
+import { cn } from '@nitrokit/core/lib';
 
 export function AccountNavigation() {
     const pathname = usePathname();

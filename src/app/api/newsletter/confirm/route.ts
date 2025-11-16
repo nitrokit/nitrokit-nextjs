@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import { prisma } from '@/lib/prisma';
-import { apiRateLimit } from '@/lib/security/rate-limit';
+import { rateLimitManager } from '@nitrokit/core';
 import { getTranslations } from 'next-intl/server';
 
 export async function GET(req: Request) {
@@ -16,7 +16,7 @@ export async function GET(req: Request) {
             );
         }
 
-        if (!apiRateLimit) {
+        if (!rateLimitManager.isAvailable()) {
             return NextResponse.json(
                 { success: false, error: translate('common.errors.rate_limit_unavailable') },
                 { status: 500 }

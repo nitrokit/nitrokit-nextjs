@@ -4,7 +4,7 @@ import { EyeIcon, EyeOffIcon } from 'lucide-react';
 import * as React from 'react';
 
 import { Button, Input } from '@/components/ui';
-import { cn } from '@/lib';
+import { cn } from '@nitrokit/core/lib';
 import { useState } from 'react';
 
 type InputProps = React.InputHTMLAttributes<HTMLInputElement>;

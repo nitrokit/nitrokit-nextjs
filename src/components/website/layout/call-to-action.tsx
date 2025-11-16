@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
 import { Link } from '@/lib/i18n/navigation';
-import { cn } from '@/lib/utils';
+import { cn } from '@nitrokit/core/lib';
 
 type CallToActionVariant = 'gradient' | 'solid' | 'outline' | 'minimal';
 

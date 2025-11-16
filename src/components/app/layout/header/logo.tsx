@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import { Link } from '@/lib/i18n/navigation';
 import { useTranslations } from 'next-intl';
-import { cn } from '@/lib';
+import { cn } from '@nitrokit/core/lib';
 
 interface LogoProps {
     className?: string;

@@ -1,10 +1,10 @@
 'use client';
 
 import { Link } from '@/lib/i18n/navigation';
-import { cn } from '@/lib';
+import { cn } from '@nitrokit/core/lib';
 import { ChevronRight, Sparkles } from 'lucide-react';
 import { useState } from 'react';
-import { useCanvasConfetti, type ConfettiEffectType } from '@/hooks';
+import { useCanvasConfetti, type ConfettiEffectType } from '@nitrokit/core';
 
 interface ConfettiBannerProps {
     href: string;

@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
 
-import { generatePageMetadata } from '@/lib';
+import { generatePageMetadata } from '@nitrokit/core/lib';
 import PricingSection from './components/pricing-section';
 import { PLANS } from '@/constants';
 import { ActionBanner } from '@/components/website/banners/action-banner';

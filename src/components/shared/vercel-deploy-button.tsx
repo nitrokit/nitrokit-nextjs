@@ -2,9 +2,8 @@
 
 import { useState, useRef, useEffect } from 'react';
 import { useTranslations } from 'next-intl';
-import { useCanvasConfetti } from '@/hooks/useCanvasConfetti';
 import { Rocket, Globe, Code, ExternalLink } from 'lucide-react';
-import { VercelDeployUrlBuilder } from '@/lib/builders';
+import { useCanvasConfetti, VercelDeployUrlBuilder } from '@nitrokit/core';
 
 const VercelIcon = ({ size = 18, className = '' }: { size?: number; className?: string }) => (
     <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" className={className}>
